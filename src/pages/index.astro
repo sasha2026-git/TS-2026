@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import events from '../data/events.json';
+---
+<Layout title="Home">
+  <section class="hero">
+    <h1 data-i18n="hero.title">Play Tennis. Get Rated. Travel the World.</h1>
+    <p data-i18n="hero.sub">Join events, get AI-rated, and find your next tennis destination.</p>
+    <div class="btns">
+      <a class="btn btn-clay" href="#events" data-i18n="hero.cta">Browse Events</a>
+      <a class="btn btn-ghost" href="/ai-coach" data-i18n="hero.cta2">Get AI Rated</a>
+    </div>
+  </section>
+
+  <section id="events">
+    <h2 data-i18n="events.title">Upcoming Events</h2>
+    <div class="cards">
+      {events.events.map(ev => (
+        <div class="card">
+          <div class="body">
+            <span class="badge" data-en={ev.level.en} data-zh={ev.level.zh}>{ev.level.en}</span>
+            <h3 data-en={ev.title.en} data-zh={ev.title.zh}>{ev.title.en}</h3>
+            <p class="meta">📅 {ev.date} · {ev.time}</p>
+            <p class="meta" data-en={ev.venue.en} data-zh={ev.venue.zh}>{ev.venue.en}</p>
+            <p class="meta"><span data-i18n="events.fee">Fee</span>: <strong class="price">¥{ev.fee}</strong></p>
+            <button class="btn btn-clay signup-btn" data-event={ev.id} data-i18n="events.signup">Sign up & Pay</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 data-i18n="pricing.title">Membership</h2>
+    <div class="pricing">
+      <div class="plan">
+        <h3 data-i18n="pricing.free">Free</h3>
+        <p class="price-tag">¥0</p>
+        <ul>
+          <li data-i18n="pricing.free.f">3 AI evaluations / month</li>
+          <li data-i18n="nav.events">Events</li>
+          <li data-i18n="nav.vacation">Tennis Vacation</li>
+        </ul>
+        <a class="btn btn-ghost" style="color:var(--green-dark);border-color:var(--green);" href="/ai-coach" data-i18n="pricing.free2">Sign Up Free</a>
+      </div>
+      <div class="plan pro">
+        <h3 data-i18n="pricing.pro">Pro</h3>
+        <p class="price-tag" data-i18n="pricing.price.pro">$19 / month</p>
+        <ul>
+          <li data-i18n="pricing.pro.f">30 AI evaluations / month</li>
+          <li data-i18n="pricing.pro.f2">Priority AI feedback</li>
+          <li>Leaderboard badge</li>
+        </ul>
+        <button class="btn btn-clay subscribe-btn" data-i18n="pricing.pro.cta">Subscribe with Stripe</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" data-i18n="events.signedup">You're in! See you on court.</div>
+</Layout>
+
+<script>
+  // TODO: replace with real Stripe Checkout session creation via backend
+  document.querySelectorAll('.signup-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ev = btn.getAttribute('data-event');
+      console.log('TODO Stripe checkout for event:', ev);
+      document.getElementById('toast')?.classList.add('show');
+      setTimeout(() => document.getElementById('toast')?.classList.remove('show'), 3000);
+    });
+  });
+  document.querySelector('.subscribe-btn')?.addEventListener('click', () => {
+    console.log('TODO Stripe subscription checkout');
+    alert('Stripe checkout placeholder — wire STRIPE_SECRET_KEY on backend.');
+  });
+</script>

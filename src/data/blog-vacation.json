@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "slug": "paris-clay-hotels",
+      "title": { "en": "Where to Stay for a Clay-Court Trip in Paris", "zh": "巴黎红土之旅住哪儿" },
+      "excerpt": {
+        "en": "Five hotels within 20 minutes of the best public clay courts in Paris.",
+        "zh": "距离巴黎最佳公共红土球场 20 分钟内的五家酒店。"
+      },
+      "date": "2026-10-20",
+      "image": "/images/vacation-paris.svg",
+      "affiliateNote": { "en": "Booking links are affiliate links.", "zh": "预订链接为联盟推广链接。" },
+      "body": {
+        "en": "Paris is the spiritual home of clay-court tennis. Our top pick: Hotel Court Central — a 12-minute walk from Stade Suzanne Lenglen's public courts, with a racket storage room and late breakfast for morning players. Mid-range: Les Terrabattes B&B near Roland Garros, run by a former tour coach. Budget: Courtside Hostel, dorm beds from €28 with free court booking help. All booking links below are affiliate links — using them supports this site at no extra cost to you.\n\nWhen to go: May for the French Open atmosphere (book 4+ months ahead), September for empty courts and soft light.\n\nGetting there: Most hotels are on Metro Line 9 or the T2 tram; a Navigo weekly pass covers everything.",
+        "zh": "巴黎是红土网球的精神故乡。首推：Central Court 酒店——步行 12 分钟到 Suzanne Lenglen 体育场公共球场，有球拍寄存室，还为晨练球友提供延迟早餐。中档：罗兰加洛斯附近的 Les Terrabattes 民宿，老板是前职业教练。经济型：Courtside 青旅，床位 28 欧起，还免费帮你订球场。\n\n最佳时间：5 月感受法网氛围（需提前 4 个月以上预订），9 月球场人少、光线柔和。\n\n交通：多数酒店在地铁 9 号线或 T2 有轨电车沿线，周票 Navigo 全覆盖。\n\n（以下预订链接为联盟推广链接，通过它们预订可支持本站，且不产生额外费用。）"
+      }
+    },
+    {
+      "slug": "mallorca-academy-week",
+      "title": { "en": "A Tennis Academy Week in Mallorca", "zh": "马略卡网球学院一周记" },
+      "excerpt": {
+        "en": "Train in the morning, swim in the afternoon — hotels and academies combined.",
+        "zh": "上午训练，下午下海——学院与酒店 combo 攻略。"
+      },
+      "date": "2026-10-05",
+      "image": "/images/vacation-mallorca.svg",
+      "affiliateNote": { "en": "Booking links are affiliate links.", "zh": "预订链接为联盟推广链接。" },
+      "body": {
+        "en": "Mallorca has quietly become Europe's best value tennis destination. Combine a 5-morning intensive package (€240) at one of the island's academies with a sea-view hotel in Palma. Our hotel pick: Playa Azul — 15 minutes from the academy, rooftop pool, and they'll pack you a protein-heavy to-go breakfast. Booking links below are affiliate links.\n\nOff-court: Cala beaches are 20 minutes by bus; the old town is perfect for rest days.\n\nBudget breakdown: flights €120 return (EU), hotel €65/night double, academy €240, court time often included.",
+        "zh": "马略卡悄悄成了欧洲性价比最高的网球目的地。把 5 个上午的集训套餐（240 欧）和帕尔马的海景酒店组合起来。酒店推荐：Playa Azul——离学院 15 分钟，屋顶泳池，还会给你打包高蛋白外带早餐。\n\n场外活动：Cala 海滩公交 20 分钟，老城适合休息日闲逛。\n\n预算参考：机票往返 120 欧（欧盟内），酒店 65 欧/晚（双人间），学院 240 欧，场地费通常已含。\n\n（预订链接为联盟推广链接。）"
+      }
+    }
+  ]
+}

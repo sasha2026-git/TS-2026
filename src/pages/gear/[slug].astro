@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import data from '../../data/blog-gear.json';
+export function getStaticPaths() {
+  return data.posts.map(p => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+const { post } = Astro.props;
+---
+<Layout title={post.title.en}>
+  <section class="article">
+    <a href="/gear" class="meta" style="color:var(--green-dark);font-weight:700;" data-i18n="blog.back">← All posts</a>
+    <h1 style="margin:1rem 0;color:var(--green-dark);" data-en={post.title.en} data-zh={post.title.zh}>{post.title.en}</h1>
+    <p class="meta">📅 {post.date}</p>
+    <img src={post.image} alt={post.title.en} style="margin:1.5rem 0;" />
+    <div class="prose" data-en={post.body.en} data-zh={post.body.zh}>{post.body.en}</div>
+    <p class="affiliate-note" data-en={post.affiliateNote.en} data-zh={post.affiliateNote.zh}>{post.affiliateNote.en}</p>
+    <!-- TODO: replace with real affiliate product links -->
+  </section>
+</Layout>

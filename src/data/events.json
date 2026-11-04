@@ -1,0 +1,37 @@
+{
+  "events": [
+    {
+      "id": "rg-social-2026",
+      "date": "2026-11-16",
+      "time": "14:00-17:00",
+      "venue": { "en": "Riverside Clay Courts", "zh": "滨江红土球场" },
+      "title": { "en": "French Open Social Doubles", "zh": "法网主题社交双打赛" },
+      "level": { "en": "NTRP 2.5-4.0", "zh": "NTRP 2.5-4.0" },
+      "fee": 120,
+      "currency": "CNY",
+      "stripePriceId": "price_TODO_replace_me"
+    },
+    {
+      "id": "beginner-clinic-2026",
+      "date": "2026-11-23",
+      "time": "10:00-12:00",
+      "venue": { "en": "City Park Hard Courts", "zh": "城市公园硬地球场" },
+      "title": { "en": "Beginner Clinic + Mini-Match", "zh": "新手教学 + 迷你赛" },
+      "level": { "en": "NTRP 1.0-2.5", "zh": "NTRP 1.0-2.5" },
+      "fee": 80,
+      "currency": "CNY",
+      "stripePriceId": "price_TODO_replace_me"
+    },
+    {
+      "id": "open-single-2026",
+      "date": "2026-12-07",
+      "time": "09:00-18:00",
+      "venue": { "en": "Ace Tennis Club", "zh": "ACE 网球俱乐部" },
+      "title": { "en": "Level-Matched Open Singles", "zh": "分级公开赛（单打）" },
+      "level": { "en": "NTRP 3.0-5.0 (by AI rating)", "zh": "NTRP 3.0-5.0（按 AI 测评分级）" },
+      "fee": 200,
+      "currency": "CNY",
+      "stripePriceId": "price_TODO_replace_me"
+    }
+  ]
+}

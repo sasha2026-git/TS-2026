@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "slug": "beginner-racket-2026",
+      "title": { "en": "Best Beginner Rackets of 2026", "zh": "2026 新手球拍推荐" },
+      "excerpt": {
+        "en": "Three rackets that make learning faster — tested by real beginners.",
+        "zh": "三支让上手更快的球拍——真实新手实测。"
+      },
+      "date": "2026-10-28",
+      "image": "/images/gear-racket.svg",
+      "affiliateNote": { "en": "Purchase links are affiliate links.", "zh": "购买链接为联盟推广链接。" },
+      "body": {
+        "en": "1) Head Gravity MP — oversized sweet spot, very forgiving on off-center hits. Best all-round first racket. 2) Wilson Clash 100L — light and arm-friendly, ideal if you had tennis elbow or slow swing speed. 3) Babolat Pure Drive Junior 26 — don't laugh: for smaller adults or true beginners, a 26-inch junior frame builds technique faster than a full-size one.\n\nWhat matters more than the racket: string tension. Ask your shop to string at 50-55 lbs for comfort. Purchase links below are affiliate links.",
+        "zh": "1) Head Gravity MP——甜区超大，打偏了也宽容，全能首拍之选。2) Wilson Clash 100L——轻、护手臂，有网球肘或挥速慢的理想选择。3) Babolat Pure Drive Junior 26——别笑：对身材较小或纯新手，26 寸青少年拍反而能让技术动作建立得更快。\n\n比球拍更重要的是穿线磅数：让店家用 50-55 磅，击球更舒适。\n\n（购买链接为联盟推广链接。）"
+      }
+    },
+    {
+      "slug": "clay-court-shoes",
+      "title": { "en": "Clay-Court Shoes: Full-Tread Guide", "zh": "红土鞋全底纹选购指南" },
+      "excerpt": {
+        "en": "Why full herringbone matters and which pairs last longest.",
+        "zh": "为什么全人字纹很重要，以及哪些鞋最耐穿。"
+      },
+      "date": "2026-10-12",
+      "image": "/images/gear-shoes.svg",
+      "affiliateNote": { "en": "Purchase links are affiliate links.", "zh": "购买链接为联盟推广链接。" },
+      "body": {
+        "en": "Clay-specific outsoles use a full herringbone pattern that sheds red dust instead of packing it — on hard courts this pattern also slides slightly, which protects your knees. Top picks: Asics Gel-Resolution Clay (best durability), Nike Court Air Zoom Clay (best cushioning), adidas Barricade Clay (best value last season's colorway). Buy half a size up: feet swell on hot courts. Links below are affiliate links.",
+        "zh": "红土专用外底采用全人字纹，能把红土粉末排出去而不是积在鞋底；在硬地上这种底纹还能提供轻微滑动，保护膝盖。推荐：Asics Gel-Resolution Clay（最耐穿）、Nike Court Air Zoom Clay（缓震最好）、adidas Barricade Clay（上赛季配色性价比最高）。买大半码：天热脚会膨胀。\n\n（购买链接为联盟推广链接。）"
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import data from '../../data/blog-gear.json';
+const posts = data.posts;
+---
+<Layout title="Gear Guide">
+  <section class="hero" style="padding:4rem 5vw;">
+    <h1 data-i18n="blog.title.gear">Gear Guide</h1>
+    <p>Rackets, shoes and equipment — tested and ranked.</p>
+  </section>
+  <section class="blog-grid">
+    <div class="cards">
+      {posts.map(p => (
+        <div class="card">
+          <img src={p.image} alt={p.title.en} />
+          <div class="body">
+            <span class="badge">{p.date}</span>
+            <h3 data-en={p.title.en} data-zh={p.title.zh}>{p.title.en}</h3>
+            <p class="excerpt" data-en={p.excerpt.en} data-zh={p.excerpt.zh}>{p.excerpt.en}</p>
+            <a class="btn btn-clay" href={`/gear/${p.slug}`} data-i18n="blog.read">Read more</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

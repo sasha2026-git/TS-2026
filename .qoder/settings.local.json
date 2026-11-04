@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Write",
+      "Edit",
+      "Read",
+      "Bash(*)",
+      "WebFetch",
+      "Glob",
+      "Grep"
+    ]
+  }
+}
