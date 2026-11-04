@@ -1,10 +1,46 @@
 {
   "evaluations": [
-    { "player": "Li W.", "score": 87, "ntrp": 4.0 },
-    { "player": "Chen M.", "score": 82, "ntrp": 3.5 },
-    { "player": "Sasha", "score": 78, "ntrp": 3.5 },
-    { "player": "Wang J.", "score": 71, "ntrp": 3.0 },
-    { "player": "Zhao Y.", "score": 64, "ntrp": 2.5 },
-    { "player": "Emma L.", "score": 58, "ntrp": 2.5 }
+    {
+      "player": "Li W.",
+      "score": 87,
+      "ntrp": 4.0,
+      "date": "2026-10-28",
+      "highlight": { "en": "Elite forehand unit turn. Serve consistency is tour-level.", "zh": "正手转体堪称教科书，发球稳定性接近比赛水平。" }
+    },
+    {
+      "player": "Chen M.",
+      "score": 82,
+      "ntrp": 3.5,
+      "date": "2026-10-25",
+      "highlight": { "en": "Solid two-handed backhand. Footwork on approach shots needs work.", "zh": "双手反手扎实，但上网步法还需打磨。" }
+    },
+    {
+      "player": "Sasha",
+      "score": 78,
+      "ntrp": 3.5,
+      "date": "2026-10-22",
+      "highlight": { "en": "Aggressive baseline game. Volley technique is the next frontier.", "zh": "底线攻击型打法，截击技术是下一个突破口。" }
+    },
+    {
+      "player": "Wang J.",
+      "score": 71,
+      "ntrp": 3.0,
+      "date": "2026-10-18",
+      "highlight": { "en": "Consistent rally pace. Add more spin to the serve toss.", "zh": "回合球节奏稳定，发球抛球可再多加上旋。" }
+    },
+    {
+      "player": "Zhao Y.",
+      "score": 64,
+      "ntrp": 2.5,
+      "date": "2026-10-12",
+      "highlight": { "en": "Good rally sense. Shorten backswing on the backhand side.", "zh": "比赛意识不错，反手引拍可以再短一些。" }
+    },
+    {
+      "player": "Emma L.",
+      "score": 58,
+      "ntrp": 2.5,
+      "date": "2026-10-08",
+      "highlight": { "en": "Enthusiastic movement. Focus on contact point consistency.", "zh": "跑动积极，重点提升击球点的稳定性。" }
+    }
   ]
 }

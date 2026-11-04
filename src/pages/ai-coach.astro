@@ -2,66 +2,121 @@
 import Layout from '../layouts/Layout.astro';
 import evaluations from '../data/evaluations.json';
 ---
-<Layout title="AI Rating & Coach">
-  <section class="hero" style="padding:4rem 5vw;">
+<Layout title="AI Coach">
+  <section class="hero" style="padding:4rem 5vw 4.5rem;">
     <h1 data-i18n="ai.title">AI Tennis Rating & Coach</h1>
-    <p data-i18n="ai.sub">Upload 10 seconds of each stroke. Our AI rates your level (NTRP 1.0–7.0) and gives coach feedback.</p>
+    <p data-i18n="ai.sub">Upload 10 seconds of each stroke — forehand, backhand, serve, and volley. Our AI rates your NTRP level (1.0–7.0) and gives personalized coach feedback.</p>
   </section>
 
-  <section>
+  <section class="section">
+    <h2 style="margin-bottom:1rem;" data-i18n="ai.quota.title">Membership Quotas</h2>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;">
+      <span class="badge" style="font-size:0.9rem;padding:0.4rem 1rem;" data-i18n="ai.quota.free">Free member: 3 evaluations / month</span>
+      <span class="badge" style="font-size:0.9rem;padding:0.4rem 1rem;background:var(--court-green);color:var(--white);" data-i18n="ai.quota.pro">Pro member: 30 evaluations / month + priority queue</span>
+    </div>
+
+    <h2 style="margin-bottom:1.2rem;" data-i18n="ai.upload">Upload Videos</h2>
     <div class="upload-row">
-      <div class="upload-zone" data-i18n="ai.upload">Upload Forehand Video</div>
-      <div class="upload-zone" data-i18n="ai.upload2">Upload Backhand Video</div>
-      <div class="upload-zone" data-i18n="ai.upload3">Upload Serve Video</div>
+      <div class="upload-zone" data-stroke="forehand">
+        <div class="label" data-i18n="ai.stroke.forehand">Forehand</div>
+        <div class="hint" data-i18n="ai.upload.hint">MP4 / MOV, ≤ 30 MB</div>
+        <div class="file-name"></div>
+        <div class="error"></div>
+      </div>
+      <div class="upload-zone" data-stroke="backhand">
+        <div class="label" data-i18n="ai.stroke.backhand">Backhand</div>
+        <div class="hint" data-i18n="ai.upload.hint">MP4 / MOV, ≤ 30 MB</div>
+        <div class="file-name"></div>
+        <div class="error"></div>
+      </div>
+      <div class="upload-zone" data-stroke="serve">
+        <div class="label" data-i18n="ai.stroke.serve">Serve</div>
+        <div class="hint" data-i18n="ai.upload.hint">MP4 / MOV, ≤ 30 MB</div>
+        <div class="file-name"></div>
+        <div class="error"></div>
+      </div>
+      <div class="upload-zone" data-stroke="volley">
+        <div class="label" data-i18n="ai.stroke.volley">Volley</div>
+        <div class="hint" data-i18n="ai.upload.hint">MP4 / MOV, ≤ 30 MB</div>
+        <div class="file-name"></div>
+        <div class="error"></div>
+      </div>
     </div>
-    <p class="meta" style="margin:1rem 0 1.6rem;" data-i18n="ai.quota.free">Free member: 3 evaluations / month</p>
-    <button class="btn btn-clay" id="rateBtn" data-i18n="ai.submit">Get My Rating</button>
 
-    <div class="result-card" id="result" style="margin-top:2rem;">
-      <h3 data-i18n="rating.result">Your result</h3>
-      <p><span data-i18n="rating.score">Overall score</span>: <strong id="rScore" style="color:var(--clay);font-size:1.6rem;">—</strong> / 100</p>
-      <p><span data-i18n="rating.level">Your level</span>: <strong id="rNtrp">—</strong> NTRP</p>
-      <p><span data-i18n="rating.coach">Coach feedback</span>: <span id="rCoach">—</span></p>
-      <p class="badge" style="margin-top:0.8rem;" data-i18n="rating.eligible">You are now eligible for level-matched events!</p>
+    <div style="margin-top:2rem;">
+      <button class="btn btn-clay" id="rateBtn" data-i18n="ai.submit">Get My Rating</button>
+    </div>
+
+    <div class="result-card" id="result">
+      <h3 data-i18n="ai.result.title">Your Result</h3>
+      <p style="margin-bottom:0.5rem;"><span data-i18n="ai.result.score">Overall Score</span>: <span class="score-big" id="rScore">—</span> / 100</p>
+      <p style="margin-bottom:0.5rem;display:flex;align-items:center;gap:0.6rem;">
+        <span data-i18n="ai.result.level">NTRP Level</span>:
+        <span class="ntrp-badge" id="rNtrp">—</span>
+      </p>
+      <p style="margin-bottom:0.8rem;"><span data-i18n="ai.result.coach">Coach Feedback</span>: <span id="rCoach">—</span></p>
+      <p class="badge" style="margin-bottom:0.8rem;" data-i18n="ai.result.eligible">You're eligible for level-matched events!</p>
+      <a class="btn btn-outline-green btn-sm" href="/events" data-i18n="ai.result.cta">Browse matching events →</a>
     </div>
   </section>
 
-  <section>
-    <h2 data-i18n="ai.leaderboard">Community Leaderboard</h2>
-    <table class="leaderboard">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th data-i18n="ai.player">Player</th>
-          <th data-i18n="ai.score">Score</th>
-          <th data-i18n="ai.ntRP">NTRP</th>
-        </tr>
-      </thead>
-      <tbody>
-        {evaluations.evaluations
-          .sort((a, b) => b.score - a.score)
-          .map((e, i) => (
-            <tr><td>{i + 1}</td><td>{e.player}</td><td>{e.score}</td><td>{e.ntrp}</td></tr>
-          ))}
-      </tbody>
-    </table>
+  <section class="section-green">
+    <div class="inner">
+      <h2 style="text-align:center;margin-bottom:0.4rem;" data-i18n="ai.leaderboard">Community Leaderboard</h2>
+      <p class="section-sub" style="text-align:center;margin-bottom:2rem;" data-i18n="ai.leaderboard.note">Demo leaderboard — local data only</p>
+      <div style="overflow-x:auto;">
+        <table class="leaderboard" id="leaderboardTable">
+          <thead>
+            <tr>
+              <th data-i18n="ai.leaderboard.rank">#</th>
+              <th data-i18n="ai.leaderboard.player">Player</th>
+              <th data-i18n="ai.leaderboard.score">Score</th>
+              <th data-i18n="ai.leaderboard.ntrp">NTRP</th>
+              <th data-i18n="ai.leaderboard.date">Date</th>
+              <th data-i18n="ai.leaderboard.highlight">Highlight</th>
+            </tr>
+          </thead>
+          <tbody>
+            {evaluations.evaluations
+              .sort((a, b) => b.score - a.score)
+              .map((e, i) => (
+                <tr class={i < 3 ? `rank-${i + 1}` : ''}>
+                  <td>{i + 1}</td>
+                  <td>{e.player}</td>
+                  <td>{e.score}</td>
+                  <td><span class="ntrp-badge" style="width:36px;height:36px;font-size:0.72rem;">{e.ntrp}</span></td>
+                  <td>{e.date}</td>
+                  <td data-en={e.highlight.en} data-zh={e.highlight.zh} style="max-width:240px;">{e.highlight.en}</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2 data-i18n="pricing.title">Membership</h2>
+  <section class="section">
+    <h2 style="text-align:center;" data-i18n="pricing.title">Membership Plans</h2>
+    <p class="section-sub" style="text-align:center;" data-i18n="pricing.sub">Choose the plan that fits your game.</p>
     <div class="pricing">
       <div class="plan">
         <h3 data-i18n="pricing.free">Free</h3>
-        <p class="price-tag">¥0</p>
-        <ul><li data-i18n="pricing.free.f">3 AI evaluations / month</li></ul>
-        <button class="btn btn-ghost" style="color:var(--green-dark);border-color:var(--green);" data-i18n="pricing.free2">Sign Up Free</button>
-      </div>
-      <div class="plan pro">
-        <h3 data-i18n="pricing.pro">Pro</h3>
-        <p class="price-tag" data-i18n="pricing.price.pro">$19 / month</p>
+        <p class="price-tag" data-i18n="pricing.price.free">¥0</p>
+        <p class="price-period" data-i18n="pricing.period.free">forever</p>
         <ul>
-          <li data-i18n="pricing.pro.f">30 AI evaluations / month</li>
-          <li data-i18n="pricing.pro.f2">Priority AI feedback</li>
+          <li data-i18n="pricing.free.f1">3 AI evaluations / month</li>
+          <li data-i18n="pricing.free.f2">Event registration</li>
+        </ul>
+        <a class="btn btn-outline-green" href="#" data-i18n="pricing.free.cta">Sign Up Free</a>
+      </div>
+      <div class="plan pro" data-popular="MOST POPULAR">
+        <h3 data-i18n="pricing.pro">Pro</h3>
+        <p class="price-tag" data-i18n="pricing.price.pro">¥68</p>
+        <p class="price-period" data-i18n="pricing.period.pro">/ month</p>
+        <ul>
+          <li data-i18n="pricing.pro.f1">30 AI evaluations / month</li>
+          <li data-i18n="pricing.pro.f2">Priority evaluation queue</li>
+          <li data-i18n="pricing.pro.f3">Personalized training plan</li>
         </ul>
         <button class="btn btn-clay subscribe-btn" data-i18n="pricing.pro.cta">Subscribe with Stripe</button>
       </div>
@@ -70,34 +125,69 @@ import evaluations from '../data/evaluations.json';
 </Layout>
 
 <script>
-  document.querySelectorAll('.upload-zone').forEach(z => {
-    z.addEventListener('click', () => {
+  const strokes = ['forehand', 'backhand', 'serve', 'volley'];
+  const uploadedFiles: Record<string, File | null> = {};
+
+  document.querySelectorAll('.upload-zone').forEach(zone => {
+    zone.addEventListener('click', () => {
       const input = document.createElement('input');
       input.type = 'file';
-      input.accept = 'video/*';
+      input.accept = 'video/mp4,video/quicktime';
       input.onchange = () => {
-        if (input.files?.[0]) z.style.borderColor = 'var(--green)';
-        z.dataset.file = input.files?.[0]?.name || '';
+        const file = input.files?.[0];
+        if (!file) return;
+
+        const stroke = zone.getAttribute('data-stroke')!;
+        const fileNameEl = zone.querySelector('.file-name')!;
+        const errorEl = zone.querySelector('.error')!;
+        errorEl.textContent = '';
+
+        if (file.size > 30 * 1024 * 1024) {
+          errorEl.textContent = 'File too large (max 30 MB)';
+          return;
+        }
+
+        uploadedFiles[stroke] = file;
+        fileNameEl.textContent = `✓ ${file.name}`;
+        zone.classList.add('selected');
       };
       input.click();
     });
   });
+
   document.getElementById('rateBtn')?.addEventListener('click', async () => {
-    const r = document.getElementById('result');
-    r.classList.add('show');
-    document.getElementById('rScore').textContent = '…';
+    const result = document.getElementById('result')!;
+    result.classList.add('show');
+    document.getElementById('rScore')!.textContent = '…';
+    document.getElementById('rNtrp')!.textContent = '…';
+    document.getElementById('rCoach')!.textContent = '…';
+
     try {
       const res = await fetch('/api/evaluate', { method: 'POST' });
       const data = await res.json();
-      document.getElementById('rScore').textContent = data.score;
-      document.getElementById('rNtrp').textContent = data.ntrp;
-      document.getElementById('rCoach').textContent = data.coachNote;
+      document.getElementById('rScore')!.textContent = String(data.score);
+      document.getElementById('rNtrp')!.textContent = String(data.ntrp);
+      document.getElementById('rCoach')!.textContent = data.coachNote;
+
+      const lang = localStorage.getItem('lang') || 'en';
+      const localEvals = JSON.parse(localStorage.getItem('tennis_evaluations') || '[]');
+      localEvals.push({
+        score: data.score,
+        ntrp: data.ntrp,
+        date: new Date().toISOString().slice(0, 10),
+        lang
+      });
+      localStorage.setItem('tennis_evaluations', JSON.stringify(localEvals));
     } catch {
-      document.getElementById('rScore').textContent = '—';
+      document.getElementById('rScore')!.textContent = '—';
+      document.getElementById('rNtrp')!.textContent = '—';
+      document.getElementById('rCoach')!.textContent = 'Error fetching result.';
     }
+
+    result.scrollIntoView({ behavior: 'smooth' });
   });
+
   document.querySelector('.subscribe-btn')?.addEventListener('click', () => {
-    console.log('TODO Stripe subscription checkout');
-    alert('Stripe checkout placeholder — wire STRIPE_SECRET_KEY on backend.');
+    alert('Stripe checkout placeholder — payment channel coming soon.');
   });
 </script>

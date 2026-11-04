@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import events from '../data/events.json';
+---
+<Layout title="Events">
+  <section class="hero" style="padding:4rem 5vw 4.5rem;">
+    <h1 data-i18n="events.title">Upcoming Events</h1>
+    <p data-i18n="events.sub">Register for level-matched tournaments and social play. Payment via Stripe — coming soon.</p>
+  </section>
+
+  <section class="section">
+    <div class="cards">
+      {events.events.map(ev => (
+        <div class="card">
+          <div class="body">
+            <span class="badge" data-en={ev.level.en} data-zh={ev.level.zh}>{ev.level.en}</span>
+            <h3 data-en={ev.title.en} data-zh={ev.title.zh}>{ev.title.en}</h3>
+            <p class="meta">📅 <strong data-i18n="events.date">Date</strong>: {ev.date} · {ev.time}</p>
+            <p class="meta">📍 <strong data-i18n="events.city">City</strong>: <span data-en={ev.city.en} data-zh={ev.city.zh}>{ev.city.en}</span></p>
+            <p class="meta">🏟 <strong data-i18n="events.venue">Venue</strong>: <span data-en={ev.venue.en} data-zh={ev.venue.zh}>{ev.venue.en}</span></p>
+            <p class="meta"><span data-i18n="events.fee">Fee</span>: <strong class="price">¥{ev.fee}</strong></p>
+            <button class="btn btn-clay signup-btn" data-event-id={ev.id} data-event-title-en={ev.title.en} data-event-title-zh={ev.title.zh} data-i18n="events.signup">Register</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <div class="form-card" id="signupForm" style="display:none;">
+    <h3 data-i18n="events.form.title">Registration Form</h3>
+    <form id="regForm">
+      <div class="form-group">
+        <label data-i18n="events.form.name">Full Name</label>
+        <input type="text" id="regName" required />
+      </div>
+      <div class="form-group">
+        <label data-i18n="events.form.email">Email</label>
+        <input type="email" id="regEmail" required />
+      </div>
+      <div class="form-group">
+        <label data-i18n="events.form.level">Your NTRP Level</label>
+        <select id="regLevel">
+          <option value="1.0-2.5">NTRP 1.0-2.5</option>
+          <option value="2.5-3.0">NTRP 2.5-3.0</option>
+          <option value="3.0-3.5">NTRP 3.0-3.5</option>
+          <option value="3.5-4.0">NTRP 3.5-4.0</option>
+          <option value="4.0-4.5">NTRP 4.0-4.5</option>
+          <option value="4.5-5.0">NTRP 4.5-5.0</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-i18n="events.form.event">Selected Event</label>
+        <input type="text" id="regEvent" readonly />
+      </div>
+      <div style="display:flex;gap:0.8rem;margin-top:1.2rem;">
+        <button type="submit" class="btn btn-clay" data-i18n="events.form.submit">Continue to Payment</button>
+        <button type="button" class="btn btn-outline-green" id="cancelForm" data-i18n="events.form.cancel">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="payPlaceholder" style="display:none;text-align:center;padding:2rem;">
+    <p style="font-size:1.1rem;color:var(--court-green);font-weight:700;" data-i18n="events.pay.placeholder">Payment channel coming soon</p>
+    <button class="btn btn-clay" style="margin-top:1rem;" id="payBtn">Stripe Pay (placeholder)</button>
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('signupForm')!;
+  const payPlaceholder = document.getElementById('payPlaceholder')!;
+  const regEventInput = document.getElementById('regEvent') as HTMLInputElement;
+
+  document.querySelectorAll('.signup-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const eventId = btn.getAttribute('data-event-id');
+      const lang = localStorage.getItem('lang') || 'en';
+      const titleAttr = lang === 'en' ? 'data-event-title-en' : 'data-event-title-zh';
+      const title = btn.getAttribute(titleAttr) || btn.getAttribute('data-event-title-en') || '';
+
+      const registration = {
+        eventId,
+        name: '',
+        email: '',
+        level: '',
+        eventTitle: title,
+        timestamp: new Date().toISOString()
+      };
+
+      const existing = JSON.parse(localStorage.getItem('tennis_registrations') || '[]');
+      existing.push(registration);
+      localStorage.setItem('tennis_registrations', JSON.stringify(existing));
+
+      regEventInput.value = title;
+      form.style.display = 'block';
+      form.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  document.getElementById('cancelForm')?.addEventListener('click', () => {
+    form.style.display = 'none';
+    payPlaceholder.style.display = 'none';
+  });
+
+  document.getElementById('regForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = (document.getElementById('regName') as HTMLInputElement).value;
+    const email = (document.getElementById('regEmail') as HTMLInputElement).value;
+    const level = (document.getElementById('regLevel') as HTMLSelectElement).value;
+
+    const existing = JSON.parse(localStorage.getItem('tennis_registrations') || '[]');
+    if (existing.length > 0) {
+      existing[existing.length - 1].name = name;
+      existing[existing.length - 1].email = email;
+      existing[existing.length - 1].level = level;
+      localStorage.setItem('tennis_registrations', JSON.stringify(existing));
+    }
+
+    form.style.display = 'none';
+    payPlaceholder.style.display = 'block';
+    payPlaceholder.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('payBtn')?.addEventListener('click', () => {
+    alert('Stripe checkout placeholder — payment channel coming soon.');
+  });
+</script>

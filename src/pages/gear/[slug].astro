@@ -7,13 +7,31 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 ---
 <Layout title={post.title.en}>
-  <section class="article">
-    <a href="/gear" class="meta" style="color:var(--green-dark);font-weight:700;" data-i18n="blog.back">← All posts</a>
-    <h1 style="margin:1rem 0;color:var(--green-dark);" data-en={post.title.en} data-zh={post.title.zh}>{post.title.en}</h1>
-    <p class="meta">📅 {post.date}</p>
-    <img src={post.image} alt={post.title.en} style="margin:1.5rem 0;" />
+  <article class="article">
+    <a href="/gear" class="back-link" data-i18n="blog.back">← All posts</a>
+    <h1 data-en={post.title.en} data-zh={post.title.zh}>{post.title.en}</h1>
+    <p class="article-meta">📅 {post.date}</p>
+    <img src={post.image} alt={post.title.en} class="cover-img" />
     <div class="prose" data-en={post.body.en} data-zh={post.body.zh}>{post.body.en}</div>
+
+    {post.products && post.products.length > 0 && (
+      <div class="recommendations">
+        <h3 data-i18n="blog.products">Recommended Gear</h3>
+        {post.products.map((p: any) => (
+          <div class="rec-card">
+            <div class="rec-info">
+              <h4>{p.name}</h4>
+              <p data-en={p.note.en} data-zh={p.note.zh}>{p.note.en}</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.8rem;">
+              <span class="rec-price">{p.price}</span>
+              <a class="btn btn-clay btn-sm" href={p.link} data-i18n="blog.affiliate">Buy</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
     <p class="affiliate-note" data-en={post.affiliateNote.en} data-zh={post.affiliateNote.zh}>{post.affiliateNote.en}</p>
-    <!-- TODO: replace with real affiliate product links -->
-  </section>
+  </article>
 </Layout>

@@ -10,9 +10,14 @@
       "date": "2026-10-20",
       "image": "/images/vacation-paris.svg",
       "affiliateNote": { "en": "Booking links are affiliate links.", "zh": "预订链接为联盟推广链接。" },
+      "hotels": [
+        { "name": "Hotel Court Central", "stars": 4, "priceFrom": "€145", "link": "#affiliate-hotel-court-central", "note": { "en": "12-min walk to Stade Suzanne Lenglen, racket storage room", "zh": "步行 12 分钟到 Suzanne Lenglen 球场，有球拍寄存" } },
+        { "name": "Les Terrabattes B&B", "stars": 3, "priceFrom": "€95", "link": "#affiliate-terrabattes", "note": { "en": "Near Roland Garros, run by a former tour coach", "zh": "罗兰加洛斯附近，老板是前职业教练" } },
+        { "name": "Courtside Hostel", "stars": 2, "priceFrom": "€28", "link": "#affiliate-courtside-hostel", "note": { "en": "Dorm beds from €28 with free court booking help", "zh": "床位 €28 起，免费帮订球场" } }
+      ],
       "body": {
-        "en": "Paris is the spiritual home of clay-court tennis. Our top pick: Hotel Court Central — a 12-minute walk from Stade Suzanne Lenglen's public courts, with a racket storage room and late breakfast for morning players. Mid-range: Les Terrabattes B&B near Roland Garros, run by a former tour coach. Budget: Courtside Hostel, dorm beds from €28 with free court booking help. All booking links below are affiliate links — using them supports this site at no extra cost to you.\n\nWhen to go: May for the French Open atmosphere (book 4+ months ahead), September for empty courts and soft light.\n\nGetting there: Most hotels are on Metro Line 9 or the T2 tram; a Navigo weekly pass covers everything.",
-        "zh": "巴黎是红土网球的精神故乡。首推：Central Court 酒店——步行 12 分钟到 Suzanne Lenglen 体育场公共球场，有球拍寄存室，还为晨练球友提供延迟早餐。中档：罗兰加洛斯附近的 Les Terrabattes 民宿，老板是前职业教练。经济型：Courtside 青旅，床位 28 欧起，还免费帮你订球场。\n\n最佳时间：5 月感受法网氛围（需提前 4 个月以上预订），9 月球场人少、光线柔和。\n\n交通：多数酒店在地铁 9 号线或 T2 有轨电车沿线，周票 Navigo 全覆盖。\n\n（以下预订链接为联盟推广链接，通过它们预订可支持本站，且不产生额外费用。）"
+        "en": "Paris is the spiritual home of clay-court tennis. Our top pick: Hotel Court Central — a 12-minute walk from Stade Suzanne Lenglen's public courts, with a racket storage room and late breakfast for morning players. Mid-range: Les Terrabattes B&B near Roland Garros, run by a former tour coach. Budget: Courtside Hostel, dorm beds from €28 with free court booking help.\n\nWhen to go: May for the French Open atmosphere (book 4+ months ahead), September for empty courts and soft light.\n\nGetting there: Most hotels are on Metro Line 9 or the T2 tram; a Navigo weekly pass covers everything.",
+        "zh": "巴黎是红土网球的精神故乡。首推：Central Court 酒店——步行 12 分钟到 Suzanne Lenglen 体育场公共球场，有球拍寄存室，还为晨练球友提供延迟早餐。中档：罗兰加洛斯附近的 Les Terrabattes 民宿，老板是前职业教练。经济型：Courtside 青旅，床位 28 欧起，还免费帮你订球场。\n\n最佳时间：5 月感受法网氛围（需提前 4 个月以上预订），9 月球场人少、光线柔和。\n\n交通：多数酒店在地铁 9 号线或 T2 有轨电车沿线，周票 Navigo 全覆盖。"
       }
     },
     {
@@ -25,9 +30,54 @@
       "date": "2026-10-05",
       "image": "/images/vacation-mallorca.svg",
       "affiliateNote": { "en": "Booking links are affiliate links.", "zh": "预订链接为联盟推广链接。" },
+      "hotels": [
+        { "name": "Playa Azul Palma", "stars": 4, "priceFrom": "€110", "link": "#affiliate-playa-azul", "note": { "en": "Rooftop pool, protein-heavy to-go breakfast", "zh": "屋顶泳池，高蛋白外带早餐" } },
+        { "name": "Finca Son Claret", "stars": 3, "priceFrom": "€75", "link": "#affiliate-son-claret", "note": { "en": "Country finca 10 min from the academies", "zh": "乡村民宿，距学院 10 分钟" } },
+        { "name": "Hostal Portixol", "stars": 2, "priceFrom": "€55", "link": "#affiliate-portixol", "note": { "en": "Seafront budget stay near the harbor courts", "zh": "海边经济型住宿，靠近港口球场" } }
+      ],
       "body": {
-        "en": "Mallorca has quietly become Europe's best value tennis destination. Combine a 5-morning intensive package (€240) at one of the island's academies with a sea-view hotel in Palma. Our hotel pick: Playa Azul — 15 minutes from the academy, rooftop pool, and they'll pack you a protein-heavy to-go breakfast. Booking links below are affiliate links.\n\nOff-court: Cala beaches are 20 minutes by bus; the old town is perfect for rest days.\n\nBudget breakdown: flights €120 return (EU), hotel €65/night double, academy €240, court time often included.",
-        "zh": "马略卡悄悄成了欧洲性价比最高的网球目的地。把 5 个上午的集训套餐（240 欧）和帕尔马的海景酒店组合起来。酒店推荐：Playa Azul——离学院 15 分钟，屋顶泳池，还会给你打包高蛋白外带早餐。\n\n场外活动：Cala 海滩公交 20 分钟，老城适合休息日闲逛。\n\n预算参考：机票往返 120 欧（欧盟内），酒店 65 欧/晚（双人间），学院 240 欧，场地费通常已含。\n\n（预订链接为联盟推广链接。）"
+        "en": "Mallorca has quietly become Europe's best value tennis destination. Combine a 5-morning intensive package (€240) at one of the island's academies with a sea-view hotel in Palma. Our hotel pick: Playa Azul — 15 minutes from the academy, rooftop pool, and they'll pack you a protein-heavy to-go breakfast.\n\nOff-court: Cala beaches are 20 minutes by bus; the old town is perfect for rest days.\n\nBudget breakdown: flights €120 return (EU), hotel €65/night double, academy €240, court time often included.",
+        "zh": "马略卡悄悄成了欧洲性价比最高的网球目的地。把 5 个上午的集训套餐（240 欧）和帕尔马海景酒店组合起来。酒店推荐：Playa Azul——离学院 15 分钟，屋顶泳池，还会给你打包高蛋白外带早餐。\n\n场外活动：Cala 海滩公交 20 分钟，老城适合休息日闲逛。\n\n预算参考：机票往返 120 欧（欧盟内），酒店 65 欧/晚（双人间），学院 240 欧，场地费通常已含。"
+      }
+    },
+    {
+      "slug": "bali-tennis-retreat",
+      "title": { "en": "Bali Tennis & Surf Retreat", "zh": "巴厘岛网球+冲浪度假" },
+      "excerpt": {
+        "en": "Morning clay sessions, afternoon surf breaks — the ultimate tennis crossover trip.",
+        "zh": "上午打红土，下午冲浪——网球跨界度假天花板。"
+      },
+      "date": "2026-09-18",
+      "image": "/images/vacation-bali.svg",
+      "affiliateNote": { "en": "Booking links are affiliate links.", "zh": "预订链接为联盟推广链接。" },
+      "hotels": [
+        { "name": "Uluwatu Clay Resort", "stars": 5, "priceFrom": "$180", "link": "#affiliate-uluwatu-clay", "note": { "en": "Ocean-view clay courts, on-site pro", "zh": "海景红土球场，驻场教练" } },
+        { "name": "Canggu Surf & Stay", "stars": 3, "priceFrom": "$65", "link": "#affiliate-canggu-surf", "note": { "en": "Bike ride to both beach breaks and clay courts", "zh": "骑车可达浪点和红土球场" } },
+        { "name": "Ubud Tennis Villa", "stars": 4, "priceFrom": "$95", "link": "#affiliate-ubud-villa", "note": { "en": "Private hard court surrounded by rice paddies", "zh": "稻田环绕的私人硬地球场" } }
+      ],
+      "body": {
+        "en": "Bali is the ultimate tennis crossover destination. Start with a morning session on red clay at Uluwatu Clay Resort — their on-site pro runs a 90-minute drill from 7am before the heat kicks in. Afternoon: 10-minute drive to the beach for surf. The resort's ocean-view courts are among the most photogenic in Asia.\n\nFor budget travelers, Canggu Surf & Stay puts you within biking distance of both beach breaks and the local clay courts. Ubud Tennis Villa is the zen option — a private hard court surrounded by rice paddies, perfect for mindful practice.\n\nBest season: April–October (dry season). Book the resort's clay court at sunrise slots — the light is unreal and the courts are freshly watered.",
+        "zh": "巴厘岛是网球跨界度假的天花板。早上在 Uluwatu Clay Resort 的红土球场训练——驻场教练 7 点开 90 分钟 drills，趁凉快把活干完。下午：开车 10 分钟去冲浪。这家度假村的海景球场是亚洲最出片的球场之一。\n\n预算玩家选 Canggu Surf & Stay，骑车就能到浪点和红土球场。想禅修选 Ubud Tennis Villa——稻田环绕的私人硬地球场，适合静心练球。\n\n最佳季节：4-10 月（旱季）。订度假村日出时段红土场——光线绝美，场地刚浇过水。"
+      }
+    },
+    {
+      "slug": "shanghai-weekend-courts",
+      "title": { "en": "Shanghai Weekend Court Guide", "zh": "上海周末球场指南" },
+      "excerpt": {
+        "en": "Seven courts within the city — clay, hard and indoor — with hotel pairings.",
+        "zh": "市内七座球场——红土、硬地、室内——搭配酒店推荐。"
+      },
+      "date": "2026-09-02",
+      "image": "/images/vacation-shanghai.svg",
+      "affiliateNote": { "en": "Booking links are affiliate links.", "zh": "预订链接为联盟推广链接。" },
+      "hotels": [
+        { "name": "Riverside Tennis Hotel", "stars": 4, "priceFrom": "¥680", "link": "#affiliate-riverside-sh", "note": { "en": "On the Huangpu, 5 min walk to Xuhui clay courts", "zh": "黄浦江边，步行 5 分钟到徐汇红土场" } },
+        { "name": "Jing'an Court Apartment", "stars": 3, "priceFrom": "¥420", "link": "#affiliate-jingan-apt", "note": { "en": "Self-catering apartment near Jing'an tennis center", "zh": "静安网球中心旁自助公寓" } },
+        { "name": "Pudong Players Hostel", "stars": 2, "priceFrom": "¥150", "link": "#affiliate-pudong-hostel", "note": { "en": "Budget dorms with free indoor court access", "zh": "经济床位，含免费室内球场" } }
+      ],
+      "body": {
+        "en": "Shanghai has quietly built one of Asia's densest networks of public clay courts. Our favorite cluster: the Xuhui Riverside courts — three red clay surfaces maintained to near-tour standard, open until 10pm on weekdays. For indoor play, the Pudong Tennis Center has eight hard courts under air conditioning.\n\nPair your court time with the Riverside Tennis Hotel — a 5-minute walk to the clay, with a rooftop warm-up area and racket stringing service on-site. Budget travelers love the Pudong Players Hostel: dorm beds from ¥150 with free indoor court access included.\n\nPro tip: book clay courts via the city's public sports app 2-3 days ahead on weekends; weekday evenings are walk-in friendly.",
+        "zh": "上海悄悄建起了亚洲最密集的公共红土球场网络。最爱的集群：徐汇滨江球场——三片接近巡回赛标准的红土场，工作日开到晚 10 点。室内打球去浦东网球中心，八片空调硬地球场。\n\n搭配 Riverside Tennis Hotel 住——步行 5 分钟到红土场，楼顶有热身区，驻场穿线服务。预算玩家爱 Pudong Players Hostel：床位 ¥150 起，含免费室内球场。\n\n小贴士：周末红土场通过市公共体育 App 提前 2-3 天订；工作日晚场可直接 walk-in。"
       }
     }
   ]

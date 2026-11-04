@@ -1,21 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import events from '../data/events.json';
+import vacation from '../data/blog-vacation.json';
+import gear from '../data/blog-gear.json';
+
+const upcomingEvents = events.events.slice(0, 3);
+const vacationPreview = vacation.posts.slice(0, 2);
+const gearPreview = gear.posts.slice(0, 2);
 ---
 <Layout title="Home">
   <section class="hero">
     <h1 data-i18n="hero.title">Play Tennis. Get Rated. Travel the World.</h1>
-    <p data-i18n="hero.sub">Join events, get AI-rated, and find your next tennis destination.</p>
+    <p data-i18n="hero.sub">Sign up for clay-court events, get AI-rated by video, and discover your next tennis destination.</p>
     <div class="btns">
-      <a class="btn btn-clay" href="#events" data-i18n="hero.cta">Browse Events</a>
+      <a class="btn btn-clay" href="/events" data-i18n="hero.cta">Browse Events</a>
       <a class="btn btn-ghost" href="/ai-coach" data-i18n="hero.cta2">Get AI Rated</a>
     </div>
   </section>
 
-  <section id="events">
-    <h2 data-i18n="events.title">Upcoming Events</h2>
+  <section class="section">
+    <h2 data-i18n="home.sections.events.title">Upcoming Events</h2>
+    <p class="section-sub" data-i18n="home.sections.events.sub">Level-matched tournaments and social play across China's best clay courts.</p>
     <div class="cards">
-      {events.events.map(ev => (
+      {upcomingEvents.map(ev => (
         <div class="card">
           <div class="body">
             <span class="badge" data-en={ev.level.en} data-zh={ev.level.zh}>{ev.level.en}</span>
@@ -23,54 +30,103 @@ import events from '../data/events.json';
             <p class="meta">📅 {ev.date} · {ev.time}</p>
             <p class="meta" data-en={ev.venue.en} data-zh={ev.venue.zh}>{ev.venue.en}</p>
             <p class="meta"><span data-i18n="events.fee">Fee</span>: <strong class="price">¥{ev.fee}</strong></p>
-            <button class="btn btn-clay signup-btn" data-event={ev.id} data-i18n="events.signup">Sign up & Pay</button>
+            <a class="btn btn-clay btn-sm" href="/events" data-i18n="events.signup">Register</a>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a class="btn btn-outline-green" href="/events" data-i18n="home.sections.events.cta">All events →</a>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--clay-light);border-radius:var(--radius);margin:2rem auto;">
+    <div class="preview-grid">
+      <div class="preview-card">
+        <div class="icon">🎾</div>
+        <h3 data-i18n="home.sections.ai.title">AI Tennis Rating</h3>
+        <p data-i18n="home.sections.ai.sub">Upload 10 seconds per stroke. Get your NTRP rating and personalized coach feedback in minutes.</p>
+        <a class="btn btn-clay btn-sm" href="/ai-coach" data-i18n="home.sections.ai.cta">Try AI Coach →</a>
+      </div>
+      <div class="preview-card">
+        <div class="icon">✈️</div>
+        <h3 data-i18n="blog.title.vacation">Tennis Vacation</h3>
+        <p data-i18n="home.sections.blog.sub">Destination guides, hotel picks, and court reviews — written by players, for players.</p>
+        <a class="btn btn-outline-green btn-sm" href="/vacation" data-i18n="home.sections.blog.cta.vacation">Vacation guides →</a>
+      </div>
+      <div class="preview-card">
+        <div class="icon">🏸</div>
+        <h3 data-i18n="blog.title.gear">Gear Guide</h3>
+        <p data-i18n="home.sections.blog.sub">Equipment reviews — rackets, shoes, strings, and bags — tested by real players.</p>
+        <a class="btn btn-outline-green btn-sm" href="/gear" data-i18n="home.sections.blog.cta.gear">Gear reviews →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="home.sections.blog.title">Tennis Travel & Gear</h2>
+    <p class="section-sub" data-i18n="home.sections.blog.sub">Destination guides, hotel picks, and equipment reviews — written by players, for players.</p>
+    <div class="cards">
+      {vacationPreview.map(p => (
+        <div class="card">
+          <img src={p.image} alt={p.title.en} />
+          <div class="body">
+            <span class="badge">{p.date}</span>
+            <h3 data-en={p.title.en} data-zh={p.title.zh}>{p.title.en}</h3>
+            <p class="meta" data-en={p.excerpt.en} data-zh={p.excerpt.zh}>{p.excerpt.en}</p>
+            <a class="btn btn-clay btn-sm" href={`/vacation/${p.slug}`} data-i18n="blog.read">Read more</a>
+          </div>
+        </div>
+      ))}
+      {gearPreview.map(p => (
+        <div class="card">
+          <img src={p.image} alt={p.title.en} />
+          <div class="body">
+            <span class="badge">{p.date}</span>
+            <h3 data-en={p.title.en} data-zh={p.title.zh}>{p.title.en}</h3>
+            <p class="meta" data-en={p.excerpt.en} data-zh={p.excerpt.zh}>{p.excerpt.en}</p>
+            <a class="btn btn-clay btn-sm" href={`/gear/${p.slug}`} data-i18n="blog.read">Read more</a>
           </div>
         </div>
       ))}
     </div>
   </section>
 
-  <section>
-    <h2 data-i18n="pricing.title">Membership</h2>
-    <div class="pricing">
-      <div class="plan">
-        <h3 data-i18n="pricing.free">Free</h3>
-        <p class="price-tag">¥0</p>
-        <ul>
-          <li data-i18n="pricing.free.f">3 AI evaluations / month</li>
-          <li data-i18n="nav.events">Events</li>
-          <li data-i18n="nav.vacation">Tennis Vacation</li>
-        </ul>
-        <a class="btn btn-ghost" style="color:var(--green-dark);border-color:var(--green);" href="/ai-coach" data-i18n="pricing.free2">Sign Up Free</a>
-      </div>
-      <div class="plan pro">
-        <h3 data-i18n="pricing.pro">Pro</h3>
-        <p class="price-tag" data-i18n="pricing.price.pro">$19 / month</p>
-        <ul>
-          <li data-i18n="pricing.pro.f">30 AI evaluations / month</li>
-          <li data-i18n="pricing.pro.f2">Priority AI feedback</li>
-          <li>Leaderboard badge</li>
-        </ul>
-        <button class="btn btn-clay subscribe-btn" data-i18n="pricing.pro.cta">Subscribe with Stripe</button>
+  <section class="section-green" id="pricing">
+    <div class="inner">
+      <h2 style="text-align:center;" data-i18n="pricing.title">Membership Plans</h2>
+      <p class="section-sub" style="text-align:center;" data-i18n="pricing.sub">Choose the plan that fits your game.</p>
+      <div class="pricing">
+        <div class="plan">
+          <h3 data-i18n="pricing.free">Free</h3>
+          <p class="price-tag" data-i18n="pricing.price.free">¥0</p>
+          <p class="price-period" data-i18n="pricing.period.free">forever</p>
+          <ul>
+            <li data-i18n="pricing.free.f1">3 AI evaluations / month</li>
+            <li data-i18n="pricing.free.f2">Event registration</li>
+            <li data-i18n="pricing.free.f3">Blog & travel guides</li>
+          </ul>
+          <a class="btn btn-ghost" href="/ai-coach" data-i18n="pricing.free.cta">Sign Up Free</a>
+        </div>
+        <div class="plan pro" data-popular="MOST POPULAR">
+          <h3 data-i18n="pricing.pro">Pro</h3>
+          <p class="price-tag" data-i18n="pricing.price.pro">¥68</p>
+          <p class="price-period" data-i18n="pricing.period.pro">/ month</p>
+          <ul>
+            <li data-i18n="pricing.pro.f1">30 AI evaluations / month</li>
+            <li data-i18n="pricing.pro.f2">Priority evaluation queue</li>
+            <li data-i18n="pricing.pro.f3">Personalized training plan</li>
+            <li data-i18n="pricing.pro.f4">Leaderboard badge</li>
+          </ul>
+          <button class="btn btn-clay subscribe-btn" data-i18n="pricing.pro.cta">Subscribe with Stripe</button>
+        </div>
       </div>
     </div>
   </section>
-
-  <div class="toast" id="toast" data-i18n="events.signedup">You're in! See you on court.</div>
 </Layout>
 
 <script>
-  // TODO: replace with real Stripe Checkout session creation via backend
-  document.querySelectorAll('.signup-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const ev = btn.getAttribute('data-event');
-      console.log('TODO Stripe checkout for event:', ev);
-      document.getElementById('toast')?.classList.add('show');
-      setTimeout(() => document.getElementById('toast')?.classList.remove('show'), 3000);
-    });
-  });
   document.querySelector('.subscribe-btn')?.addEventListener('click', () => {
-    console.log('TODO Stripe subscription checkout');
-    alert('Stripe checkout placeholder — wire STRIPE_SECRET_KEY on backend.');
+    alert('Stripe checkout placeholder — payment channel coming soon.');
   });
 </script>

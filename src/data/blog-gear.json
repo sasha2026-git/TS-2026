@@ -10,9 +10,14 @@
       "date": "2026-10-28",
       "image": "/images/gear-racket.svg",
       "affiliateNote": { "en": "Purchase links are affiliate links.", "zh": "购买链接为联盟推广链接。" },
+      "products": [
+        { "name": "Head Gravity MP", "price": "¥1,280", "link": "#affiliate-gravity-mp", "note": { "en": "Oversized sweet spot, best all-round first racket", "zh": "超大甜区，全能首拍之选" } },
+        { "name": "Wilson Clash 100L", "price": "¥1,380", "link": "#affiliate-clash-100l", "note": { "en": "Light and arm-friendly, ideal for tennis elbow", "zh": "轻、护手臂，网球肘友好" } },
+        { "name": "Babolat Pure Drive Junior 26", "price": "¥680", "link": "#affiliate-pure-drive-jr", "note": { "en": "For smaller adults — builds technique faster", "zh": "适合身材较小者，技术建立更快" } }
+      ],
       "body": {
-        "en": "1) Head Gravity MP — oversized sweet spot, very forgiving on off-center hits. Best all-round first racket. 2) Wilson Clash 100L — light and arm-friendly, ideal if you had tennis elbow or slow swing speed. 3) Babolat Pure Drive Junior 26 — don't laugh: for smaller adults or true beginners, a 26-inch junior frame builds technique faster than a full-size one.\n\nWhat matters more than the racket: string tension. Ask your shop to string at 50-55 lbs for comfort. Purchase links below are affiliate links.",
-        "zh": "1) Head Gravity MP——甜区超大，打偏了也宽容，全能首拍之选。2) Wilson Clash 100L——轻、护手臂，有网球肘或挥速慢的理想选择。3) Babolat Pure Drive Junior 26——别笑：对身材较小或纯新手，26 寸青少年拍反而能让技术动作建立得更快。\n\n比球拍更重要的是穿线磅数：让店家用 50-55 磅，击球更舒适。\n\n（购买链接为联盟推广链接。）"
+        "en": "1) Head Gravity MP — oversized sweet spot, very forgiving on off-center hits. Best all-round first racket.\n\n2) Wilson Clash 100L — light and arm-friendly, ideal if you had tennis elbow or slow swing speed.\n\n3) Babolat Pure Drive Junior 26 — don't laugh: for smaller adults or true beginners, a 26-inch junior frame builds technique faster than a full-size one.\n\nWhat matters more than the racket: string tension. Ask your shop to string at 50-55 lbs for comfort. Purchase links below are affiliate links.",
+        "zh": "1) Head Gravity MP——甜区超大，打偏了也宽容，全能首拍之选。\n\n2) Wilson Clash 100L——轻、护手臂，有网球肘或挥速慢的理想选择。\n\n3) Babolat Pure Drive Junior 26——别笑：对身材较小或纯新手，26 寸青少年拍反而能让技术动作建立得更快。\n\n比球拍更重要的是穿线磅数：让店家用 50-55 磅，击球更舒适。\n\n（购买链接为联盟推广链接。）"
       }
     },
     {
@@ -25,9 +30,54 @@
       "date": "2026-10-12",
       "image": "/images/gear-shoes.svg",
       "affiliateNote": { "en": "Purchase links are affiliate links.", "zh": "购买链接为联盟推广链接。" },
+      "products": [
+        { "name": "Asics Gel-Resolution Clay", "price": "¥890", "link": "#affiliate-gel-resolution", "note": { "en": "Best durability on red dirt", "zh": "红土上最耐穿" } },
+        { "name": "Nike Court Air Zoom Clay", "price": "¥820", "link": "#affiliate-zoom-clay", "note": { "en": "Best cushioning for long matches", "zh": "长盘比赛缓震最佳" } },
+        { "name": "adidas Barricade Clay", "price": "¥650", "link": "#affiliate-barricade-clay", "note": { "en": "Best value — last season's colorway", "zh": "性价比之王——上赛季配色" } }
+      ],
       "body": {
-        "en": "Clay-specific outsoles use a full herringbone pattern that sheds red dust instead of packing it — on hard courts this pattern also slides slightly, which protects your knees. Top picks: Asics Gel-Resolution Clay (best durability), Nike Court Air Zoom Clay (best cushioning), adidas Barricade Clay (best value last season's colorway). Buy half a size up: feet swell on hot courts. Links below are affiliate links.",
-        "zh": "红土专用外底采用全人字纹，能把红土粉末排出去而不是积在鞋底；在硬地上这种底纹还能提供轻微滑动，保护膝盖。推荐：Asics Gel-Resolution Clay（最耐穿）、Nike Court Air Zoom Clay（缓震最好）、adidas Barricade Clay（上赛季配色性价比最高）。买大半码：天热脚会膨胀。\n\n（购买链接为联盟推广链接。）"
+        "en": "Clay-specific outsoles use a full herringbone pattern that sheds red dust instead of packing it — on hard courts this pattern also slides slightly, which protects your knees.\n\nTop picks: Asics Gel-Resolution Clay (best durability), Nike Court Air Zoom Clay (best cushioning), adidas Barricade Clay (best value last season's colorway).\n\nBuy half a size up: feet swell on hot courts. Links below are affiliate links.",
+        "zh": "红土专用外底采用全人字纹，能把红土粉末排出去而不是积在鞋底；在硬地上这种底纹还能提供轻微滑动，保护膝盖。\n\n推荐：Asics Gel-Resolution Clay（最耐穿）、Nike Court Air Zoom Clay（缓震最好）、adidas Barricade Clay（上赛季配色性价比最高）。\n\n买大半码：天热脚会膨胀。\n\n（购买链接为联盟推广链接。）"
+      }
+    },
+    {
+      "slug": "tennis-strings-guide",
+      "title": { "en": "Tennis Strings: The Complete 2026 Guide", "zh": "拍线指南 2026" },
+      "excerpt": {
+        "en": "Poly, multifilament or natural gut? A no-BS breakdown by play style.",
+        "zh": "聚酯、多纤维还是天然肠线？按打法一次讲清楚。"
+      },
+      "date": "2026-09-25",
+      "image": "/images/gear-strings.svg",
+      "affiliateNote": { "en": "Purchase links are affiliate links.", "zh": "购买链接为联盟推广链接。" },
+      "products": [
+        { "name": "Luxilon Alu Power 125", "price": "¥180/套", "link": "#affiliate-alu-power", "note": { "en": "Tour-standard poly — spin and control", "zh": "巡回赛标配聚酯——旋转与控制" } },
+        { "name": "Wilson Multifeel 16", "price": "¥95/套", "link": "#affiliate-multifeel", "note": { "en": "Soft multifilament for arm comfort", "zh": "柔软多纤维，手臂舒适" } },
+        { "name": "Babolat VS Touch Gut", "price": "¥380/套", "link": "#affiliate-vs-gut", "note": { "en": "Premium natural gut — feel and power", "zh": "高端天然肠线——手感与力量" } }
+      ],
+      "body": {
+        "en": "Polyester strings (like Luxilon Alu Power) give spin and control but go dead after 10-15 hours — re-string often or hybrid with a softer cross.\n\nMultifilament (Wilson Multifeel) is the arm-friendly workhorse: lasts longer, feels closer to gut, great for rec players with elbow issues.\n\nNatural gut (Babolat VS Touch) is the gold standard for feel and power, but humidity kills it fast. Reserve for dry climates or indoor play.\n\nTension guide: 50-55 lbs for comfort, 55-60 for control. Drop 2 lbs if switching from poly to multifilament. Links below are affiliate links.",
+        "zh": "聚酯线（如 Luxilon Alu Power）提供旋转和控制，但 10-15 小时后就「死」了——勤换线，或者用软线做横线做 hybrid。\n\n多纤维线（Wilson Multifeel）是手臂友好的主力：更耐用，手感接近肠线，适合有肘部问题的业余球友。\n\n天然肠线（Babolat VS Touch）是手感和力量的黄金标准，但湿气是杀手。留给干燥气候或室内使用。\n\n磅数指南：舒适选 50-55 磅，控制选 55-60 磅。从聚酯换多纤维时降 2 磅。\n\n（购买链接为联盟推广链接。）"
+      }
+    },
+    {
+      "slug": "tennis-bag-buying-guide",
+      "title": { "en": "Tennis Bags: 2026 Buying Guide", "zh": "2026 网球包选购指南" },
+      "excerpt": {
+        "en": "3-racket sling vs 12-racket tour bag — which size fits your game?",
+        "zh": "3 支拍斜挎包 vs 12 支拍巡回赛包——你该背多大？"
+      },
+      "date": "2026-09-10",
+      "image": "/images/gear-bag.svg",
+      "affiliateNote": { "en": "Purchase links are affiliate links.", "zh": "购买链接为联盟推广链接。" },
+      "products": [
+        { "name": "Wilson Super Tour 3-Pack", "price": "¥420", "link": "#affiliate-wilson-3pack", "note": { "en": "Perfect weekend bag — 3 rackets + shoes", "zh": "完美周末包——3 支拍 + 鞋" } },
+        { "name": "Head Tour 12R Pro", "price": "¥890", "link": "#affiliate-head-12r", "note": { "en": "Tour-sized with climate-protect racket compartment", "zh": "巡回赛尺寸，带温控拍仓" } },
+        { "name": "Babolat Pure Aero 9R", "price": "¥650", "link": "#affiliate-babolat-9r", "note": { "en": "9-racket mid-size — the sweet spot for club players", "zh": "9 支拍中号——俱乐部球友的甜点" } }
+      ],
+      "body": {
+        "en": "3-racket slings (Wilson Super Tour 3-Pack) are the urban commuter's choice: light, fits on a bike, and holds rackets + shoes + a water bottle. Ideal if you play 2-3 times a week at a local club.\n\nMid-size 6-9 racket bags (Babolat Pure Aero 9R) are the sweet spot for serious club players — enough room for rackets, shoes, clothes, and a towel, without looking like you're moving house.\n\nTour bags (Head Tour 12R Pro) hold 12+ rackets with climate-protected compartments. Overkill unless you're coaching or playing tournaments. The thermo-lined racket bag protects strings from temperature swings.\n\nFeature to look for: a ventilated shoe pocket, a wet/dry separator, and padded ergonomic straps. Links below are affiliate links.",
+        "zh": "3 支拍斜挎包（Wilson Super Tour 3-Pack）是城市通勤首选：轻、能挂自行车，装得下球拍 + 鞋 + 水壶。适合每周打 2-3 次的本地球友。\n\n6-9 支拍中号包（Babolat Pure Aero 9R）是认真打球的俱乐部球友的甜点——装得下球拍、鞋、衣服、毛巾，又不会像搬家。\n\n巡回赛包（Head Tour 12R Pro）装 12+ 支拍，带温控拍仓。除非你是教练或打比赛，否则用不上。温控拍仓能保护拍线免受温差影响。\n\n选购要点：透气鞋仓、干湿分离、带垫人体工学肩带。\n\n（购买链接为联盟推广链接。）"
       }
     }
   ]
