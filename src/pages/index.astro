@@ -4,122 +4,231 @@ import events from '../data/events.json';
 import vacation from '../data/blog-vacation.json';
 import gear from '../data/blog-gear.json';
 
-const upcomingEvents = events.events.slice(0, 3);
-const vacationPreview = vacation.posts.slice(0, 2);
-const gearPreview = gear.posts.slice(0, 2);
+const calendar = events.events.slice(0, 6);
+const withHref = (p, section) => ({ ...p, href: `/${section}/${p.slug}` });
+const feature = withHref(vacation.posts[0], 'vacation');
+const journalRest = [
+  withHref(vacation.posts[1], 'vacation'),
+  withHref(vacation.posts[2], 'vacation'),
+  withHref(gear.posts[0], 'gear'),
+  withHref(gear.posts[1], 'gear'),
+].filter(p => p.slug);
 ---
 <Layout title="Home">
-  <section class="hero">
-    <h1 data-i18n="hero.title">Play Tennis. Get Rated. Travel the World.</h1>
-    <p data-i18n="hero.sub">Sign up for clay-court events, get AI-rated by video, and discover your next tennis destination.</p>
-    <div class="btns">
-      <a class="btn btn-clay" href="/events" data-i18n="hero.cta">Browse Events</a>
-      <a class="btn btn-ghost" href="/ai-coach" data-i18n="hero.cta2">Get AI Rated</a>
+  <section class="cover" id="contents">
+    <p class="cover-kicker" data-en="Édition Tennis — Roland-Garros" data-zh="网球特辑 — 罗兰加洛斯">Édition Tennis — Roland-Garros</p>
+    <h1><span data-i18n="hero.title">Play Tennis. Get Rated. Travel the World.</span></h1>
+    <p class="cover-sub" data-i18n="hero.sub">Sign up for clay-court events, get AI-rated by video, and discover your next tennis destination.</p>
+    <div class="cover-actions">
+      <a class="btn" href="/events" data-i18n="hero.cta">Browse Events</a>
+      <a class="btn btn--outline" href="/ai-coach" data-i18n="hero.cta2">Get AI Rated</a>
+    </div>
+    <div class="cover-meta">
+      <span data-en="6 Events · Nov–Dec 2026" data-zh="6 场活动 · 2026 年 11–12 月">6 Events · Nov–Dec 2026</span>
+      <span data-en="NTRP 1.0 – 5.0" data-zh="NTRP 1.0 – 5.0">NTRP 1.0 – 5.0</span>
+      <span data-en="4 Destinations · 4 Equipment Tests" data-zh="4 个目的地 · 4 篇装备实测">4 Destinations · 4 Equipment Tests</span>
     </div>
   </section>
 
-  <section class="section">
-    <h2 data-i18n="home.sections.events.title">Upcoming Events</h2>
-    <p class="section-sub" data-i18n="home.sections.events.sub">Level-matched tournaments and social play across China's best clay courts.</p>
-    <div class="cards">
-      {upcomingEvents.map(ev => (
-        <div class="card">
-          <div class="body">
-            <span class="badge" data-en={ev.level.en} data-zh={ev.level.zh}>{ev.level.en}</span>
-            <h3 data-en={ev.title.en} data-zh={ev.title.zh}>{ev.title.en}</h3>
-            <p class="meta">📅 {ev.date} · {ev.time}</p>
-            <p class="meta" data-en={ev.venue.en} data-zh={ev.venue.zh}>{ev.venue.en}</p>
-            <p class="meta"><span data-i18n="events.fee">Fee</span>: <strong class="price">¥{ev.fee}</strong></p>
-            <a class="btn btn-clay btn-sm" href="/events" data-i18n="events.signup">Register</a>
-          </div>
+  <section class="contents">
+    <div class="section-head">
+      <h2 data-en="Sommaire" data-zh="本期目录">Sommaire</h2>
+      <p class="section-sub" data-en="Three sections, one court. The journal of the clay-season." data-zh="三个板块，一片球场。红土季刊。">Three sections, one court. The journal of the clay-season.</p>
+    </div>
+
+    <ol class="contents-list">
+      <li class="contents-item">
+        <span class="c-num">01</span>
+        <div>
+          <h3><a href="/events" data-i18n="home.sections.events.title">Upcoming Events</a></h3>
+          <p class="c-desc" data-i18n="home.sections.events.sub">Level-matched tournaments and social play across China's best clay courts.</p>
+          <p class="c-foot">
+            <a class="link-more" href="/events" data-i18n="home.sections.events.cta">All events →</a>
+          </p>
         </div>
+        <div class="c-side">
+          <span class="kicker kicker--clay" data-en="Calendrier" data-zh="赛程">Calendrier</span>
+          <p style="font-family:var(--serif);font-size:1.15rem;margin:0;" data-en={calendar[0].title.en} data-zh={calendar[0].title.zh}>{calendar[0].title.en}</p>
+          <p style="font-size:0.8125rem;color:var(--ink-faint);margin:0.35rem 0 0;">{calendar[0].date} · <span data-en={calendar[0].city.en} data-zh={calendar[0].city.zh}>{calendar[0].city.en}</span></p>
+        </div>
+      </li>
+
+      <li class="contents-item">
+        <span class="c-num">02</span>
+        <div>
+          <h3><a href="/ai-coach" data-i18n="home.sections.ai.title">AI Tennis Rating</a></h3>
+          <p class="c-desc" data-i18n="home.sections.ai.sub">Upload 10 seconds per stroke. Get your NTRP rating and personalized coach feedback in minutes.</p>
+          <p class="c-foot">
+            <a class="link-more" href="/ai-coach" data-i18n="home.sections.ai.cta">Try AI Coach →</a>
+          </p>
+        </div>
+        <div class="c-side">
+          <span class="kicker kicker--clay" data-en="Notation" data-zh="评级">Notation</span>
+          <p style="font-family:var(--serif);font-size:1.15rem;margin:0;" data-en="Four strokes, one NTRP level." data-zh="四个动作，一个 NTRP 等级。">Four strokes, one NTRP level.</p>
+          <p style="font-size:0.8125rem;color:var(--ink-faint);margin:0.35rem 0 0;" data-en="Forehand · Backhand · Serve · Volley" data-zh="正手 · 反手 · 发球 · 截击">Forehand · Backhand · Serve · Volley</p>
+        </div>
+      </li>
+
+      <li class="contents-item">
+        <span class="c-num">03</span>
+        <div>
+          <h3><a href="/vacation" data-en="Voyages &amp; Équipement" data-zh="旅行 &amp; 装备">Voyages &amp; Équipement</a></h3>
+          <p class="c-desc" data-i18n="home.sections.blog.sub">Destination guides, hotel picks, and equipment reviews — written by players, for players.</p>
+          <p class="c-foot">
+            <a class="link-more" href="/vacation" data-i18n="home.sections.blog.cta.vacation">Vacation guides →</a>
+            <a class="link-more" href="/gear" data-i18n="home.sections.blog.cta.gear">Gear reviews →</a>
+          </p>
+        </div>
+        <div class="c-side">
+          <span class="kicker kicker--clay" data-en="Journal" data-zh="专栏">Journal</span>
+          <p style="font-family:var(--serif);font-size:1.15rem;margin:0;" data-en="8 dispatches, incl. Roland-Garros." data-zh="8 篇稿件，含罗兰加洛斯。">8 dispatches, incl. Roland-Garros.</p>
+          <p style="font-size:0.8125rem;color:var(--ink-faint);margin:0.35rem 0 0;" data-en="Paris · Mallorca · Bali · Shanghai" data-zh="巴黎 · 马略卡 · 巴厘岛 · 上海">Paris · Mallorca · Bali · Shanghai</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="contents">
+    <div class="section-head">
+      <h2 data-en="Le Calendrier" data-zh="近期赛程">Le Calendrier</h2>
+      <p class="section-sub" data-i18n="home.sections.events.sub">Level-matched tournaments and social play across China's best clay courts.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="htable">
+        <thead>
+          <tr>
+            <th data-i18n="events.date">Date</th>
+            <th data-i18n="events.city">City</th>
+            <th data-en="Rencontre" data-zh="赛事">Rencontre</th>
+            <th data-i18n="events.level">Level</th>
+            <th data-i18n="events.fee">Fee</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {calendar.map(ev => (
+            <tr>
+              <td>{ev.date}</td>
+              <td><span data-en={ev.city.en} data-zh={ev.city.zh}>{ev.city.en}</span></td>
+              <td>
+                <span class="t-title" data-en={ev.title.en} data-zh={ev.title.zh}>{ev.title.en}</span>
+                <span class="t-sub" data-en={ev.venue.en} data-zh={ev.venue.zh}>{ev.venue.en}</span>
+              </td>
+              <td><span class="ntrp-badge" data-en={ev.level.en} data-zh={ev.level.zh}>{ev.level.en}</span></td>
+              <td class="t-price">¥{ev.fee}</td>
+              <td><a class="btn btn--sm" href="/events" data-i18n="events.signup">Register</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="contents">
+    <div class="section-head">
+      <h2 data-en="Dans ce numéro" data-zh="本期文章">Dans ce numéro</h2>
+      <p class="section-sub" data-i18n="home.sections.blog.sub">Destination guides, hotel picks, and equipment reviews — written by players, for players.</p>
+    </div>
+
+    <article class="feature">
+      <a class="thumb" href={feature.href}>
+        <img src={feature.image} alt={feature.title.en} />
+      </a>
+      <div>
+        <span class="kicker kicker--clay" data-en="Voyages — Portfolio" data-zh="旅行 — 大图">Voyages — Portfolio</span>
+        <h3 class="f-title" data-en={feature.title.en} data-zh={feature.title.zh}>{feature.title.en}</h3>
+        <p class="f-excerpt" data-en={feature.excerpt.en} data-zh={feature.excerpt.zh}>{feature.excerpt.en}</p>
+        <a class="link-more" href={feature.href} data-en="Lire plus →" data-zh="阅读全文 →">Lire plus →</a>
+      </div>
+    </article>
+
+    <div class="post-grid">
+      {journalRest.map((p, i) => (
+        <article class="post-card">
+          <a class="thumb" href={p.href}>
+            <img src={p.image} alt={p.title.en} />
+          </a>
+          <span class="p-num">{`0${i + 2}`}</span>
+          <h3><a href={p.href} data-en={p.title.en} data-zh={p.title.zh}>{p.title.en}</a></h3>
+          <p class="p-excerpt" data-en={p.excerpt.en} data-zh={p.excerpt.zh}>{p.excerpt.en}</p>
+          <a class="link-more" href={p.href} data-en="Lire plus →" data-zh="阅读全文 →">Lire plus →</a>
+        </article>
       ))}
     </div>
-    <div style="text-align:center;margin-top:2rem;">
-      <a class="btn btn-outline-green" href="/events" data-i18n="home.sections.events.cta">All events →</a>
+  </section>
+
+  <section class="contents" id="pricing">
+    <div class="section-head">
+      <h2 data-i18n="pricing.title">Membership Plans</h2>
+      <p class="section-sub" data-i18n="pricing.sub">Choose the plan that fits your game.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="plan-table">
+        <thead>
+          <tr>
+            <th style="width:46%;"><span class="feat" data-en="Formule" data-zh="方案对比">Formule</span></th>
+            <th>
+              <span data-i18n="pricing.free">Free</span>
+              <span class="price-line"><span data-i18n="pricing.price.free">¥0</span> · <span data-i18n="pricing.period.free">forever</span></span>
+            </th>
+            <th>
+              <span data-i18n="pricing.pro">Pro</span>
+              <span class="price-line"><span data-i18n="pricing.price.pro">¥68</span><span data-i18n="pricing.period.pro">/ month</span></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-en="AI evaluations" data-zh="AI 测评额度">AI evaluations</td>
+            <td class="yes" data-en="3 / month" data-zh="每月 3 次">3 / month</td>
+            <td class="yes" data-en="30 / month" data-zh="每月 30 次">30 / month</td>
+          </tr>
+          <tr>
+            <td data-en="Event registration" data-zh="活动报名">Event registration</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td data-en="Travel & equipment journal" data-zh="旅行与装备专栏">Travel & equipment journal</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td data-en="Priority evaluation queue" data-zh="优先评测排队">Priority evaluation queue</td>
+            <td class="no">—</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td data-en="Personalized training plan" data-zh="专属训练计划">Personalized training plan</td>
+            <td class="no">—</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td data-en="Leaderboard badge" data-zh="排行榜徽章">Leaderboard badge</td>
+            <td class="no">—</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><a class="btn btn--outline btn--sm" href="/ai-coach" data-i18n="pricing.free.cta">Sign Up Free</a></td>
+            <td><button class="btn btn--sm subscribe-btn" data-i18n="pricing.pro.cta">Subscribe with Stripe</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <section class="section" style="background:var(--clay-light);border-radius:var(--radius);margin:2rem auto;">
-    <div class="preview-grid">
-      <div class="preview-card">
-        <div class="icon">🎾</div>
-        <h3 data-i18n="home.sections.ai.title">AI Tennis Rating</h3>
-        <p data-i18n="home.sections.ai.sub">Upload 10 seconds per stroke. Get your NTRP rating and personalized coach feedback in minutes.</p>
-        <a class="btn btn-clay btn-sm" href="/ai-coach" data-i18n="home.sections.ai.cta">Try AI Coach →</a>
-      </div>
-      <div class="preview-card">
-        <div class="icon">✈️</div>
-        <h3 data-i18n="blog.title.vacation">Tennis Vacation</h3>
-        <p data-i18n="home.sections.blog.sub">Destination guides, hotel picks, and court reviews — written by players, for players.</p>
-        <a class="btn btn-outline-green btn-sm" href="/vacation" data-i18n="home.sections.blog.cta.vacation">Vacation guides →</a>
-      </div>
-      <div class="preview-card">
-        <div class="icon">🏸</div>
-        <h3 data-i18n="blog.title.gear">Gear Guide</h3>
-        <p data-i18n="home.sections.blog.sub">Equipment reviews — rackets, shoes, strings, and bags — tested by real players.</p>
-        <a class="btn btn-outline-green btn-sm" href="/gear" data-i18n="home.sections.blog.cta.gear">Gear reviews →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 data-i18n="home.sections.blog.title">Tennis Travel & Gear</h2>
-    <p class="section-sub" data-i18n="home.sections.blog.sub">Destination guides, hotel picks, and equipment reviews — written by players, for players.</p>
-    <div class="cards">
-      {vacationPreview.map(p => (
-        <div class="card">
-          <img src={p.image} alt={p.title.en} />
-          <div class="body">
-            <span class="badge">{p.date}</span>
-            <h3 data-en={p.title.en} data-zh={p.title.zh}>{p.title.en}</h3>
-            <p class="meta" data-en={p.excerpt.en} data-zh={p.excerpt.zh}>{p.excerpt.en}</p>
-            <a class="btn btn-clay btn-sm" href={`/vacation/${p.slug}`} data-i18n="blog.read">Read more</a>
-          </div>
-        </div>
-      ))}
-      {gearPreview.map(p => (
-        <div class="card">
-          <img src={p.image} alt={p.title.en} />
-          <div class="body">
-            <span class="badge">{p.date}</span>
-            <h3 data-en={p.title.en} data-zh={p.title.zh}>{p.title.en}</h3>
-            <p class="meta" data-en={p.excerpt.en} data-zh={p.excerpt.zh}>{p.excerpt.en}</p>
-            <a class="btn btn-clay btn-sm" href={`/gear/${p.slug}`} data-i18n="blog.read">Read more</a>
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="section-green" id="pricing">
+  <section class="cahier">
     <div class="inner">
-      <h2 style="text-align:center;" data-i18n="pricing.title">Membership Plans</h2>
-      <p class="section-sub" style="text-align:center;" data-i18n="pricing.sub">Choose the plan that fits your game.</p>
-      <div class="pricing">
-        <div class="plan">
-          <h3 data-i18n="pricing.free">Free</h3>
-          <p class="price-tag" data-i18n="pricing.price.free">¥0</p>
-          <p class="price-period" data-i18n="pricing.period.free">forever</p>
-          <ul>
-            <li data-i18n="pricing.free.f1">3 AI evaluations / month</li>
-            <li data-i18n="pricing.free.f2">Event registration</li>
-            <li data-i18n="pricing.free.f3">Blog & travel guides</li>
-          </ul>
-          <a class="btn btn-ghost" href="/ai-coach" data-i18n="pricing.free.cta">Sign Up Free</a>
-        </div>
-        <div class="plan pro" data-popular="MOST POPULAR">
-          <h3 data-i18n="pricing.pro">Pro</h3>
-          <p class="price-tag" data-i18n="pricing.price.pro">¥68</p>
-          <p class="price-period" data-i18n="pricing.period.pro">/ month</p>
-          <ul>
-            <li data-i18n="pricing.pro.f1">30 AI evaluations / month</li>
-            <li data-i18n="pricing.pro.f2">Priority evaluation queue</li>
-            <li data-i18n="pricing.pro.f3">Personalized training plan</li>
-            <li data-i18n="pricing.pro.f4">Leaderboard badge</li>
-          </ul>
-          <button class="btn btn-clay subscribe-btn" data-i18n="pricing.pro.cta">Subscribe with Stripe</button>
-        </div>
+      <span class="kicker" data-en="Échelle NTRP" data-zh="NTRP 等级表">Échelle NTRP</span>
+      <h2 data-en="Your level is the entry ticket." data-zh="你的等级，就是入场券。">Your level is the entry ticket.</h2>
+      <p class="thematic" data-en="Rate four strokes in ten seconds each, then register for the draw that matches your NTRP band." data-zh="四个动作各上传 10 秒视频完成评级，再报名与你 NTRP 区间相符的签表。">Rate four strokes in ten seconds each, then register for the draw that matches your NTRP band.</p>
+      <div class="badge-row">
+        {['2.5', '3.0', '3.5', '4.0', '4.5', '5.0'].map(n => <span class="ntrp-badge">{n}</span>)}
+      </div>
+      <div class="actions">
+        <a class="btn" href="/ai-coach" data-i18n="ai.submit">Get My Rating</a>
+        <a class="btn btn--outline" href="/events" data-i18n="ai.result.cta">Browse matching events →</a>
       </div>
     </div>
   </section>

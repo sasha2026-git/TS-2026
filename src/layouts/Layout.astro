@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 const { title } = Astro.props;
+const path = Astro.url ? Astro.url.pathname : '/';
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
 ---
 <!doctype html>
 <html lang="en">
@@ -9,76 +11,95 @@ const { title } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
   <title>{title} · TennisMatch</title>
-  <meta name="description" content="Tennis events, AI rating & coach, vacation and gear guides — Roland-Garros inspired." />
+  <meta name="description" content="Court Élégance — tennis events, AI NTRP rating, travel and equipment journal." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header class="nav">
-    <a class="brand" href="/">Tennis<em>Match</em></a>
-    <button class="hamburger" id="menuToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/" data-i18n="nav.home">Home</a></li>
-      <li><a href="/events" data-i18n="nav.events">Events</a></li>
-      <li><a href="/ai-coach" data-i18n="nav.ai">AI Coach</a></li>
-      <li><a href="/vacation" data-i18n="nav.vacation">Vacation</a></li>
-      <li><a href="/gear" data-i18n="nav.gear">Gear</a></li>
-      <li><button id="langToggle" class="lang-btn" data-i18n="nav.lang">中文</button></li>
-    </ul>
+  <header class="mag-header">
+    <div class="topbar">
+      <span data-en="Issue Nº 01 — Automne 2026" data-zh="第 01 期 — 2026 秋季刊">Issue Nº 01 — Automne 2026</span>
+      <span data-en="Court Élégance" data-zh="球场风雅" style="letter-spacing:0.2em;">Court Élégance</span>
+      <button id="langToggle" class="lang-btn" data-i18n="nav.lang">中文</button>
+    </div>
+
+    <div class="brandrow">
+      <button class="hamburger" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="wordmark" href="/">Tennis<em>Match</em></a>
+      <span class="brandrule" data-en="Roland-Garros · Paris" data-zh="罗兰加洛斯 · 巴黎">Roland-Garros · Paris</span>
+    </div>
+
+    <nav class="navbar">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/" data-i18n="nav.home" aria-current={isActive('/') ? 'page' : undefined}>Home</a></li>
+        <li><a href="/events" data-i18n="nav.events" aria-current={isActive('/events') ? 'page' : undefined}>Events</a></li>
+        <li><a href="/ai-coach" data-i18n="nav.ai" aria-current={isActive('/ai-coach') ? 'page' : undefined}>AI Coach</a></li>
+        <li><a href="/vacation" data-i18n="nav.vacation" aria-current={isActive('/vacation') ? 'page' : undefined}>Vacation</a></li>
+        <li><a href="/gear" data-i18n="nav.gear" aria-current={isActive('/gear') ? 'page' : undefined}>Gear</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main><slot /></main>
 
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4 data-i18n="footer.col.product">Product</h4>
-        <ul>
-          <li><a href="/events" data-i18n="nav.events">Events</a></li>
-          <li><a href="/ai-coach" data-i18n="nav.ai">AI Coach</a></li>
-          <li><a href="/vacation" data-i18n="nav.vacation">Vacation</a></li>
-          <li><a href="/gear" data-i18n="nav.gear">Gear</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.col.company">Company</h4>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/#pricing">Membership</a></li>
-          <li><a href="#about">About</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.col.resources">Resources</h4>
-        <ul>
-          <li><a href="/vacation">Travel Guides</a></li>
-          <li><a href="/gear">Equipment Reviews</a></li>
-          <li><a href="/ai-coach">NTRP Rating</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.col.legal">Legal</h4>
-        <ul>
-          <li><a href="#privacy">Privacy</a></li>
-          <li><a href="#terms">Terms</a></li>
-          <li><a href="#affiliate">Affiliate Disclosure</a></li>
-        </ul>
+  <footer class="mag-footer">
+    <div class="footer-top">
+      <div class="footer-wordmark">Tennis<em>Match</em></div>
+      <div class="footer-rule"></div>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 data-i18n="footer.col.product">Product</h4>
+          <ul>
+            <li><a href="/events" data-i18n="nav.events">Events</a></li>
+            <li><a href="/ai-coach" data-i18n="nav.ai">AI Coach</a></li>
+            <li><a href="/vacation" data-i18n="nav.vacation">Vacation</a></li>
+            <li><a href="/gear" data-i18n="nav.gear">Gear</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.col.company">Company</h4>
+          <ul>
+            <li><a href="/" data-i18n="nav.home">Home</a></li>
+            <li><a href="/#pricing" data-i18n="pricing.title">Membership Plans</a></li>
+            <li><a href="/#contents" data-en="Masthead" data-zh="刊头">Masthead</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.col.resources">Resources</h4>
+          <ul>
+            <li><a href="/vacation" data-en="Voyages" data-zh="旅行专栏">Voyages</a></li>
+            <li><a href="/gear" data-en="Équipement" data-zh="装备专栏">Équipement</a></li>
+            <li><a href="/ai-coach" data-en="NTRP Rating" data-zh="NTRP 评级">NTRP Rating</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.col.legal">Legal</h4>
+          <ul>
+            <li><a href="#privacy" data-en="Privacy" data-zh="隐私政策">Privacy</a></li>
+            <li><a href="#terms" data-en="Terms" data-zh="服务条款">Terms</a></li>
+            <li><a href="#affiliate" data-en="Affiliate Disclosure" data-zh="联盟推广声明">Affiliate Disclosure</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p data-i18n="footer.rights">© 2026 TennisMatch · 法网风格红土美学</p>
+      <p data-i18n="footer.note">Demo build — ratings and payments are placeholders.</p>
     </div>
   </footer>
 
   <div class="toast" id="toast"></div>
 
   <script>
-    const dict = await fetch('/data/i18n.json').then(r => r.json());
-    let lang = localStorage.getItem('lang') || 'en';
+    import dict from '../data/i18n.json';
+
+    let lang = 'en';
+    try { lang = localStorage.getItem('lang') || 'en'; } catch { lang = 'en'; }
+    if (lang !== 'zh') lang = 'en';
 
     function apply() {
       document.documentElement.lang = lang;
@@ -95,15 +116,16 @@ const { title } = Astro.props;
 
     document.getElementById('langToggle')?.addEventListener('click', () => {
       lang = lang === 'en' ? 'zh' : 'en';
-      localStorage.setItem('lang', lang);
+      try { localStorage.setItem('lang', lang); } catch {}
       apply();
     });
 
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle?.addEventListener('click', () => {
-      menuToggle.classList.toggle('open');
-      navLinks.classList.toggle('open');
+      const open = menuToggle.classList.toggle('open');
+      navLinks?.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
     });
     navLinks?.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
@@ -114,7 +136,7 @@ const { title } = Astro.props;
 
     apply();
 
-    window.showToast = function(msg, duration = 3000) {
+    window.showToast = function (msg, duration = 3000) {
       const t = document.getElementById('toast');
       if (!t) return;
       t.textContent = msg;

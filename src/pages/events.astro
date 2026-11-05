@@ -1,68 +1,107 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import events from '../data/events.json';
+const list = events.events;
 ---
 <Layout title="Events">
-  <section class="hero" style="padding:4rem 5vw 4.5rem;">
+  <section class="page-opener">
+    <span class="kicker" data-en="Le Calendrier — Nº 01" data-zh="赛程 — 第 01 期">Le Calendrier — Nº 01</span>
     <h1 data-i18n="events.title">Upcoming Events</h1>
-    <p data-i18n="events.sub">Register for level-matched tournaments and social play. Payment via Stripe — coming soon.</p>
+    <p class="standfirst" data-i18n="events.sub">Register for level-matched tournaments and social play. Payment via Stripe — coming soon.</p>
+    <div class="rule-double"></div>
   </section>
 
-  <section class="section">
-    <div class="cards">
-      {events.events.map(ev => (
-        <div class="card">
-          <div class="body">
-            <span class="badge" data-en={ev.level.en} data-zh={ev.level.zh}>{ev.level.en}</span>
-            <h3 data-en={ev.title.en} data-zh={ev.title.zh}>{ev.title.en}</h3>
-            <p class="meta">📅 <strong data-i18n="events.date">Date</strong>: {ev.date} · {ev.time}</p>
-            <p class="meta">📍 <strong data-i18n="events.city">City</strong>: <span data-en={ev.city.en} data-zh={ev.city.zh}>{ev.city.en}</span></p>
-            <p class="meta">🏟 <strong data-i18n="events.venue">Venue</strong>: <span data-en={ev.venue.en} data-zh={ev.venue.zh}>{ev.venue.en}</span></p>
-            <p class="meta"><span data-i18n="events.fee">Fee</span>: <strong class="price">¥{ev.fee}</strong></p>
-            <button class="btn btn-clay signup-btn" data-event-id={ev.id} data-event-title-en={ev.title.en} data-event-title-zh={ev.title.zh} data-i18n="events.signup">Register</button>
+  <section class="section section--tight">
+    <div class="table-scroll">
+      <table class="htable">
+        <thead>
+          <tr>
+            <th data-en="Date" data-zh="日期">Date</th>
+            <th data-i18n="events.city">City</th>
+            <th data-en="Rencontre" data-zh="赛事">Rencontre</th>
+            <th data-i18n="events.level">Level</th>
+            <th data-i18n="events.fee">Fee</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {list.map(ev => (
+            <tr>
+              <td>
+                {ev.date}
+                <span class="t-sub">{ev.time}</span>
+              </td>
+              <td><span data-en={ev.city.en} data-zh={ev.city.zh}>{ev.city.en}</span></td>
+              <td>
+                <span class="t-title" data-en={ev.title.en} data-zh={ev.title.zh}>{ev.title.en}</span>
+                <span class="t-sub" data-en={ev.venue.en} data-zh={ev.venue.zh}>{ev.venue.en}</span>
+              </td>
+              <td><span class="ntrp-badge" data-en={ev.level.en} data-zh={ev.level.zh}>{ev.level.en}</span></td>
+              <td class="t-price">¥{ev.fee}</td>
+              <td>
+                <button
+                  class="btn btn--sm signup-btn"
+                  data-event-id={ev.id}
+                  data-event-title-en={ev.title.en}
+                  data-event-title-zh={ev.title.zh}
+                  data-i18n="events.signup">Register</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.75rem;color:var(--ink-faint);letter-spacing:0.12em;text-transform:uppercase;margin-top:1.5rem;"
+       data-en="Entries are held locally · Payment channel coming soon"
+       data-zh="报名信息暂存本机 · 支付通道即将开放">Entries are held locally · Payment channel coming soon</p>
+  </section>
+
+  <section class="section section--tight">
+    <div class="form-card" id="signupForm" style="display:none;">
+      <span class="kicker" data-en="Bulletin d'engagement" data-zh="报名表">Bulletin d'engagement</span>
+      <h3 data-i18n="events.form.title">Registration Form</h3>
+      <p class="form-lead" data-en="Fields marked with a rule line are required." data-zh="填写以下信息完成报名。">Fields marked with a rule line are required.</p>
+      <form id="regForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="regName" data-i18n="events.form.name">Full Name</label>
+            <input type="text" id="regName" required />
+          </div>
+          <div class="form-group">
+            <label for="regEmail" data-i18n="events.form.email">Email</label>
+            <input type="email" id="regEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="regLevel" data-i18n="events.form.level">Your NTRP Level</label>
+            <select id="regLevel">
+              <option value="1.0-2.5">NTRP 1.0-2.5</option>
+              <option value="2.5-3.0">NTRP 2.5-3.0</option>
+              <option value="3.0-3.5">NTRP 3.0-3.5</option>
+              <option value="3.5-4.0">NTRP 3.5-4.0</option>
+              <option value="4.0-4.5">NTRP 4.0-4.5</option>
+              <option value="4.5-5.0">NTRP 4.5-5.0</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="regEvent" data-i18n="events.form.event">Selected Event</label>
+            <input type="text" id="regEvent" readonly />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn" data-i18n="events.form.submit">Continue to Payment</button>
+            <button type="button" class="btn btn--outline" id="cancelForm" data-i18n="events.form.cancel">Cancel</button>
           </div>
         </div>
-      ))}
+      </form>
+    </div>
+
+    <div class="pay-stub" id="payPlaceholder" style="display:none;">
+      <div>
+        <p data-i18n="events.pay.placeholder">Payment channel coming soon</p>
+        <span class="stub-note" data-en="Stripe checkout is not enabled in this build." data-zh="本版本尚未启用 Stripe 支付。">Stripe checkout is not enabled in this build.</span>
+      </div>
+      <button class="btn" id="payBtn">Stripe · Pay (Nº 01)</button>
     </div>
   </section>
-
-  <div class="form-card" id="signupForm" style="display:none;">
-    <h3 data-i18n="events.form.title">Registration Form</h3>
-    <form id="regForm">
-      <div class="form-group">
-        <label data-i18n="events.form.name">Full Name</label>
-        <input type="text" id="regName" required />
-      </div>
-      <div class="form-group">
-        <label data-i18n="events.form.email">Email</label>
-        <input type="email" id="regEmail" required />
-      </div>
-      <div class="form-group">
-        <label data-i18n="events.form.level">Your NTRP Level</label>
-        <select id="regLevel">
-          <option value="1.0-2.5">NTRP 1.0-2.5</option>
-          <option value="2.5-3.0">NTRP 2.5-3.0</option>
-          <option value="3.0-3.5">NTRP 3.0-3.5</option>
-          <option value="3.5-4.0">NTRP 3.5-4.0</option>
-          <option value="4.0-4.5">NTRP 4.0-4.5</option>
-          <option value="4.5-5.0">NTRP 4.5-5.0</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label data-i18n="events.form.event">Selected Event</label>
-        <input type="text" id="regEvent" readonly />
-      </div>
-      <div style="display:flex;gap:0.8rem;margin-top:1.2rem;">
-        <button type="submit" class="btn btn-clay" data-i18n="events.form.submit">Continue to Payment</button>
-        <button type="button" class="btn btn-outline-green" id="cancelForm" data-i18n="events.form.cancel">Cancel</button>
-      </div>
-    </form>
-  </div>
-
-  <div id="payPlaceholder" style="display:none;text-align:center;padding:2rem;">
-    <p style="font-size:1.1rem;color:var(--court-green);font-weight:700;" data-i18n="events.pay.placeholder">Payment channel coming soon</p>
-    <button class="btn btn-clay" style="margin-top:1rem;" id="payBtn">Stripe Pay (placeholder)</button>
-  </div>
 </Layout>
 
 <script>
@@ -116,7 +155,7 @@ import events from '../data/events.json';
     }
 
     form.style.display = 'none';
-    payPlaceholder.style.display = 'block';
+    payPlaceholder.style.display = 'flex';
     payPlaceholder.scrollIntoView({ behavior: 'smooth' });
   });
 

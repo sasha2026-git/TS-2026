@@ -1,71 +1,85 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import evaluations from '../data/evaluations.json';
+const ranked = [...evaluations.evaluations].sort((a, b) => b.score - a.score);
+const strokes = [
+  { key: 'forehand', i18n: 'ai.stroke.forehand', en: 'Forehand', zh: '正手' },
+  { key: 'backhand', i18n: 'ai.stroke.backhand', en: 'Backhand', zh: '反手' },
+  { key: 'serve', i18n: 'ai.stroke.serve', en: 'Serve', zh: '发球' },
+  { key: 'volley', i18n: 'ai.stroke.volley', en: 'Volley', zh: '截击' },
+];
 ---
 <Layout title="AI Coach">
-  <section class="hero" style="padding:4rem 5vw 4.5rem;">
-    <h1 data-i18n="ai.title">AI Tennis Rating & Coach</h1>
-    <p data-i18n="ai.sub">Upload 10 seconds of each stroke — forehand, backhand, serve, and volley. Our AI rates your NTRP level (1.0–7.0) and gives personalized coach feedback.</p>
+  <section class="page-opener">
+    <span class="kicker" data-en="La Notation — AI Coaching" data-zh="评级 — AI 教练">La Notation — AI Coaching</span>
+    <h1 data-i18n="ai.title">AI Tennis Rating &amp; Coach</h1>
+    <p class="standfirst" data-i18n="ai.sub">Upload 10 seconds of each stroke — forehand, backhand, serve, and volley. Our AI rates your NTRP level (1.0–7.0) and gives personalized coach feedback.</p>
+    <div class="rule-double"></div>
   </section>
 
-  <section class="section">
-    <h2 style="margin-bottom:1rem;" data-i18n="ai.quota.title">Membership Quotas</h2>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;">
-      <span class="badge" style="font-size:0.9rem;padding:0.4rem 1rem;" data-i18n="ai.quota.free">Free member: 3 evaluations / month</span>
-      <span class="badge" style="font-size:0.9rem;padding:0.4rem 1rem;background:var(--court-green);color:var(--white);" data-i18n="ai.quota.pro">Pro member: 30 evaluations / month + priority queue</span>
-    </div>
-
-    <h2 style="margin-bottom:1.2rem;" data-i18n="ai.upload">Upload Videos</h2>
-    <div class="upload-row">
-      <div class="upload-zone" data-stroke="forehand">
-        <div class="label" data-i18n="ai.stroke.forehand">Forehand</div>
-        <div class="hint" data-i18n="ai.upload.hint">MP4 / MOV, ≤ 30 MB</div>
-        <div class="file-name"></div>
-        <div class="error"></div>
+  <section class="section section--tight">
+    <div class="quota-strip">
+      <div class="quota-cell">
+        <span class="q-label" data-i18n="pricing.free">Free</span>
+        <p class="q-value" data-i18n="ai.quota.free">Free member: 3 evaluations / month</p>
       </div>
-      <div class="upload-zone" data-stroke="backhand">
-        <div class="label" data-i18n="ai.stroke.backhand">Backhand</div>
-        <div class="hint" data-i18n="ai.upload.hint">MP4 / MOV, ≤ 30 MB</div>
-        <div class="file-name"></div>
-        <div class="error"></div>
-      </div>
-      <div class="upload-zone" data-stroke="serve">
-        <div class="label" data-i18n="ai.stroke.serve">Serve</div>
-        <div class="hint" data-i18n="ai.upload.hint">MP4 / MOV, ≤ 30 MB</div>
-        <div class="file-name"></div>
-        <div class="error"></div>
-      </div>
-      <div class="upload-zone" data-stroke="volley">
-        <div class="label" data-i18n="ai.stroke.volley">Volley</div>
-        <div class="hint" data-i18n="ai.upload.hint">MP4 / MOV, ≤ 30 MB</div>
-        <div class="file-name"></div>
-        <div class="error"></div>
+      <div class="quota-cell">
+        <span class="q-label" data-i18n="pricing.pro">Pro</span>
+        <p class="q-value" data-i18n="ai.quota.pro">Pro member: 30 evaluations / month + priority queue</p>
       </div>
     </div>
 
-    <div style="margin-top:2rem;">
-      <button class="btn btn-clay" id="rateBtn" data-i18n="ai.submit">Get My Rating</button>
+    <div class="section-head">
+      <h2 data-i18n="ai.upload">Upload 10s Video</h2>
+      <p class="section-sub" data-en="Four plates, four strokes. Click a plate to choose a file." data-zh="四个版面，四个动作。点击版面选择文件。">Four plates, four strokes. Click a plate to choose a file.</p>
     </div>
 
-    <div class="result-card" id="result">
-      <h3 data-i18n="ai.result.title">Your Result</h3>
-      <p style="margin-bottom:0.5rem;"><span data-i18n="ai.result.score">Overall Score</span>: <span class="score-big" id="rScore">—</span> / 100</p>
-      <p style="margin-bottom:0.5rem;display:flex;align-items:center;gap:0.6rem;">
-        <span data-i18n="ai.result.level">NTRP Level</span>:
-        <span class="ntrp-badge" id="rNtrp">—</span>
-      </p>
-      <p style="margin-bottom:0.8rem;"><span data-i18n="ai.result.coach">Coach Feedback</span>: <span id="rCoach">—</span></p>
-      <p class="badge" style="margin-bottom:0.8rem;" data-i18n="ai.result.eligible">You're eligible for level-matched events!</p>
-      <a class="btn btn-outline-green btn-sm" href="/events" data-i18n="ai.result.cta">Browse matching events →</a>
+    <div class="upload-grid">
+      {strokes.map((s, i) => (
+        <div class="upload-zone" data-stroke={s.key}>
+          <span class="u-index">{`Planche 0${i + 1}`}</span>
+          <div class="label" data-i18n={s.i18n} data-en={s.en} data-zh={s.zh}>{s.en}</div>
+          <div class="hint" data-i18n="ai.upload.hint">MP4 / MOV, ≤ 30 MB</div>
+          <div class="frame" data-en="Choose file" data-zh="选择文件">Choose file</div>
+          <div class="file-name"></div>
+          <div class="error"></div>
+        </div>
+      ))}
+    </div>
+
+    <div style="margin-top:clamp(1.75rem,4vw,2.5rem);">
+      <button class="btn" id="rateBtn" data-i18n="ai.submit">Get My Rating</button>
+    </div>
+
+    <div class="result-sheet" id="result">
+      <span class="kicker" data-en="Votre Résultat" data-zh="你的测评结果">Votre Résultat</span>
+      <div class="result-grid">
+        <div class="result-item">
+          <p class="r-label" data-i18n="ai.result.score">Overall Score</p>
+          <p class="r-value"><span id="rScore">—</span><span style="font-size:0.35em;color:var(--ink-faint);"> / 100</span></p>
+        </div>
+        <div class="result-item">
+          <p class="r-label" data-i18n="ai.result.level">NTRP Level</p>
+          <p class="r-value"><span class="ntrp-badge ntrp-badge--solid" id="rNtrp" style="font-size:0.45em;">—</span></p>
+        </div>
+        <div class="result-item">
+          <p class="r-label" data-i18n="ai.result.cta">Browse matching events →</p>
+          <p class="r-value" style="font-size:1.15rem;"><a class="link-more" href="/events" data-en="See the draw" data-zh="查看对应签表">See the draw</a></p>
+        </div>
+      </div>
+      <p class="result-note"><span data-i18n="ai.result.coach">Coach Feedback</span> — <span id="rCoach">—</span></p>
+      <p style="font-size:0.8125rem;color:var(--ink-faint);margin-top:1rem;"><span data-i18n="ai.result.eligible">You're eligible for level-matched events!</span></p>
     </div>
   </section>
 
-  <section class="section-green">
+  <section class="plate-green">
     <div class="inner">
-      <h2 style="text-align:center;margin-bottom:0.4rem;" data-i18n="ai.leaderboard">Community Leaderboard</h2>
-      <p class="section-sub" style="text-align:center;margin-bottom:2rem;" data-i18n="ai.leaderboard.note">Demo leaderboard — local data only</p>
-      <div style="overflow-x:auto;">
-        <table class="leaderboard" id="leaderboardTable">
+      <div class="section-head" style="border-bottom-color:rgba(255,255,255,0.4);">
+        <h2 data-i18n="ai.leaderboard">Community Leaderboard</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.7);text-align:right;" data-i18n="ai.leaderboard.note">Demo leaderboard — local data only</p>
+      </div>
+      <div class="table-scroll">
+        <table class="htable leaderboard">
           <thead>
             <tr>
               <th data-i18n="ai.leaderboard.rank">#</th>
@@ -77,49 +91,65 @@ import evaluations from '../data/evaluations.json';
             </tr>
           </thead>
           <tbody>
-            {evaluations.evaluations
-              .sort((a, b) => b.score - a.score)
-              .map((e, i) => (
-                <tr class={i < 3 ? `rank-${i + 1}` : ''}>
-                  <td>{i + 1}</td>
-                  <td>{e.player}</td>
-                  <td>{e.score}</td>
-                  <td><span class="ntrp-badge" style="width:36px;height:36px;font-size:0.72rem;">{e.ntrp}</span></td>
-                  <td>{e.date}</td>
-                  <td data-en={e.highlight.en} data-zh={e.highlight.zh} style="max-width:240px;">{e.highlight.en}</td>
-                </tr>
-              ))}
+            {ranked.map((e, i) => (
+              <tr class={i < 3 ? 'rank-top' : ''}>
+                <td>{`0${i + 1}`.slice(-2)}</td>
+                <td><span class="t-title">{e.player}</span></td>
+                <td>{e.score}</td>
+                <td><span class="ntrp-badge">{e.ntrp}</span></td>
+                <td>{e.date}</td>
+                <td style="max-width:32ch;" data-en={e.highlight.en} data-zh={e.highlight.zh}>{e.highlight.en}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <h2 style="text-align:center;" data-i18n="pricing.title">Membership Plans</h2>
-    <p class="section-sub" style="text-align:center;" data-i18n="pricing.sub">Choose the plan that fits your game.</p>
-    <div class="pricing">
-      <div class="plan">
-        <h3 data-i18n="pricing.free">Free</h3>
-        <p class="price-tag" data-i18n="pricing.price.free">¥0</p>
-        <p class="price-period" data-i18n="pricing.period.free">forever</p>
-        <ul>
-          <li data-i18n="pricing.free.f1">3 AI evaluations / month</li>
-          <li data-i18n="pricing.free.f2">Event registration</li>
-        </ul>
-        <a class="btn btn-outline-green" href="#" data-i18n="pricing.free.cta">Sign Up Free</a>
-      </div>
-      <div class="plan pro" data-popular="MOST POPULAR">
-        <h3 data-i18n="pricing.pro">Pro</h3>
-        <p class="price-tag" data-i18n="pricing.price.pro">¥68</p>
-        <p class="price-period" data-i18n="pricing.period.pro">/ month</p>
-        <ul>
-          <li data-i18n="pricing.pro.f1">30 AI evaluations / month</li>
-          <li data-i18n="pricing.pro.f2">Priority evaluation queue</li>
-          <li data-i18n="pricing.pro.f3">Personalized training plan</li>
-        </ul>
-        <button class="btn btn-clay subscribe-btn" data-i18n="pricing.pro.cta">Subscribe with Stripe</button>
-      </div>
+  <section class="section" id="pricing">
+    <div class="section-head">
+      <h2 data-i18n="pricing.title">Membership Plans</h2>
+      <p class="section-sub" data-i18n="pricing.sub">Choose the plan that fits your game.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="plan-table">
+        <thead>
+          <tr>
+            <th style="width:46%;"><span class="feat" data-en="Formule" data-zh="方案对比">Formule</span></th>
+            <th>
+              <span data-i18n="pricing.free">Free</span>
+              <span class="price-line"><span data-i18n="pricing.price.free">¥0</span> · <span data-i18n="pricing.period.free">forever</span></span>
+            </th>
+            <th>
+              <span data-i18n="pricing.pro">Pro</span>
+              <span class="price-line"><span data-i18n="pricing.price.pro">¥68</span><span data-i18n="pricing.period.pro">/ month</span></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-en="AI evaluations" data-zh="AI 测评额度">AI evaluations</td>
+            <td class="yes" data-en="3 / month" data-zh="每月 3 次">3 / month</td>
+            <td class="yes" data-en="30 / month" data-zh="每月 30 次">30 / month</td>
+          </tr>
+          <tr>
+            <td data-en="Priority evaluation queue" data-zh="优先评测排队">Priority evaluation queue</td>
+            <td class="no">—</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td data-en="Personalized training plan" data-zh="专属训练计划">Personalized training plan</td>
+            <td class="no">—</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><a class="btn btn--outline btn--sm" href="#" data-i18n="pricing.free.cta">Sign Up Free</a></td>
+            <td><button class="btn btn--sm subscribe-btn" data-i18n="pricing.pro.cta">Subscribe with Stripe</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 </Layout>

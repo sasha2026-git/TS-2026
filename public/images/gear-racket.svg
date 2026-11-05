@@ -1,1 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450"><rect width="800" height="450" fill="#C8542B"/><rect y="300" width="800" height="150" fill="#1E4D3B"/><text x="400" y="240" font-size="48" fill="#FAF6EF" text-anchor="middle" font-family="Georgia">Beginner Rackets 2026</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" aria-label="Racket">
+  <rect width="900" height="1200" fill="#F1EADF"/>
+  
+    <rect x="0" y="0" width="900" height="760" fill="#B79A7E"/>
+    <g stroke="#F5F1E8" stroke-width="2" fill="none" opacity="0.75">
+      <rect x="150" y="150" width="600" height="470"/>
+      <line x1="150" y1="385" x2="750" y2="385"/>
+      <line x1="450" y1="150" x2="450" y2="620"/>
+      <line x1="255" y1="150" x2="255" y2="620" opacity="0.5"/>
+      <line x1="645" y1="150" x2="645" y2="620" opacity="0.5"/>
+    </g>
+    <circle cx="450" cy="385" r="13" fill="#F5F1E8" opacity="0.85"/>
+    
+  <rect x="0" y="760" width="900" height="440" fill="#E3D8C6"/>
+  <g stroke="#22201C" stroke-width="1" fill="none" opacity="0.55">
+    <rect x="40" y="40" width="820" height="1120"/>
+  </g>
+  <g font-family="Didot, 'Playfair Display', Georgia, serif" fill="#22201C">
+    <text x="88" y="878" font-size="13" letter-spacing="7" opacity="0.65">Nº 05</text>
+    <text x="88" y="968" font-size="66" letter-spacing="2">Racket</text>
+    <line x1="88" y1="1000" x2="812" y2="1000" stroke="#22201C" stroke-width="1" opacity="0.5"/>
+    <text x="88" y="1046" font-size="21" font-style="italic" letter-spacing="1" opacity="0.75">Test · Têtes de débutant 2026</text>
+    <text x="88" y="1112" font-size="13" letter-spacing="6" opacity="0.5">TENNISMATCH — PLANCHE</text>
+  </g>
+</svg>

@@ -5,33 +5,65 @@ export function getStaticPaths() {
   return data.posts.map(p => ({ params: { slug: p.slug }, props: { post: p } }));
 }
 const { post } = Astro.props;
+const paras = (body) => String(body).split(/\n{2,}/).map(s => s.trim()).filter(Boolean);
+const hotels = post.hotels || [];
+const num = (i) => `0${i + 1}`;
 ---
 <Layout title={post.title.en}>
   <article class="article">
     <a href="/vacation" class="back-link" data-i18n="blog.back">← All posts</a>
+    <span class="kicker kicker--clay" data-en="Voyages — Issue No.01" data-zh="旅行 — 第 01 期">Voyages — Issue No.01</span>
     <h1 data-en={post.title.en} data-zh={post.title.zh}>{post.title.en}</h1>
-    <p class="article-meta">📅 {post.date}</p>
-    <img src={post.image} alt={post.title.en} class="cover-img" />
-    <div class="prose" data-en={post.body.en} data-zh={post.body.zh}>{post.body.en}</div>
-
-    {post.hotels && post.hotels.length > 0 && (
-      <div class="recommendations">
-        <h3 data-i18n="blog.hotels">Recommended Hotels</h3>
-        {post.hotels.map((h: any) => (
-          <div class="rec-card">
-            <div class="rec-info">
-              <h4>{h.name} {'⭐'.repeat(h.stars)}</h4>
-              <p data-en={h.note.en} data-zh={h.note.zh}>{h.note.en}</p>
-            </div>
-            <div style="display:flex;align-items:center;gap:0.8rem;">
-              <span class="rec-price">{h.priceFrom}</span>
-              <a class="btn btn-clay btn-sm" href={h.link} data-i18n="blog.affiliate">Book</a>
-            </div>
-          </div>
-        ))}
-      </div>
-    )}
-
-    <p class="affiliate-note" data-en={post.affiliateNote.en} data-zh={post.affiliateNote.zh}>{post.affiliateNote.en}</p>
+    <p class="standfirst" data-en={post.excerpt.en} data-zh={post.excerpt.zh}>{post.excerpt.en}</p>
+    <div class="byline">
+      <span data-en="TennisMatch Équipe" data-zh="TennisMatch 编辑部">TennisMatch Équipe</span>
+      <span class="sep">·</span>
+      <span>{post.date}</span>
+      <span class="sep">·</span>
+      <span data-en="Guide · Hébergement" data-zh="攻略 · 住宿">Guide · Hébergement</span>
+    </div>
   </article>
+
+  <figure class="figure">
+    <img src={post.image} alt={post.title.en} />
+    <figcaption data-en={post.excerpt.en} data-zh={post.excerpt.zh}>{post.excerpt.en}</figcaption>
+  </figure>
+
+  <div class="article">
+    <div class="prose" data-lang-block="en">
+      {paras(post.body.en).map(p => <p>{p}</p>)}
+    </div>
+    <div class="prose prose--cn" data-lang-block="zh">
+      {paras(post.body.zh).map(p => <p>{p}</p>)}
+    </div>
+  </div>
+
+  {hotels.length > 0 && (
+    <section class="selection">
+      <div class="selection-head">
+        <h3 data-en="Sélection — Recommended Hotels" data-zh="编辑精选 — 推荐酒店">Sélection — Recommended Hotels</h3>
+        <span class="kicker" style="margin:0;" data-en={`${hotels.length} adresses`} data-zh={`共 ${hotels.length} 家`}>
+          {hotels.length} adresses
+        </span>
+      </div>
+      <ol class="selection-list">
+        {hotels.map((h, i) => (
+          <li class="selection-item">
+            <span class="s-num">{num(i)}</span>
+            <div>
+              <span class="s-name">{h.name}</span>
+              <span class="affiliate-flag" data-en="Affiliate" data-zh="联盟链接">Affiliate</span>
+            </div>
+            <span class="s-price">{h.priceFrom} · {'★'.repeat(h.stars)}</span>
+            <p class="s-note" data-en={h.note.en} data-zh={h.note.zh}>{h.note.en}</p>
+            <span class="s-cta"><a class="link-more" href={h.link} data-i18n="blog.affiliate">Book / Buy</a></span>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
+  <div class="article">
+    <p class="affiliate-note" data-en={post.affiliateNote.en} data-zh={post.affiliateNote.zh}>{post.affiliateNote.en}</p>
+  </div>
 </Layout>
