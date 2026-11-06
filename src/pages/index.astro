@@ -1,241 +1,452 @@
----
-import Layout from '../layouts/Layout.astro';
-import events from '../data/events.json';
-import vacation from '../data/blog-vacation.json';
-import gear from '../data/blog-gear.json';
+<!DOCTYPE html>
+<html is:inline lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tennis Partner 网球搭子 — 独特设计的网球社交</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
+<style is:inline>
+:root{
+  --bg:#F5F1EA;
+  --card:#FFFFFF;
+  --ink:#17372C;
+  --body:#5C6660;
+  --accent:#C4622D;
+  --accent-soft:#D97A45;
+  --accent-pale:#F3E3D6;
+  --dark:#0F241D;
+  --line:#E4DCCE;
+  --serif:"Playfair Display","Noto Serif SC",serif;
+  --sans:"Inter","PingFang SC","Microsoft YaHei",sans-serif;
+  --wrap:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+h2,h3{font-family:var(--serif);font-weight:600;color:var(--ink);line-height:1.2}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:15px 28px;border-radius:4px;transition:background .25s,transform .25s}
+.btn:hover{background:#A94F20;transform:translateY(-2px)}
+.btn .arw{font-size:15px;line-height:1}
+.link-more{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.link-more:hover{color:#A94F20}
 
-const calendar = events.events.slice(0, 6);
-const withHref = (p, section) => ({ ...p, href: `/${section}/${p.slug}` });
-const feature = withHref(vacation.posts[0], 'vacation');
-const journalRest = [
-  withHref(vacation.posts[1], 'vacation'),
-  withHref(vacation.posts[2], 'vacation'),
-  withHref(gear.posts[0], 'gear'),
-  withHref(gear.posts[1], 'gear'),
-].filter(p => p.slug);
----
-<Layout title="Home">
-  <section class="cover" id="contents">
-    <p class="cover-kicker" data-en="Édition Tennis — Roland-Garros" data-zh="网球特辑 — 罗兰加洛斯">Édition Tennis — Roland-Garros</p>
-    <h1><span data-i18n="hero.title">Play Tennis. Get Rated. Travel the World.</span></h1>
-    <p class="cover-sub" data-i18n="hero.sub">Sign up for clay-court events, get AI-rated by video, and discover your next tennis destination.</p>
-    <div class="cover-actions">
-      <a class="btn" href="/events" data-i18n="hero.cta">Browse Events</a>
-      <a class="btn btn--outline" href="/ai-coach" data-i18n="hero.cta2">Get AI Rated</a>
+/* ---------- NAV ---------- */
+header{position:absolute;top:0;left:0;right:0;z-index:20}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0}
+.brand{display:flex;align-items:center;gap:12px;color:#fff}
+.brand .ball{width:38px;height:38px;flex:none}
+.brand-name{font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:.06em;line-height:1.1}
+.brand-sub{font-size:11px;letter-spacing:.34em;opacity:.85;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{color:rgba(255,255,255,.9);font-size:14px;font-weight:500;letter-spacing:.04em;padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff;border-bottom-color:var(--accent-soft)}
+.nav-tools{display:flex;align-items:center;gap:16px}
+.lang-btn{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.45);color:#fff;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.08em;padding:8px 16px;border-radius:100px;cursor:pointer;backdrop-filter:blur(6px);transition:background .2s}
+.lang-btn:hover{background:rgba(255,255,255,.28)}
+.menu-ico{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,22,8,.62) 0%,rgba(60,22,8,.28) 55%,rgba(60,22,8,.05) 100%);z-index:-1}
+.hero-inner{padding:140px 0 110px}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(44px,6.2vw,84px);line-height:1.08;letter-spacing:.01em;max-width:14em}
+.hero .t-sub{margin-top:22px;font-size:clamp(15px,1.5vw,19px);font-weight:600;letter-spacing:.42em;text-transform:uppercase;color:#F3C9A6}
+.hero p{margin-top:26px;max-width:430px;font-size:16px;line-height:1.85;color:rgba(255,255,255,.88)}
+.hero .btn{margin-top:40px}
+
+/* ---------- STORY ---------- */
+.story{padding:130px 0 120px}
+.story-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:center}
+.story h2{font-size:clamp(32px,3.4vw,46px);margin:18px 0 26px}
+.story p{color:var(--body);font-size:16px;line-height:1.95;margin-bottom:18px}
+.story .link-more{margin-top:14px}
+.story-visual{display:flex;align-items:center;justify-content:center;gap:34px;border-left:1px solid var(--line);padding-left:60px}
+.x-mark{font-size:26px;font-weight:300;color:var(--body)}
+.logo-rG{position:relative;width:150px;height:150px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;box-shadow:0 18px 40px rgba(23,55,44,.22)}
+.logo-rG .ring{position:absolute;width:134px;height:134px;border:1px solid rgba(255,255,255,.4);border-radius:50%}
+.logo-rG-inner{position:relative;text-align:center}
+.logo-rG .c{font-family:var(--serif);font-size:44px;font-weight:700;color:#E8B87F;line-height:1}
+.logo-rG .w{font-size:10px;letter-spacing:.5em;margin-top:8px;text-transform:uppercase}
+.logo-tp{display:flex;align-items:center;gap:16px}
+.logo-tp .ball{width:74px;height:74px}
+.logo-tp-txt .n{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1.15;color:var(--ink)}
+.logo-tp-txt .s{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-top:6px;font-weight:600}
+
+/* ---------- GAMES ---------- */
+.games{padding:20px 0 130px}
+.games-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px}
+.games-head h2{font-size:clamp(30px,3vw,42px)}
+.games-head .bar{width:56px;height:4px;background:var(--accent);border-radius:2px;margin-top:14px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.card{background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 6px 24px rgba(23,55,44,.06);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(23,55,44,.12)}
+.card-img{aspect-ratio:16/10;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .card-img img{transform:scale(1.05)}
+.card-body{padding:24px 24px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card-date{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--body)}
+.card-title{font-family:var(--serif);font-size:21px;font-weight:600}
+.card-meta{font-size:13.5px;color:var(--body);display:flex;align-items:center;gap:7px}
+.card-meta svg{width:14px;height:14px;flex:none;fill:var(--accent)}
+.card-people{font-size:13.5px;color:var(--ink);font-weight:500;display:flex;align-items:center;gap:7px;margin-bottom:10px}
+.card-people svg{width:15px;height:15px;flex:none;fill:var(--ink)}
+.card-people .lack{color:var(--accent);font-weight:600}
+.card .btn{align-self:flex-start;padding:11px 22px;font-size:12px;margin-top:auto}
+
+/* ---------- AI COACH ---------- */
+.ai{background:var(--dark);color:#fff;padding:110px 0;position:relative;overflow:hidden}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.ai .eyebrow{color:#E8A87C}
+.ai h2{color:#fff;font-size:clamp(32px,3.6vw,50px);margin:18px 0 26px}
+.ai p{color:rgba(255,255,255,.75);max-width:440px;line-height:1.9;margin-bottom:38px}
+.ai-photo{position:absolute;right:38%;top:0;bottom:0;width:34%;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.ai-photo img{height:100%;width:100%;object-fit:cover;object-position:center 30%;mask-image:linear-gradient(90deg,transparent 0%,#000 45%),linear-gradient(#000 82%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%),linear-gradient(#000 82%,transparent);mask-composite:intersect;-webkit-mask-composite:source-in}
+.score-card{position:relative;z-index:2;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:34px 36px;backdrop-filter:blur(8px);justify-self:end;width:min(430px,100%)}
+.score-card h4{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:26px}
+.score-row{margin-bottom:20px}
+.score-row .lbl{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}
+.score-row .lbl b{font-weight:500}
+.score-row .pct{color:#E8A87C;font-weight:600}
+.bar-bg{height:5px;background:rgba(255,255,255,.14);border-radius:3px;overflow:hidden}
+.bar-fg{height:100%;background:linear-gradient(90deg,#D97A45,#E8A87C);border-radius:3px}
+.score-tip{margin-top:26px;background:rgba(232,168,124,.12);border:1px solid rgba(232,168,124,.3);border-radius:10px;padding:16px 18px;font-size:14px;line-height:1.7;color:rgba(255,255,255,.9);display:flex;gap:12px}
+.score-tip .ico{flex:none;font-size:18px}
+
+/* ---------- BLOG ---------- */
+.blog{padding:130px 0}
+.blog-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:70px;align-items:start}
+.blog h2{font-size:clamp(32px,3.4vw,46px);margin:18px 0 24px}
+.blog-side p{color:var(--body);line-height:1.9;margin-bottom:26px}
+.blog-cards{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.post{background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 6px 24px rgba(23,55,44,.06);transition:transform .3s,box-shadow .3s}
+.post:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(23,55,44,.12)}
+.post-img{aspect-ratio:4/3;overflow:hidden}
+.post-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.post:hover .post-img img{transform:scale(1.05)}
+.post-body{padding:22px 24px 26px}
+.post-body .card-date{margin-bottom:8px}
+.post-body h3{font-size:19px;margin-bottom:8px}
+.post-body p{font-size:14px;color:var(--body);line-height:1.7}
+
+/* ---------- NEWSLETTER ---------- */
+.news{background:var(--accent);color:#fff;padding:84px 0}
+.news-grid{display:grid;grid-template-columns:1.2fr 1.2fr .9fr;gap:60px;align-items:center}
+.news .eyebrow{color:#FADFC9}
+.news h2{color:#fff;font-size:clamp(28px,2.8vw,38px);margin:14px 0 14px}
+.news p{color:rgba(255,255,255,.85);font-size:15px}
+.news-form{display:flex;gap:0;max-width:460px;margin-left:auto}
+.news-form input{flex:1;border:none;outline:none;padding:16px 20px;font-size:15px;font-family:var(--sans);border-radius:6px 0 0 6px;color:var(--ink)}
+.news-form button{border:none;background:var(--dark);color:#fff;width:56px;border-radius:0 6px 6px 0;font-size:18px;cursor:pointer;transition:background .2s}
+.news-form button:hover{background:#081510}
+.news-brand{border-left:1px solid rgba(255,255,255,.35);padding-left:44px;display:flex;align-items:center;gap:14px}
+.news-brand .ball{width:52px;height:52px;flex:none}
+.news-brand .n{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.2}
+.news-brand .s{font-size:10px;letter-spacing:.28em;opacity:.85;margin-top:4px;text-transform:uppercase}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--dark);color:rgba(255,255,255,.75);padding:34px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-links{display:flex;gap:30px;flex-wrap:wrap}
+.foot-links a{font-size:14px;color:rgba(255,255,255,.75)}
+.foot-links a:hover{color:#fff}
+.foot-right{display:flex;align-items:center;gap:22px;font-size:13px;letter-spacing:.06em}
+.foot-right .ball{width:26px;height:26px}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on,html.no-io .reveal{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1024px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .story-grid{grid-template-columns:1fr;gap:56px}
+  .story-visual{border-left:none;padding-left:0}
+  .ai-grid{grid-template-columns:1fr}
+  .ai-photo{display:none}
+  .score-card{justify-self:start}
+  .blog-grid{grid-template-columns:1fr;gap:48px}
+  .news-grid{grid-template-columns:1fr;gap:36px}
+  .news-form{margin-left:0}
+  .news-brand{border-left:none;padding-left:0}
+}
+@media (max-width:720px){
+  .wrap{padding:0 20px}
+  .nav-links{display:none}
+  .menu-ico{display:block}
+  .hero-inner{padding:150px 0 90px}
+  .story,.games,.blog{padding-top:84px;padding-bottom:84px}
+  .cards{grid-template-columns:1fr}
+  .games-head{flex-direction:column;align-items:flex-start;gap:18px}
+  .story-visual{flex-direction:column;gap:24px}
+  .blog-cards{grid-template-columns:1fr}
+  .ai{padding:80px 0}
+  .foot{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+<g id="tp-ball"><circle cx="24" cy="24" r="23" fill="#D97A45"/><path d="M6 10c8 6 8 22 0 28M42 10c-8 6-8 22 0 28" stroke="#F5F1EA" stroke-width="2.6" fill="none" stroke-linecap="round"/></g>
+</defs></svg>
+
+<!-- ================= NAV ================= -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg class="ball" viewBox="0 0 48 48"><use href="#tp-ball"/></svg>
+      <span>
+        <span class="brand-name" data-zh="网球搭子" data-en="TENNIS PARTNER">网球搭子</span><br>
+        <span class="brand-sub" data-zh="一起打球 走得更远" data-en="PLAY TOGETHER GO FURTHER">一起打球 走得更远</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="#top" class="active" data-zh="首页" data-en="Home">首页</a>
+      <a href="#story" data-zh="我们的故事" data-en="Our Story">我们的故事</a>
+      <a href="#games" data-zh="近期球局" data-en="Games">近期球局</a>
+      <a href="#coach" data-zh="AI 教练" data-en="AI Coach">AI 教练</a>
+      <a href="#blog" data-zh="博客" data-en="Blog">博客</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="lang-btn" id="langBtn" aria-label="Switch language">EN <span>·</span> 中文</button>
+      <button class="menu-ico" aria-label="menu">≡</button>
     </div>
-    <div class="cover-meta">
-      <span data-en="6 Events · Nov–Dec 2026" data-zh="6 场活动 · 2026 年 11–12 月">6 Events · Nov–Dec 2026</span>
-      <span data-en="NTRP 1.0 – 5.0" data-zh="NTRP 1.0 – 5.0">NTRP 1.0 – 5.0</span>
-      <span data-en="4 Destinations · 4 Equipment Tests" data-zh="4 个目的地 · 4 篇装备实测">4 Destinations · 4 Equipment Tests</span>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <img class="hero-bg" src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=1920&q=80" alt="法网红土球场">
+  <div class="wrap hero-inner">
+    <h1 data-zh="独特设计的<br>网球社交" data-en="TENNIS WITH A<br>UNIQUE DESIGN">独特设计的<br>网球社交</h1>
+    <div class="t-sub" data-zh="红土 · 搭子 · 生活方式" data-en="CLAY · PARTNER · LIFESTYLE">红土 · 搭子 · 生活方式</div>
+    <p data-zh="热爱、人群与红土。一段场上场下、独一无二的旅程。" data-en="The passion, the people, the clay. A unique journey, on and off the court.">热爱、人群与红土。一段场上场下、独一无二的旅程。</p>
+    <a class="btn" href="#games"><span data-zh="寻找我的球局" data-en="FIND MY NEXT GAME">寻找我的球局</span><span class="arw">→</span></a>
+  </div>
+</section>
+
+<!-- ================= OUR STORY ================= -->
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div class="reveal">
+      <div class="eyebrow" data-zh="我们的故事" data-en="OUR STORY">我们的故事</div>
+      <h2 data-zh="从巴黎红土<br>到一个全球社区" data-en="From Paris Clay<br>to a Global Community">从巴黎红土<br>到一个全球社区</h2>
+      <p data-zh="网球搭子不只是一个约球平台——它是一种心态，一个属于所有网球爱好者的聚集地。" data-en="Tennis Partner is more than an app to find games — it's a mindset, and a meeting place for tennis lovers around the world.">网球搭子不只是一个约球平台——它是一种心态，一个属于所有网球爱好者的聚集地。</p>
+      <p data-zh="我们把法网红土的传统与浪漫，带到每一位球员的周末、每一场说走就走的球局里。" data-en="Through the spirit of Roland Garros, we bring the romance of clay closer to every player, every weekend, and every dreamer.">我们把法网红土的传统与浪漫，带到每一位球员的周末、每一场说走就走的球局里。</p>
+      <a class="link-more" href="#games"><span data-zh="了解更多" data-en="LEARN MORE">了解更多</span> →</a>
     </div>
-  </section>
-
-  <section class="contents">
-    <div class="section-head">
-      <h2 data-en="Sommaire" data-zh="本期目录">Sommaire</h2>
-      <p class="section-sub" data-en="Three sections, one court. The journal of the clay-season." data-zh="三个板块，一片球场。红土季刊。">Three sections, one court. The journal of the clay-season.</p>
+    <div class="story-visual reveal">
+      <div class="logo-rG" title="Roland Garros × Tennis Partner">
+        <span class="ring"></span>
+        <div class="logo-rG-inner">
+          <div class="c">RG</div>
+          <div class="w" data-zh="巴黎 · 红土" data-en="PARIS · CLAY">巴黎 · 红土</div>
+        </div>
+      </div>
+      <span class="x-mark">×</span>
+      <div class="logo-tp">
+        <svg class="ball" viewBox="0 0 48 48"><use href="#tp-ball"/></svg>
+        <div class="logo-tp-txt">
+          <div class="n">TENNIS<br>PARTNER</div>
+          <div class="s" data-zh="网球搭子" data-en="网球搭子 · TP">网球搭子</div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <ol class="contents-list">
-      <li class="contents-item">
-        <span class="c-num">01</span>
-        <div>
-          <h3><a href="/events" data-i18n="home.sections.events.title">Upcoming Events</a></h3>
-          <p class="c-desc" data-i18n="home.sections.events.sub">Level-matched tournaments and social play across China's best clay courts.</p>
-          <p class="c-foot">
-            <a class="link-more" href="/events" data-i18n="home.sections.events.cta">All events →</a>
-          </p>
-        </div>
-        <div class="c-side">
-          <span class="kicker kicker--clay" data-en="Calendrier" data-zh="赛程">Calendrier</span>
-          <p style="font-family:var(--serif);font-size:1.15rem;margin:0;" data-en={calendar[0].title.en} data-zh={calendar[0].title.zh}>{calendar[0].title.en}</p>
-          <p style="font-size:0.8125rem;color:var(--ink-faint);margin:0.35rem 0 0;">{calendar[0].date} · <span data-en={calendar[0].city.en} data-zh={calendar[0].city.zh}>{calendar[0].city.en}</span></p>
-        </div>
-      </li>
-
-      <li class="contents-item">
-        <span class="c-num">02</span>
-        <div>
-          <h3><a href="/ai-coach" data-i18n="home.sections.ai.title">AI Tennis Rating</a></h3>
-          <p class="c-desc" data-i18n="home.sections.ai.sub">Upload 10 seconds per stroke. Get your NTRP rating and personalized coach feedback in minutes.</p>
-          <p class="c-foot">
-            <a class="link-more" href="/ai-coach" data-i18n="home.sections.ai.cta">Try AI Coach →</a>
-          </p>
-        </div>
-        <div class="c-side">
-          <span class="kicker kicker--clay" data-en="Notation" data-zh="评级">Notation</span>
-          <p style="font-family:var(--serif);font-size:1.15rem;margin:0;" data-en="Four strokes, one NTRP level." data-zh="四个动作，一个 NTRP 等级。">Four strokes, one NTRP level.</p>
-          <p style="font-size:0.8125rem;color:var(--ink-faint);margin:0.35rem 0 0;" data-en="Forehand · Backhand · Serve · Volley" data-zh="正手 · 反手 · 发球 · 截击">Forehand · Backhand · Serve · Volley</p>
-        </div>
-      </li>
-
-      <li class="contents-item">
-        <span class="c-num">03</span>
-        <div>
-          <h3><a href="/vacation" data-en="Voyages &amp; Équipement" data-zh="旅行 &amp; 装备">Voyages &amp; Équipement</a></h3>
-          <p class="c-desc" data-i18n="home.sections.blog.sub">Destination guides, hotel picks, and equipment reviews — written by players, for players.</p>
-          <p class="c-foot">
-            <a class="link-more" href="/vacation" data-i18n="home.sections.blog.cta.vacation">Vacation guides →</a>
-            <a class="link-more" href="/gear" data-i18n="home.sections.blog.cta.gear">Gear reviews →</a>
-          </p>
-        </div>
-        <div class="c-side">
-          <span class="kicker kicker--clay" data-en="Journal" data-zh="专栏">Journal</span>
-          <p style="font-family:var(--serif);font-size:1.15rem;margin:0;" data-en="8 dispatches, incl. Roland-Garros." data-zh="8 篇稿件，含罗兰加洛斯。">8 dispatches, incl. Roland-Garros.</p>
-          <p style="font-size:0.8125rem;color:var(--ink-faint);margin:0.35rem 0 0;" data-en="Paris · Mallorca · Bali · Shanghai" data-zh="巴黎 · 马略卡 · 巴厘岛 · 上海">Paris · Mallorca · Bali · Shanghai</p>
-        </div>
-      </li>
-    </ol>
-  </section>
-
-  <section class="contents">
-    <div class="section-head">
-      <h2 data-en="Le Calendrier" data-zh="近期赛程">Le Calendrier</h2>
-      <p class="section-sub" data-i18n="home.sections.events.sub">Level-matched tournaments and social play across China's best clay courts.</p>
-    </div>
-    <div class="table-scroll">
-      <table class="htable">
-        <thead>
-          <tr>
-            <th data-i18n="events.date">Date</th>
-            <th data-i18n="events.city">City</th>
-            <th data-en="Rencontre" data-zh="赛事">Rencontre</th>
-            <th data-i18n="events.level">Level</th>
-            <th data-i18n="events.fee">Fee</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {calendar.map(ev => (
-            <tr>
-              <td>{ev.date}</td>
-              <td><span data-en={ev.city.en} data-zh={ev.city.zh}>{ev.city.en}</span></td>
-              <td>
-                <span class="t-title" data-en={ev.title.en} data-zh={ev.title.zh}>{ev.title.en}</span>
-                <span class="t-sub" data-en={ev.venue.en} data-zh={ev.venue.zh}>{ev.venue.en}</span>
-              </td>
-              <td><span class="ntrp-badge" data-en={ev.level.en} data-zh={ev.level.zh}>{ev.level.en}</span></td>
-              <td class="t-price">¥{ev.fee}</td>
-              <td><a class="btn btn--sm" href="/events" data-i18n="events.signup">Register</a></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="contents">
-    <div class="section-head">
-      <h2 data-en="Dans ce numéro" data-zh="本期文章">Dans ce numéro</h2>
-      <p class="section-sub" data-i18n="home.sections.blog.sub">Destination guides, hotel picks, and equipment reviews — written by players, for players.</p>
-    </div>
-
-    <article class="feature">
-      <a class="thumb" href={feature.href}>
-        <img src={feature.image} alt={feature.title.en} />
-      </a>
+<!-- ================= UPCOMING GAMES ================= -->
+<section class="games" id="games">
+  <div class="wrap">
+    <div class="games-head reveal">
       <div>
-        <span class="kicker kicker--clay" data-en="Voyages — Portfolio" data-zh="旅行 — 大图">Voyages — Portfolio</span>
-        <h3 class="f-title" data-en={feature.title.en} data-zh={feature.title.zh}>{feature.title.en}</h3>
-        <p class="f-excerpt" data-en={feature.excerpt.en} data-zh={feature.excerpt.zh}>{feature.excerpt.en}</p>
-        <a class="link-more" href={feature.href} data-en="Lire plus →" data-zh="阅读全文 →">Lire plus →</a>
+        <h2 data-zh="近期球局" data-en="Upcoming Games">近期球局</h2>
+        <div class="bar"></div>
       </div>
-    </article>
-
-    <div class="post-grid">
-      {journalRest.map((p, i) => (
-        <article class="post-card">
-          <a class="thumb" href={p.href}>
-            <img src={p.image} alt={p.title.en} />
-          </a>
-          <span class="p-num">{`0${i + 2}`}</span>
-          <h3><a href={p.href} data-en={p.title.en} data-zh={p.title.zh}>{p.title.en}</a></h3>
-          <p class="p-excerpt" data-en={p.excerpt.en} data-zh={p.excerpt.zh}>{p.excerpt.en}</p>
-          <a class="link-more" href={p.href} data-en="Lire plus →" data-zh="阅读全文 →">Lire plus →</a>
-        </article>
-      ))}
+      <a class="link-more" href="#games"><span data-zh="查看全部球局" data-en="VIEW ALL EVENTS">查看全部球局</span> →</a>
     </div>
-  </section>
+    <div class="cards">
 
-  <section class="contents" id="pricing">
-    <div class="section-head">
-      <h2 data-i18n="pricing.title">Membership Plans</h2>
-      <p class="section-sub" data-i18n="pricing.sub">Choose the plan that fits your game.</p>
-    </div>
-    <div class="table-scroll">
-      <table class="plan-table">
-        <thead>
-          <tr>
-            <th style="width:46%;"><span class="feat" data-en="Formule" data-zh="方案对比">Formule</span></th>
-            <th>
-              <span data-i18n="pricing.free">Free</span>
-              <span class="price-line"><span data-i18n="pricing.price.free">¥0</span> · <span data-i18n="pricing.period.free">forever</span></span>
-            </th>
-            <th>
-              <span data-i18n="pricing.pro">Pro</span>
-              <span class="price-line"><span data-i18n="pricing.price.pro">¥68</span><span data-i18n="pricing.period.pro">/ month</span></span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-en="AI evaluations" data-zh="AI 测评额度">AI evaluations</td>
-            <td class="yes" data-en="3 / month" data-zh="每月 3 次">3 / month</td>
-            <td class="yes" data-en="30 / month" data-zh="每月 30 次">30 / month</td>
-          </tr>
-          <tr>
-            <td data-en="Event registration" data-zh="活动报名">Event registration</td>
-            <td class="yes">✓</td>
-            <td class="yes">✓</td>
-          </tr>
-          <tr>
-            <td data-en="Travel & equipment journal" data-zh="旅行与装备专栏">Travel & equipment journal</td>
-            <td class="yes">✓</td>
-            <td class="yes">✓</td>
-          </tr>
-          <tr>
-            <td data-en="Priority evaluation queue" data-zh="优先评测排队">Priority evaluation queue</td>
-            <td class="no">—</td>
-            <td class="yes">✓</td>
-          </tr>
-          <tr>
-            <td data-en="Personalized training plan" data-zh="专属训练计划">Personalized training plan</td>
-            <td class="no">—</td>
-            <td class="yes">✓</td>
-          </tr>
-          <tr>
-            <td data-en="Leaderboard badge" data-zh="排行榜徽章">Leaderboard badge</td>
-            <td class="no">—</td>
-            <td class="yes">✓</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><a class="btn btn--outline btn--sm" href="/ai-coach" data-i18n="pricing.free.cta">Sign Up Free</a></td>
-            <td><button class="btn btn--sm subscribe-btn" data-i18n="pricing.pro.cta">Subscribe with Stripe</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="cahier">
-    <div class="inner">
-      <span class="kicker" data-en="Échelle NTRP" data-zh="NTRP 等级表">Échelle NTRP</span>
-      <h2 data-en="Your level is the entry ticket." data-zh="你的等级，就是入场券。">Your level is the entry ticket.</h2>
-      <p class="thematic" data-en="Rate four strokes in ten seconds each, then register for the draw that matches your NTRP band." data-zh="四个动作各上传 10 秒视频完成评级，再报名与你 NTRP 区间相符的签表。">Rate four strokes in ten seconds each, then register for the draw that matches your NTRP band.</p>
-      <div class="badge-row">
-        {['2.5', '3.0', '3.5', '4.0', '4.5', '5.0'].map(n => <span class="ntrp-badge">{n}</span>)}
+      <div class="card reveal">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=640&q=70" alt="红土球场"></div>
+        <div class="card-body">
+          <div class="card-date" data-zh="11月8日 周日 08:00" data-en="NOV 8, SUN 08:00">11月8日 周日 08:00</div>
+          <div class="card-title" data-zh="晨光单打局" data-en="Morning Singles">晨光单打局</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-zh="红土一号球场 · 静安" data-en="Clay Court No.1 · Jing'an">红土一号球场 · 静安</span></div>
+          <div class="card-people"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 1a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm-9 1c-1 .64-3 1.63-3 3.5V21h5v-2.5c0-1.35.72-2.5 1.8-3.5z"/></svg><span data-zh="4 / 8 人 · " data-en="4 / 8 players · ">4 / 8 人 · </span><span class="lack" data-zh="还缺 4 人" data-en="4 spots left">还缺 4 人</span></div>
+          <button class="btn"><span data-zh="报名" data-en="SIGN UP">报名</span><span class="arw">→</span></button>
+        </div>
       </div>
-      <div class="actions">
-        <a class="btn" href="/ai-coach" data-i18n="ai.submit">Get My Rating</a>
-        <a class="btn btn--outline" href="/events" data-i18n="ai.result.cta">Browse matching events →</a>
+
+      <div class="card reveal">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=640&q=70" alt="网球与球拍"></div>
+        <div class="card-body">
+          <div class="card-date" data-zh="11月9日 周一 19:00" data-en="NOV 9, MON 19:00">11月9日 周一 19:00</div>
+          <div class="card-title" data-zh="欢乐双打局" data-en="Doubles Fun Match">欢乐双打局</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-zh="红土三号球场 · 徐汇" data-en="Clay Court No.3 · Xuhui">红土三号球场 · 徐汇</span></div>
+          <div class="card-people"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 1a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm-9 1c-1 .64-3 1.63-3 3.5V21h5v-2.5c0-1.35.72-2.5 1.8-3.5z"/></svg><span data-zh="6 / 8 人 · " data-en="6 / 8 players · ">6 / 8 人 · </span><span class="lack" data-zh="还缺 2 人" data-en="2 spots left">还缺 2 人</span></div>
+          <button class="btn"><span data-zh="报名" data-en="SIGN UP">报名</span><span class="arw">→</span></button>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1548920168-70d61248a912?auto=format&fit=crop&w=640&q=70" alt="球场上的球员"></div>
+        <div class="card-body">
+          <div class="card-date" data-zh="11月15日 周日 15:00" data-en="NOV 15, SUN 15:00">11月15日 周日 15:00</div>
+          <div class="card-title" data-zh="周末社交局" data-en="Weekend Social">周末社交局</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-zh="中央球场看台 · 黄浦" data-en="Center Court · Huangpu">中央球场看台 · 黄浦</span></div>
+          <div class="card-people"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 1a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm-9 1c-1 .64-3 1.63-3 3.5V21h5v-2.5c0-1.35.72-2.5 1.8-3.5z"/></svg><span data-zh="6 / 8 人 · " data-en="6 / 8 players · ">6 / 8 人 · </span><span class="lack" data-zh="还缺 2 人" data-en="2 spots left">还缺 2 人</span></div>
+          <button class="btn"><span data-zh="报名" data-en="SIGN UP">报名</span><span class="arw">→</span></button>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1750858287302-99beb3cd0d35?auto=format&fit=crop&w=640&q=70" alt="红土球场俯瞰"></div>
+        <div class="card-body">
+          <div class="card-date" data-zh="11月22日 周日 10:00" data-en="NOV 22, SUN 10:00">11月22日 周日 10:00</div>
+          <div class="card-title" data-zh="进阶训练局" data-en="Advanced Training">进阶训练局</div>
+          <div class="card-meta"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-zh="中央球场 · 长宁" data-en="Center Court · Changning">中央球场 · 长宁</span></div>
+          <div class="card-people"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 1a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm8 2c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm-9 1c-1 .64-3 1.63-3 3.5V21h5v-2.5c0-1.35.72-2.5 1.8-3.5z"/></svg><span data-zh="5 / 8 人 · " data-en="5 / 8 players · ">5 / 8 人 · </span><span class="lack" data-zh="还缺 3 人" data-en="3 spots left">还缺 3 人</span></div>
+          <button class="btn"><span data-zh="报名" data-en="SIGN UP">报名</span><span class="arw">→</span></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI COACH ================= -->
+<section class="ai" id="coach">
+  <div class="ai-photo"><img src="https://images.unsplash.com/photo-1545809074-59472b3f5ecc?auto=format&fit=crop&w=900&q=75" alt="网球球员"></div>
+  <div class="wrap ai-grid">
+    <div class="reveal">
+      <div class="eyebrow" data-zh="AI 教练测评" data-en="AI COACH REVIEW">AI 教练测评</div>
+      <h2 data-zh="更聪明的反馈。<br>更好的你。" data-en="Smarter Feedback.<br>Better You.">更聪明的反馈。<br>更好的你。</h2>
+      <p data-zh="上传一段对打视频，AI 教练基于真实比赛数据与职业知识库，给出动作分析与提升建议。" data-en="Upload a rally clip and get personalized video analysis, technique insights and improvement tips from our AI coach — powered by real match data and expert knowledge.">上传一段对打视频，AI 教练基于真实比赛数据与职业知识库，给出动作分析与提升建议。</p>
+      <a class="btn" href="#coach"><span data-zh="体验 AI 教练" data-en="TRY AI COACH">体验 AI 教练</span><span class="arw">→</span></a>
+    </div>
+    <div class="score-card reveal">
+      <h4 data-zh="AI 教练测评报告" data-en="AI COACH REVIEW">AI 教练测评报告</h4>
+      <div class="score-row">
+        <div class="lbl"><b data-zh="正手技术" data-en="Forehand Technique">正手技术</b><span class="pct">82%</span></div>
+        <div class="bar-bg"><div class="bar-fg" style="width:82%"></div></div>
+      </div>
+      <div class="score-row">
+        <div class="lbl"><b data-zh="步伐移动" data-en="Footwork">步伐移动</b><span class="pct">76%</span></div>
+        <div class="bar-bg"><div class="bar-fg" style="width:76%"></div></div>
+      </div>
+      <div class="score-row">
+        <div class="lbl"><b data-zh="击球选择" data-en="Shot Selection">击球选择</b><span class="pct">68%</span></div>
+        <div class="bar-bg"><div class="bar-fg" style="width:68%"></div></div>
+      </div>
+      <div class="score-tip"><span class="ico">🎾</span><span data-zh="节奏与控球都不错！试着多加一点上旋，让正手更有威胁。" data-en="Great pace and control! Try to use more topspin on your forehand.">节奏与控球都不错！试着多加一点上旋，让正手更有威胁。</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOG ================= -->
+<section class="blog" id="blog">
+  <div class="wrap blog-grid">
+    <div class="blog-side reveal">
+      <div class="eyebrow" data-zh="网球博客" data-en="OUR BLOG">网球博客</div>
+      <h2 data-zh="旅行、酒店<br>与装备。" data-en="Travel. Hotels.<br>Gear.">旅行、酒店<br>与装备。</h2>
+      <p data-zh="从带球场的度假酒店的挑选，到最适合红土的球拍装备，博客带你离网球生活方式更近一步。" data-en="From Parisian stays to the best tennis gear, our blog brings you closer to the tennis lifestyle — on and off the court.">从带球场的度假酒店的挑选，到最适合红土的球拍装备，博客带你离网球生活方式更近一步。</p>
+      <a class="link-more" href="#blog"><span data-zh="浏览博客" data-en="EXPLORE BLOG">浏览博客</span> →</a>
+    </div>
+    <div class="blog-cards">
+      <article class="post reveal">
+        <div class="post-img"><img src="https://images.unsplash.com/photo-1651376589868-b0714c962499?auto=format&fit=crop&w=640&q=70" alt="带球场的酒店"></div>
+        <div class="post-body">
+          <div class="card-date" data-zh="11月2日" data-en="NOV 2, 2026">11月2日</div>
+          <h3 data-zh="带网球场的高级酒店 Top 5" data-en="Top 5 Hotels With Tennis Courts">带网球场的高级酒店 Top 5</h3>
+          <p data-zh="度假也能上场，住在红土与阳光旁边。" data-en="Stay close to the action — vacation with a court on site.">度假也能上场，住在红土与阳光旁边。</p>
+        </div>
+      </article>
+      <article class="post reveal">
+        <div class="post-img"><img src="https://images.unsplash.com/photo-1646343253545-9171464ce425?auto=format&fit=crop&w=640&q=70" alt="红土上的球拍"></div>
+        <div class="post-body">
+          <div class="card-date" data-zh="10月28日" data-en="OCT 28, 2026">10月28日</div>
+          <h3 data-zh="最适合红土球场的装备" data-en="Best Tennis Gear for Clay Courts">最适合红土球场的装备</h3>
+          <p data-zh="球拍、球鞋与避震器——为红土表现而生。" data-en="Rackets, shoes and dampeners for peak performance.">球拍、球鞋与避震器——为红土表现而生。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+<section class="news">
+  <div class="wrap news-grid">
+    <div>
+      <div class="eyebrow" data-zh="保持联系" data-en="STAY IN THE LOOP">保持联系</div>
+      <h2 data-zh="订阅我们的 Newsletter" data-en="Join Our Newsletter">订阅我们的 Newsletter</h2>
+      <p data-zh="最新球局、资讯与网球小贴士，直达你的邮箱。" data-en="Get the latest news, events, and tennis tips — straight to your inbox.">最新球局、资讯与网球小贴士，直达你的邮箱。</p>
+    </div>
+    <form class="news-form" onsubmit="return false">
+      <input type="email" required data-zh-ph="你的邮箱地址" data-en-ph="Your email address" placeholder="你的邮箱地址">
+      <button type="submit" aria-label="subscribe">→</button>
+    </form>
+    <div class="news-brand">
+      <svg class="ball" viewBox="0 0 48 48"><use href="#tp-ball"/></svg>
+      <div>
+        <div class="n">TENNIS<br>PARTNER</div>
+        <div class="s" data-zh="网球搭子" data-en="PLAY TOGETHER GO FURTHER">网球搭子</div>
       </div>
     </div>
-  </section>
-</Layout>
+  </div>
+</section>
 
-<script>
-  document.querySelector('.subscribe-btn')?.addEventListener('click', () => {
-    alert('Stripe checkout placeholder — payment channel coming soon.');
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap foot">
+    <div class="foot-links">
+      <a href="#top" data-zh="首页" data-en="Home">首页</a>
+      <a href="#games" data-zh="球局" data-en="Games">球局</a>
+      <a href="#coach" data-zh="AI 教练" data-en="Coaching">AI 教练</a>
+      <a href="#story" data-zh="社区" data-en="Community">社区</a>
+      <a href="#blog" data-zh="博客" data-en="Blog">博客</a>
+      <a href="#" data-zh="联系我们" data-en="Contact">联系我们</a>
+    </div>
+    <div class="foot-right">
+      <span>© 2026 Tennis Partner 网球搭子</span>
+      <svg class="ball" viewBox="0 0 48 48"><use href="#tp-ball"/></svg>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>
+/* ---------- i18n ---------- */
+let lang = localStorage.getItem('tp-lang') || 'zh';
+function applyLang(){
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.querySelectorAll('[data-zh]').forEach(el=>{
+    el.innerHTML = el.dataset[lang];
   });
+  document.querySelectorAll('[data-zh-ph]').forEach(el=>{
+    el.placeholder = lang === 'zh' ? el.dataset.zhPh : el.dataset.enPh;
+  });
+  document.getElementById('langBtn').textContent = lang === 'zh' ? 'EN · 中文' : '中文 · EN';
+}
+document.getElementById('langBtn').addEventListener('click', ()=>{
+  lang = lang === 'zh' ? 'en' : 'zh';
+  localStorage.setItem('tp-lang', lang);
+  applyLang();
+});
+applyLang();
+
+/* ---------- scroll reveal ---------- */
+const io = new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('on')),2500);
 </script>
+</body>
+</html>
