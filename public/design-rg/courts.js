@@ -76,12 +76,12 @@
     markers = [];
     clusters.forEach((c) => {
       const muted = activeDistrict && districtOf(c) !== activeDistrict;
-      const r = 5 + Math.min(11, Math.sqrt(c.c) * 1.25);
+      const r = 4.5 + Math.min(9, Math.sqrt(c.c) * 1.0);
       const marker = L.circleMarker([c.lat, c.lon], {
         radius: r,
-        color: muted ? 'rgba(20,32,27,.18)' : '#B4491F',
-        weight: 1.2,
-        fillColor: muted ? 'rgba(20,32,27,.14)' : 'rgba(180,73,31,.5)',
+        color: muted ? 'rgba(20,32,27,.15)' : 'rgba(180,73,31,.85)',
+        weight: 1,
+        fillColor: muted ? 'rgba(20,32,27,.08)' : 'rgba(180,73,31,.38)',
         fillOpacity: 1,
       });
       const access = c.a === 'free' ? t().free : (c.a === 'paid' ? t().paid : '');

@@ -56,7 +56,7 @@
     }).addTo(map);
     payload.clusters.forEach((c) => {
       const access = c.a === 'free' ? t().free : (c.a === 'paid' ? t().paid : '');
-      const r = 5 + Math.min(11, Math.sqrt(c.c) * 1.25);
+      const r = 4.5 + Math.min(9, Math.sqrt(c.c) * 1.0);
       L.circleMarker([c.lat, c.lon], {
         radius: r,
         color: '#B4491F',
