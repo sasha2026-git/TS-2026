@@ -37,6 +37,7 @@
     });
     document.title = next === 'zh' ? 'Tennis Partner · 网球搭子' : 'Tennis Partner · More Than Tennis';
     saveLang(next);
+    if (typeof window.__tpRenderCourts === 'function') window.__tpRenderCourts();
   };
 
   document.querySelectorAll('.lang-btn').forEach((button) => {

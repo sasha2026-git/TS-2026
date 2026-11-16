@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>城市球场地图 · Tennis Partner</title>
+  <meta name="description" content="深圳、纽约等城市的网球场地图：公共球场、俱乐部、场地类型与位置。Tennis Partner 城市球场索引。">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .index-hero { padding: 132px 0 56px; }
+    .index-hero h1 { font-family: var(--font-display); font-size: clamp(38px, 5vw, 68px); font-weight: 500; line-height: 1.04; letter-spacing: -.03em; margin: 14px 0 18px; }
+    html[data-lang="zh"] .index-hero h1 { font-weight: 600; letter-spacing: .01em; }
+    .index-hero p.lede { max-width: 60ch; font-size: 16px; line-height: 1.7; color: var(--ink-soft); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--clay); }
+    .city-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; padding-bottom: 96px; }
+    .city-card { border: 1px solid var(--line); border-radius: var(--radius-card); overflow: hidden; background: var(--cream); }
+    .city-card header { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding: 20px 20px 16px; border-bottom: 1px solid var(--line); }
+    .city-card h2 { margin: 0; font-family: var(--font-display); font-size: 26px; font-weight: 600; letter-spacing: -.01em; }
+    .city-card .city-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+    .city-card .city-map { height: 380px; background: #EDE7DB; }
+    .city-card .city-foot { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 20px 20px; }
+    .tagline { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px; }
+    .soon { padding-bottom: 110px; }
+    .soon h2 { font-family: var(--font-display); font-size: 30px; font-weight: 600; margin: 0 0 8px; }
+    .soon p { color: var(--ink-soft); margin: 0 0 22px; }
+    .soon-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+    .soon-chip { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; border: 1px dashed var(--line); border-radius: 999px; padding: 9px 14px; color: var(--ink-soft); }
+    @media (max-width: 900px) { .city-grid { grid-template-columns: 1fr; } .index-hero { padding-top: 112px; } }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Tennis Partner">
+        <img class="brand-mark" src="assets/logo-tennis-partner.svg" width="42" height="42" alt="">
+        <span class="brand-type">
+          <span class="brand-name">TENNIS PARTNER</span>
+          <span class="brand-sub i18n" data-zh="网球搭子" data-en="PLAY TOGETHER">网球搭子</span>
+        </span>
+      </a>
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="语言切换 / Language">
+          <button type="button" class="lang-btn is-active" data-set-lang="zh">中</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button type="button" class="lang-btn" data-set-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="index-hero">
+      <div class="container">
+        <a class="back-link" href="index.html"><span aria-hidden="true">←</span><span class="i18n" data-zh="返回首页" data-en="BACK TO HOME">返回首页</span></a>
+        <h1><span class="i18n" data-zh="全球球场地图" data-en="City court maps">全球球场地图</span></h1>
+        <p class="lede i18n" data-zh="按城市整理的网球场地图：公共球场、俱乐部、场地类型与位置。中文版从深圳开始，英文版从纽约开始，更多城市陆续上线。" data-en="Tennis courts mapped city by city: public courts, clubs, surfaces and locations. The Chinese edition starts with Shenzhen, the English edition with New York — more cities are on the way.">按城市整理的网球场地图：公共球场、俱乐部、场地类型与位置。中文版从深圳开始，英文版从纽约开始，更多城市陆续上线。</p>
+      </div>
+    </section>
+
+    <section class="city-grid container" id="city-grid" aria-label="城市球场地图"></section>
+
+    <section class="soon container">
+      <h2><span class="i18n" data-zh="即将上线" data-en="Coming next">即将上线</span></h2>
+      <p class="i18n" data-zh="球场数据正在逐城整理：场地类型、公共/收费、预约方式与交通。先上你常去的城市，欢迎告诉我们。" data-en="Court data is being compiled city by city: surfaces, public vs bookable, how to reserve, and how to get there. Tell us which city you want first.">球场数据正在逐城整理：场地类型、公共/收费、预约方式与交通。先上你常去的城市，欢迎告诉我们。</p>
+      <div class="soon-grid">
+        <span class="soon-chip">北京 · Beijing</span>
+        <span class="soon-chip">上海 · Shanghai</span>
+        <span class="soon-chip">广州 · Guangzhou</span>
+        <span class="soon-chip">香港 · Hong Kong</span>
+        <span class="soon-chip">东京 · Tokyo</span>
+        <span class="soon-chip">巴黎 · Paris</span>
+        <span class="soon-chip">伦敦 · London</span>
+        <span class="soon-chip">墨尔本 · Melbourne</span>
+        <span class="soon-chip">洛杉矶 · Los Angeles</span>
+        <span class="soon-chip">新加坡 · Singapore</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <p class="footer-note i18n" data-zh="球场地图数据 © OpenStreetMap 贡献者（ODbL），地图瓦片 © CARTO。" data-en="Court map data © OpenStreetMap contributors (ODbL); tiles © CARTO.">球场地图数据 © OpenStreetMap 贡献者（ODbL），地图瓦片 © CARTO。</p>
+    </div>
+  </footer>
+
+  <script src="vendor/leaflet.js"></script>
+  <script src="courts-index.js"></script>
+</body>
+</html>
