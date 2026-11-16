@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tennis Partner · 网球搭子</title>
+  <meta name="description" content="Tennis Partner 网球搭子：红土球局、AI 教练测评、球场旅行与装备指南。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link i18n" href="#main" data-zh="跳到主要内容" data-en="Skip to content">跳到主要内容</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Tennis Partner">
+        <img class="brand-mark" src="assets/logo-tennis-partner.svg" width="42" height="42" alt="">
+        <span class="brand-type">
+          <span class="brand-name i18n" data-zh="TENNIS PARTNER" data-en="TENNIS PARTNER">TENNIS PARTNER</span>
+          <span class="brand-sub i18n" data-zh="网球搭子" data-en="PLAY TOGETHER">网球搭子</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="主导航">
+        <a href="#top"><span class="i18n" data-zh="首页" data-en="Home">首页</span></a>
+        <a href="#matches"><span class="i18n" data-zh="活动报名" data-en="Events">活动报名</span></a>
+        <a href="#ai-coach"><span class="i18n" data-zh="AI测评&amp;教练" data-en="AI Coach">AI测评&amp;教练</span></a>
+        <a href="#travel"><span class="i18n" data-zh="旅行" data-en="Travel">旅行</span></a>
+        <a href="#gear"><span class="i18n" data-zh="装备" data-en="Gear">装备</span></a>
+        <a href="#travel"><span class="i18n" data-zh="球场" data-en="Courts">球场</span></a>
+        <a href="#story"><span class="i18n" data-zh="关于" data-en="About">关于</span></a>
+        <a href="#footer"><span class="i18n" data-zh="联系" data-en="Contact">联系</span></a>
+      </nav>
+
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="语言切换 / Language">
+          <button type="button" class="lang-btn is-active" data-set-lang="zh">中</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button type="button" class="lang-btn" data-set-lang="en">EN</button>
+        </div>
+        <button type="button" class="icon-btn search-btn" aria-label="搜索" data-aria-zh="搜索" data-aria-en="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.3 4.3"/></svg>
+        </button>
+        <button type="button" class="menu-toggle" aria-label="打开菜单" data-aria-zh="打开菜单" data-aria-en="Open menu" aria-controls="main-nav" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/final/hero.jpg" width="1900" height="1051" alt="" loading="eager" fetchpriority="high">
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-grid container">
+        <div class="hero-copy">
+          <p class="eyebrow eyebrow-light">
+            <span class="i18n" data-zh="ROLAND GARROS · PARIS · SINCE 2026" data-en="ROLAND GARROS · PARIS · SINCE 2026">ROLAND GARROS · PARIS · SINCE 2026</span>
+          </p>
+          <h1 class="hero-title" id="hero-title">
+            <span class="i18n" data-zh="不止于" data-en="More Than">不止于</span><br>
+            <span class="i18n" data-zh="网球" data-en="Tennis">网球</span>
+          </h1>
+          <p class="hero-sub i18n" data-zh="热情、球场、人群 —— 场内场外，一段独一无二的旅程。" data-en="The passion, the people, the clay. A unique journey on and off the court.">热情、球场、人群 —— 场内场外，一段独一无二的旅程。</p>
+          <a class="btn btn-clay" href="#matches">
+            <span class="i18n" data-zh="探索法网之旅" data-en="EXPLORE THE FRENCH OPEN">探索法网之旅</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="hero-side" aria-hidden="true">
+          <span class="hero-index">01</span>
+          <span class="hero-line"></span>
+          <span class="hero-side-label i18n" data-zh="红土 · 巴黎" data-en="CLAY · PARIS">CLAY · PARIS</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="story" aria-labelledby="story-title">
+      <div class="container">
+        <div class="story-card reveal">
+          <div class="story-copy">
+            <p class="eyebrow">
+              <span class="i18n" data-zh="OUR STORY · 我们的故事" data-en="OUR STORY">OUR STORY · 我们的故事</span>
+            </p>
+            <h2 class="section-title story-title" id="story-title">
+              <span class="i18n" data-zh="从巴黎到" data-en="From Paris to">从巴黎到</span><br>
+              <span class="i18n" data-zh="全球球友" data-en="a Global Community">全球球友</span>
+            </h2>
+            <div class="story-body">
+              <p class="i18n" data-zh="网球搭子起源于巴黎的一片红土。我们相信，一场好球不只是比分 —— 是清晨六点的球场、是陌生球友递来的一瓶水、是赛后坐在场边聊到天黑。" data-en="Tennis Partner began on a clay court in Paris. We believe a good match is more than a scoreline — it is a 6am court, a stranger handing you a bottle of water, a conversation by the net that runs until dark.">网球搭子起源于巴黎的一片红土。我们相信，一场好球不只是比分 —— 是清晨六点的球场、是陌生球友递来的一瓶水、是赛后坐在场边聊到天黑。</p>
+              <p class="i18n" data-zh="从罗兰·加洛斯的看台到世界各地的公共球场，我们把这份热情做成了一张地图、一个球局、一份可以带走的旅行清单。让每一个想打球的人，都能找到对手、找到场地、找到同好。" data-en="From the stands of Roland Garros to public courts around the world, we turn that passion into a map, a match, and a travel list you can carry. So that anyone who wants to play can find an opponent, a court, and their people.">从罗兰·加洛斯的看台到世界各地的公共球场，我们把这份热情做成了一张地图、一个球局、一份可以带走的旅行清单。让每一个想打球的人，都能找到对手、找到场地、找到同好。</p>
+            </div>
+            <a class="text-link" href="#story">
+              <span class="i18n" data-zh="了解更多" data-en="LEARN MORE">了解更多</span><span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="story-lockup" aria-label="Roland Garros × Tennis Partner">
+            <div class="lockup-item lockup-rg">
+              <svg class="rg-badge" viewBox="0 0 160 160" role="img" aria-label="Roland Garros, Paris">
+                <defs>
+                  <path id="rg-arc" d="M 27 96 A 58 58 0 0 1 133 96"/>
+                </defs>
+                <circle cx="80" cy="80" r="75" fill="#B4491F"/>
+                <circle cx="80" cy="80" r="68" fill="none" stroke="#F7F1E7" stroke-width="1.1" opacity=".75"/>
+                <text fill="#F7F1E7" font-family="'IBM Plex Mono', monospace" font-size="8.4" letter-spacing="2.2">
+                  <textPath class="i18n" href="#rg-arc" startOffset="50%" text-anchor="middle" data-zh="ROLAND GARROS · PARIS" data-en="ROLAND GARROS · PARIS">ROLAND GARROS · PARIS</textPath>
+                </text>
+                <g transform="translate(80 82)">
+                  <ellipse cx="0" cy="0" rx="20" ry="27" transform="rotate(-34)" fill="none" stroke="#F7F1E7" stroke-width="2.2"/>
+                  <path d="M-6 20-18 39" stroke="#F7F1E7" stroke-width="2.4" stroke-linecap="round"/>
+                  <g stroke="#F7F1E7" stroke-width="1" opacity=".85">
+                    <path d="M-15 4-2-8M-11 12 3-1M-7 20 8 6M-2 27 12 13"/>
+                    <path d="M15 4 2-8M11 12-3-1M7 20-8 6M2 27-12 13"/>
+                  </g>
+                  <circle cx="21" cy="-24" r="6.6" fill="#F7F1E7"/>
+                  <path d="M16-27c2.4 1.2 4 3 4.8 5.4M19-19c1-2.6 2.5-4.5 4.6-5.8" fill="none" stroke="#B4491F" stroke-width=".9"/>
+                </g>
+                <text class="i18n" x="80" y="137" text-anchor="middle" fill="#F7F1E7" font-family="'IBM Plex Mono', monospace" font-size="7.6" letter-spacing="2.8" data-zh="PARIS" data-en="PARIS">PARIS</text>
+              </svg>
+            </div>
+            <span class="lockup-x" aria-hidden="true">×</span>
+            <div class="lockup-item lockup-tp">
+              <img src="assets/logo-tennis-partner.svg" width="68" height="68" alt="">
+              <span class="lockup-name"><span class="i18n" data-zh="TENNIS" data-en="TENNIS">TENNIS</span><br><span class="i18n" data-zh="PARTNER" data-en="PARTNER">PARTNER</span></span>
+              <span class="lockup-tag"><span class="i18n" data-zh="PLAY TOGETHER," data-en="PLAY TOGETHER,">PLAY TOGETHER,</span><br><span class="i18n" data-zh="GO FURTHER" data-en="GO FURTHER">GO FURTHER</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="matches section" id="matches" aria-labelledby="matches-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">
+              <span class="i18n" data-zh="UPCOMING MATCHES · 近期赛程" data-en="UPCOMING MATCHES">UPCOMING MATCHES · 近期赛程</span>
+            </p>
+            <h2 class="section-title" id="matches-title">
+              <span class="i18n" data-zh="近期球局" data-en="Upcoming Matches">近期球局</span>
+            </h2>
+          </div>
+          <a class="text-link" href="#matches">
+            <span class="i18n" data-zh="查看全部" data-en="VIEW ALL EVENTS">查看全部</span><span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="match-grid">
+          <article class="match-card reveal">
+            <div class="match-media"><img src="assets/final/match-1.jpg" width="1024" height="768" alt="红土球场上的单打比赛" loading="lazy"></div>
+            <div class="match-body">
+              <p class="date i18n" data-zh="APR 26, 2026" data-en="APR 26, 2026">APR 26, 2026</p>
+              <h3 class="i18n" data-zh="晨间单打" data-en="Morning Singles">晨间单打</h3>
+              <ul class="match-meta">
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg>
+                  <span class="i18n" data-zh="罗兰·加洛斯 3 号场" data-en="Court 3, Roland Garros">罗兰·加洛斯 3 号场</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3.5 19c.4-3.2 2.5-5 5.5-5s5.1 1.8 5.5 5M14 14.8c2.8-.7 5.2.8 5.8 3.7"/></svg>
+                  <span class="i18n" data-zh="4 / 8 人" data-en="4 / 8 players">4 / 8 人</span>
+                </li>
+              </ul>
+              <a class="btn btn-outline" href="#matches">
+                <span class="i18n" data-zh="报名" data-en="SIGN UP">报名</span><span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="match-card reveal">
+            <div class="match-media"><img src="assets/final/match-2.jpg" width="1024" height="640" alt="女子球员在球场击球" loading="lazy"></div>
+            <div class="match-body">
+              <p class="date i18n" data-zh="APR 27, 2026" data-en="APR 27, 2026">APR 27, 2026</p>
+              <h3 class="i18n" data-zh="双打配对" data-en="Doubles Fun Match">双打配对</h3>
+              <ul class="match-meta">
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg>
+                  <span class="i18n" data-zh="罗兰·加洛斯 6 号场" data-en="Court 6, Roland Garros">罗兰·加洛斯 6 号场</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3.5 19c.4-3.2 2.5-5 5.5-5s5.1 1.8 5.5 5M14 14.8c2.8-.7 5.2.8 5.8 3.7"/></svg>
+                  <span class="i18n" data-zh="6 / 8 人" data-en="6 / 8 players">6 / 8 人</span>
+                </li>
+              </ul>
+              <a class="btn btn-outline" href="#matches">
+                <span class="i18n" data-zh="报名" data-en="SIGN UP">报名</span><span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="match-card reveal">
+            <div class="match-media"><img src="assets/final/match-3.jpg" width="1024" height="768" alt="红土球场看台与球场比赛" loading="lazy"></div>
+            <div class="match-body">
+              <p class="date i18n" data-zh="APR 29, 2026" data-en="APR 29, 2026">APR 29, 2026</p>
+              <h3 class="i18n" data-zh="周末社交局" data-en="Weekend Social">周末社交局</h3>
+              <ul class="match-meta">
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg>
+                  <span class="i18n" data-zh="罗兰·加洛斯 1 号场" data-en="Court 1, Roland Garros">罗兰·加洛斯 1 号场</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3.5 19c.4-3.2 2.5-5 5.5-5s5.1 1.8 5.5 5M14 14.8c2.8-.7 5.2.8 5.8 3.7"/></svg>
+                  <span class="i18n" data-zh="5 / 8 人" data-en="5 / 8 players">5 / 8 人</span>
+                </li>
+              </ul>
+              <a class="btn btn-outline" href="#matches">
+                <span class="i18n" data-zh="报名" data-en="SIGN UP">报名</span><span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="match-card reveal">
+            <div class="match-media"><img src="assets/final/match-4.jpg" width="1600" height="1200" alt="罗兰·加洛斯红土球场全景" loading="lazy"></div>
+            <div class="match-body">
+              <p class="date i18n" data-zh="MAY 3, 2026" data-en="MAY 3, 2026">MAY 3, 2026</p>
+              <h3 class="i18n" data-zh="进阶训练" data-en="Advanced Training">进阶训练</h3>
+              <ul class="match-meta">
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg>
+                  <span class="i18n" data-zh="罗兰·加洛斯 训练场" data-en="Training Courts, Roland Garros">罗兰·加洛斯 训练场</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3.5 19c.4-3.2 2.5-5 5.5-5s5.1 1.8 5.5 5M14 14.8c2.8-.7 5.2.8 5.8 3.7"/></svg>
+                  <span class="i18n" data-zh="5 / 8 人" data-en="5 / 8 players">5 / 8 人</span>
+                </li>
+              </ul>
+              <a class="btn btn-outline" href="#matches">
+                <span class="i18n" data-zh="报名" data-en="SIGN UP">报名</span><span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-coach" id="ai-coach" aria-labelledby="ai-title">
+      <div class="container ai-grid">
+        <div class="ai-copy reveal">
+          <p class="eyebrow eyebrow-gold">
+            <span class="i18n" data-zh="AI COACH REVIEW · AI 教练测评" data-en="AI COACH REVIEW">AI COACH REVIEW · AI 教练测评</span>
+          </p>
+          <h2 class="section-title section-title-light" id="ai-title">
+            <span class="i18n" data-zh="更聪明的反馈，" data-en="Smarter Feedback.">更聪明的反馈，</span><br>
+            <span class="i18n" data-zh="更好的你" data-en="Better You.">更好的你</span>
+          </h2>
+          <p class="ai-lede i18n" data-zh="基于真实视频与数据的技术分析，给出可执行的改进建议。" data-en="Personalised video analysis, technique insights and improvement tips — powered by real match data.">基于真实视频与数据的技术分析，给出可执行的改进建议。</p>
+          <a class="btn btn-clay" href="#ai-coach">
+            <span class="i18n" data-zh="试用 AI 教练" data-en="TRY AI COACH">试用 AI 教练</span><span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="ai-visual reveal">
+          <img src="assets/final/coach.jpg" width="1024" height="819" alt="女球员在球场上准备击球" loading="lazy">
+          <span class="ai-visual-tag i18n" aria-hidden="true" data-zh="巴黎 · 红土 · 2026" data-en="PARIS · CLAY · 2026">PARIS · CLAY · 2026</span>
+        </div>
+
+        <aside class="ai-panel reveal" aria-label="AI 教练评分面板">
+          <div class="panel-head">
+            <div>
+                  <p class="panel-kicker i18n" data-zh="AI COACH REVIEW" data-en="AI COACH REVIEW">AI COACH REVIEW</p>
+              <p class="panel-sub i18n" data-zh="法网红土 · 训练模式" data-en="Roland Garros clay · Training mode">法网红土 · 训练模式</p>
+            </div>
+            <span class="live-dot" aria-hidden="true"></span>
+          </div>
+          <div class="score-list">
+            <div class="score-row" style="--pct:82%">
+              <div class="score-label"><span class="i18n" data-zh="正手技术" data-en="Forehand Technique">正手技术</span><span class="i18n" data-zh="82%" data-en="82%">82%</span></div>
+              <div class="score-track"><span></span></div>
+            </div>
+            <div class="score-row" style="--pct:76%">
+              <div class="score-label"><span class="i18n" data-zh="步法" data-en="Footwork">步法</span><span class="i18n" data-zh="76%" data-en="76%">76%</span></div>
+              <div class="score-track"><span></span></div>
+            </div>
+            <div class="score-row" style="--pct:68%">
+              <div class="score-label"><span class="i18n" data-zh="击球选择" data-en="Shot Selection">击球选择</span><span class="i18n" data-zh="68%" data-en="68%">68%</span></div>
+              <div class="score-track"><span></span></div>
+            </div>
+          </div>
+          <div class="panel-rule"></div>
+          <div class="coach-note">
+            <span class="note-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.5 14.5a6 6 0 1 1 7 0c-1 .8-1.5 1.7-1.5 2.5h-4c0-.8-.5-1.7-1.5-2.5Z"/></svg>
+            </span>
+            <div>
+              <p class="note-title i18n" data-zh="保持好握拍与随挥" data-en="Hold the grip through contact">保持好握拍与随挥</p>
+              <p class="note-body i18n" data-zh="试试更多上旋，控制击球深度。" data-en="Try more topspin to control your depth.">试试更多上旋，控制击球深度。</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="blog section" id="blog" aria-labelledby="travel-title">
+      <div class="container">
+        <div class="blog-module travel-module" id="travel">
+          <div class="blog-intro reveal">
+            <p class="eyebrow">
+              <span class="i18n" data-zh="OUR BLOG · 博客" data-en="OUR BLOG">OUR BLOG · 博客</span>
+            </p>
+            <h2 class="section-title" id="travel-title">
+              <span class="i18n" data-zh="网球旅行" data-en="Travel. Hotels. Clay.">网球旅行</span>
+            </h2>
+            <p class="blog-body i18n" data-zh="从巴黎的赛场到球场边的酒店，我们把红土赛季的旅行线索整理成一份可以直接出发的清单。" data-en="From the courts of Paris to the hotels beside them, we turn the clay season into a travel list you can leave with.">从巴黎的赛场到球场边的酒店，我们把红土赛季的旅行线索整理成一份可以直接出发的清单。</p>
+            <a class="text-link" href="#travel">
+              <span class="i18n" data-zh="查看全部" data-en="EXPLORE BLOG">查看全部</span><span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="travel-mosaic">
+            <article class="travel-card travel-lead reveal">
+              <div class="travel-media"><img src="assets/final/travel-1.jpg" width="1024" height="674" alt="带泳池与球场的度假酒店" loading="lazy"></div>
+              <p class="date i18n" data-zh="APR 18, 2026" data-en="APR 18, 2026">APR 18, 2026</p>
+              <h3 class="i18n" data-zh="巴黎近郊 · 5 家带球场的酒店" data-en="5 Hotels Near Roland Garros">巴黎近郊 · 5 家带球场的酒店</h3>
+            </article>
+            <article class="travel-card reveal">
+              <div class="travel-media"><img src="assets/final/travel-2.jpg" width="1024" height="768" alt="树影下的红土网球场" loading="lazy"></div>
+              <p class="date i18n" data-zh="APR 12, 2026" data-en="APR 12, 2026">APR 12, 2026</p>
+              <h3 class="i18n" data-zh="普罗旺斯 · 红土庄园" data-en="Clay Estates in Provence">普罗旺斯 · 红土庄园</h3>
+            </article>
+            <article class="travel-card reveal">
+              <div class="travel-media"><img src="assets/final/travel-3.jpg" width="1024" height="714" alt="蔚蓝海岸城市与海景" loading="lazy"></div>
+              <p class="date i18n" data-zh="APR 06, 2026" data-en="APR 06, 2026">APR 06, 2026</p>
+              <h3 class="i18n" data-zh="蔚蓝海岸 · 海景球场" data-en="Sea-View Courts, Côte d'Azur">蔚蓝海岸 · 海景球场</h3>
+            </article>
+          </div>
+        </div>
+
+        <div class="blog-rule" aria-hidden="true"></div>
+
+        <div class="blog-module gear-module" id="gear">
+          <div class="section-head gear-head reveal">
+            <div>
+              <p class="eyebrow"><span class="i18n" data-zh="GEAR · 装备" data-en="GEAR">GEAR · 装备</span></p>
+              <h2 class="section-title" id="gear-title">
+                <span class="i18n" data-zh="网球装备" data-en="The Gear Edit">网球装备</span>
+              </h2>
+            </div>
+            <p class="gear-note i18n" data-zh="为红土赛季挑选的四件日常装备。" data-en="Four everyday pieces chosen for the clay season.">为红土赛季挑选的四件日常装备。</p>
+          </div>
+
+          <div class="gear-grid">
+            <article class="gear-card gear-large reveal">
+              <div class="gear-media">
+                <img src="assets/final/gear-racket.jpg" width="500" height="374" alt="两把网球拍" loading="lazy">
+                <span class="gear-num i18n" data-zh="01" data-en="01">01</span>
+              </div>
+              <div class="gear-caption">
+                <p class="gear-cat"><span class="i18n" data-zh="球拍" data-en="Racquets">球拍</span><span class="slash i18n" data-zh="/" data-en="/">/</span><span class="i18n" data-zh="RACQUETS" data-en="RACQUETS">RACQUETS</span></p>
+                <p class="gear-desc i18n" data-zh="红土场的旋转与控制" data-en="Spin and control for the clay court">红土场的旋转与控制</p>
+              </div>
+            </article>
+
+            <article class="gear-card gear-wide reveal">
+              <div class="gear-media">
+                <img src="assets/final/gear-skirt.jpg" width="819" height="1024" alt="穿着网球裙的球员" loading="lazy">
+                <span class="gear-num i18n" data-zh="02" data-en="02">02</span>
+              </div>
+              <div class="gear-caption">
+                <p class="gear-cat"><span class="i18n" data-zh="网球裙" data-en="Apparel">网球裙</span><span class="slash i18n" data-zh="/" data-en="/">/</span><span class="i18n" data-zh="APPAREL" data-en="APPAREL">APPAREL</span></p>
+                <p class="gear-desc i18n" data-zh="移动自由，剪裁克制" data-en="Freedom to move, cut with restraint">移动自由，剪裁克制</p>
+              </div>
+            </article>
+
+            <div class="gear-bottom">
+              <article class="gear-card reveal">
+                <div class="gear-media">
+                  <img src="assets/final/gear-shoes.jpg" width="1024" height="678" alt="白色网球鞋" loading="lazy">
+                  <span class="gear-num i18n" data-zh="03" data-en="03">03</span>
+                </div>
+                <div class="gear-caption">
+                  <p class="gear-cat"><span class="i18n" data-zh="网球鞋" data-en="Footwear">网球鞋</span><span class="slash i18n" data-zh="/" data-en="/">/</span><span class="i18n" data-zh="FOOTWEAR" data-en="FOOTWEAR">FOOTWEAR</span></p>
+                  <p class="gear-desc i18n" data-zh="滑步与急停的抓地力" data-en="Grip for the slide and the stop">滑步与急停的抓地力</p>
+                </div>
+              </article>
+              <article class="gear-card reveal">
+                <div class="gear-media">
+                  <img src="assets/final/gear-machine.jpg" width="500" height="500" alt="球场边的发球机" loading="lazy">
+                  <span class="gear-num i18n" data-zh="04" data-en="04">04</span>
+                </div>
+                <div class="gear-caption">
+                  <p class="gear-cat"><span class="i18n" data-zh="发球机" data-en="Ball Machines">发球机</span><span class="slash i18n" data-zh="/" data-en="/">/</span><span class="i18n" data-zh="BALL MACHINES" data-en="BALL MACHINES">BALL MACHINES</span></p>
+                  <p class="gear-desc i18n" data-zh="一个人也能练到位" data-en="A complete session, on your own">一个人也能练到位</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" aria-labelledby="newsletter-title">
+      <div class="container newsletter-grid">
+        <div class="newsletter-copy reveal">
+          <p class="eyebrow eyebrow-light">
+            <span class="i18n" data-zh="STAY IN THE LOOP · 订阅" data-en="STAY IN THE LOOP">STAY IN THE LOOP · 订阅</span>
+          </p>
+          <h2 class="section-title" id="newsletter-title">
+            <span class="i18n" data-zh="订阅我们的邮件" data-en="Join Our Newsletter">订阅我们的邮件</span>
+          </h2>
+          <p class="newsletter-lede i18n" data-zh="每月一封：红土赛季的球局、球场与旅行笔记。" data-en="One letter a month: clay-season matches, courts and travel notes.">每月一封：红土赛季的球局、球场与旅行笔记。</p>
+          <form class="subscribe-form" novalidate>
+            <label class="sr-only i18n" for="email" data-zh="邮箱地址" data-en="Email address">邮箱地址 / Email address</label>
+            <input id="email" name="email" type="email" required autocomplete="email" placeholder="你的邮箱地址" data-placeholder-zh="你的邮箱地址" data-placeholder-en="Your email address">
+            <button type="submit" class="btn btn-ink">
+              <span class="i18n" data-zh="发送" data-en="SEND">发送</span><span aria-hidden="true">→</span>
+            </button>
+          </form>
+          <p class="form-status" role="status" hidden></p>
+        </div>
+        <div class="newsletter-visual reveal">
+          <figure class="newsletter-card">
+            <img src="assets/final/newsletter.jpg" width="1920" height="2560" alt="网球与网球装备" loading="lazy">
+            <figcaption class="newsletter-stamp i18n" data-zh="TENNIS ESSENTIALS" data-en="TENNIS ESSENTIALS">TENNIS ESSENTIALS</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-tennis-partner.svg" width="54" height="54" alt="">
+        <p class="footer-name i18n" data-zh="TENNIS PARTNER" data-en="TENNIS PARTNER">TENNIS PARTNER</p>
+        <p class="footer-cn i18n" data-zh="网球搭子" data-en="Tennis Partner">网球搭子</p>
+        <p class="footer-tag i18n" data-zh="PLAY TOGETHER, GO FURTHER" data-en="PLAY TOGETHER, GO FURTHER">PLAY TOGETHER, GO FURTHER</p>
+      </div>
+      <div class="footer-col">
+        <h3 class="i18n" data-zh="网站" data-en="SITE">网站</h3>
+        <ul>
+          <li><a href="#top"><span class="i18n" data-zh="首页" data-en="Home">首页</span></a></li>
+          <li><a href="#matches"><span class="i18n" data-zh="活动报名" data-en="Events">活动报名</span></a></li>
+          <li><a href="#ai-coach"><span class="i18n" data-zh="AI测评&amp;教练" data-en="AI Coach">AI测评&amp;教练</span></a></li>
+          <li><a href="#travel"><span class="i18n" data-zh="旅行" data-en="Travel">旅行</span></a></li>
+          <li><a href="#gear"><span class="i18n" data-zh="装备" data-en="Gear">装备</span></a></li>
+          <li><a href="#travel"><span class="i18n" data-zh="球场" data-en="Courts">球场</span></a></li>
+          <li><a href="#story"><span class="i18n" data-zh="关于" data-en="About">关于</span></a></li>
+          <li><a href="#footer"><span class="i18n" data-zh="联系" data-en="Contact">联系</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3 class="i18n" data-zh="支持" data-en="SUPPORT">支持</h3>
+        <ul>
+          <li><a href="#footer"><span class="i18n" data-zh="常见问题" data-en="FAQ">常见问题</span></a></li>
+          <li><a href="#footer"><span class="i18n" data-zh="隐私政策" data-en="Privacy Policy">隐私政策</span></a></li>
+          <li><a href="#footer"><span class="i18n" data-zh="使用条款" data-en="Terms of Use">使用条款</span></a></li>
+          <li><a href="#footer"><span class="i18n" data-zh="联盟声明" data-en="Affiliate Disclosure">联盟声明</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h3 class="i18n" data-zh="联系" data-en="CONTACT">联系</h3>
+        <a class="footer-mail i18n" href="mailto:hello@tennispartner.com" data-zh="hello@tennispartner.com" data-en="hello@tennispartner.com">hello@tennispartner.com</a>
+        <div class="socials">
+          <a href="#footer" aria-label="Instagram" data-aria-zh="Instagram" data-aria-en="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".8" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#footer" aria-label="X" data-aria-zh="X" data-aria-en="X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20"/></svg>
+          </a>
+          <a href="#footer" aria-label="YouTube" data-aria-zh="YouTube" data-aria-en="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="m10 9 5 3-5 3Z"/></svg>
+          </a>
+          <a href="#footer" aria-label="微信" data-aria-zh="微信" data-aria-en="WeChat">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5c0-3.2 3.1-5.7 7-5.7s7 2.5 7 5.7-3.1 5.7-7 5.7c-.8 0-1.5-.1-2.2-.3L5.5 17l.8-2.5C4.9 13.5 4 12.1 4 10.5Z"/><path d="M14 16.6c.5.8 1.8 1.5 3.2 1.5.5 0 1-.1 1.4-.2l1.9 1-.5-1.6c.6-.5 1-1.3 1-2.1 0-1.5-1.2-2.7-2.8-3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p class="i18n" data-zh="© 2026 Tennis Partner. 保留所有权利。" data-en="© 2026 Tennis Partner. All rights reserved.">© 2026 Tennis Partner. 保留所有权利。</p>
+      <p class="i18n" data-zh="Made with clay &amp; code" data-en="Made with clay &amp; code">Made with clay &amp; code</p>
+    </div>
+  </footer>
+</body>
+</html>
