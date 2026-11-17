@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿尔卡拉斯的装备与时尚版图 · 年轻之王同款购物地图</title>
+<meta name="description" content="阿尔卡拉斯的时尚版图全解析：Nike 战袍、Babolat Pure Aero 98 球拍、Louis Vuitton 大使、Rolex 腕表、Danone / Calvin Klein 合作，年轻之王的每件同款附购买渠道。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0d0c;
+    --panel: #161412;
+    --panel-2: #1c1917;
+    --line: rgba(255,255,255,0.08);
+    --text: #ece7e1;
+    --text-dim: rgba(236,231,225,0.72);
+    --text-faint: rgba(236,231,225,0.55);
+    --accent: #e08a3c;          /* 活力橙 · contrast on #0e0d0c ≈ 7.5:1 */
+    --accent-soft: rgba(224,138,60,0.13);
+    --serif: 'Noto Serif SC', serif;
+    --sans: 'IBM Plex Sans', 'Noto Sans SC', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem clamp(1.2rem, 4vw, 3rem);
+    background: rgba(14,13,12,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .mark {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.18em;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  .topbar .mark em { color: var(--accent); font-style: normal; }
+  .topbar nav { display: flex; gap: 1.6rem; }
+  .topbar nav a {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em;
+    color: var(--text-faint); text-decoration: none; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    min-height: 78vh;
+    overflow: hidden;
+  }
+  .hero-copy {
+    padding: clamp(2.5rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4.5rem);
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .kicker {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem;
+  }
+  .kicker::before { content: ''; width: 2.5rem; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--text-dim);
+    max-width: 34em;
+    margin-bottom: 2.4rem;
+  }
+  .meta-row { display: flex; gap: 2.4rem; flex-wrap: wrap; }
+  .meta-cell { border-left: 1px solid var(--line); padding-left: 1rem; }
+  .meta-cell .num {
+    font-family: var(--mono); font-size: 1.5rem; font-weight: 500; color: var(--accent);
+    line-height: 1.2;
+  }
+  .meta-cell .label {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .hero-media { position: relative; min-height: 320px; }
+  .hero-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.85) brightness(0.8);
+  }
+  .hero-media::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 30%);
+    pointer-events: none;
+  }
+  .hero-media .img-tag {
+    position: absolute; bottom: 1rem; right: 1.2rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55); text-transform: uppercase;
+    background: rgba(0,0,0,0.5); padding: 0.3rem 0.7rem; border: 1px solid var(--line);
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-media { min-height: 260px; }
+    .hero-media::after { background: linear-gradient(0deg, var(--bg) 0%, transparent 40%); }
+    .topbar nav { display: none; }
+  }
+
+  .map { max-width: 1080px; margin: 2.2rem auto 0; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .map-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+  }
+  .map-cell {
+    background: var(--panel); padding: 1rem 0.9rem;
+    display: flex; flex-direction: column; gap: 0.3rem;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .map-cell:hover { background: var(--panel-2); }
+  .map-cell .tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .map-cell .name { font-size: 0.82rem; color: var(--text-dim); }
+  @media (max-width: 820px) { .map-grid { grid-template-columns: repeat(2, 1fr); } .map-cell:nth-child(5) { grid-column: span 2; } }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .chapter { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
+  .chapter-head {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.2rem;
+    align-items: baseline; margin-bottom: 1.2rem;
+    border-top: 1px solid var(--line); padding-top: 1.2rem;
+  }
+  .chapter-index {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.15em;
+  }
+  .chapter-head h2 {
+    font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700;
+    line-height: 1.25;
+  }
+  .chapter-head .sub {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: var(--text-faint); text-transform: uppercase; margin-top: 0.4rem;
+  }
+  .prose { max-width: 44em; font-size: 0.94rem; color: var(--text-dim); margin-bottom: 1rem; }
+  .prose strong { color: var(--text); font-weight: 600; }
+  .prose a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(224,138,60,0.35); }
+  .prose a:hover { border-bottom-color: var(--accent); }
+
+  .items { margin-top: 1rem; display: flex; flex-direction: column; }
+  .item {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .item:last-child { border-bottom: 1px solid var(--line); }
+  .item-media { position: relative; overflow: hidden; min-height: 220px; }
+  .item-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.8); transition: transform 0.6s ease; }
+  .item:hover .item-media img { transform: scale(1.03); }
+  .tier {
+    position: absolute; top: 0.8rem; left: 0.8rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.3rem 0.65rem; border: 1px solid var(--line);
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+    color: var(--text-dim);
+  }
+  .tier.hot { color: #e9c176; }
+  .item-body { padding: clamp(1.2rem, 3vw, 2rem); display: flex; flex-direction: column; }
+  .item-idx {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+  .item-body h3 {
+    font-family: var(--serif); font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 700;
+    line-height: 1.3;
+  }
+  .item-body h3 .en {
+    display: block; font-family: var(--mono); font-weight: 400;
+    font-size: 0.76rem; letter-spacing: 0.04em; color: var(--text-faint); margin-top: 0.3rem;
+  }
+  .item-desc { font-size: 0.88rem; color: var(--text-dim); margin: 0.8rem 0 1.1rem; max-width: 38em; }
+
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    margin-bottom: 1rem;
+  }
+  .spec { background: var(--panel); padding: 0.65rem 0.85rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  .spec .k {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .spec .v { font-size: 0.8rem; color: var(--text); line-height: 1.45; }
+  .spec .v.accent-v { color: var(--accent); }
+
+  .item-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .fit-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .fit-tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem; border: 1px solid var(--line); color: var(--text-faint);
+  }
+  .fit-tag.hot { color: var(--accent); border-color: rgba(224,138,60,0.35); }
+  .cta {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    padding: 0.55rem 1.2rem; border: 1px solid var(--line);
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cta:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 820px) {
+    .item { grid-template-columns: 1fr; }
+    .item-media { min-height: 190px; }
+    .spec-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .play-panel {
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: clamp(1.5rem, 3vw, 2.4rem);
+  }
+  .play-list { display: flex; flex-direction: column; margin-top: 0.5rem; }
+  .play-item {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.1rem;
+    padding: 1rem 1rem; border-top: 1px solid var(--line);
+  }
+  .play-item:first-child { border-top: none; }
+  .play-item .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); padding-top: 0.15rem; }
+  .play-item .t { font-weight: 600; font-size: 0.9rem; }
+  .play-item .d { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+  .kw-band { margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .kw {
+    font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em;
+    padding: 0.5rem 1rem; border: 1px solid rgba(224,138,60,0.35);
+    background: var(--accent-soft); color: var(--text);
+  }
+
+  .faq { margin-top: 1.5rem; border: 1px solid var(--line); background: var(--panel); }
+  .faq-item { padding: 1.2rem 1.4rem; border-top: 1px solid var(--line); }
+  .faq-item:first-child { border-top: none; }
+  .faq-item .q {
+    font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem;
+    display: flex; gap: 0.8rem; align-items: baseline;
+  }
+  .faq-item .q .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); }
+  .faq-item .a { font-size: 0.86rem; color: var(--text-dim); max-width: 42em; }
+  .faq-item .a strong { color: var(--text); }
+
+  .note {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(224,138,60,0.35);
+    background: var(--accent-soft);
+    padding: 1.1rem 1.4rem;
+    font-size: 0.82rem; color: var(--text-dim);
+    display: flex; gap: 0.9rem; align-items: flex-start;
+  }
+  .note .icon { font-family: var(--mono); color: var(--accent); font-size: 0.76rem; letter-spacing: 0.1em; padding-top: 0.1rem; white-space: nowrap; }
+  .note strong { color: var(--accent); font-weight: 600; }
+
+  .reads { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .reads a {
+    background: var(--panel); padding: 1.3rem 1.2rem; text-decoration: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: background 0.2s;
+  }
+  .reads a:hover { background: var(--panel-2); }
+  .reads .rt { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); }
+  .reads .rk { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; }
+  @media (max-width: 640px) { .reads { grid-template-columns: 1fr; } }
+
+  footer {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    border-top: 1px solid var(--line);
+    padding: 2.5rem clamp(1.2rem, 4vw, 3rem) 4rem;
+  }
+  .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .foot-inner p { font-size: 0.75rem; color: var(--text-faint); line-height: 1.9; }
+  .foot-inner .sig { font-family: var(--serif); color: var(--text-dim); }
+  .foot-inner .sig em { color: var(--accent); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="mark">CARLOS ALCARAZ <em>/</em> STYLE MAP</span>
+  <nav>
+    <a href="index.html">SERIES</a>
+    <a href="#apparel">NIKE</a>
+    <a href="#gear">BABOLAT</a>
+    <a href="#fashion">LV</a>
+    <a href="#jewels">ROLEX</a>
+    <a href="#style">STYLE</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>阿尔卡拉斯的<br>装备与时尚<span class="accent">版图</span></h1>
+    <div class="kicker">The Young King · 同款购物地图</div>
+    <p class="lede">21 岁集齐多座大满贯之后，阿尔卡拉斯的场外版图同步起飞：Nike 顶级合约（据报道约 €15M/年）、13 岁就签约的 Babolat（Pure Aero 98 定制）、Louis Vuitton 品牌大使、Rolex 腕表、Calvin Klein 内衣广告——年轻之王的每一件装备都值得抄作业。</p>
+    <div class="meta-row"><div class="meta-cell"><div class="num">2013</div><div class="label">10 岁签约 Babolat</div></div><div class="meta-cell"><div class="num">2023</div><div class="label">Louis Vuitton 官宣</div></div><div class="meta-cell"><div class="num">€15M</div><div class="label">Nike 年合约 · 据报道约</div></div></div>
+  </div>
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=900&q=80" alt="网球场上的年轻力量">
+    <span class="img-tag">Court · Style · Alcaraz</span>
+  </div>
+</section>
+
+<div class="map" id="map">
+  <div class="map-grid">
+    <a class="map-cell" href="#apparel"><span class="tag">APPAREL /</span><span class="name">Nike 战袍与签名层</span></a>
+    <a class="map-cell" href="#gear"><span class="tag">GEAR /</span><span class="name">Babolat Pure Aero 98</span></a>
+    <a class="map-cell" href="#fashion"><span class="tag">FASHION /</span><span class="name">Louis Vuitton 大使</span></a>
+    <a class="map-cell" href="#jewels"><span class="tag">WATCH /</span><span class="name">Rolex Daytona</span></a>
+    <a class="map-cell" href="#brands"><span class="tag">BRANDS /</span><span class="name">代言全景</span></a>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section class="chapter" id="apparel">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.01</span>
+      <div>
+        <h2>服装 · Nike 顶级合约</h2>
+        <div class="sub">NIKE ATHLETE · 据报道约 €15M/年</div>
+      </div>
+    </div>
+    <p class="prose">阿尔卡拉斯是 Nike 的顶级签约运动员，据 Tennisnerd 等报道其合约<strong>年均约 1500 万欧元</strong>，与辛纳同级。大满贯上他常拿专属配色：2025 澳网的青绿色背心就是为他定制的 NikeCourt 套装。比赛层量产版按季上架，国内 Nike 官网/天猫旗舰店可购。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1517634460381-ae25d6cf3b28?w=900&q=80" alt="NikeCourt 男士网球装备" loading="lazy">
+          <span class="tier hot">可购买</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.01 — 入门首选</div>
+          <h3>NikeCourt 男士比赛层 + Vapor 12 球鞋<span class="en">NIKECOURT DRI-FIT · VAPOR 12</span></h3>
+          <p class="item-desc">他比赛层的量产版：NikeCourt Dri-FIT Polo/背心 + Nike Zoom Vapor 12 网球鞋（据 Tennisnerd 报道他已换装 Vapor 12）。国内购买走 Nike 官网、天猫旗舰店、京东自营；球鞋约 ¥1,000 级，服装 ¥300–600 区间。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">服装 ¥300–600 · Vapor 12 约 ¥1,000</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">Nike 官网 / 天猫旗舰店 / 京东自营</span></div>
+            <div class="spec"><span class="k">Shoes</span><span class="v">Zoom Vapor 12 · 硬地红土通用</span></div>
+            <div class="spec"><span class="k">Deal</span><span class="v">据报道约 €15M/年 · 与辛纳同级</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">比赛层同款</span><span class="fit-tag">国内现货</span></div>
+            <a class="cta" href="[AFF:amazon:NikeCourt Dri-FIT men's polo Nike Vapor 12 tennis shoes]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="gear">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.02</span>
+      <div>
+        <h2>球拍 · Babolat Pure Aero 98</h2>
+        <div class="sub">BABOLAT SINCE AGE 10 · PURE AERO 98 + RPM TEAM</div>
+      </div>
+    </div>
+    <p class="prose">纠正一个常见误传：阿尔卡拉斯用的<strong>不是 Pure Aero VS，而是 Pure Aero 98</strong>。据 Tennis365 报道，他 2013 年（10 岁）就签了 Babolat，2023 年从 Pure Aero VS 换到 Pure Aero 98，配 <strong>RPM Team 球线</strong>——他的原话：「我想要更多控制，注意到这支拍多了1 根线（16x19），想试试。」零售版 Pure Aero 98 就是同款。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1622163642998-1ea32c4abe1d?w=900&q=80" alt="Babolat Pure Aero 98 球拍" loading="lazy">
+          <span class="tier hot">比赛同款</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.02 — 打球党直通</div>
+          <h3>Babolat Pure Aero 98<span class="en">PURE AERO 98 · RPM TEAM STRING</span></h3>
+          <p class="item-desc">2023 年更新的一支「控制型 Pure Aero」：98 平方英寸拍面、16x19 线床，正是他手中那支。国内购买走 Babolat 天猫/京东旗舰店或专业网球店，约 ¥1,800–2,300；穿线指明 RPM Team 就是完整复刻他的线床方案。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 ¥1,800–2,300（国内官方价）</span></div>
+            <div class="spec"><span class="k">Spec</span><span class="v">98 sq in · 16x19 · RPM Team 线</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">Babolat 天猫/京东旗舰店 / Tennis Warehouse</span></div>
+            <div class="spec"><span class="k">History</span><span class="v">10 岁签约 Babolat · 2023 换 Pure Aero 98</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">比赛同款</span><span class="fit-tag">Pure Aero 98</span></div>
+            <a class="cta" href="[AFF:amazon:Babolat Pure Aero 98 tennis racquet RPM Team]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="fashion">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.03</span>
+      <div>
+        <h2>时尚层 · Louis Vuitton 品牌大使</h2>
+        <div class="sub">LOUIS VUITTON AMBASSADOR · 2023.06 官宣</div>
+      </div>
+    </div>
+    <p class="prose">2023 年 6 月法网夺冠季，<strong>Louis Vuitton 官宣阿尔卡拉斯为品牌大使</strong>——他随后为 LV 服装系列拍摄了多组大片（据 Tennisnerd、FirstSportz 报道），把「球场之外」直接拉进法国奢侈品叙事。同层还有 <strong>Calvin Klein</strong> 的内衣广告合作（Tennis365 报道称他为此「脱到只剩内裤」出镜），以及 <strong>Danone</strong> 2025 年 6 月的全球品牌大使合约（据 SportsKhabri 报道）。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=900&q=80" alt="Louis Vuitton 大使造型" loading="lazy">
+          <span class="tier">Ambassador</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.03 — 身份层</div>
+          <h3>Louis Vuitton 大使身份 × Calvin Klein 广告<span class="en">LV AMBASSADOR SINCE 2023 · CK CAMPAIGN</span></h3>
+          <p class="item-desc">LV 层是身份叙事：官网/专柜直购，入门同款思路是一条 LV Monogram 皮带或 Tempo/Discovery 背包线。CK 层最亲民——他代言的 Calvin Klein 内衣/基础款天猫国际常年有售，¥200 级就能「同款」。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">LV</span><span class="v accent-v">品牌大使 · 2023.06 官宣</span></div>
+            <div class="spec"><span class="k">CK</span><span class="v">内衣广告合作 · 天猫国际 ¥200 级</span></div>
+            <div class="spec"><span class="k">Danone</span><span class="v">全球品牌大使 · 2025.06</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">LV 官网/专柜 · CK 天猫国际/京东</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">官宣代言</span><span class="fit-tag">平价入口</span></div>
+            <a class="cta" href="[AFF:amazon:Calvin Klein men's underwear Louis Vuitton belt]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="jewels">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.04</span>
+      <div>
+        <h2>腕表 · Rolex 品牌大使</h2>
+        <div class="sub">ROLEX AMBASSADOR · DAYTONA ON THE TROPHY</div>
+      </div>
+    </div>
+    <p class="prose">阿尔卡拉斯是 <strong>Rolex 品牌大使</strong>：据 TennisFansSite 报道，2025 法网夺冠后他戴着一只价值约 <strong>4.6 万美元的 Daytona（ref. 126518LN）</strong>举起奖杯，成为劳力士新生代门面。入门同款思路：Oyster Perpetual / Datejust 起步，Daytona 是人生级目标。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=900&q=80" alt="Rolex Daytona" loading="lazy">
+          <span class="tier hot">官宣代言</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.04 — 收藏级</div>
+          <h3>Rolex Daytona<span class="en">COSMOGRAPH DAYTONA · HIS TROPHY-PHOTO WATCH</span></h3>
+          <p class="item-desc">夺冠照主角：Daytona 126518LN（金壳 Oysterflex 胶带），据报道约 $46,000。国内购买走劳力士官方授权经销商，Daytona 属热门款需排队；预算友好路线是 Oyster Perpetual（¥4 万级）。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Status</span><span class="v accent-v">品牌大使 · 官宣</span></div>
+            <div class="spec"><span class="k">Seen</span><span class="v">2025 法网夺冠照 · 126518LN</span></div>
+            <div class="spec"><span class="k">Price</span><span class="v">据报道约 $46,000 · 热门款排队</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">劳力士官方授权经销商 / 官网查货</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">官宣代言</span><span class="fit-tag">收藏向</span></div>
+            <a class="cta" href="[AFF:amazon:Rolex Cosmograph Daytona watch]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="brands">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.05</span>
+      <div>
+        <h2>版图之外 · 代言全景速览</h2>
+        <div class="sub">SPONSOR MAP · 据公开报道整理</div>
+      </div>
+    </div>
+    <div class="play-panel">
+      <div class="play-list">
+        <div class="play-item"><span class="no">01</span><div><div class="t">Nike</div><div class="d">服装鞋总代理，据报道约 €15M/年。</div></div></div>
+        <div class="play-item"><span class="no">02</span><div><div class="t">Babolat</div><div class="d">10 岁起的球拍伙伴，现用 Pure Aero 98 + RPM Team。</div></div></div>
+        <div class="play-item"><span class="no">03</span><div><div class="t">Louis Vuitton</div><div class="d">2023.06 官宣品牌大使，服装系列大片出镜。</div></div></div>
+        <div class="play-item"><span class="no">04</span><div><div class="t">Rolex</div><div class="d">品牌大使，2025 法网 Daytona 夺冠照出圈。</div></div></div>
+        <div class="play-item"><span class="no">05</span><div><div class="t">Calvin Klein / Danone</div><div class="d">CK 内衣广告合作；Danone 2025.06 全球品牌大使。</div></div></div>
+        <div class="play-item"><span class="no">06</span><div><div class="t">其他据报道合作</div><div class="d">Infinito、El Corte Inglés 等西班牙本土商业合作散见报道，合约状态以品牌公告为准（待核实条目不展开）。</div></div></div>
+      </div>
+      <div class="note" style="margin-top:1.5rem;">
+        <span class="icon">FACT /</span>
+        <span>常见误传澄清：<strong>他的球拍是 Pure Aero 98，不是 Pure Aero VS</strong>（VS 是他 2023 年前的旧款）；腕表线官宣为 <strong>Rolex</strong>，未见其他腕表品牌的可靠代言报道。</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="style">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.06</span>
+      <div>
+        <h2>风格总结 · 怎么穿出 Alcaraz 感</h2>
+        <div class="sub">STYLE KEYWORDS · 年轻之王的穿搭公式</div>
+      </div>
+    </div>
+    <p class="prose">阿尔卡拉斯的风格公式：<strong>鲜亮运动色 + 少年感休闲 + 一件法式高奢</strong>。他敢穿 NikeCourt 的大胆配色，也敢在 LV 大片里安静站着——能量和克制各占一半，这就是年轻之王。</p>
+    <div class="kw-band">
+      <span class="kw">01 · 敢用亮色 — 青绿/橙红背心，运动层就抢眼</span>
+      <span class="kw">02 · 无袖背心 — 2025 澳网同款，夏天直接抄</span>
+      <span class="kw">03 · T 恤+球鞋休闲 — THE 日常层，CK 基础款打底</span>
+      <span class="kw">04 · 一件 LV — 皮带或背包，法式收尾</span>
+      <span class="kw">05 · 笑容即配饰 — 他的时尚 Half 是表情管理</span>
+    </div>
+    <div class="note">
+      <span class="icon">NOTE /</span>
+      <span>文中「Amazon 找同款」按钮为<strong>联盟链接占位</strong>，接入后直达搜索页；直购渠道：Nike / Babolat / CK 国内官方渠道、LV 官网专柜、劳力士授权经销商。合约金额均为媒体报道口径（2026.11 整理），以品牌官方公告为准。</span>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.07</span>
+      <div>
+        <h2>FAQ · 追同款三问</h2>
+        <div class="sub">常见问题</div>
+      </div>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="q"><span class="no">Q1</span>阿尔卡拉斯用的是 Pure Aero VS 还是 Pure Aero 98？</div>
+        <div class="a"><strong>Pure Aero 98。</strong>据 Tennis365 报道，他 2023 年从 Pure Aero VS 换到 Pure Aero 98（16x19 线床，配 RPM Team 球线），理由是要更多控制。零售版 Pure Aero 98 即同款，约 ¥1,800–2,300。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="no">Q2</span>他真的是 Louis Vuitton 大使吗？什么时候官宣的？</div>
+        <div class="a">是的。<strong>2023 年 6 月法网夺冠季 LV 官宣他为品牌大使</strong>，此后多次为 LV 服装系列拍摄大片。腕表线则是 Rolex 品牌大使（2025 法网夺冠照的 Daytona 约 $46,000）。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="no">Q3</span>预算有限，先买哪件「最 Alcaraz」？</div>
+        <div class="a">推荐顺序：<strong>① NikeCourt Polo/背心（¥300 级，场上同款）→ ② CK 基础款（¥200 级，广告同款）→ ③ Pure Aero 98（真要打球再入，¥1,800 级）→ ④ LV 皮带（¥3,000+ 级）→ ⑤ Daytona（人生级）</strong>。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.08</span>
+      <div>
+        <h2>继续追更</h2>
+        <div class="sub">Related guides</div>
+      </div>
+    </div>
+    <div class="reads">
+      <a href="sinner.html"><span class="rk">Star Library / Sinner</span><span class="rt">辛纳的装备与时尚版图</span></a>
+      <a href="zheng-qinwen.html"><span class="rk">Star Library / Zheng</span><span class="rt">郑钦文的装备与时尚版图</span></a>
+      <a href="../球拍/tennis-racquets-guide.html"><span class="rk">Guide / Racquets</span><span class="rt">网球拍选购指南</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p>图片为 Unsplash 网球/时尚主题占位图 · 非产品实拍<br>通过联盟链接购买不额外增加费用，还能支持我们继续创作<br>数据整理于 2026.11 · 所有代言与合作均经公开报道核实，未证实条目已标注或剔除</p>
+    <p class="sig">愿你的球场造型，<em>既有年轻之王的能量</em>，也有法式的一点克制 🎾</p>
+  </div>
+
+<div class="affiliate-disclosure" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:2rem;padding-top:1rem;font-size:0.72rem;color:rgba(255,255,255,0.45);line-height:1.9;">
+  <strong style="color:inherit;">利益声明 / Affiliate Disclosure：</strong>本页包含联盟链接（Amazon、Booking.com、Trip.com、Awin 等）。通过这些链接完成预订或购买，我们可能获得佣金——这不影响你支付的价格，也不会影响我们的评测独立性。<a href="/disclosure.html" style="color:inherit;text-decoration:underline;">查看完整联盟披露声明 →</a>
+  <span style="display:block;margin-top:0.3rem;">As an Amazon Associate, we earn from qualifying purchases.</span>
+</div>
+
+</footer>
+
+</body>
+</html>

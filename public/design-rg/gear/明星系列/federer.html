@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>费德勒的优雅版图 · Uniqlo / On / Rolex 同款购物地图</title>
+<meta name="description" content="优雅教主的商业版图全解析：Uniqlo 十年 3 亿美元、On 联合创始人身份与 THE ROGER 系列、Rolex 终身代言、Lindt / Barilla 代言史，RF 签名款每件附购买渠道。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0d0c;
+    --panel: #161412;
+    --panel-2: #1c1917;
+    --line: rgba(255,255,255,0.08);
+    --text: #ece7e1;
+    --text-dim: rgba(236,231,225,0.72);
+    --text-faint: rgba(236,231,225,0.55);
+    --accent: #b8924a;          /* 经典黑金 · contrast on #0e0d0c ≈ 6.5:1 */
+    --accent-soft: rgba(184,146,74,0.13);
+    --serif: 'Noto Serif SC', serif;
+    --sans: 'IBM Plex Sans', 'Noto Sans SC', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem clamp(1.2rem, 4vw, 3rem);
+    background: rgba(14,13,12,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .mark {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.18em;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  .topbar .mark em { color: var(--accent); font-style: normal; }
+  .topbar nav { display: flex; gap: 1.6rem; }
+  .topbar nav a {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em;
+    color: var(--text-faint); text-decoration: none; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    min-height: 78vh;
+    overflow: hidden;
+  }
+  .hero-copy {
+    padding: clamp(2.5rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4.5rem);
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .kicker {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem;
+  }
+  .kicker::before { content: ''; width: 2.5rem; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--text-dim);
+    max-width: 34em;
+    margin-bottom: 2.4rem;
+  }
+  .meta-row { display: flex; gap: 2.4rem; flex-wrap: wrap; }
+  .meta-cell { border-left: 1px solid var(--line); padding-left: 1rem; }
+  .meta-cell .num {
+    font-family: var(--mono); font-size: 1.5rem; font-weight: 500; color: var(--accent);
+    line-height: 1.2;
+  }
+  .meta-cell .label {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .hero-media { position: relative; min-height: 320px; }
+  .hero-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.85) brightness(0.8);
+  }
+  .hero-media::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 30%);
+    pointer-events: none;
+  }
+  .hero-media .img-tag {
+    position: absolute; bottom: 1rem; right: 1.2rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55); text-transform: uppercase;
+    background: rgba(0,0,0,0.5); padding: 0.3rem 0.7rem; border: 1px solid var(--line);
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-media { min-height: 260px; }
+    .hero-media::after { background: linear-gradient(0deg, var(--bg) 0%, transparent 40%); }
+    .topbar nav { display: none; }
+  }
+
+  .map { max-width: 1080px; margin: 2.2rem auto 0; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .map-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+  }
+  .map-cell {
+    background: var(--panel); padding: 1rem 0.9rem;
+    display: flex; flex-direction: column; gap: 0.3rem;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .map-cell:hover { background: var(--panel-2); }
+  .map-cell .tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .map-cell .name { font-size: 0.82rem; color: var(--text-dim); }
+  @media (max-width: 820px) { .map-grid { grid-template-columns: repeat(2, 1fr); } .map-cell:nth-child(5) { grid-column: span 2; } }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .chapter { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
+  .chapter-head {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.2rem;
+    align-items: baseline; margin-bottom: 1.2rem;
+    border-top: 1px solid var(--line); padding-top: 1.2rem;
+  }
+  .chapter-index {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.15em;
+  }
+  .chapter-head h2 {
+    font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700;
+    line-height: 1.25;
+  }
+  .chapter-head .sub {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: var(--text-faint); text-transform: uppercase; margin-top: 0.4rem;
+  }
+  .prose { max-width: 44em; font-size: 0.94rem; color: var(--text-dim); margin-bottom: 1rem; }
+  .prose strong { color: var(--text); font-weight: 600; }
+  .prose a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(184,146,74,0.35); }
+  .prose a:hover { border-bottom-color: var(--accent); }
+
+  .items { margin-top: 1rem; display: flex; flex-direction: column; }
+  .item {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .item:last-child { border-bottom: 1px solid var(--line); }
+  .item-media { position: relative; overflow: hidden; min-height: 220px; }
+  .item-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.8); transition: transform 0.6s ease; }
+  .item:hover .item-media img { transform: scale(1.03); }
+  .tier {
+    position: absolute; top: 0.8rem; left: 0.8rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.3rem 0.65rem; border: 1px solid var(--line);
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+    color: var(--text-dim);
+  }
+  .tier.hot { color: #e9c176; }
+  .item-body { padding: clamp(1.2rem, 3vw, 2rem); display: flex; flex-direction: column; }
+  .item-idx {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+  .item-body h3 {
+    font-family: var(--serif); font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 700;
+    line-height: 1.3;
+  }
+  .item-body h3 .en {
+    display: block; font-family: var(--mono); font-weight: 400;
+    font-size: 0.76rem; letter-spacing: 0.04em; color: var(--text-faint); margin-top: 0.3rem;
+  }
+  .item-desc { font-size: 0.88rem; color: var(--text-dim); margin: 0.8rem 0 1.1rem; max-width: 38em; }
+
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    margin-bottom: 1rem;
+  }
+  .spec { background: var(--panel); padding: 0.65rem 0.85rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  .spec .k {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .spec .v { font-size: 0.8rem; color: var(--text); line-height: 1.45; }
+  .spec .v.accent-v { color: var(--accent); }
+
+  .item-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .fit-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .fit-tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem; border: 1px solid var(--line); color: var(--text-faint);
+  }
+  .fit-tag.hot { color: var(--accent); border-color: rgba(184,146,74,0.35); }
+  .cta {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    padding: 0.55rem 1.2rem; border: 1px solid var(--line);
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cta:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 820px) {
+    .item { grid-template-columns: 1fr; }
+    .item-media { min-height: 190px; }
+    .spec-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .play-panel {
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: clamp(1.5rem, 3vw, 2.4rem);
+  }
+  .play-list { display: flex; flex-direction: column; margin-top: 0.5rem; }
+  .play-item {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.1rem;
+    padding: 1rem 1rem; border-top: 1px solid var(--line);
+  }
+  .play-item:first-child { border-top: none; }
+  .play-item .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); padding-top: 0.15rem; }
+  .play-item .t { font-weight: 600; font-size: 0.9rem; }
+  .play-item .d { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+  .kw-band { margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .kw {
+    font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em;
+    padding: 0.5rem 1rem; border: 1px solid rgba(184,146,74,0.35);
+    background: var(--accent-soft); color: var(--text);
+  }
+
+  .faq { margin-top: 1.5rem; border: 1px solid var(--line); background: var(--panel); }
+  .faq-item { padding: 1.2rem 1.4rem; border-top: 1px solid var(--line); }
+  .faq-item:first-child { border-top: none; }
+  .faq-item .q {
+    font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem;
+    display: flex; gap: 0.8rem; align-items: baseline;
+  }
+  .faq-item .q .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); }
+  .faq-item .a { font-size: 0.86rem; color: var(--text-dim); max-width: 42em; }
+  .faq-item .a strong { color: var(--text); }
+
+  .note {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(184,146,74,0.35);
+    background: var(--accent-soft);
+    padding: 1.1rem 1.4rem;
+    font-size: 0.82rem; color: var(--text-dim);
+    display: flex; gap: 0.9rem; align-items: flex-start;
+  }
+  .note .icon { font-family: var(--mono); color: var(--accent); font-size: 0.76rem; letter-spacing: 0.1em; padding-top: 0.1rem; white-space: nowrap; }
+  .note strong { color: var(--accent); font-weight: 600; }
+
+  .reads { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .reads a {
+    background: var(--panel); padding: 1.3rem 1.2rem; text-decoration: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: background 0.2s;
+  }
+  .reads a:hover { background: var(--panel-2); }
+  .reads .rt { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); }
+  .reads .rk { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; }
+  @media (max-width: 640px) { .reads { grid-template-columns: 1fr; } }
+
+  footer {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    border-top: 1px solid var(--line);
+    padding: 2.5rem clamp(1.2rem, 4vw, 3rem) 4rem;
+  }
+  .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .foot-inner p { font-size: 0.75rem; color: var(--text-faint); line-height: 1.9; }
+  .foot-inner .sig { font-family: var(--serif); color: var(--text-dim); }
+  .foot-inner .sig em { color: var(--accent); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="mark">ROGER FEDERER <em>/</em> STYLE MAP</span>
+  <nav>
+    <a href="index.html">SERIES</a>
+    <a href="#apparel">UNIQLO</a>
+    <a href="#shoes">ON</a>
+    <a href="#jewels">ROLEX</a>
+    <a href="#brands">BRANDS</a>
+    <a href="#style">STYLE</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>费德勒的<br>优雅<span class="accent">版图</span></h1>
+    <div class="kicker">The Maestro · 同款购物地图</div>
+    <p class="lede">20 座大满贯之外，费德勒真正的杰作是商业版图：Uniqlo 十年 3 亿美元的「终身级」合约、On 联合创始人兼投资人身份（THE ROGER 系列是这层身份的产物）、Rolex 常青代言、外加 Lindt、Barilla、Oliver Peoples 的瑞士式长情。这篇是他的 RF 签名款购买地图。</p>
+    <div class="meta-row"><div class="meta-cell"><div class="num">20</div><div class="label">大满贯单打冠军</div></div><div class="meta-cell"><div class="num">$300M</div><div class="label">Uniqlo 十年合约 · 据报道</div></div><div class="meta-cell"><div class="num">2001</div><div class="label">Rolex 合作起点</div></div></div>
+  </div>
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=900&q=80" alt="网球场上的优雅">
+    <span class="img-tag">Court · Style · Federer</span>
+  </div>
+</section>
+
+<div class="map" id="map">
+  <div class="map-grid">
+    <a class="map-cell" href="#apparel"><span class="tag">APPAREL /</span><span class="name">Uniqlo 终身级合约</span></a>
+    <a class="map-cell" href="#shoes"><span class="tag">SHOES /</span><span class="name">On THE ROGER 系列</span></a>
+    <a class="map-cell" href="#jewels"><span class="tag">WATCH /</span><span class="name">Rolex 常青代言</span></a>
+    <a class="map-cell" href="#gear"><span class="tag">GEAR /</span><span class="name">Wilson RF 球拍线</span></a>
+    <a class="map-cell" href="#brands"><span class="tag">BRANDS /</span><span class="name">代言全景</span></a>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section class="chapter" id="apparel">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.01</span>
+      <div>
+        <h2>服装 · Uniqlo 十年 3 亿美元</h2>
+        <div class="sub">UNIQLO GLOBAL AMBASSADOR SINCE 2018 · 据报道 10 年 $300M</div>
+      </div>
+    </div>
+    <p class="prose">2018 年夏天，36 岁的费德勒告别合作 24 年的 Nike，转投 Uniqlo：<strong>据报道为 10 年 3 亿美元（约每年 3000 万美元）</strong>，且合约与是否退役无关——Forbes、CNN、Times of India 多年反复报道这组数字。温网那次「RF 老 Nike 帽 + 新 Uniqlo Polo」的名场面，就是这份合约的开幕式。如今 Uniqlo 每年推出 <strong>RF 系列胶囊</strong>（Polo、外套、配饰），是普通人买「费德勒同款」最平价的入口。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1517634460381-ae25d6cf3b28?w=900&q=80" alt="Uniqlo RF 系列" loading="lazy">
+          <span class="tier hot">可购买</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.01 — 平价首选</div>
+          <h3>Uniqlo × Roger Federer 系列<span class="en">RF CAP / POLO / DRY-EX COURT COLLECTION</span></h3>
+          <p class="item-desc">RF 标志棒球帽（传说中的限量 RF Cap，首发时全球秒罄）、Dry-EX 网球 Polo、运动外套按季上架。国内购买最方便：优衣库官网、App、天猫旗舰店搜「RF」即可，帽子百元级、Polo 两三百元——全部代言版图里性价比最高的「同款」。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">帽 ¥99–199 · Polo ¥199–399</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">优衣库官网/天猫旗舰店/门店</span></div>
+            <div class="spec"><span class="k">Deal</span><span class="v">2018 年起 · 据报道 10 年 $300M</span></div>
+            <div class="spec"><span class="k">Tip</span><span class="v">RF 帽补货即秒罄 · 关注补货通知</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">RF 标志</span><span class="fit-tag">国内现货</span></div>
+            <a class="cta" href="[AFF:amazon:Uniqlo Roger Federer RF cap polo]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="shoes">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.02</span>
+      <div>
+        <h2>球鞋 · On 联合创始人与 THE ROGER</h2>
+        <div class="sub">ON CO-OWNER & INVESTOR · THE ROGER FRANCHISE</div>
+      </div>
+    </div>
+    <p class="prose">因为 Uniqlo 不做鞋，费德勒 2019 年拿到了人生最漂亮的一笔投资：他以<strong>联合创始人（co-owner）兼投资人身份加入瑞士运动品牌 On</strong>，深度参与开发 <strong>THE ROGER 系列</strong>——把 On 的 CloudTec 泡棉做成「费德勒式简约小白鞋」。据 Boardroom 等报道，On 上市后这笔投资的回报让他跻身十亿美元身家俱乐部。<strong>THE ROGER 每一双都是可购同款</strong>。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1601931935820-721a7b8a3d67?w=900&q=80" alt="On THE ROGER 小白鞋" loading="lazy">
+          <span class="tier hot">签名系列</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.02 — 鞋墙必备</div>
+          <h3>On THE ROGER 系列<span class="en">THE ROGER PRO / CENTRE COURT / ADVANTAGE</span></h3>
+          <p class="item-desc">三条产品线：<strong>THE ROGER Pro</strong> 是他退役前真正上场的职业网球鞋（限量发售）；Centre Court / Advantage 是日常小白鞋线，¥1,000–1,500 区间。国内购买走 On 官网、天猫 On 官方旗舰店、京东自营——费德勒版图里「穿在脚上的股份」。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">日常线 ¥1,000–1,500 · Pro 版限量</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">On 官网 / 天猫旗舰店 / 京东自营</span></div>
+            <div class="spec"><span class="k">Role</span><span class="v">联合创始人 & 投资人 · 非普通代言</span></div>
+            <div class="spec"><span class="k">Tech</span><span class="v">CloudTec 泡棉 · 瑞士设计</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">签名鞋</span><span class="fit-tag">国内现货</span></div>
+            <a class="cta" href="[AFF:amazon:On THE ROGER Centre Court sneakers]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="jewels">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.03</span>
+      <div>
+        <h2>腕表 · Rolex 常青代言</h2>
+        <div class="sub">ROLEX AMBASSADOR SINCE 2001 · 史上最长情</div>
+      </div>
+    </div>
+    <p class="prose">费德勒与 <strong>Rolex 的合作始于 2001 年</strong>，跨越他的整个职业生涯至今，常被报道为「终身代言」性质（品牌官方口径为品牌大使）：温网夺冠亲吻奖杯时腕上的劳力士，是体育营销史出镜率最高的画面之一。同款思路：他最常被拍到的是 <strong>Datejust / Daytona / Sky-Dweller</strong> 一类经典款，公价 ¥7 万级起步。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=900&q=80" alt="Rolex 腕表" loading="lazy">
+          <span class="tier hot">官宣代言</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.03 — 收藏级</div>
+          <h3>Rolex Datejust / Sky-Dweller<span class="en">HIS MOST-PHOTOGRAPHED References · ENTRY VIA DATEJUST</span></h3>
+          <p class="item-desc">入门复刻思路选 Datejust 36/41：费德勒式「低调但人人认得」的气质原点，国内公价约 ¥7–10 万级。购买走劳力士官方授权经销商；热门款排队常态，Sky-Dweller 更进阶。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Status</span><span class="v accent-v">品牌大使 · 2001 年至今</span></div>
+            <div class="spec"><span class="k">Entry</span><span class="v">Datejust 36 · 公价约 ¥7 万级</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">劳力士官方授权经销商 / 官网查货</span></div>
+            <div class="spec"><span class="k">Note</span><span class="v">热门款排队 · 以门店为准</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">常青代言</span><span class="fit-tag">收藏向</span></div>
+            <a class="cta" href="[AFF:amazon:Rolex Datejust watch]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="gear">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.04</span>
+      <div>
+        <h2>球拍 · Wilson RF 签名线</h2>
+        <div class="sub">WILSON RF COLLECTION · PRO STAFF 血统</div>
+      </div>
+    </div>
+    <p class="prose">费德勒整个职业生涯用 <strong>Wilson Pro Staff 系列定制胚</strong>（传闻涂装甚至藏在别人球拍里，是网球装备圈经典都市传说）。退役后 Wilson 顺势推出 <strong>RF 签名系列</strong>：RF01 / RF01 Pro（黑金涂装，致敬他的第六代 Pro Staff 美学），球拍肩线上的 RF 字样就是收藏理由。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1622163642998-1ea32c4abe1d?w=900&q=80" alt="Wilson RF 球拍" loading="lazy">
+          <span class="tier hot">签名系列</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.04 — 打球党直通</div>
+          <h3>Wilson RF01 / RF01 Pro<span class="en">WILSON RF COLLECTION · BLACK & GOLD</span></h3>
+          <p class="item-desc">RF01 面向进阶玩家，RF01 Pro 更贴近职业规格；黑金涂装是整个网球装备圈辨识度最高的签名线。国内购买走 Wilson 天猫/京东旗舰店，约 ¥2,000–2,600；海淘 Tennis Warehouse 常年有货。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 ¥2,000–2,600（国内官方价）</span></div>
+            <div class="spec"><span class="k">Spec</span><span class="v">RF01 / RF01 Pro · 黑金 RF 涂装</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">Wilson 天猫/京东旗舰店 / Tennis Warehouse</span></div>
+            <div class="spec"><span class="k">Heritage</span><span class="v">Pro Staff 血统 · 20 GS 的签名款</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">RF 签名款</span><span class="fit-tag">黑金涂装</span></div>
+            <a class="cta" href="[AFF:amazon:Wilson RF01 Pro tennis racquet]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="brands">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.05</span>
+      <div>
+        <h2>版图之外 · 代言全景速览</h2>
+        <div class="sub">SPONSOR MAP · 据公开报道整理</div>
+      </div>
+    </div>
+    <div class="play-panel">
+      <div class="play-list">
+        <div class="play-item"><span class="no">01</span><div><div class="t">Uniqlo</div><div class="d">2018 年起 · 据报道 10 年 $300M，约每年 $30M。</div></div></div>
+        <div class="play-item"><span class="no">02</span><div><div class="t">On</div><div class="d">联合创始人兼投资人，THE ROGER 系列共创；On 上市后据报道回报巨大。</div></div></div>
+        <div class="play-item"><span class="no">03</span><div><div class="t">Rolex</div><div class="d">2001 年起品牌大使，横跨整个职业生涯。</div></div></div>
+        <div class="play-item"><span class="no">04</span><div><div class="t">Wilson</div><div class="d">生涯球拍伙伴，退役后 RF 签名系列。</div></div></div>
+        <div class="play-item"><span class="no">05</span><div><div class="t">Lindt / Barilla</div><div class="d">瑞士巧克力（据报道约 $4M/年）与意大利面（2017–2022，据报道约 $8M/年）。</div></div></div>
+        <div class="play-item"><span class="no">06</span><div><div class="t">Moët & Chandon / Gillette / Jura / Sunrise / Mercedes-Benz</div><div class="d">香槟、剃须刀、咖啡机、通信、汽车——据 Sportskeeda 等报道的历代代言版图，个别合约状态以品牌公告为准。</div></div></div>
+        <div class="play-item"><span class="no">07</span><div><div class="t">Oliver Peoples</div><div class="d">眼镜合作，参与设计联名系列（据 Sportskeeda 2024 报道）。</div></div></div>
+      </div>
+      <div class="note" style="margin-top:1.5rem;">
+        <span class="icon">FACT /</span>
+        <span>两个常见误传：<strong>① Credit Suisse</strong> 曾是赞助商并向其基金会捐款，该行 2023 年被瑞银收购，合作已成历史；<strong>②「Moët 代言」多为早期合作报道</strong>，近年未见续约官宣。本篇只收录有据可查的条目。</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="style">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.06</span>
+      <div>
+        <h2>风格总结 · 怎么穿出费德勒感</h2>
+        <div class="sub">STYLE KEYWORDS · 优雅是可以抄作业的</div>
+      </div>
+    </div>
+    <p class="prose">费德勒的时尚公式是网坛最简单的：<strong>极简剪裁 + 经典款 + 一丝不苟的合身度</strong>。他不追潮流，他让经典款显得高级——西装马甲配 RF 帽、Uniqlo 黑色战袍温网全白，全是「少即是多」的教科书。</p>
+    <div class="kw-band">
+      <span class="kw">01 · 全白纪律 — 温网白是最严格的极简训练</span>
+      <span class="kw">02 · 合身大于品牌 — 裁缝比 Logo 重要</span>
+      <span class="kw">03 · 黑金低奢 — 腕表和球拍点睛即可</span>
+      <span class="kw">04 · 小白鞋哲学 — THE ROGER 一双走天下</span>
+      <span class="kw">05 · 马甲/西装混运动 — 颁奖礼层的费式正装</span>
+    </div>
+    <div class="note">
+      <span class="icon">NOTE /</span>
+      <span>文中「Amazon 找同款」按钮为<strong>联盟链接占位</strong>，接入后直达搜索页；直购渠道：优衣库 / On / Wilson 国内官方渠道、劳力士授权经销商。合约金额均为媒体报道口径，以品牌官方公告为准。</span>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.07</span>
+      <div>
+        <h2>FAQ · 追同款三问</h2>
+        <div class="sub">常见问题</div>
+      </div>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="q"><span class="no">Q1</span>RF 帽为什么老是买不到？</div>
+        <div class="a">Uniqlo 的 RF Cap 是限量补货模式，首发与补货均快速售罄。策略：<strong>下载优衣库 App 开补货通知，或盯天猫旗舰店上新直播</strong>；实在抢不到，RF 系列 Polo 和外套库存稳定，优雅不靠一顶帽子。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="no">Q2</span>费德勒拥有 On 吗？买鞋等于给他分红吗？</div>
+        <div class="a">他是 On 的<strong>联合创始人（co-owner）兼投资人</strong>，据 Boardroom、Times of India 等报道，On 上市后这笔投资是其十亿美元身家的关键一块。买 THE ROGER 严格意义上不「分红」，但确实是把他的作品穿在脚上。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="no">Q3</span>预算有限，先买哪件「最费德勒」？</div>
+        <div class="a">推荐顺序：<strong>① Uniqlo RF Polo 或 Dry-EX 网球衫（¥199–399，穿衣同款天花板）→ ② THE ROGER Centre Court 小白鞋（¥1,000 级，脚上的股份）→ ③ Wilson RF01（打球党再入，¥2,000 级）→ ④ Rolex Datejust（人生级目标）</strong>。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.08</span>
+      <div>
+        <h2>继续追更</h2>
+        <div class="sub">Related guides</div>
+      </div>
+    </div>
+    <div class="reads">
+      <a href="zheng-qinwen.html"><span class="rk">Star Library / Zheng</span><span class="rt">郑钦文的装备与时尚版图</span></a>
+      <a href="alcaraz.html"><span class="rk">Star Library / Alcaraz</span><span class="rt">阿尔卡拉斯的装备与时尚版图</span></a>
+      <a href="../球拍/tennis-racquets-guide.html"><span class="rk">Guide / Racquets</span><span class="rt">网球拍选购指南</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p>图片为 Unsplash 网球/时尚主题占位图 · 非产品实拍<br>通过联盟链接购买不额外增加费用，还能支持我们继续创作<br>数据整理于 2026.11 · 所有代言与合约金额均据公开报道核实，未证实条目已标注或剔除</p>
+    <p class="sig">愿你的球场造型，<em>既有 20 冠的从容</em>，也有黑金的克制 🎾</p>
+  </div>
+
+<div class="affiliate-disclosure" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:2rem;padding-top:1rem;font-size:0.72rem;color:rgba(255,255,255,0.45);line-height:1.9;">
+  <strong style="color:inherit;">利益声明 / Affiliate Disclosure：</strong>本页包含联盟链接（Amazon、Booking.com、Trip.com、Awin 等）。通过这些链接完成预订或购买，我们可能获得佣金——这不影响你支付的价格，也不会影响我们的评测独立性。<a href="/disclosure.html" style="color:inherit;text-decoration:underline;">查看完整联盟披露声明 →</a>
+  <span style="display:block;margin-top:0.3rem;">As an Amazon Associate, we earn from qualifying purchases.</span>
+</div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>亚历克斯·伊埃拉的装备与时尚版图 · 菲律宾网球新史的同款地图</title>
+<meta name="description" content="从迈阿密爆冷之旅到菲律宾首位 WTA 巡回赛冠军：亚历克斯·伊埃拉（Alex Eala）的时尚版图解析；Nike 赞助、Babolat Pure Aero 球拍、BPI 与 Globe 等代言全景 + 同款购买渠道。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0f12;
+    --panel: #14171b;
+    --panel-2: #1a1e24;
+    --line: rgba(255,255,255,0.08);
+    --text: #ebeef2;
+    --text-dim: rgba(235,238,242,0.72);
+    --text-faint: rgba(235,238,242,0.55);
+    --accent: #6b9fd4;          /* 菲律宾海洋蓝（提亮） · contrast on #0d0f12 > 5:1 */
+    --accent-gold: #d4a843;     /* 国旗太阳金 · 辅助点缀 */
+    --accent-soft: rgba(107,159,212,0.13);
+    --serif: 'Noto Serif SC', serif;
+    --sans: 'IBM Plex Sans', 'Noto Sans SC', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem clamp(1.2rem, 4vw, 3rem);
+    background: rgba(13,15,18,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .mark {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.18em;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  .topbar .mark em { color: var(--accent); font-style: normal; }
+  .topbar nav { display: flex; gap: 1.6rem; }
+  .topbar nav a {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em;
+    color: var(--text-faint); text-decoration: none; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    min-height: 78vh;
+    overflow: hidden;
+  }
+  .hero-copy {
+    padding: clamp(2.5rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4.5rem);
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .kicker {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem;
+  }
+  .kicker::before { content: ''; width: 2.5rem; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--text-dim);
+    max-width: 34em;
+    margin-bottom: 2.4rem;
+  }
+  .meta-row { display: flex; gap: 2.4rem; flex-wrap: wrap; }
+  .meta-cell { border-left: 1px solid var(--line); padding-left: 1rem; }
+  .meta-cell .num {
+    font-family: var(--mono); font-size: 1.5rem; font-weight: 500; color: var(--accent);
+    line-height: 1.2;
+  }
+  .meta-cell .label {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .hero-media { position: relative; min-height: 320px; }
+  .hero-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.85) brightness(0.8);
+  }
+  .hero-media::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 30%);
+    pointer-events: none;
+  }
+  .hero-media .img-tag {
+    position: absolute; bottom: 1rem; right: 1.2rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55); text-transform: uppercase;
+    background: rgba(0,0,0,0.5); padding: 0.3rem 0.7rem; border: 1px solid var(--line);
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-media { min-height: 260px; }
+    .hero-media::after { background: linear-gradient(0deg, var(--bg) 0%, transparent 40%); }
+    .topbar nav { display: none; }
+  }
+
+  .map { max-width: 1080px; margin: 2.2rem auto 0; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .map-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+  }
+  .map-cell {
+    background: var(--panel); padding: 1rem 0.9rem;
+    display: flex; flex-direction: column; gap: 0.3rem;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .map-cell:hover { background: var(--panel-2); }
+  .map-cell .tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .map-cell .name { font-size: 0.82rem; color: var(--text-dim); }
+  @media (max-width: 820px) { .map-grid { grid-template-columns: repeat(2, 1fr); } .map-cell:nth-child(5) { grid-column: span 2; } }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .chapter { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
+  .chapter-head {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.2rem;
+    align-items: baseline; margin-bottom: 1.2rem;
+    border-top: 1px solid var(--line); padding-top: 1.2rem;
+  }
+  .chapter-index {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.15em;
+  }
+  .chapter-head h2 {
+    font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700;
+    line-height: 1.25;
+  }
+  .chapter-head .sub {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: var(--text-faint); text-transform: uppercase; margin-top: 0.4rem;
+  }
+  .prose { max-width: 44em; font-size: 0.94rem; color: var(--text-dim); margin-bottom: 1rem; }
+  .prose strong { color: var(--text); font-weight: 600; }
+  .prose a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(107,159,212,0.35); }
+  .prose a:hover { border-bottom-color: var(--accent); }
+
+  .items { margin-top: 1rem; display: flex; flex-direction: column; }
+  .item {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .item:last-child { border-bottom: 1px solid var(--line); }
+  .item-media { position: relative; overflow: hidden; min-height: 220px; }
+  .item-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.8); transition: transform 0.6s ease; }
+  .item:hover .item-media img { transform: scale(1.03); }
+  .tier {
+    position: absolute; top: 0.8rem; left: 0.8rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.3rem 0.65rem; border: 1px solid var(--line);
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+    color: var(--text-dim);
+  }
+  .tier.sig { color: var(--accent-gold); }
+  .item-body { padding: clamp(1.2rem, 3vw, 2rem); display: flex; flex-direction: column; }
+  .item-idx {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+  .item-body h3 {
+    font-family: var(--serif); font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 700;
+    line-height: 1.3;
+  }
+  .item-body h3 .en {
+    display: block; font-family: var(--mono); font-weight: 400;
+    font-size: 0.76rem; letter-spacing: 0.04em; color: var(--text-faint); margin-top: 0.3rem;
+  }
+  .item-desc { font-size: 0.88rem; color: var(--text-dim); margin: 0.8rem 0 1.1rem; max-width: 38em; }
+
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    margin-bottom: 1rem;
+  }
+  .spec { background: var(--panel); padding: 0.65rem 0.85rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  .spec .k {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .spec .v { font-size: 0.8rem; color: var(--text); line-height: 1.45; }
+  .spec .v.accent-v { color: var(--accent); }
+
+  .item-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .fit-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .fit-tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem; border: 1px solid var(--line); color: var(--text-faint);
+  }
+  .fit-tag.hot { color: var(--accent); border-color: rgba(107,159,212,0.35); }
+  .cta {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    padding: 0.55rem 1.2rem; border: 1px solid var(--line);
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cta:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 820px) {
+    .item { grid-template-columns: 1fr; }
+    .item-media { min-height: 190px; }
+    .spec-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .play-panel {
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: clamp(1.5rem, 3vw, 2.4rem);
+  }
+  .play-list { display: flex; flex-direction: column; margin-top: 0.5rem; }
+  .play-item {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.1rem;
+    padding: 1rem 1rem; border-top: 1px solid var(--line);
+  }
+  .play-item:first-child { border-top: none; }
+  .play-item .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); padding-top: 0.15rem; }
+  .play-item .t { font-weight: 600; font-size: 0.9rem; }
+  .play-item .d { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+  .kw-band { margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .kw {
+    font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em;
+    padding: 0.5rem 1rem; border: 1px solid rgba(107,159,212,0.35);
+    background: var(--accent-soft); color: var(--text);
+  }
+
+  .faq { margin-top: 1.5rem; border: 1px solid var(--line); background: var(--panel); }
+  .faq-item { padding: 1.2rem 1.4rem; border-top: 1px solid var(--line); }
+  .faq-item:first-child { border-top: none; }
+  .faq-item .q {
+    font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem;
+    display: flex; gap: 0.8rem; align-items: baseline;
+  }
+  .faq-item .q .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); }
+  .faq-item .a { font-size: 0.86rem; color: var(--text-dim); max-width: 42em; }
+  .faq-item .a strong { color: var(--text); }
+
+  .note {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(107,159,212,0.35);
+    background: var(--accent-soft);
+    padding: 1.1rem 1.4rem;
+    font-size: 0.82rem; color: var(--text-dim);
+    display: flex; gap: 0.9rem; align-items: flex-start;
+  }
+  .note .icon { font-family: var(--mono); color: var(--accent); font-size: 0.76rem; letter-spacing: 0.1em; padding-top: 0.1rem; white-space: nowrap; }
+  .note strong { color: var(--accent); font-weight: 600; }
+
+  .reads { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .reads a {
+    background: var(--panel); padding: 1.3rem 1.2rem; text-decoration: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: background 0.2s;
+  }
+  .reads a:hover { background: var(--panel-2); }
+  .reads .rt { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); }
+  .reads .rk { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; }
+  @media (max-width: 640px) { .reads { grid-template-columns: 1fr; } }
+
+  footer {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    border-top: 1px solid var(--line);
+    padding: 2.5rem clamp(1.2rem, 4vw, 3rem) 4rem;
+  }
+  .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .foot-inner p { font-size: 0.75rem; color: var(--text-faint); line-height: 1.9; }
+  .foot-inner .sig { font-family: var(--serif); color: var(--text-dim); }
+  .foot-inner .sig em { color: var(--accent); font-style: normal; }
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <span class="mark">ALEX EALA <em>/</em> STYLE MAP</span>
+  <nav>
+    <a href="index.html">SERIES</a>
+    <a href="#apparel">APPAREL</a>
+    <a href="#gear">GEAR</a>
+    <a href="#local">LOCAL</a>
+    <a href="#brands">BRANDS</a>
+    <a href="#style">STYLE</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>亚历克斯·伊埃拉的<br>装备与时尚<span class="accent">版图</span></h1>
+    <div class="kicker">Alex Eala · 菲律宾网球新史</div>
+    <p class="lede">2025 年 3 月的迈阿密，一位持外卡、世界排名第 140 位的 18 岁菲律宾姑娘，连续淘汰奥斯塔彭科、凯斯和斯瓦泰克三位大满贯冠军，闯进 WTA 1000 四强；菲律宾网球的历史从那一周开始改写，此后是 2025 瓜达拉哈拉 125 冠军、2026 华盛顿首座巡回赛冠军、世界排名一路爬升至 Top 20。她身上穿的是 Nike，手里握的是 Babolat Pure Aero，背后站着一整列菲律宾国民品牌。这篇拆解她的装备与代言版图，附同款购买渠道。</p>
+    <div class="meta-row"><div class="meta-cell"><div class="num">Top 20</div><div class="label">WTA 排名 · 2026</div></div><div class="meta-cell"><div class="num">3 冠</div><div class="label">125 系 + 巡回赛 · 2025–26</div></div><div class="meta-cell"><div class="num">No.140</div><div class="label">迈阿密爆冷时排名</div></div></div>
+  </div>
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1622163642998-1ea32c4abe1d?w=900&q=80" alt="网球场上的装备" loading="lazy">
+    <span class="img-tag">Manila · Miami · History</span>
+  </div>
+</section>
+
+<div class="map" id="map">
+  <div class="map-grid">
+    <a class="map-cell" href="#apparel"><span class="tag">APPAREL /</span><span class="name">Nike 签约层</span></a>
+    <a class="map-cell" href="#gear"><span class="tag">GEAR /</span><span class="name">Babolat Pure Aero</span></a>
+    <a class="map-cell" href="#local"><span class="tag">LOCAL /</span><span class="name">菲律宾国民品牌</span></a>
+    <a class="map-cell" href="#brands"><span class="tag">BRANDS /</span><span class="name">代言全景</span></a>
+    <a class="map-cell" href="#style"><span class="tag">STYLE /</span><span class="name">风格关键词</span></a>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section class="chapter" id="apparel">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.01</span>
+      <div>
+        <h2>服装 · Nike 签约运动员与全球品牌大使</h2>
+        <div class="sub">NIKE SPONSORED ATHLETE SINCE 2019 · 比赛层量产可购</div>
+      </div>
+    </div>
+    <p class="prose">伊埃拉与 Nike 的关系始于 <strong>2019 年</strong>；当时她还不到 15 岁， Nike 从青少年阶段就开始赞助她。2025–26 赛季她已升格为 Nike 的<strong>签约运动员兼全球品牌大使</strong>（据 Yahoo Sports 2026 年美网报道），美网赛场上她的球衣胸口除 Nike 标识外还带有菲律宾国民品牌 BPI 与 Globe 的标志；这是顶级巡回赛上罕见的「国家队式」赞助阵容。比赛层为 NikeCourt 量产系列，全部零售可购。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1517634460381-ae25d6cf3b28?w=900&q=80" alt="NikeCourt 女子网球服装" loading="lazy">
+          <span class="tier sig">可购买</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.01 ， PRICE REF ¥300–700</div>
+          <h3>NikeCourt 女子比赛系列<span class="en">NIKECOURT DRI-FIT · DRESS / SKIRT / POLO</span></h3>
+          <p class="item-desc">她的比赛层为 NikeCourt Dri-FIT 女子系列量产款，按赛季轮换上架，设计语言以 NikeCourt 主线为准（2026 美网周期流行网眼面料与运动连衣裙剪裁）。该系列定位大众运动零售价位：国内 Nike 官网、天猫旗舰店、京东自营约 ¥300–700；海淘可选 Nike.com 美区或 Tennis Warehouse。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">¥300–700（国内官方渠道）</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">Nike 官网 / 天猫旗舰店 / 京东自营</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">Dri-FIT 排汗剪裁 · 建议比常码大半码</span></div>
+            <div class="spec"><span class="k">Drop</span><span class="v">各站大满贯前 2–4 周</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">比赛层同款</span><span class="fit-tag">国内现货</span></div>
+            <a class="cta" href="[AFF:amazon:NikeCourt women's tennis dress Dri-FIT]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="gear">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.02</span>
+      <div>
+        <h2>球拍 · Babolat Pure Aero</h2>
+        <div class="sub">BABOLAT PURE AERO (2023) · RPM BLAST 穿线 · 量产同款</div>
+      </div>
+    </div>
+    <p class="prose">与郑钦文、辛纳等「定制胚 + 换涂装」的顶级球员不同，伊埃拉的装备档案相对透明：据 Tennis365 等媒体报道，她的球拍赞助商是 <strong>Babolat</strong>，场上使用 <strong>Pure Aero 2023 款</strong>，穿线为 <strong>Babolat RPM Blast</strong>。也就是说，她手上这支与货架上零售版的差距主要在配重微调，普通玩家买到零售 Pure Aero，就已经很接近她的配置。Babolat 自青少年时期起就支持她，这与 Nike 的路径一致：品牌押注于她还是天才少女的时候。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=900&q=80" alt="Babolat Pure Aero 网球拍" loading="lazy">
+          <span class="tier sig">可购买</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.02 ， PRICE REF ¥1,600–2,200</div>
+          <h3>Babolat Pure Aero（2023）<span class="en">HER MATCH RACQUET · RETAIL VERSION</span></h3>
+          <p class="item-desc">Pure Aero 是 Babolat 的旋转系旗舰：100 sq in 拍面、 Aero 模组线床护管设计，主打上旋球友好，与伊埃拉左侧手强上旋的技术画像吻合。零售版即她场上用的型号，国内 Babolat 天猫/京东旗舰店约 ¥1,600–2,200（以官方渠道实价为准）；穿线建议 RPM Blast 或类似聚酯线。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 ¥1,600–2,200（国内官方价 · 以官网为准）</span></div>
+            <div class="spec"><span class="k">Spec</span><span class="v">100 sq in · 300g · 16x19</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">Babolat 天猫/京东旗舰店 / Tennis Warehouse</span></div>
+            <div class="spec"><span class="k">String</span><span class="v">Babolat RPM Blast（据媒体报道）</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">比赛同款</span><span class="fit-tag">量产可购</span></div>
+            <a class="cta" href="[AFF:amazon:Babolat Pure Aero 2023 tennis racquet]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="local">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.03</span>
+      <div>
+        <h2>本土代言层 · 菲律宾国民品牌矩阵</h2>
+        <div class="sub">BPI · GLOBE · LOCALLY · MILO · 官宣代言逐项核实</div>
+      </div>
+    </div>
+    <p class="prose">伊埃拉商业版图最独特的一层是<strong>菲律宾国民品牌矩阵</strong>：银行、电信、食品、运动饮料全线覆盖，这在 WTA 球员里非常少见。逐项核实如下：<strong>BPI（菲律宾群岛银行）</strong>2022 年官宣为品牌代言人；<strong>Globe Telecom</strong> 为品牌大使，球衣胸口长期带有其标志；<strong>Locally（本土果汁品牌）</strong>2025 年 7 月官宣大使；<strong>Milo（雀巢麦芽饮品，东南亚国民品牌）</strong>2026 年 2 月官宣品牌大使。这一层的「同款」是超市货架级的：一瓶 Locally 果汁、一盒 Milo，就是菲律宾馆里最平价的应援方式。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=900&q=80" alt="品牌代言场景" loading="lazy">
+          <span class="tier">Ambassador</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.03 ， PRICE REF 超市级</div>
+          <h3>BPI × Globe × Locally × Milo<span class="en">THE ALL-FILIPINO SPONSOR LINE-UP</span></h3>
+          <p class="item-desc">金融（BPI）、电信（Globe）、食品饮料（Locally、Milo）四线并行，全部为官宣代言而非「佩戴同款」。金融与电信为本地服务类合作，不涉及零售商品；Locally 果汁与 Milo 在菲律宾及东南亚商超有售，价格以当地零售为准（待核实具体价目）。这一层更多是身份叙事：她的商业价值与菲律宾 national pride 深度绑定。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">BPI</span><span class="v accent-v">2022 官宣品牌代言人</span></div>
+            <div class="spec"><span class="k">Globe</span><span class="v">品牌大使 · 球衣胸口标志</span></div>
+            <div class="spec"><span class="k">Locally</span><span class="v">2025.07 官宣大使</span></div>
+            <div class="spec"><span class="k">Milo</span><span class="v">2026.02 官宣品牌大使</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">官宣代言</span><span class="fit-tag">菲律宾本地</span></div>
+            <span class="cta">服务类合作 · 无零售渠道</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="brands">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.04</span>
+      <div>
+        <h2>版图之外 · 代言全景与里程碑档案</h2>
+        <div class="sub">SPONSOR MAP & MILESTONES · 据公开报道整理（2026.11）</div>
+      </div>
+    </div>
+    <div class="play-panel">
+      <div class="play-list">
+        <div class="play-item"><span class="no">01</span><div><div class="t">Nike</div><div class="d">2019 年签约，现为签约运动员兼全球品牌大使（据 Yahoo Sports 2026.09 报道）。</div></div></div>
+        <div class="play-item"><span class="no">02</span><div><div class="t">Babolat</div><div class="d">球拍赞助商，场上用 Pure Aero 2023 + RPM Blast。</div></div></div>
+        <div class="play-item"><span class="no">03</span><div><div class="t">BPI 菲律宾群岛银行</div><div class="d">2022 年官宣品牌代言人。</div></div></div>
+        <div class="play-item"><span class="no">04</span><div><div class="t">Globe Telecom</div><div class="d">电信品牌大使，比赛球衣胸口标志长期可见。</div></div></div>
+        <div class="play-item"><span class="no">05</span><div><div class="t">Locally / Milo</div><div class="d">2025.07 果汁品牌大使；2026.02 Milo 品牌大使。</div></div></div>
+        <div class="play-item"><span class="no">06</span><div><div class="t">时尚封面</div><div class="d">Vogue Philippines 2022.11 封面、Tatler Philippines 2025.01 封面。</div></div></div>
+      </div>
+      <div class="play-list" style="margin-top:1.5rem;">
+        <div class="play-item"><span class="no">★</span><div><div class="t">2022 美网青少年女单冠军</div><div class="d">菲律宾史上首位青少年大满贯单打冠军；此前已集齐 2020 澳网青少年女双、2022 法网青少年女双（搭档 Selekhmeteva）两座青少年大满贯双打奖杯。</div></div></div>
+        <div class="play-item"><span class="no">★</span><div><div class="t">2025 迈阿密公开赛四强</div><div class="d">持外卡、排名 No.140，连克奥斯塔彭科（7-6(2) 7-5）、凯斯（No.5）、斯瓦泰克（No.2，6-2 7-5）三位大满贯冠军。</div></div></div>
+        <div class="play-item"><span class="no">★</span><div><div class="t">2025 瓜达拉哈拉 125 冠军</div><div class="d">首座职业单打冠军（WTA 125 级，墨西哥）。</div></div></div>
+        <div class="play-item"><span class="no">★</span><div><div class="t">2026 华盛顿公开赛冠军</div><div class="d">菲律宾史上首位 WTA 巡回赛单打冠军，排名进入 Top 20。</div></div></div>
+        <div class="play-item"><span class="no">★</span><div><div class="t">2026 温网第四轮</div><div class="d">草地大满贯正赛首度打进第二周。</div></div></div>
+      </div>
+      <div class="note" style="margin-top:1.5rem;">
+        <span class="icon">FACT /</span>
+        <span>腕表/珠宝线：截至 2026.11 检索，<strong>未找到伊埃拉腕表或珠宝品牌代言的可靠报道</strong>，本篇不收录。以她当前的商业节奏（从本土品牌到国际品牌的渐进路径），腕表与高奢线大概率是时间问题，出现官宣后本稿将同步更新。</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="style">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.05</span>
+      <div>
+        <h2>风格总结 · 伊埃拉式穿搭语言</h2>
+        <div class="sub">STYLE KEYWORDS · 观察视角而非模仿清单</div>
+      </div>
+    </div>
+    <p class="prose">伊埃拉的风格叙事核心不是「秀场感」，而是<strong>国家身份</strong>：球衣上的菲律宾品牌标志、赛后采访里的一面国旗色、封面大片里的热带光线。她的场外着装以利落的运动礼服和简约剪裁为主（Tatler、Vogue 封面均为轻量正装/礼服路线），整体是「新生代亚洲球员」的克制现代感，—不堆logo，不追浮夸。</p>
+    <div class="kw-band">
+      <span class="kw">01 · 国家色叙事 — 蓝红金不喧哗，出现在标志与细节里</span>
+      <span class="kw">02 · 克制的现代运动感 — NikeCourt 主线，不做加法</span>
+      <span class="kw">03 · 封面级轻礼服 — Vogue PH / Tatler 式简约剪裁</span>
+      <span class="kw">04 · 左手强上旋的技术画像 — Pure Aero 的旋转美学</span>
+      <span class="kw">05 · 一条 Pure Aero + 一支 RPM Blast — 装备层面的全部答案</span>
+    </div>
+    <div class="note">
+      <span class="icon">NOTE /</span>
+      <span>文中「Amazon 找同款」按钮为<strong>联盟链接占位</strong>，接入后直达搜索页；国内渠道（Nike 天猫、Babolat 天猫/京东旗舰店）为直购指引。代言信息据公开报道整理（2026.11），以品牌官方公告为准。</span>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.06</span>
+      <div>
+        <h2>FAQ · 关于伊埃拉同款</h2>
+        <div class="sub">常见问题</div>
+      </div>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="q"><span class="no">Q1</span>伊埃拉用什么球拍？能买到同款吗？</div>
+        <div class="a">能，而且这在她这个级别的球员里属于少数。据 Tennis365 等媒体报道，她用 <strong>Babolat Pure Aero 2023 款</strong>，穿 RPM Blast。零售版就是她场上用的型号（职业球员通常仅做配重微调），国内官方渠道约 ¥1,600–2,200，以官网实价为准。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="no">Q2</span>她的服装赞助商是谁？为什么球衣上有银行和电信的标志？</div>
+        <div class="a">服装总赞助是 <strong>Nike</strong>（2019 年起）。BPI（银行）与 Globe（电信）是她的本土代言品牌，其标志出现在她的比赛球衣胸口：这是菲律宾品牌的「随她出战」玩法，也是她商业版图最具本土特色的部分。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="no">Q3</span>她拿过哪些「菲律宾第一」？</div>
+        <div class="a">经核实的纪录：菲律宾首位青少年大满贯单打冠军（2022 美网青少年组）、2025 迈阿密连克三位大满贯冠军闯入 WTA 1000 四强、2026 华盛顿公开赛成为<strong>菲律宾首位 WTA 巡回赛单打冠军</strong>，排名升至 Top 20。腕表/珠宝代言目前无可靠报道，待官宣后更新。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.07</span>
+      <div>
+        <h2>继续追更</h2>
+        <div class="sub">Related guides</div>
+      </div>
+    </div>
+    <div class="reads">
+      <a href="zheng-qinwen.html"><span class="rk">Star Library / Zheng</span><span class="rt">郑钦文的版图：Nike + Wilson + Rolex</span></a>
+      <a href="sinner.html"><span class="rk">Star Library / Sinner</span><span class="rt">辛纳的意式冷静版图</span></a>
+      <a href="../球拍/tennis-racquets-guide.html"><span class="rk">Guide / Racquets</span><span class="rt">网球拍选购指南</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p>图片为 Unsplash 网球/时尚主题占位图 · 非产品实拍<br>通过联盟链接购买不额外增加费用，还能支持我们继续创作<br>数据整理于 2026.11 · 所有代言与合作均经公开报道核实，未证实条目已标注或剔除</p>
+    <p class="sig">愿每一支从马尼拉出发的球拍，<em>都改写一页历史</em> 🇵🇭🎾</p>
+  </div>
+
+<div class="affiliate-disclosure" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:2rem;padding-top:1rem;font-size:0.72rem;color:rgba(255,255,255,0.45);line-height:1.9;">
+  <strong style="color:inherit;">利益声明 / Affiliate Disclosure：</strong>本页包含联盟链接（Amazon 等）。通过这些链接完成购买，我们可能获得佣金——这不影响你支付的价格，也不会影响我们的评测独立性。<a href="/disclosure.html" style="color:inherit;text-decoration:underline;">查看完整联盟披露声明 →</a>
+  <span style="display:block;margin-top:0.3rem;">As an Amazon Associate, we earn from qualifying purchases.</span>
+</div>
+
+</footer>
+
+</body>
+</html>

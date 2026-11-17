@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>女款网球裙选购指南 · 球场内外都好看的8款</title>
+<meta name="description" content="女款网球裙怎么选：裙型、面料、内衬安全设计、价格区间全解析，覆盖 Nike、Lululemon、Adidas、迪卡侬、蕉下等8款真实在售产品。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0d0c;
+    --panel: #161412;
+    --panel-2: #1c1917;
+    --line: rgba(255,255,255,0.08);
+    --text: #ece7e1;
+    --text-dim: rgba(236,231,225,0.72);
+    --text-faint: rgba(236,231,225,0.55);
+    --accent: #d96f3f;
+    --accent-soft: rgba(217,111,63,0.14);
+    --serif: 'Noto Serif SC', serif;
+    --sans: 'IBM Plex Sans', 'Noto Sans SC', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem clamp(1.2rem, 4vw, 3rem);
+    background: rgba(14,13,12,0.85); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .mark { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+  .topbar .mark em { color: var(--accent); font-style: normal; }
+  .topbar nav { display: flex; gap: 1.6rem; }
+  .topbar nav a { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.12em; color: var(--text-faint); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .topbar nav a:hover { color: var(--accent); }
+
+  .hero { position: relative; display: grid; grid-template-columns: 1.25fr 0.75fr; min-height: 70vh; overflow: hidden; }
+  .hero-copy { padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 4.5rem); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--line); }
+  .kicker { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem; }
+  .kicker::before { content: ''; width: 2.5rem; height: 1px; background: var(--accent); }
+  .hero h1 { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 4.2rem); font-weight: 900; line-height: 1.12; margin-bottom: 1.4rem; }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede { font-size: clamp(0.95rem, 1.6vw, 1.1rem); color: var(--text-dim); max-width: 34em; margin-bottom: 2.4rem; }
+  .meta-row { display: flex; gap: 2.4rem; flex-wrap: wrap; }
+  .meta-cell { border-left: 1px solid var(--line); padding-left: 1rem; }
+  .meta-cell .num { font-family: var(--mono); font-size: 1.5rem; font-weight: 500; color: var(--accent); line-height: 1.2; }
+  .meta-cell .label { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.16em; color: var(--text-faint); text-transform: uppercase; }
+  .hero-media { position: relative; min-height: 320px; }
+  .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85) brightness(0.8); }
+  .hero-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg) 0%, transparent 30%); pointer-events: none; }
+  .hero-media .img-tag { position: absolute; bottom: 1rem; right: 1.2rem; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.6); text-transform: uppercase; background: rgba(0,0,0,0.5); padding: 0.3rem 0.7rem; border: 1px solid var(--line); }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-media { min-height: 260px; }
+    .hero-media::after { background: linear-gradient(0deg, var(--bg) 0%, transparent 40%); }
+    .topbar nav { display: none; }
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .chapter { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
+  .chapter-head { display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: baseline; margin-bottom: 1.8rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+  .chapter-index { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.15em; }
+  .chapter-head h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; line-height: 1.25; }
+  .chapter-head .sub { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.14em; color: var(--text-faint); text-transform: uppercase; margin-top: 0.4rem; }
+  .prose { max-width: 44em; font-size: 0.95rem; color: var(--text-dim); }
+  .prose strong { color: var(--text); font-weight: 600; }
+
+  .crit-list { margin-top: 1.5rem; border: 1px solid var(--line); background: var(--panel); }
+  .crit { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; padding: 1.1rem 1.5rem; border-top: 1px solid var(--line); }
+  .crit:first-child { border-top: none; }
+  .crit .no { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); padding-top: 0.15rem; }
+  .crit .t { font-weight: 600; font-size: 0.95rem; }
+  .crit .d { font-size: 0.87rem; color: var(--text-dim); margin-top: 0.25rem; max-width: 40em; }
+
+  .tier-band { margin: 2.6rem 0 0.4rem; padding-top: 1.4rem; }
+  .tier-k { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 0.8rem; }
+  .tier-k::before { content: ''; width: 2rem; height: 1px; background: var(--accent); }
+  .tier-band h3 { font-family: var(--serif); font-size: clamp(1.25rem, 2.6vw, 1.7rem); font-weight: 700; line-height: 1.3; margin-top: 0.5rem; }
+  .tier-note { font-size: 0.87rem; color: var(--text-dim); max-width: 42em; margin-top: 0.4rem; }
+
+  .items { margin-top: 1rem; display: flex; flex-direction: column; }
+  .item { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; border-top: 1px solid var(--line); }
+  .item:last-child { border-bottom: 1px solid var(--line); }
+  .item-media { position: relative; overflow: hidden; min-height: 220px; }
+  .item-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.8); }
+  .tier { position: absolute; top: 0.8rem; left: 0.8rem; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.3rem 0.65rem; border: 1px solid var(--line); background: rgba(0,0,0,0.55); }
+  .tier.value { color: #cdbfa8; }
+  .tier.mid { color: #9cc3e0; }
+  .tier.luxury { color: #e9c176; }
+  .item-body { padding: clamp(1.2rem, 3vw, 2rem); }
+  .item-idx { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+  .item-body h3 { font-family: var(--serif); font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 700; line-height: 1.3; }
+  .item-body h3 .en { display: block; font-family: var(--mono); font-weight: 400; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--text-faint); margin-top: 0.3rem; }
+  .item-desc { font-size: 0.88rem; color: var(--text-dim); margin: 0.8rem 0 1.1rem; max-width: 38em; }
+  .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 1rem; }
+  .pc { background: var(--panel); padding: 0.7rem 0.9rem; font-size: 0.82rem; color: var(--text-dim); }
+  .pc .k { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+  .pc .k.plus { color: var(--accent); }
+  .pc .k.minus { color: var(--text-faint); }
+  .spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 1rem; }
+  .spec { background: var(--panel); padding: 0.65rem 0.85rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  .spec .k { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.16em; color: var(--text-faint); text-transform: uppercase; }
+  .spec .v { font-size: 0.82rem; color: var(--text); line-height: 1.45; }
+  .spec .v.accent-v { color: var(--accent); }
+  .item-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .fit-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .fit-tag { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; padding: 0.25rem 0.6rem; border: 1px solid var(--line); color: var(--text-faint); }
+  .fit-tag.hot { color: var(--accent); border-color: rgba(217,111,63,0.35); }
+  .cta { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); text-decoration: none; padding: 0.55rem 1.2rem; border: 1px solid var(--line); transition: border-color 0.2s, color 0.2s; }
+  .cta:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 820px) { .item { grid-template-columns: 1fr; } .item-media { min-height: 200px; } .pros-cons { grid-template-columns: 1fr; } }
+
+  .faq { margin-top: 1.5rem; border: 1px solid var(--line); background: var(--panel); }
+  .faq-item { border-top: 1px solid var(--line); padding: 1.1rem 1.5rem; }
+  .faq-item:first-child { border-top: none; }
+  .faq-item .q { font-weight: 600; font-size: 0.95rem; display: flex; gap: 0.7rem; }
+  .faq-item .q .no { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); padding-top: 0.15rem; }
+  .faq-item .a { font-size: 0.87rem; color: var(--text-dim); margin-top: 0.5rem; max-width: 42em; }
+
+  .channel-note { margin-top: 2.5rem; border: 1px solid rgba(217,111,63,0.35); background: var(--accent-soft); padding: 1.1rem 1.4rem; font-size: 0.85rem; color: var(--text-dim); display: flex; gap: 0.9rem; align-items: flex-start; }
+  .channel-note .icon { font-family: var(--mono); color: var(--accent); font-size: 0.78rem; letter-spacing: 0.1em; padding-top: 0.1rem; white-space: nowrap; }
+  .channel-note strong { color: var(--accent); font-weight: 600; }
+
+  .reads { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .reads a { background: var(--panel); padding: 1.3rem 1.2rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.4rem; transition: background 0.2s; }
+  .reads a:hover { background: var(--panel-2); }
+  .reads .rt { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); }
+  .reads .rk { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; }
+  @media (max-width: 640px) { .reads { grid-template-columns: 1fr; } }
+
+  footer { margin-top: clamp(3rem, 7vw, 5rem); border-top: 1px solid var(--line); padding: 2.5rem clamp(1.2rem, 4vw, 3rem) 4rem; }
+  .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .foot-inner p { font-size: 0.78rem; color: var(--text-faint); line-height: 1.9; }
+  .foot-inner .sig { font-family: var(--serif); color: var(--text-dim); }
+  .foot-inner .sig em { color: var(--accent); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="mark">GEAR <em>/</em> SKIRTS · GUIDE</span>
+  <nav>
+    <a href="#how">HOW TO CHOOSE</a>
+    <a href="#picks">THE PICKS</a>
+    <a href="#faq">FAQ</a>
+    <a href="#buy">WHERE TO BUY</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>女款网球裙<br>选购<span class="accent">指南</span></h1>
+    <div class="kicker">CH.01 · The Skirt Edit</div>
+    <p class="lede">一条好网球裙 = 裙型 + 面料 + 内衬三件事。本指南拆解选购要点，精选 8 款真实在售产品，从百元平价到千元左右设计款，球场内外都能穿。</p>
+    <div class="meta-row"><div class="meta-cell"><div class="num">8</div><div class="label">精选单品</div></div><div class="meta-cell"><div class="num">¥60–1200</div><div class="label">价格覆盖带</div></div><div class="meta-cell"><div class="num">3</div><div class="label">裙型分类</div></div></div>
+  </div>
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?w=900&q=80" alt="网球裙运动场景">
+    <span class="img-tag">Court Fit · Skirt</span>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section class="chapter" id="how">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.02</span>
+      <div>
+        <h2>网球裙怎么选：四个关键点</h2>
+        <div class="sub">HOW TO CHOOSE</div>
+      </div>
+    </div>
+    <p class="prose">网球裙看似只是「半身裙 + 短裤」的组合，但真正打一场球，差异立刻显现：<strong>裙型决定活动范围，面料决定闷不闷，内衬决定敢不敢大幅跑动</strong>。以下四个点是选购的核心参数。</p>
+    <div class="crit-list">
+      <div class="crit"><span class="no">01</span><div><div class="t">裙型：百褶 / A字 / 假两件</div><div class="d">百褶裙最经典，运动时摆动大、遮胯显瘦；A字裙包容度更高，适合梨形身材；假两件（裙裤一体）最省心，跑动不担心走光，新手首选。</div></div></div>
+      <div class="crit"><span class="no">02</span><div><div class="t">面料：速干与弹力</div><div class="d">认准聚酯纤维 + 氨纶混纺的速干弹力面料（如 Nike Dri-FIT、迪卡侬 SK DRY 系列），出汗后不粘身、干得快。纯棉虽舒服但吸汗后沉重，不适合打球。</div></div></div>
+      <div class="crit"><span class="no">03</span><div><div class="t">内衬与安全设计</div><div class="d">必须带<strong>内置短裤（内衬）</strong>，最好有防滑胶条或独立口袋放球。跑动、救球时裙摆飞起全靠内衬兜底，这是网球裙和普通短裙的本质区别。</div></div></div>
+      <div class="crit"><span class="no">04</span><div><div class="t">腰头与尺码</div><div class="d">高腰设计显腿长且护腰腹，宽腰带比细绳更稳。国际品牌（Nike/Lululemon）尺码偏小，选购前对照尺码表；国内品牌（蕉下/迪卡侬）对亚洲身材更友好。</div></div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="picks">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.03</span>
+      <div>
+        <h2>8 款精选网球裙</h2>
+        <div class="sub">THE PICKS · 入门经典 / P品质之选 / P旗舰之选</div>
+      </div>
+    </div>
+
+    <div class="tier-band">
+      <div class="tier-k">VALUE / 入门经典</div>
+      <h3>入门经典 · 百元档先穿起来</h3>
+      <p class="tier-note">刚入坑、一周一两次球，这一档完全够用。面料和内衬都在及格线以上，价格友好。</p>
+    </div>
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&q=80" alt="迪卡侬运动短裙">
+          <span class="tier value">Value</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">NO.01 — 新手首推</div>
+          <h3>迪卡侬 SK DRY 女子运动短裙<span class="en">DECATHLON SK DRY 100 SKIRT</span></h3>
+          <p class="item-desc">百元档的「标准答案」：聚酯纤维速干面料、弹力腰头、带内衬防走光，显瘦高腰剪裁。买购榜单常客，什么值得买上口碑稳定，实体店可直接试穿。</p>
+          <div class="pros-cons"><div class="pc"><span class="k plus">PROS</span>速干透气、内衬稳妥、性价比极高、线下可试</div><div class="pc"><span class="k minus">CONS</span>设计朴素，款式更新慢</div></div>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 ¥80 – 150</span></div>
+            <div class="spec"><span class="k">Fabric</span><span class="v">聚酯纤维速干 + 弹力</span></div>
+            <div class="spec"><span class="k">Type</span><span class="v">高腰半身裙 + 内衬</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">新手 / 低频玩家 / 学生党</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 新手友好</span><span class="fit-tag">内衬防走光</span><span class="fit-tag">百元档</span></div>
+            <a class="cta" href="[AFF:amazon:Decathlon tennis skirt]" target="_blank" rel="sponsored">查看价格 &amp; 购买 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1517634468557-1a6c7c4a3e45?w=800&q=80" alt="蕉下网球裙">
+          <span class="tier value">Value</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">NO.02</div>
+          <h3>蕉下 凉感高弹运动网球裙<span class="en">BENEUNDER COOL SENSE SKORT</span></h3>
+          <p class="item-desc">国产防晒品牌出品的「网球风」裙裤一体设计，主打凉感面料和高弹力，休闲叠穿口碑好，日常通勤球场两用。什么值得买有 ¥300 出头的常价记录。</p>
+          <div class="pros-cons"><div class="pc"><span class="k plus">PROS</span>凉感面料、裙裤一体省心、日常百搭</div><div class="pc"><span class="k minus">CONS</span>偏休闲定位，竞技支撑感一般</div></div>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 ¥250 – 350</span></div>
+            <div class="spec"><span class="k">Fabric</span><span class="v">凉感高弹速干面料</span></div>
+            <div class="spec"><span class="k">Type</span><span class="v">假两件裙裤</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">休闲玩家 / 网球风穿搭</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🌤️ 凉感面料</span><span class="fit-tag">裙裤一体</span><span class="fit-tag">通勤百搭</span></div>
+            <a class="cta" href="[AFF:amazon:Beneunder tennis skirt]" target="_blank" rel="sponsored">查看价格 &amp; 购买 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1599586120429-247bd8cbf3f6?w=800&q=80" alt="Adidas Match 网球裙">
+          <span class="tier value">Value</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">NO.03</div>
+          <h3>阿迪达斯 Match 女子网球裙裤<span class="en">ADIDAS MATCH SKORT</span></h3>
+          <p class="item-desc">Adidas 网球产品线的常青入门款，AEROREADY 速干 + 裙裤一体，大促销时经常降到百元区间，是国际品牌里门槛最低的选择之一（具体促销价随渠道浮动）。</p>
+          <div class="pros-cons"><div class="pc"><span class="k plus">PROS</span>国际大牌做工、AEROREADY 速干、折扣期性价比高</div><div class="pc"><span class="k minus">CONS</span>尺码偏欧版，建议参考尺码表</div></div>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 ¥200 – 400（折扣常见）</span></div>
+            <div class="spec"><span class="k">Fabric</span><span class="v">AEROREADY 再生聚酯</span></div>
+            <div class="spec"><span class="k">Type</span><span class="v">裙裤一体 Skort</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">进阶新手 / 品牌党</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">♻️ 再生面料</span><span class="fit-tag">裙裤一体</span><span class="fit-tag">折扣友好</span></div>
+            <a class="cta" href="[AFF:amazon:Adidas Match tennis skirt women]" target="_blank" rel="sponsored">查看价格 &amp; 购买 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="tier-band">
+      <div class="tier-k">PERFORMANCE / P品质之选</div>
+      <h3>P品质之选 · 认真打球的面料与剪裁</h3>
+      <p class="tier-note">每周 2 次以上、开始打比赛的玩家。这一档在面料科技和版型细节上明显拉开差距。</p>
+    </div>
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?w=800&q=80" alt="Nike Dri-FIT 网球裙">
+          <span class="tier mid">Performance</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">NO.04 — 本档首推</div>
+          <h3>耐克 Dri-FIT Victory 网球裙裤<span class="en">NIKE DRI-FIT VICTORY SKORT</span></h3>
+          <p class="item-desc">Nike 网球线走量主力，Dri-FIT 速干 + 弹性腰头 + 内置短裤，网球评测媒体 The Tennis Tribe 对 Victory 系列面料评价稳定。官方渠道常价约 $60（¥450 左右），国内电商促销时常下探。</p>
+          <div class="pros-cons"><div class="pc"><span class="k plus">PROS</span>Dri-FIT 速干成熟、剪裁利落、配色选择多</div><div class="pc"><span class="k minus">CONS</span>国内渠道溢价明显，建议对比官网与电商价</div></div>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 ¥300 – 500</span></div>
+            <div class="spec"><span class="k">Fabric</span><span class="v">Dri-FIT 聚酯/氨纶混纺</span></div>
+            <div class="spec"><span class="k">Type</span><span class="v">裙裤一体 Skort</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">每周打球 / 业余比赛</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 走量主力</span><span class="fit-tag">速干标杆</span><span class="fit-tag">配色多</span></div>
+            <a class="cta" href="[AFF:amazon:Nike Dri-FIT Victory tennis skirt]" target="_blank" rel="sponsored">查看价格 &amp; 购买 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1600965962361-9035a8d48d55?w=800&q=80" alt="Wilson 网球裙">
+          <span class="tier mid">Performance</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">NO.05</div>
+          <h3>威尔胜 女子网球裙裤<span class="EN">WILSON WOMEN'S TENNIS SKORT</span></h3>
+          <p class="item-desc">专业网球品牌的直给选择：版型为打球设计而非街拍设计，内置短裤口袋可装球。国内电商（京东/天猫 Wilson 旗舰店）有售，具体在售型号与价格随季度更新，标待核实。</p>
+          <div class="pros-cons"><div class="pc"><span class="k plus">PROS</span>纯网球血统、功能优先、可装球口袋</div><div class="pc"><span class="k minus">CONS</span>国内渠道型号不全（在售款待核实）</div></div>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 ¥300 – 600（待核实）</span></div>
+            <div class="spec"><span class="k">Fabric</span><span class="v">速干弹力面料（型号而异）</span></div>
+            <div class="spec"><span class="k">Type</span><span class="v">裙裤一体 / 半身裙</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">竞技向 / 网球装备党</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 专业血统</span><span class="fit-tag">装球口袋</span><span class="fit-tag">功能优先</span></div>
+            <a class="cta" href="[AFF:amazon:Wilson tennis skirt women]" target="_blank" rel="sponsored">查看价格 &amp; 购买 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="tier-band">
+      <div class="tier-k">PREMIUM / P旗舰之选</div>
+      <h3>P旗舰之选 · 设计与质感的天花板</h3>
+      <p class="tier-note">预算充足或「球场内外都要好看」。这一档买的是面料手感、版型设计和品牌溢价。</p>
+    </div>
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1522205408450-add114ad53fe?w=800&q=80" alt="Lululemon 网球裙">
+          <span class="tier luxury">Premium</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">NO.06 — 质感之选</div>
+          <h3>Lululemon Play Off The Pleats 百褶裙<span class="en">LULULEMON PLAY OFF THE PLEATS SKIRT</span></h3>
+          <p class="item-desc">InStyle 等媒体评选的常客：Swiftly 速干面料 + 百褶剪裁 + 内置短裤，球场上是装备、下了场是穿搭。官网价约 $98（¥700 左右），是国内「网球风」社媒曝光度最高的一条。</p>
+          <div class="pros-cons"><div class="pc"><span class="k plus">PROS</span>面料质感顶级、百褶版型好看、穿搭属性强</div><div class="pc"><span class="k minus">CONS</span>价格高、尺码偏小需试穿</div></div>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 ¥650 – 800</span></div>
+            <div class="spec"><span class="k">Fabric</span><span class="v">Lululemon 速干弹力面料</span></div>
+            <div class="spec"><span class="k">Type</span><span class="v">高腰百褶裙 + 内衬</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">质感党 / 网球风穿搭</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">✨ 质感天花板</span><span class="fit-tag">百褶经典</span><span class="fit-tag">穿搭属性</span></div>
+            <a class="cta" href="[AFF:amazon:Lululemon tennis skirt]" target="_blank" rel="sponsored">查看价格 &amp; 购买 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1517634468557-1a6c7c4a3e45?w=800&q=80" alt="On 网球裙">
+          <span class="tier luxury">Premium</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">NO.07</div>
+          <h3>On 昂跑 网球系列裙裤<span class="en">ON TENNIS COLLECTION SKORT</span></h3>
+          <p class="item-desc">Vogue 网球裙盘点中点名的品牌之一：On 近年与职业球员合作推出网球线，面料回收材质 + 极简设计。国内官方渠道在售情况与具体价格待核实，国际渠道约 $90–120。</p>
+          <div class="pros-cons"><div class="pc"><span class="k plus">PROS</span>设计感强、回收材质、大牌调性</div><div class="pc"><span class="k minus">CONS</span>国内渠道有限（在售款待核实）</div></div>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 $90 – 120（国内待核实）</span></div>
+            <div class="spec"><span class="k">Fabric</span><span class="v">回收材质速干面料</span></div>
+            <div class="spec"><span class="k">Type</span><span class="v">裙裤一体 Skort</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">设计感优先 / 品牌玩家</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🌱 回收材质</span><span class="fit-tag">极简设计</span><span class="fit-tag">调性拉满</span></div>
+            <a class="cta" href="[AFF:amazon:On running tennis skirt]" target="_blank" rel="sponsored">查看价格 &amp; 购买 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&q=80" alt="斐乐网球裙">
+          <span class="tier luxury">Premium</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">NO.08</div>
+          <h3>斐乐 FILA 女子网球裙<span class="en">FILA TENNIS SKIRT</span></h3>
+          <p class="item-desc">休闲君等中文榜单收录品牌：FILA 的网球复古血统（70 年代 Björn Borg 同款条纹元素）延续至今，复古百褶设计是它的辨识度，国内电商渠道齐全，价格随款式浮动。</p>
+          <div class="pros-cons"><div class="pc"><span class="k plus">PROS</span>复古网球血统、国内渠道全、设计经典</div><div class="pc"><span class="k minus">CONS</span>功能面料相对中规中矩</div></div>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 ¥400 – 900（款式而异）</span></div>
+            <div class="spec"><span class="k">Fabric</span><span class="v">聚酯混纺弹力面料</span></div>
+            <div class="spec"><span class="k">Type</span><span class="v">复古百褶半身裙</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">复古风格党 / 观赛穿搭</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🏌️ 复古网球风</span><span class="fit-tag">渠道齐全</span><span class="fit-tag">设计经典</span></div>
+            <a class="cta" href="[AFF:amazon:FILA tennis skirt]" target="_blank" rel="sponsored">查看价格 &amp; 购买 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="faq">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.04</span>
+      <div>
+        <h2>常见问题</h2>
+        <div class="sub">FAQ</div>
+      </div>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><div class="q"><span class="no">Q1</span>网球裙和普通短裙/百褶裙有什么区别？</div><div class="a">核心区别是<strong>内置短裤（内衬）</strong>和运动面料。网球裙的内衬保证救球、跑动时不走光，速干面料应对出汗；普通短裙两者都不具备，不建议上场穿。</div></div>
+      <div class="faq-item"><div class="q"><span class="no">Q2</span>一定要买网球专用裙吗？羽毛球裙、跑步裙裤可以吗？</div><div class="a">可以通用。羽毛球裙裤和网球裙裤在剪裁和面料上高度相似，入门阶段完全可互换。差异主要在品牌调性和口袋设计（网球裙通常有装球口袋）。</div></div>
+      <div class="faq-item"><div class="q"><span class="no">Q3</span>温网要求白色，平时打球有要求吗？</div><div class="a">温网有全白着装规定，但日常俱乐部和业余比赛基本没有颜色限制，穿自己喜欢的颜色即可。参加正式赛事时以赛会规定为准。</div></div>
+      <div class="faq-item"><div class="q"><span class="no">Q4</span>裙子里面有口袋吗？球放哪？</div><div class="a">专业网球款（Wilson、Nike Pro 级别）通常在内衬短裤侧边有装球口袋；入门款不一定有。没有口袋的话，可以选腰包或压线夹式的球夹配件。</div></div>
+      <div class="faq-item"><div class="q"><span class="no">Q5</span>国际品牌和国内品牌怎么选？</div><div class="a">预算敏感选国内（迪卡侬/蕉下，¥100–350）；看重面料科技和版型选国际品牌（Nike/Lululemon，¥300–800）。国际品牌尺码偏小，海淘前务必对照尺码表。</div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="buy">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.05</span>
+      <div>
+        <h2>购买渠道建议</h2>
+        <div class="sub">WHERE TO BUY</div>
+      </div>
+    </div>
+    <p class="prose">国内品牌（迪卡侬、蕉下、FILA）走<strong>京东/天猫官方旗舰店</strong>最省心，尺码和售后有保障。国际品牌两条路：国内电商官方店（快但贵），或<strong>海外渠道</strong>（Amazon / Tennis-Point），后者在大促时性价比更高。以下为推荐购买入口：</p>
+    <div class="crit-list">
+      <div class="crit"><span class="no">AM</span><div><div class="t">Amazon Associates 入口</div><div class="d">Nike / Lululemon / Adidas / Wilson 国际款，可直邮或转运：<code style="font-family:var(--mono); color:var(--accent);">[AFF:amazon:tennis skirt women]</code></div></div></div>
+      <div class="crit"><span class="no">TP</span><div><div class="t">Tennis-Point（欧洲网球专营，Awin 渠道）</div><div class="d">网球专业品牌款齐全，常有季末折扣：<code style="font-family:var(--mono); color:var(--accent);">[AFF:awin_tennis_point:tennis skirt women]</code></div></div></div>
+    </div>
+    <div class="channel-note">
+      <span class="icon">NOTE /</span>
+      <span>文中价格整理于 2026.11，随促销波动。<strong>购买按钮为联盟链接占位符</strong>，接入后可直达对应商品页；通过联盟链接购买不增加你的费用，还能支持我们继续创作。标「待核实」的型号请以品牌官方渠道为准。</span>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.06</span>
+      <div>
+        <h2>继续阅读</h2>
+        <div class="sub">Related guides</div>
+      </div>
+    </div>
+    <div class="reads">
+      <a href="../球拍/tennis-racquets-guide.html"><span class="rk">Guide / Racquet</span><span class="rt">网球拍选购指南</span></a>
+      <a href="#"><span class="rk">Guide / Shoes</span><span class="rt">网球鞋怎么选（筹备中）</span></a>
+      <a href="#"><span class="rk">Guide / Accessories</span><span class="rt">新手配件清单（筹备中）</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p>图片为 Unsplash 网球主题占位图 · 非商品实拍<br>通过联盟链接购买不额外增加费用，还能支持我们继续创作<br>数据整理于 2026.11 · 部分型号/价格待核实，购买前请以官方渠道为准</p>
+    <p class="sig">愿你的每一次发球，<em>裙摆和 ACE</em>一起飞扬 🎾</p>
+  </div>
+
+<div class="affiliate-disclosure" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:2rem;padding-top:1rem;font-size:0.72rem;color:rgba(255,255,255,0.45);line-height:1.9;">
+  <strong style="color:inherit;">利益声明 / Affiliate Disclosure：</strong>本页包含联盟链接（Amazon、Booking.com、Trip.com、Awin 等）。通过这些链接完成预订或购买，我们可能获得佣金——这不影响你支付的价格，也不会影响我们的评测独立性。<a href="/disclosure.html" style="color:inherit;text-decoration:underline;">查看完整联盟披露声明 →</a>
+  <span style="display:block;margin-top:0.3rem;">As an Amazon Associate, we earn from qualifying purchases.</span>
+</div>
+
+</footer>
+
+</body>
+</html>

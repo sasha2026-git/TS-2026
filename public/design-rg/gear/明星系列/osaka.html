@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大阪直美的时尚版图 · 联名款与同款购物地图</title>
+<meta name="description" content="从球场到秀场：大阪直美的时尚版图全解析——Nike 战袍、GP Challenge 签名鞋、Yonex EZONE 球拍、Citizen 腕表、Mikimoto 珍珠，每件同款附购买渠道。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0d0c;
+    --panel: #161412;
+    --panel-2: #1c1917;
+    --line: rgba(255,255,255,0.08);
+    --text: #ece7e1;
+    --text-dim: rgba(236,231,225,0.72);
+    --text-faint: rgba(236,231,225,0.55);
+    --accent: #ec8fa7;          /* coral pink · contrast on #0e0d0c ≈ 9:1 */
+    --accent-soft: rgba(236,143,167,0.13);
+    --serif: 'Noto Serif SC', serif;
+    --sans: 'IBM Plex Sans', 'Noto Sans SC', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* top bar */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem clamp(1.2rem, 4vw, 3rem);
+    background: rgba(14,13,12,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .mark {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.18em;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  .topbar .mark em { color: var(--accent); font-style: normal; }
+  .topbar nav { display: flex; gap: 1.6rem; }
+  .topbar nav a {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em;
+    color: var(--text-faint); text-decoration: none; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  /* hero */
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    min-height: 78vh;
+    overflow: hidden;
+  }
+  .hero-copy {
+    padding: clamp(2.5rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4.5rem);
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .kicker {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem;
+  }
+  .kicker::before { content: ''; width: 2.5rem; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--text-dim);
+    max-width: 34em;
+    margin-bottom: 2.4rem;
+  }
+  .meta-row { display: flex; gap: 2.4rem; flex-wrap: wrap; }
+  .meta-cell { border-left: 1px solid var(--line); padding-left: 1rem; }
+  .meta-cell .num {
+    font-family: var(--mono); font-size: 1.5rem; font-weight: 500; color: var(--accent);
+    line-height: 1.2;
+  }
+  .meta-cell .label {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .hero-media { position: relative; min-height: 320px; }
+  .hero-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.85) brightness(0.8);
+  }
+  .hero-media::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 30%);
+    pointer-events: none;
+  }
+  .hero-media .img-tag {
+    position: absolute; bottom: 1rem; right: 1.2rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55); text-transform: uppercase;
+    background: rgba(0,0,0,0.5); padding: 0.3rem 0.7rem; border: 1px solid var(--line);
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-media { min-height: 260px; }
+    .hero-media::after { background: linear-gradient(0deg, var(--bg) 0%, transparent 40%); }
+    .topbar nav { display: none; }
+  }
+
+  /* map nav */
+  .map {
+    max-width: 1080px; margin: 2.2rem auto 0;
+    padding: 0 clamp(1.2rem, 4vw, 3rem);
+  }
+  .map-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+  }
+  .map-cell {
+    background: var(--panel); padding: 1rem 0.9rem;
+    display: flex; flex-direction: column; gap: 0.3rem;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .map-cell:hover { background: var(--panel-2); }
+  .map-cell .tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .map-cell .name { font-size: 0.82rem; color: var(--text-dim); }
+  @media (max-width: 820px) { .map-grid { grid-template-columns: repeat(2, 1fr); } .map-cell:nth-child(5) { grid-column: span 2; } }
+
+  /* sections */
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .chapter { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
+  .chapter-head {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.2rem;
+    align-items: baseline; margin-bottom: 1.2rem;
+    border-top: 1px solid var(--line); padding-top: 1.2rem;
+  }
+  .chapter-index {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.15em;
+  }
+  .chapter-head h2 {
+    font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700;
+    line-height: 1.25;
+  }
+  .chapter-head .sub {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: var(--text-faint); text-transform: uppercase; margin-top: 0.4rem;
+  }
+  .prose { max-width: 44em; font-size: 0.94rem; color: var(--text-dim); margin-bottom: 1rem; }
+  .prose strong { color: var(--text); font-weight: 600; }
+  .prose a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(236,143,167,0.35); }
+  .prose a:hover { border-bottom-color: var(--accent); }
+
+  /* items */
+  .items { margin-top: 1rem; display: flex; flex-direction: column; }
+  .item {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .item:last-child { border-bottom: 1px solid var(--line); }
+  .item-media { position: relative; overflow: hidden; min-height: 220px; }
+  .item-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.8); transition: transform 0.6s ease; }
+  .item:hover .item-media img { transform: scale(1.03); }
+  .tier {
+    position: absolute; top: 0.8rem; left: 0.8rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.3rem 0.65rem; border: 1px solid var(--line);
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+    color: var(--text-dim);
+  }
+  .tier.hot { color: #e9c176; }
+  .item-body { padding: clamp(1.2rem, 3vw, 2rem); display: flex; flex-direction: column; }
+  .item-idx {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+  .item-body h3 {
+    font-family: var(--serif); font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 700;
+    line-height: 1.3;
+  }
+  .item-body h3 .en {
+    display: block; font-family: var(--mono); font-weight: 400;
+    font-size: 0.76rem; letter-spacing: 0.04em; color: var(--text-faint); margin-top: 0.3rem;
+  }
+  .item-desc { font-size: 0.88rem; color: var(--text-dim); margin: 0.8rem 0 1.1rem; max-width: 38em; }
+
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    margin-bottom: 1rem;
+  }
+  .spec { background: var(--panel); padding: 0.65rem 0.85rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  .spec .k {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .spec .v { font-size: 0.8rem; color: var(--text); line-height: 1.45; }
+  .spec .v.accent-v { color: var(--accent); }
+
+  .item-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .fit-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .fit-tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem; border: 1px solid var(--line); color: var(--text-faint);
+  }
+  .fit-tag.hot { color: var(--accent); border-color: rgba(236,143,167,0.35); }
+  .cta {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    padding: 0.55rem 1.2rem; border: 1px solid var(--line);
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cta:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 820px) {
+    .item { grid-template-columns: 1fr; }
+    .item-media { min-height: 190px; }
+    .spec-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* play panel style list (sponsor map) */
+  .play-panel {
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: clamp(1.5rem, 3vw, 2.4rem);
+  }
+  .play-list { display: flex; flex-direction: column; margin-top: 0.5rem; }
+  .play-item {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.1rem;
+    padding: 1rem 1rem; border-top: 1px solid var(--line);
+  }
+  .play-item:first-child { border-top: none; }
+  .play-item .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); padding-top: 0.15rem; }
+  .play-item .t { font-weight: 600; font-size: 0.9rem; }
+  .play-item .d { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+  /* keywords */
+  .kw-band { margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .kw {
+    font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em;
+    padding: 0.5rem 1rem; border: 1px solid rgba(236,143,167,0.35);
+    background: var(--accent-soft); color: var(--text);
+  }
+
+  /* faq */
+  .faq { margin-top: 1.5rem; border: 1px solid var(--line); background: var(--panel); }
+  .faq-item { padding: 1.2rem 1.4rem; border-top: 1px solid var(--line); }
+  .faq-item:first-child { border-top: none; }
+  .faq-item .q {
+    font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem;
+    display: flex; gap: 0.8rem; align-items: baseline;
+  }
+  .faq-item .q .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); }
+  .faq-item .a { font-size: 0.86rem; color: var(--text-dim); max-width: 42em; }
+  .faq-item .a strong { color: var(--text); }
+
+  .note {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(236,143,167,0.35);
+    background: var(--accent-soft);
+    padding: 1.1rem 1.4rem;
+    font-size: 0.82rem; color: var(--text-dim);
+    display: flex; gap: 0.9rem; align-items: flex-start;
+  }
+  .note .icon { font-family: var(--mono); color: var(--accent); font-size: 0.76rem; letter-spacing: 0.1em; padding-top: 0.1rem; white-space: nowrap; }
+  .note strong { color: var(--accent); font-weight: 600; }
+
+  /* reads */
+  .reads { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .reads a {
+    background: var(--panel); padding: 1.3rem 1.2rem; text-decoration: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: background 0.2s;
+  }
+  .reads a:hover { background: var(--panel-2); }
+  .reads .rt { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); }
+  .reads .rk { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; }
+  @media (max-width: 640px) { .reads { grid-template-columns: 1fr; } }
+
+  /* footer */
+  footer {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    border-top: 1px solid var(--line);
+    padding: 2.5rem clamp(1.2rem, 4vw, 3rem) 4rem;
+  }
+  .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .foot-inner p { font-size: 0.75rem; color: var(--text-faint); line-height: 1.9; }
+  .foot-inner .sig { font-family: var(--serif); color: var(--text-dim); }
+  .foot-inner .sig em { color: var(--accent); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="mark">OSAKA <em>/</em> STYLE MAP</span>
+  <nav>
+    <a href="index.html">SERIES</a>
+    <a href="#map">MAP</a>
+    <a href="#apparel">APPAREL</a>
+    <a href="#gear">GEAR</a>
+    <a href="#jewels">JEWELS &amp; WATCH</a>
+    <a href="#style">STYLE</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>大阪直美的<br>时尚<span class="accent">版图</span></h1>
+    <div class="kicker">Court to Catwalk · 同款购物地图</div>
+    <p class="lede">四座大满贯奖杯之外，大阪直美真正的统治区在时尚版图：2026 年她的澳网「水母」、法网「埃菲尔」、温网「和服外套」、美网「Iverson 致敬」四连刷屏，每套都能拆出一部可购清单。这篇是你的同款地图。</p>
+    <div class="meta-row"><div class="meta-cell"><div class="num">5</div><div class="label">品类 · 版图分区</div></div><div class="meta-cell"><div class="num">10+</div><div class="label">可购买同款</div></div><div class="meta-cell"><div class="num">2026</div><div class="label">赛季全四站盘点</div></div></div>
+  </div>
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=900&q=80" alt="网球场上的时尚">
+    <span class="img-tag">Court · Style · Osaka</span>
+  </div>
+</section>
+
+<div class="map" id="map">
+  <div class="map-grid">
+    <a class="map-cell" href="#apparel"><span class="tag">APPAREL /</span><span class="name">Nike 战袍 &amp; 高定合作</span></a>
+    <a class="map-cell" href="#shoes"><span class="tag">SHOES /</span><span class="name">GP Challenge 签名鞋</span></a>
+    <a class="map-cell" href="#gear"><span class="tag">GEAR /</span><span class="name">Yonex EZONE 球拍</span></a>
+    <a class="map-cell" href="#jewels"><span class="tag">JEWELS /</span><span class="name">Mikimoto 珍珠</span></a>
+    <a class="map-cell" href="#jewels"><span class="tag">WATCH /</span><span class="name">Citizen 签名表</span></a>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section class="chapter" id="apparel">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.01</span>
+      <div>
+        <h2>服装 · Nike 与高定双线</h2>
+        <div class="sub">NIKE AMBASSADOR SINCE 2019 · COUTURE WALK-ONS</div>
+      </div>
+    </div>
+    <p class="prose">大阪直美 2019 年起担任 Nike 大使，比赛层穿量产的 <strong>Nike Slam 系列</strong>；入场层则是另一个宇宙——她把每站大满贯入场做成高定秀：2026 澳网与 Robert Wun 合作「水母」扎染长袍，温网与东京设计师 Hana Yagi 用古董和服做外套。入场层不零售，但比赛层全部可买。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1517634460381-ae25d6cf3b28?w=900&q=80" alt="Nike Slam 系列网球连衣裙" loading="lazy">
+          <span class="tier hot">可购买</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.01 — 入门首选</div>
+          <h3>Nike Slam Dri-FIT 网球连衣裙<span class="en">NAOMI OSAKA SLAM TENNIS DRESS</span></h3>
+          <p class="item-desc">她每站大满贯比赛层的量产版，Nike.com 的 Naomi Osaka 专区常年有售；2026 年四站主题配色（澳网海浪绿、法网金棕、温网全白、美网篮球白）按赛季节点轮换上架。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">约 $90–100 美元</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">Nike.com Naomi Osaka 专区 / Amazon</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">修身 · 建议比常码大半码</span></div>
+            <div class="spec"><span class="k">Hot Drop</span><span class="v">每站大满贯赛前 2–4 周</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">比赛层同款</span><span class="fit-tag">四站主题色</span></div>
+            <a class="cta" href="[AFF:amazon:Naomi Osaka Nike Slam tennis dress]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=900&q=80" alt="高定入场造型" loading="lazy">
+          <span class="tier">Couture</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">非卖品 · 观赏位</div>
+          <h3>入场造型高定层 · Robert Wun / Hana Yagi<span class="en">CUSTOM WALK-ON COUTURE · NOT FOR SALE</span></h3>
+          <p class="item-desc">2026 年四套刷屏入场造型均为定制：澳网 Robert Wun「水母」扎染长袍 + 白色百慕达裤；法网黑色曳地长裙 unveiling 金箔裙；温网 Hana Yagi 古董和服外套 + Mikimoto 珍珠；美网 Allen Iverson 致敬全白。这一层买不到，但它是她时尚叙事的骨架——同款思路见下方风格关键词。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Status</span><span class="v accent-v">定制 · 未零售</span></div>
+            <div class="spec"><span class="k">Designers</span><span class="v">Robert Wun（巴黎）/ Hana Yagi（东京）</span></div>
+            <div class="spec"><span class="k">2026 Stops</span><span class="v">AO 水母 / RG 埃菲尔 / W 和服 / USO Iverson</span></div>
+            <div class="spec"><span class="k">Source</span><span class="v">Vogue / WWD / The Athletic 报道核实</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">年度名场面</span><span class="fit-tag">高定合作</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="shoes">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.02</span>
+      <div>
+        <h2>球鞋 · GP Challenge 签名配色</h2>
+        <div class="sub">NIKE GP CHALLENGE 1.5 "NAOMI OSAKA"</div>
+      </div>
+    </div>
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1601931935820-721a7b8a3d67?w=900&q=80" alt="Nike GP Challenge 1.5 Osaka" loading="lazy">
+          <span class="tier hot">签名配色</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.02 — 鞋墙必备</div>
+          <h3>Nike GP Challenge 1.5「Naomi Osaka」<span class="en">GP CHALLENGE 1.5 OSAKA COLORWAY · $180</span></h3>
+          <p class="item-desc">2026 美网季随篮球主题亮相的签名配色：黑/银主体 + Osaka 细节，硬地综合定位。此前 2025 美网的 GP Challenge 1「Picante Red」配色已证明她每季签名鞋都是抢手货。Nike 官方定价 $180。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">$180 · Nike 官方定价</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">Nike.com / Tennis Warehouse</span></div>
+            <div class="spec"><span class="k">Type</span><span class="v">硬地综合网球鞋</span></div>
+            <div class="spec"><span class="k">Drop</span><span class="v">2026.07–08 美网季 · 曾一度 coming soon</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">签名鞋</span><span class="fit-tag">硬地季限定</span></div>
+            <a class="cta" href="[AFF:amazon:Nike GP Challenge 1.5 Naomi Osaka shoes]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="gear">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.03</span>
+      <div>
+        <h2>球拍 · Yonex EZONE 98</h2>
+        <div class="sub">YONEX EZONE 98 · HER WEAPON OF CHOICE</div>
+      </div>
+    </div>
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1622163642998-1ea32c4abe1d?w=900&q=80" alt="Yonex EZONE 98 球拍" loading="lazy">
+          <span class="tier hot">Pro Stock</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.03 — 打球党直通</div>
+          <h3>Yonex EZONE 98（第 8 代）<span class="en">YONEX EZONE 98 8TH GEN · $305</span></h3>
+          <p class="item-desc">她球场上的真正武器：Yonex EZONE 98 第 8 代（2025 年更新），Blast Blue 配色，Tennis Warehouse 定价 $305。想从服装同款进阶到「装备同款」，这一支是唯一答案——顺带一提她也是 Yonex 长期签约球员。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Price</span><span class="v accent-v">$305（Tennis Warehouse）</span></div>
+            <div class="spec"><span class="k">Spec</span><span class="v">98 sq in · 305g（未穿线）</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">Tennis Warehouse / Tennis Express / Amazon</span></div>
+            <div class="spec"><span class="k">Gen</span><span class="v">8th Gen · 2025 更新</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">比赛同款</span><span class="fit-tag">EZONE 98</span></div>
+            <a class="cta" href="[AFF:amazon:Yonex EZONE 98 tennis racquet]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="jewels">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.04</span>
+      <div>
+        <h2>珠宝与腕表 · Mikimoto × Citizen</h2>
+        <div class="sub">PEARLS ON COURT · TIME OFF COURT</div>
+      </div>
+    </div>
+    <p class="prose">珠宝方面，2026 温网她佩戴 <strong>Mikimoto 珍珠</strong>完成「和服 + kanzashi 发饰」的传统致敬造型——日系珠宝与她的文化叙事天然契合。腕表方面，她是 <strong>Citizen 品牌大使</strong>，曾佩戴 Naomi Osaka 签名款（限量 1000 只的 CB1101-03L 等）出战。⚠️ Mikimoto 合作性质以「赛事佩戴/造型合作」核实为准，未见官宣长期代言。</p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1611955167811-4711904bb9f8?w=900&q=80" alt="Mikimoto 珍珠珠宝" loading="lazy">
+          <span class="tier hot">On Court</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.04 — 温网名场面</div>
+          <h3>Mikimoto 珍珠 · 温网全白造型配饰<span class="en">MIKIMOTO PEARLS · WIMBLEDON 2026</span></h3>
+          <p class="item-desc">2026 温网她以 Mikimoto 珍珠 + kanzashi 发饰完成全白和服造型，被 Elle、Something About Rocks 专门撰文。同款思路：一条经典 Akoya 珍珠项链或耳钉，就能复刻「运动 × 日式优雅」的混搭公式。价格区间大，入门款数千元级。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Seen At</span><span class="v accent-v">2026 温网 · 全白和服造型</span></div>
+            <div class="spec"><span class="k">Price</span><span class="v">入门款约 $300–800 起（系列跨度大）</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">Mikimoto 官网 /百货/ NET-A-PORTER</span></div>
+            <div class="spec"><span class="k">Note</span><span class="v">赛事佩戴合作 · 长期代言未官宣</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">温网同款</span><span class="fit-tag">日系珍珠</span></div>
+            <a class="cta" href="[AFF:amazon:Mikimoto akoya pearl necklace]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="item">
+        <div class="item-media">
+          <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=900&q=80" alt="Citizen 腕表" loading="lazy">
+          <span class="tier">Signature</span>
+        </div>
+        <div class="item-body">
+          <div class="item-idx">同款 NO.05 — 收藏级</div>
+          <h3>Citizen × Naomi Osaka 签名款腕表<span class="en">CITIZEN CB1101-03L OSAKA LIMITED MODEL</span></h3>
+          <p class="item-desc">Citizen 品牌大使，2020 年推出限量 1000 只签名款 CB1101-03L：钛壳光动能（Eco-Drive）、蓝黄配色调致敬「蓝天与网球」。量产科已停产，当前渠道为日本表行与二手平台（Sakura Watches 等约有库存，价格浮动）。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Model</span><span class="v accent-v">CB1101-03L · 限量 1000 只</span></div>
+            <div class="spec"><span class="k">Movement</span><span class="v">Eco-Drive 光动能 · 钛壳</span></div>
+            <div class="spec"><span class="k">Price</span><span class="v">二手/现货约 ¥2,000–4,000（浮动，待核实）</span></div>
+            <div class="spec"><span class="k">Buy</span><span class="v">日本表行 / eBay 二手 / Citizen 官网看新款</span></div>
+          </div>
+          <div class="item-foot">
+            <div class="fit-tags"><span class="fit-tag hot">限量签名款</span><span class="fit-tag">光动能</span><span class="fit-tag">收藏向</span></div>
+            <a class="cta" href="[AFF:amazon:Citizen Eco-Drive Naomi Osaka CB1101 watch]" target="_blank" rel="sponsored">Amazon 找同款 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="map-section">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.05</span>
+      <div>
+        <h2>版图之外 · 代言全景速览</h2>
+        <div class="sub">SPONSOR MAP · 据公开报道整理</div>
+      </div>
+    </div>
+    <div class="play-panel">
+      <div class="play-list">
+        <div class="play-item"><span class="no">01</span><div><div class="t">Nike</div><div class="d">2019 年起服装鞋包总代理，Slam 系列与签名鞋双线。</div></div></div>
+        <div class="play-item"><span class="no">02</span><div><div class="t">Yonex</div><div class="d">球拍签约，EZONE 98 系列长期使用。</div></div></div>
+        <div class="play-item"><span class="no">03</span><div><div class="t">Citizen</div><div class="d">腕表品牌大使，曾推限量签名款。</div></div></div>
+        <div class="play-item"><span class="no">04</span><div><div class="t">Beats by Dre / Panasonic / ANA / Nissan</div><div class="d">据 Forbes/Sportskeeda 报道的代言版图：耳机、家电、航空、汽车。</div></div></div>
+        <div class="play-item"><span class="no">05</span><div><div class="t">Shiseido / Nissin / Mastercard / Wowow / Zico</div><div class="d">美妆、食品、支付、转播等日本市场代言（以品牌公告为准）。</div></div></div>
+        <div class="play-item"><span class="no">06</span><div><div class="t">Hyperice / Modern Health / Etsy</div><div class="d">健康科技与生活方式类代言（据 Forbes 报道整理），个别条目最新状态待核实。</div></div></div>
+      </div>
+      <div class="note" style="margin-top:1.5rem;">
+        <span class="icon">FACT /</span>
+        <span>坊间流传其个人服装品牌「Henka」：<strong>经搜索核实，未找到可靠报道支持该品牌存在</strong>，故本篇不予收录。以上版图仅收录有公开报道或官网可查的合作，宁缺毋滥。</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="style">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.06</span>
+      <div>
+        <h2>风格总结 · 怎么穿出 Osaka 感</h2>
+        <div class="sub">STYLE KEYWORDS · 可模仿的穿搭公式</div>
+      </div>
+    </div>
+    <p class="prose">拆解她 2026 年四站造型，风格公式其实非常清晰：<strong>极简运动底 + 一个戏剧性高点 + 日式文化符号</strong>。不需要高定预算，抓这三个关键词就能复刻神韵。</p>
+    <div class="kw-band">
+      <span class="kw">01 · 全白打底 — 白裙 + 白帽，万事的原点</span>
+      <span class="kw">02 · 一个高光件 — 亮片/立体花/扎染，只留一件</span>
+      <span class="kw">03 · 长裤混搭 — 百慕达裤压住裙装的运动感</span>
+      <span class="kw">04 · 珍珠点睛 — 一条 Akoya，日式优雅收尾</span>
+      <span class="kw">05 · 宽檐帽/阳伞 — 入场即秀场的仪式感道具</span>
+    </div>
+    <div class="note">
+      <span class="icon">NOTE /</span>
+      <span>文中「Amazon 找同款」按钮为<strong>联盟链接占位</strong>，接入后直达搜索页；官网渠道（Nike / Yonex / Mikimoto / Citizen）为直购指引。价格为整理时公开数据（2026.11），以购买页为准。</span>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.07</span>
+      <div>
+        <h2>FAQ · 追同款三问</h2>
+        <div class="sub">常见问题</div>
+      </div>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="q"><span class="no">Q1</span>她的入场造型（和服外套、水母袍）能买到吗？</div>
+        <div class="a"><strong>买不到。</strong>这些是与 Robert Wun、Hana Yagi 合作的定制层，历来不零售。能买的是 Nike 比赛层量产版（Slam 系列裙）+ 同思路单品：古董和服外套可在中古店淘，珍珠选 Mikimoto 入门款，宽檐帽白阳伞随处可购。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="no">Q2</span>她有自己的服装品牌吗？听说叫「Henka」？</div>
+        <div class="a">经 2026.11 检索核实，<strong>未找到「Henka」品牌或可靠报道</strong>，请以此前个别自媒体说法为参考即可。她服装层面可购买的都是 Nike 官方渠道的 Naomi Osaka 专区产品；若未来推出个人品牌，Nike 官网与主流时尚媒体会第一时间官宣。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><span class="no">Q3</span>预算有限，先买哪件「最 Osaka」？</div>
+        <div class="a">推荐顺序：<strong>① Nike Slam 裙基础配色（$90 级，穿衣同款天花板）→ ② 一条 Akoya 珍珠项链（温网名场面灵魂）→ ③ 签名鞋配色（打球党再考虑，$180）→ ④ EZONE 98（真要打球再入，$305）</strong>。签名表限量已停产，属于收藏型选手的课后作业。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.08</span>
+      <div>
+        <h2>继续追更</h2>
+        <div class="sub">Related guides</div>
+      </div>
+    </div>
+    <div class="reads">
+      <a href="../女装/slam-skirts-2026.html"><span class="rk">Style / Slam</span><span class="rt">2026 四大满贯主题网球裙盘点</span></a>
+      <a href="../女装/tennis-skirts-guide.html"><span class="rk">Guide / Skirts</span><span class="rt">网球裙选购常青指南</span></a>
+      <a href="../球拍/tennis-racquets-guide.html"><span class="rk">Guide / Racquets</span><span class="rt">网球拍选购指南</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p>图片为 Unsplash 网球/时尚主题占位图 · 非产品实拍<br>通过联盟链接购买不额外增加费用，还能支持我们继续创作<br>数据整理于 2026.11 · 所有联名与合作均经公开报道核实，未证实条目已标注或剔除</p>
+    <p class="sig">愿你的球场造型，<em>既有奖杯的狠劲</em>，也有珍珠的温柔 🎾</p>
+  </div>
+
+<div class="affiliate-disclosure" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:2rem;padding-top:1rem;font-size:0.72rem;color:rgba(255,255,255,0.45);line-height:1.9;">
+  <strong style="color:inherit;">利益声明 / Affiliate Disclosure：</strong>本页包含联盟链接（Amazon、Booking.com、Trip.com、Awin 等）。通过这些链接完成预订或购买，我们可能获得佣金——这不影响你支付的价格，也不会影响我们的评测独立性。<a href="/disclosure.html" style="color:inherit;text-decoration:underline;">查看完整联盟披露声明 →</a>
+  <span style="display:block;margin-top:0.3rem;">As an Amazon Associate, we earn from qualifying purchases.</span>
+</div>
+
+</footer>
+
+</body>
+</html>

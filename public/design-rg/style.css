@@ -896,6 +896,37 @@ html[data-lang="zh"] .travel-card h3 { font-weight: 600; letter-spacing: .01em; 
   gap: 28px 26px;
 }
 
+
+a.gear-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.gear-all {
+  margin-top: 26px;
+  display: flex;
+  justify-content: flex-end;
+}
+.gear-all a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(180, 73, 31, .35);
+  color: var(--clay);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .2s var(--ease), border-color .2s var(--ease), gap .2s var(--ease);
+}
+.gear-all a:hover {
+  color: var(--clay-deep);
+  border-color: var(--clay-deep);
+  gap: 14px;
+}
+
 .gear-card {
   display: flex;
   flex-direction: column;
