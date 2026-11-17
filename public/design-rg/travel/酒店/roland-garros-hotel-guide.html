@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>🎾 法网观赛指南 · 巴黎有网球场/近罗兰加洛斯的酒店推荐</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Serif SC', -apple-system, sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Paris_Court_Philippe-Chatrier.jpg/1280px-Paris_Court_Philippe-Chatrier.jpg') center/cover no-repeat;
+    filter: brightness(0.3) saturate(1.1);
+    z-index: 0;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.95) 100%);
+    z-index: 1;
+  }
+  .hero > * { position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #facc15;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 { font-size: clamp(2rem, 6vw, 4rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+  .hero h1 span { color: #facc15; }
+  .hero p { font-size: clamp(0.95rem, 2.5vw, 1.2rem); color: rgba(255,255,255,0.7); max-width: 500px; margin-bottom: 2rem; }
+  .hero-stats { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+  .hero-stat { text-align: center; }
+  .hero-stat .num { font-size: 1.8rem; font-weight: 700; color: #facc15; }
+  .hero-stat .label { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; }
+  .rg-bar {
+    max-width: 640px;
+    margin: -2rem auto 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #1a1a1a 0%, #141414 100%);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    position: relative;
+    z-index: 3;
+  }
+  .rg-bar h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; color: #facc15; }
+  .rg-bar .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+  .rg-bar .info-grid .label { color: rgba(255,255,255,0.4); }
+  .rg-bar .info-grid .val { color: rgba(255,255,255,0.85); }
+  .section-title {
+    padding: 0 1.5rem;
+    max-width: 640px;
+    margin: 3rem auto 1.5rem;
+  }
+  .section-title .area-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(250,204,21,0.15), rgba(250,204,21,0.05));
+    border: 1px solid rgba(250,204,21,0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #facc15;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .section-title h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .section-title .sub { font-size: 0.85rem; color: rgba(255,255,255,0.4); font-weight: 400; }
+  .section-title .distance { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; }
+  .cards {
+    padding: 0 1rem 4rem;
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; overflow: hidden; }
+  .card-img { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #1a1a1a; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .card-tier {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    padding: 0.25rem 0.7rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .card-tier.luxury { color: #facc15; border-color: rgba(250,204,21,0.3); }
+  .card-tier.mid { color: #60a5fa; border-color: rgba(96,165,250,0.3); }
+  .card-tier.budget { color: #34d399; border-color: rgba(52,211,153,0.3); }
+  .card-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .card-gallery .card-img { border-radius: 0; }
+  .card-gallery .card-img:first-child { border-radius: 20px 0 0 0; }
+  .card-gallery .card-img:last-child { border-radius: 0 20px 0 0; }
+  .card-gallery .card-img .img-label {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .card-body { padding: 1.2rem; }
+  .card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; line-height: 1.3; }
+  .card-body h3 .sub { font-weight: 400; font-size: 0.8rem; color: rgba(255,255,255,0.35); display: block; }
+  .card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 0.8rem; line-height: 1.6; }
+  .card-info { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.8rem; }
+  .card-info-row { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+  .card-info-row .icon { flex-shrink: 0; width: 18px; text-align: center; font-size: 0.9rem; }
+  .card-info-row .val { color: rgba(255,255,255,0.75); }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+  .card-tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.7rem; color: rgba(255,255,255,0.5); }
+  .card-tag.tennis { color: #60a5fa; border-color: rgba(96,165,250,0.2); }
+  .card-price-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(250,204,21,0.1);
+    border: 1px solid rgba(250,204,21,0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #facc15;
+    margin-bottom: 0.8rem;
+  }
+  .card-cta {
+    display: block;
+    text-align: center;
+    padding: 0.7rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .card-cta:hover { background: rgba(255,255,255,0.1); color: #facc15; }
+  .area-sep { text-align: center; padding: 2rem 0 1rem; color: rgba(255,255,255,0.08); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; }
+  .footer { text-align: center; padding: 2rem 1.5rem 4rem; max-width: 500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.06); }
+  .footer p { color: rgba(255,255,255,0.3); font-size: 0.8rem; margin-bottom: 0.3rem; }
+  .footer .highlight { color: #facc15; }
+  .note-box {
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    padding: 1rem 1.2rem;
+    background: rgba(96,165,250,0.08);
+    border: 1px solid rgba(96,165,250,0.15);
+    border-radius: 12px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .note-box strong { color: #60a5fa; }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-badge">🎾 2026 Roland Garros</div>
+  <h1>巴黎·法网<br><span>近罗兰加洛斯酒店指南</span></h1>
+  <p>从16区到圣日耳曼，从埃菲尔铁塔到罗兰加洛斯——住哪里、怎么去、怎么看球，这份攻略一步到位。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">9</div><div class="label">精选酒店</div></div>
+    <div class="hero-stat"><div class="num">3</div><div class="label">核心区域</div></div>
+    <div class="hero-stat"><div class="num">2</div><div class="label">大满贯场地</div></div>
+  </div>
+</section>
+
+<div class="rg-bar">
+  <h3>🏆 Roland Garros 2026 赛程速览</h3>
+  <div class="info-grid">
+    <div><span class="label">资格赛</span><br><span class="val">5月18日 - 22日</span></div>
+    <div><span class="label">正赛</span><br><span class="val">5月25日 - 6月8日</span></div>
+    <div><span class="label">地点</span><br><span class="val">Stade Roland Garros 罗兰加洛斯球场</span></div>
+    <div><span class="label">地址</span><br><span class="val">2 Avenue Gordon Bennett, 75016 Paris</span></div>
+  </div>
+</div>
+
+<div class="note-box">
+  <strong>📷 图片声明：</strong>所有图片来自酒店官方宣传材料、Wikimedia Commons（维基百科共享资源）及Trip.com/Booking.com酒店实拍。部分酒店因官方渠道限制未能获取专属图片，采用了同品牌或同区域实景照片。
+</div>
+
+<!-- ========== AREA 1 ========== -->
+<div class="area-sep">━━━ 区域一 ━━━</div>
+<div class="section-title">
+  <div class="area-badge">📍 距离赛场最近</div>
+  <h2>16区 · Trocadéro</h2>
+  <div class="sub">距 Roland Garros 0-3 公里 · 步行/地铁即达</div>
+  <div class="distance">🚇 地铁9/10号线 · Michel-Ange-Molitor站</div>
+</div>
+
+<div class="cards">
+
+  <!-- A1 - Hotel Raphael -->
+  <div class="card">
+    <div class="card-gallery">
+      <div class="card-img">
+        
+        <div class="img-label">🏨 酒店外观（Wikimedia实拍）</div>
+        <span class="card-tier luxury">👑 奢华之选</span>
+      </div>
+      <div class="card-img">
+        
+        <div class="img-label">🎾 菲利普·夏蒂埃球场（Wikimedia实拍）</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Hôtel Raphael Paris<span class="sub">万豪奢华系列 · 历史传奇酒店</span></h3>
+      <p class="card-desc">坐落在16区Avenue Kléber，Art Deco风格的历史传奇酒店。曾是好莱坞明星和政要的下榻首选。步行25分钟即可到达罗兰加洛斯球场，法网期间最受球星欢迎的酒店之一。</p>
+      <div class="card-info">
+        <div class="card-info-row"><span class="icon">📍</span><span class="val">17 Avenue Kléber, 75016 Paris</span></div>
+        <div class="card-info-row"><span class="icon">📏</span><span class="val">距赛场约 2.5 公里 · 地铁10分钟</span></div>
+        <div class="card-info-row"><span class="icon">🎾</span><span class="val">⚠️ 无自带球场 · 步行可达罗兰加洛斯</span></div>
+        <div class="card-info-row"><span class="icon">💰</span><span class="val">€400 - 800 / 晚</span></div>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag">⭐ 五星奢华</span>
+        <span class="card-tag">🎨 Art Deco</span>
+        <span class="card-tag">🌟 明星首选</span>
+      </div>
+      <div class="card-price-tag">🏷️ 法网期间建议提前4个月预订</div>
+      <a class="card-cta" href="https://www.marriott.com/hotels/travel/paris-france" target="_blank">🔗 查看价格 & 预订（联盟链接）</a>
+    </div>
+  </div>
+
+  <!-- A2 - Hotel Eiffel Blomet -->
+  <div class="card">
+    <div class="card-gallery">
+      <div class="card-img">
+        
+        <div class="img-label">🏨 酒店外观（官网实拍）</div>
+        <span class="card-tier mid">🥈 舒适之选</span>
+      </div>
+      <div class="card-img">
+        
+        <div class="img-label">🎾 苏珊·朗格伦球场（Wikimedia实拍）</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Hotel Eiffel Blomet<span class="sub">精品设计酒店 · 15区核心位置</span></h3>
+      <p class="card-desc">经过全面翻新的精品设计酒店，步行可达埃菲尔铁塔和Beaugrenelle购物中心。距罗兰加洛斯仅需地铁10分钟，是观赛期间的性价比之选。</p>
+      <div class="card-info">
+        <div class="card-info-row"><span class="icon">📍</span><span class="val">78 Rue Blomet, 75015 Paris</span></div>
+        <div class="card-info-row"><span class="icon">📏</span><span class="val">距赛场约 3 公里 · 地铁10分钟</span></div>
+        <div class="card-info-row"><span class="icon">🎾</span><span class="val">⚠️ 无自带球场 · 地铁直达罗兰加洛斯</span></div>
+        <div class="card-info-row"><span class="icon">💰</span><span class="val">€180 - 280 / 晚</span></div>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag">🎨 现代设计</span>
+        <span class="card-tag">🗼 近埃菲尔铁塔</span>
+        <span class="card-tag">🛍️ Beaugrenelle商圈</span>
+      </div>
+      <div class="card-price-tag">🏷️ 法网期间性价比较高</div>
+      <a class="card-cta" href="https://www.hoteleiffelblomet.com/" target="_blank">🔗 查看价格 & 预订（联盟链接）</a>
+    </div>
+  </div>
+
+  <!-- A3 - Hotel Auteuil Tour Eiffel -->
+  <div class="card">
+    <div class="card-gallery">
+      <div class="card-img">
+        <img src="https://d1zt9ora1cym2i.cloudfront.net/cache/img/lobby-hotel-auteuil-toureiffel-paris-73510-1920-1080-crop.jpg" alt="Hotel Auteuil Tour Eiffel" loading="lazy">
+        <div class="img-label">🏨 酒店大堂（官网实拍）</div>
+        <span class="card-tier budget">💎 性价比之选</span>
+      </div>
+      <div class="card-img">
+        
+        <div class="img-label">🎾 罗兰加洛斯中心球场（Wikimedia实拍）</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Hotel Auteuil Tour Eiffel<span class="sub">四星设计酒店 · 16区静谧之选</span></h3>
+      <p class="card-desc">位于16区中心的设计酒店，距离罗兰加洛斯仅2公里。配备桑拿和健身房，房间设计现代。法网期间位置便利，价格合理。</p>
+      <div class="card-info">
+        <div class="card-info-row"><span class="icon">📍</span><span class="val">10 Rue de l'Éperon, 75016 Paris</span></div>
+        <div class="card-info-row"><span class="icon">📏</span><span class="val">距赛场约 2 公里 · 步行25分钟</span></div>
+        <div class="card-info-row"><span class="icon">🎾</span><span class="val">⚠️ 无自带球场 · 步行/地铁可达</span></div>
+        <div class="card-info-row"><span class="icon">💰</span><span class="val">€150 - 220 / 晚</span></div>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag">🧖 桑拿设施</span>
+        <span class="card-tag">🏋️ 健身房</span>
+        <span class="card-tag">🎨 现代设计</span>
+      </div>
+      <a class="card-cta" href="https://www.hotel-auteuil-tour-eiffel.com/" target="_blank">🔗 查看价格 & 预订（联盟链接）</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ========== AREA 2 ========== -->
+<div class="area-sep">━━━ 区域二 ━━━</div>
+<div class="section-title">
+  <div class="area-badge">📍 7区/15区 · 地铁直达</div>
+  <h2>埃菲尔铁塔周边</h2>
+  <div class="sub">距 Roland Garros 3-5 公里 · 地铁15-20分钟</div>
+  <div class="distance">🚇 地铁6/8/10号线 · Bir-Hakeim/École Militaire站</div>
+</div>
+
+<div class="cards">
+
+  <!-- B1 - Le Royal Monceau Raffles Paris -->
+  <div class="card">
+    <div class="card-gallery">
+      <div class="card-img">
+        
+        <div class="img-label">🏨 酒店外观（Wikimedia实拍）</div>
+        <span class="card-tier luxury">👑 奢华之选</span>
+      </div>
+      <div class="card-img">
+        
+        <div class="img-label">🎾 中心球场红土赛场（Wikimedia实拍）</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Le Royal Monceau - Raffles Paris<span class="sub">莱佛士奢华酒店 · 8区艺术殿堂</span></h3>
+      <p class="card-desc">位于香榭丽舍大街附近的传奇奢华酒店，配备米其林星级餐厅、私人影院和艺术画廊。虽距球场稍远，但奢华体验无可比拟。法网期间常有名流下榻。</p>
+      <div class="card-info">
+        <div class="card-info-row"><span class="icon">📍</span><span class="val">37 Avenue Hoche, 75008 Paris</span></div>
+        <div class="card-info-row"><span class="icon">📏</span><span class="val">距赛场约 5 公里 · 地铁20分钟</span></div>
+        <div class="card-info-row"><span class="icon">🎾</span><span class="val">⚠️ 无自带球场 · 地铁直达</span></div>
+        <div class="card-info-row"><span class="icon">💰</span><span class="val">€600 - 1,200 / 晚</span></div>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag">⭐ 宫殿级酒店</span>
+        <span class="card-tag">🍽️ 米其林餐厅</span>
+        <span class="card-tag">🎨 艺术画廊</span>
+      </div>
+      <div class="card-price-tag">🏷️ 顶级奢华体验</div>
+      <a class="card-cta" href="https://www.leroyalmonceau.com/" target="_blank">🔗 查看价格 & 预订（联盟链接）</a>
+    </div>
+  </div>
+
+  <!-- B2 - Pullman Paris Tour Eiffel -->
+  <div class="card">
+    <div class="card-gallery">
+      <div class="card-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Pullman_Eiffel_Tower_Hotel_Paris_France_2.jpg/960px-Pullman_Eiffel_Tower_Hotel_Paris_France_2.jpg" alt="Pullman Paris Tour Eiffel" loading="lazy">
+        <div class="img-label">🏨 酒店外观（Wikimedia实拍）</div>
+        <span class="card-tier mid">🥈 舒适之选</span>
+      </div>
+      <div class="card-img">
+        
+        <div class="img-label">🎾 苏珊·朗格伦球场带顶棚（Wikimedia实拍）</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Pullman Paris Tour Eiffel<span class="sub">铂尔曼 · 雅高集团</span></h3>
+      <p class="card-desc">距离埃菲尔铁塔仅300米，部分房间可直接看到铁塔。地铁6号线直达罗兰加洛斯，是观赛期间的黄金位置。配备健身房和商务中心。</p>
+      <div class="card-info">
+        <div class="card-info-row"><span class="icon">📍</span><span class="val">18 Avenue de Suffren, 75015 Paris</span></div>
+        <div class="card-info-row"><span class="icon">📏</span><span class="val">距赛场约 3.5 公里 · 地铁15分钟</span></div>
+        <div class="card-info-row"><span class="icon">🎾</span><span class="val">⚠️ 无自带球场 · 地铁直达</span></div>
+        <div class="card-info-row"><span class="icon">💰</span><span class="val">€250 - 400 / 晚</span></div>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag">🗼 埃菲尔铁塔景观</span>
+        <span class="card-tag">🚇 地铁便利</span>
+        <span class="card-tag">🏢 商务设施</span>
+      </div>
+      <div class="card-price-tag">🔥 位置绝佳 · 强烈推荐</div>
+      <a class="card-cta" href="https://all.accor.com/hotel/1451/index.en.shtml" target="_blank">🔗 查看价格 & 预订（联盟链接）</a>
+    </div>
+  </div>
+
+  <!-- B3 - Novotel Paris 15 Porte de Versailles -->
+  <div class="card">
+    <div class="card-gallery">
+      <div class="card-img">
+        
+        <div class="img-label">🏨 酒店周边·凡尔赛门展区（Wikimedia实拍）</div>
+        <span class="card-tier budget">💎 性价比之选</span>
+      </div>
+      <div class="card-img">
+        
+        <div class="img-label">🎾 罗兰加洛斯全景（Wikimedia实拍）</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Novotel Paris 15 Porte de Versailles<span class="sub">诺富特 · 雅高中端品牌</span></h3>
+      <p class="card-desc">位于凡尔赛门展览中心旁，地铁12号线直达罗兰加洛斯。标准化的四星设施，家庭友好，配有儿童游戏区。价格亲民，适合预算有限的球迷。</p>
+      <div class="card-info">
+        <div class="card-info-row"><span class="icon">📍</span><span class="val">36 Rue du Colonel Pierre Avia, 75015 Paris</span></div>
+        <div class="card-info-row"><span class="icon">📏</span><span class="val">距赛场约 4 公里 · 地铁18分钟</span></div>
+        <div class="card-info-row"><span class="icon">🎾</span><span class="val">⚠️ 无自带球场 · 地铁直达</span></div>
+        <div class="card-info-row"><span class="icon">💰</span><span class="val">€130 - 180 / 晚</span></div>
+      </div>
+      <div class="card-tags">
+        <span class="card-tag">👨‍👩‍👧‍👦 家庭友好</span>
+        <span class="card-tag">🎪 近展览中心</span>
+        <span class="card-tag">💰 性价比高</span>
+      </div>

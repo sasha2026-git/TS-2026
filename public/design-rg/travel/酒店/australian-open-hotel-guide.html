@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>澳网2026 — 墨尔本观赛酒店指南 | Melbourne Park</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0a0a0a;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/4/4a/AUS_Melbourne%2C_Central_Business_District%2C_Melbourne_Park_015.jpg') center/cover no-repeat;
+  filter: brightness(0.3) saturate(1.2);
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, #0a0a0a 100%);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 2rem;
+}
+.hero-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #1a6bff, #0052cc);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 30%, #4d9aff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 1.15rem;
+  color: #b0b0b0;
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  color: #888;
+  margin-top: 1.5rem;
+}
+.hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hero-meta .icon { font-size: 1.2rem; }
+
+/* Container */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  margin: 5rem 0 3rem;
+  position: relative;
+}
+.section-title::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #1a6bff, transparent);
+  margin: 0 auto 1.5rem;
+}
+.section-title h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.section-title p { color: #888; font-size: 1rem; }
+
+/* Area Cards */
+.area-card {
+  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+  border: 1px solid #222;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  transition: border-color 0.3s;
+}
+.area-card:hover { border-color: #333; }
+
+.area-header {
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid #222;
+}
+.area-header .area-number {
+  font-size: 0.75rem;
+  color: #1a6bff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.area-header h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.area-header .distance {
+  display: inline-block;
+  background: rgba(26,107,255,0.1);
+  color: #4d9aff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+}
+.area-header .transport {
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+.area-header .transport span { color: #b0b0b0; }
+
+/* Hotel Grid */
+.hotel-grid { padding: 1.5rem 2rem 2rem; }
+
+.hotel-card {
+  background: #141414;
+  border: 1px solid #222;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  transition: border-color 0.3s, transform 0.2s;
+}
+.hotel-card:hover {
+  border-color: #333;
+  transform: translateY(-2px);
+}
+
+/* Tier Badge */
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 0.25rem 1rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+.tier-luxury { background: linear-gradient(135deg, #b8860b, #daa520); color: #000; }
+.tier-mid { background: linear-gradient(135deg, #1a6bff, #4d9aff); color: #fff; }
+.tier-budget { background: linear-gradient(135deg, #666, #999); color: #fff; }
+
+/* Hotel Images */
+.hotel-images {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  min-height: 300px;
+}
+.hotel-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hotel-images .img-main { grid-column: 1 / -1; height: 200px; }
+.hotel-images .img-secondary { height: 150px; }
+
+/* Hotel Info */
+.hotel-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.hotel-info .hotel-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.15rem;
+}
+.hotel-info .hotel-subtitle {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+.hotel-info .hotel-desc {
+  color: #999;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+.hotel-info .hotel-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.hotel-info .hotel-details .detail-item {
+  background: #1a1a1a;
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  color: #bbb;
+}
+.hotel-info .hotel-details .detail-item strong { color: #ddd; }
+
+/* Price */
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #222;
+}
+.price {
+  display: flex;
+  flex-direction: column;
+}
+.price .amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4d9aff;
+}
+.price .period {
+  font-size: 0.75rem;
+  color: #777;
+}
+.book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #1a6bff, #0052cc);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.book-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(26,107,255,0.4);
+}
+
+/* Amenities Tags */
+.amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+.amenities .tag {
+  background: rgba(26,107,255,0.08);
+  color: #4d9aff;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid rgba(26,107,255,0.15);
+}
+
+/* Note Box */
+.note-box {
+  max-width: 800px;
+  margin: 4rem auto 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(26,107,255,0.05), rgba(26,107,255,0.02));
+  border: 1px solid rgba(26,107,255,0.15);
+  border-radius: 12px;
+  text-align: center;
+}
+.note-box p {
+  color: #888;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+.note-box .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hotel-card { grid-template-columns: 1fr; }
+  .hotel-images { min-height: 200px; }
+  .hotel-images .img-main { height: 180px; }
+  .hotel-images .img-secondary { height: 120px; }
+  .area-header { padding: 1.5rem; }
+  .hotel-grid { padding: 1rem 1.5rem 1.5rem; }
+  .price-row { flex-direction: column; gap: 1rem; align-items: stretch; }
+  .book-btn { justify-content: center; }
+}
+
+/* Remove underline from links in area headers */
+.area-header a { text-decoration: none; color: inherit; }
+.area-header a:hover { color: #4d9aff; }
+
+/* Divider between areas */
+.area-divider {
+  text-align: center;
+  margin: 1rem 0 2rem;
+  position: relative;
+}
+.area-divider::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, transparent, #333, transparent);
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🏆 Australian Open 2026</div>
+    <h1>Melbourne Park<br>观赛住宿指南</h1>
+    <p>从 Melbourne CBD 到 Richmond，精选三大区域九家酒店，涵盖奢华、舒适与高性价比三种选择。无论你是第一次踏上澳网之旅，还是资深球迷回归，这里总有适合你的落脚之处。</p>
+    <div class="hero-meta">
+      <span><span class="icon">📅</span> 2026.1.19 — 2.1</span>
+      <span><span class="icon">📍</span> Melbourne Park, Melbourne, Australia</span>
+      <span><span class="icon">🎾</span> 罗德·拉沃尔 + 玛格丽特·考特 + 约翰·凯恩</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+<!-- Area 1: Melbourne CBD/Flinders -->
+<div class="section-title">
+  <h2>📍 Melbourne CBD &amp; Flinders</h2>
+  <p>距 Melbourne Park 0–3 公里 · 步行可达 · 电车直达</p>
+</div>
+
+<div class="area-card">
+  <div class="area-header">
+    <div class="area-number">区域 01</div>
+    <h3>Melbourne CBD / Flinders</h3>
+    <p style="color:#888;font-size:0.9rem;margin-top:0.5rem;">
+      墨尔本市中心的心脏地带，Flinders Street Station 与联邦广场近在咫尺。这里的酒店步行或搭一两站电车即可抵达 Melbourne Park，比赛前后还能随时体验墨尔本的美食与夜生活。
+    </p>
+    <span class="distance">🚶 步行 10–30 分钟 / 🚋 电车 5 分钟</span>
+  </div>
+  <div class="hotel-grid">
+
+    <!-- Grand Hyatt Melbourne (LUXURY) -->
+    <div class="hotel-card">
+      <div class="hotel-images">
+        <span class="tier-badge tier-luxury">👑 奢华之选</span>
+        
+        <img class="img-secondary" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Australian_Open_2015_%2815667868704%29.jpg" alt="Australian Open Tennis Court">
+      </div>
+      <div class="hotel-info">
+        <div class="hotel-name">Grand Hyatt Melbourne</div>
+        <div class="hotel-subtitle">凯悦集团 · 五星奢华</div>
+        <div class="hotel-desc">
+          坐拥墨尔本天际线与 Yarra River 全景的顶级酒店，距 Flinders Street Station 仅 300 米。室内恒温泳池、顶级水疗、多家获奖餐厅一应俱全。澳网期间大厅内随处可见球员与网球名人，是赛事社交的核心据點之一。
+        </div>
+        <div class="amenities">
+          <span class="tag">🏊 室内泳池</span>
+          <span class="tag">💆 水疗中心</span>
+          <span class="tag">🍽️ 多家餐厅</span>
+          <span class="tag">🏋️ 健身中心</span>
+          <span class="tag">🅿️ 代客泊车</span>
+          <span class="tag">📶 免费 WiFi</span>
+        </div>
+        <div class="hotel-details">
+          <span class="detail-item"><strong>📍</strong> 123 Collins Street, Melbourne</span>
+          <span class="detail-item"><strong>🚶</strong> 步行至球场约 20 分钟</span>
+          <span class="detail-item"><strong>⭐</strong> Trip.com 评分 4.7/5</span>
+        </div>
+        <div class="price-row">
+          <div class="price">
+            <span class="amount">A$450+</span>
+            <span class="period">/ 晚（澳网期间）</span>
+          </div>
+          <a class="book-btn" href="https://www.trip.com/hotels/melbourne-hotel-detail-375528/" target="_blank" rel="noopener">
+            📖 查看详情 →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pullman on the Park Melbourne (MID) -->
+    <div class="hotel-card">
+      <div class="hotel-images">
+        <span class="tier-badge tier-mid">⭐ 舒适之选</span>
+        
+        <img class="img-secondary" src="https://upload.wikimedia.org/wikipedia/commons/3/37/Australian_Open_2015_%2815755233074%29.jpg" alt="Australian Open Rod Laver Arena">
+      </div>
+      <div class="hotel-info">
+        <div class="hotel-name">Pullman on the Park Melbourne</div>
+        <div class="hotel-subtitle">雅高集团 · 四星半 · 距球场最近</div>
+        <div class="hotel-desc">
+          横跨马路就是 Melbourne Park——澳网期间没有比这更近的住处了。酒店正对球场入口，开幕式当天你甚至可以听到场馆内的欢呼声。房间宽敞，配备小厨房，赛后回来自己煮个宵夜，无比惬意。
+        </div>
+        <div class="amenities">
+          <span class="tag">🏊 屋顶泳池</span>
+          <span class="tag">🏋️ 健身房</span>
+          <span class="tag">🍳 早餐供应</span>
+          <span class="tag">🚗 停车场</span>
+          <span class="tag">📶 免费 WiFi</span>
+          <span class="tag">☕ 咖啡厅</span>
+        </div>
+        <div class="hotel-details">
+          <span class="detail-item"><strong>📍</strong> 65 Queens Road, Melbourne</span>
+          <span class="detail-item"><strong>🚶</strong> 步行至球场 1 分钟</span>
+          <span class="detail-item"><strong>⭐</strong> Trip.com 评分 4.5/5</span>
+        </div>
+        <div class="price-row">
+          <div class="price">
+            <span class="amount">A$280+</span>
+            <span class="period">/ 晚（澳网期间）</span>
+          </div>
+          <a class="book-btn" href="https://www.trip.com/hotels/melbourne-hotel-detail-1019869/" target="_blank" rel="noopener">
+            📖 查看详情 →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Novotel Melbourne Central (BUDGET) -->
+    <div class="hotel-card">
+      <div class="hotel-images">
+        <span class="tier-badge tier-budget">💰 性价比之选</span>
+        <img class="img-main" src="https://upload.wikimedia.org/wikipedia/commons/5/54/Novotel_Melbourne_on_Collins.jpg" alt="Novotel Melbourne Central">
+        
+      </div>
+      <div class="hotel-info">
+        <div class="hotel-name">Novotel Melbourne Central</div>
+        <div class="hotel-subtitle">雅高集团 · 四星 · 中心位置</div>
+        <div class="hotel-desc">
+          位于 Collins Street 上的成熟商务酒店，步行至 Flinders Street Station 只要 5 分钟，搭两站电车就到 Melbourne Park。楼下就是 Collins Street 美食街，看完比赛回来吃顿好的非常方便。澳网期间价格稳定，性价比极高。
+        </div>
+        <div class="amenities">
+          <span class="tag">🏊 室内泳池</span>
+          <span class="tag">🏋️ 健身房</span>
+          <span class="tag">🍽️ 餐厅酒吧</span>
+          <span class="tag">🅿️ 停车服务</span>
+          <span class="tag">📶 免费 WiFi</span>
+        </div>
+        <div class="hotel-details">
+          <span class="detail-item"><strong>📍</strong> 388 Collins Street, Melbourne</span>
+          <span class="detail-item"><strong>🚋</strong> 电车 5 分钟至球场</span>
+          <span class="detail-item"><strong>⭐</strong> Trip.com 评分 4.3/5</span>
+        </div>
+        <div class="price-row">
+          <div class="price">
+            <span class="amount">A$180+</span>
+            <span class="period">/ 晚（澳网期间）</span>
+          </div>
+          <a class="book-btn" href="https://www.trip.com/hotels/melbourne-hotel-detail-1019773/" target="_blank" rel="noopener">
+            📖 查看详情 →
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="area-divider"></div>
+
+<!-- Area 2: Southbank -->
+<div class="section-title">
+  <h2>🌉 Southbank</h2>
+  <p>距 Melbourne Park 3–5 公里 · 电车 5–10 分钟</p>
+</div>
+
+<div class="area-card">
+  <div class="area-header">
+    <div class="area-number">区域 02</div>
+    <h3>Southbank</h3>
+    <p style="color:#888;font-size:0.9rem;margin-top:0.5rem;">
+      沿 Yarra River 南岸的繁华街区，皇冠赌场、艺术中心和众多顶级餐厅聚集。这里的酒店对面就是 CBD，电车跨桥几分钟直达 Melbourne Park。赛后沿着河边散步回酒店是一天中最惬意的时刻。
+    </p>
+    <span class="distance">🚋 电车 5–10 分钟 / 🚶 步行 25–35 分钟</span>
+  </div>
+  <div class="hotel-grid">
+
+    <!-- Crown Metropol Melbourne (LUXURY) -->
+    <div class="hotel-card">
+      <div class="hotel-images">
+        <span class="tier-badge tier-luxury">👑 奢华之选</span>
+        <img class="img-main" src="https://www.crownmelbourne.com.au/getmedia/00390b04-850f-4973-a2ef-5b5c017e6afe/240210-Crown-Metropol-Melbourne-High-Floor-Luxe-Twin-1800x1200.jpg" alt="Crown Metropol Melbourne">
+        <img class="img-secondary" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/AUS_Melbourne%2C_Central_Business_District%2C_Melbourne_Park_015.jpg" alt="Melbourne Park Aerial">
+      </div>
+      <div class="hotel-info">
+        <div class="hotel-name">Crown Metropol Melbourne</div>
+        <div class="hotel-subtitle">皇冠度假村 · 五星奢华 · 自带网球场</div>
+        <div class="hotel-desc">
+          皇冠南岸综合度假村中的现代之选。酒店配备完善的网球设施，可以在出发看球前来一场热身。楼层客房享有城市天际线和河景，水疗中心和 24 小时餐饮服务是看完夜场归来的完美犒赏。Crown 的酒吧也是澳网球员赛后聚会的热门地点。
+        </div>
+        <div class="amenities">
+          <span class="tag">🎾 网球设施</span>
+          <span class="tag">🏊 无边泳池</span>
+          <span class="tag">💆 日间水疗</span>
+          <span class="tag">🎰 皇冠赌场</span>
+          <span class="tag">🍽️ Nobu 等名厨餐厅</span>
+          <span class="tag">📶 免费 WiFi</span>
+        </div>
+        <div class="hotel-details">
+          <span class="detail-item"><strong>📍</strong> 8 Whiteman Street, Southbank</span>
+          <span class="detail-item"><strong>🚋</strong> 电车 8 分钟至球场</span>
+          <span class="detail-item"><strong>⭐</strong> Trip.com 评分 4.6/5</span>
+        </div>
+        <div class="price-row">
+          <div class="price">
+            <span class="amount">A$400+</span>
+            <span class="period">/ 晚（澳网期间）</span>
+          </div>
+          <a class="book-btn" href="https://www.trip.com/hotels/melbourne-hotel-detail-988459/" target="_blank" rel="noopener">
+            📖 查看详情 →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Langham Melbourne (MID) -->
+    <div class="hotel-card">
+      <div class="hotel-images">
+        <span class="tier-badge tier-mid">⭐ 舒适之选</span>
+        <img class="img-main" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Langham_melbourne.jpg" alt="The Langham Melbourne">
+        <img class="img-secondary" src="https://www.crownmelbourne.com.au/getmedia/29bc999e-074b-4c69-af18-92211749cf62/260212-Crown-Melbourne-Hotels-Offer-Light-Camera-Metropol-1200x800.jpg" alt="Southbank Tennis View">
+      </div>
+      <div class="hotel-info">
+        <div class="hotel-name">The Langham Melbourne</div>
+        <div class="hotel-subtitle">朗廷酒店集团 · 五星 · 河畔经典</div>
+        <div class="hotel-desc">
+          南岸地标性的五星酒店，以经典欧式服务和华丽的下午茶闻名。位于 Yarra River 河畔，正对 Flinders Street Station，拥有无与伦比的城市与河景。酒店以 "Langham Club" 行政酒廊为特色，可俯瞰 Melbourne Park 方向的天际线。赛后回到这里品味一杯鸡尾酒，是澳网之旅的完美句点。
+        </div>
+        <div class="amenities">
+          <span class="tag">🏊 室内恒温泳池</span>
+          <span class="tag">💆 Chuan 水疗</span>
+          <span class="tag">🍰 经典下午茶</span>
+          <span class="tag">🏋️ 健身中心</span>
+          <span class="tag">🅿️ 代客泊车</span>
+          <span class="tag">📶 免费 WiFi</span>
+        </div>
+        <div class="hotel-details">
+          <span class="detail-item"><strong>📍</strong> 1 Southgate Avenue, Southbank</span>
+          <span class="detail-item"><strong>🚋</strong> 电车 5 分钟至球场</span>
+          <span class="detail-item"><strong>⭐</strong> Trip.com 评分 4.7/5</span>
+        </div>
+        <div class="price-row">
+          <div class="price">
+            <span class="amount">A$260+</span>
+            <span class="period">/ 晚（澳网期间）</span>
+          </div>
+          <a class="book-btn" href="https://www.trip.com/hotels/melbourne-hotel-detail-11407069/" target="_blank" rel="noopener">
+            📖 查看详情 →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Holiday Inn Express Melbourne Southbank (BUDGET) -->
+    <div class="hotel-card">
+      <div class="hotel-images">
+        <span class="tier-badge tier-budget">💰 性价比之选</span>
+        
+        <img class="img-secondary" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Australian_Open_2015_%2815667868704%29.jpg" alt="Australian Open Tennis">
+      </div>
+      <div class="hotel-info">
+        <div class="hotel-name">Holiday Inn Express Melbourne Southbank</div>
+        <div class="hotel-subtitle">洲际集团 · 三星 · 经济实用</div>
+        <div class="hotel-desc">
+          位于 Southbank 核心位置的现代经济型酒店，步行可达皇冠区域和 Yarra River。提供 Express 品牌标志性的免费热早餐，省下一笔餐费。房间简洁干净，设施齐全，适合预算有限但希望住在好位置的球迷。电车站就在门口。
+        </div>
+        <div class="amenities">
+          <span class="tag">🍳 免费热早餐</span>
+          <span class="tag">🏋️ 健身中心</span>
+          <span class="tag">📶 免费 WiFi</span>
+          <span class="tag">🅿️ 停车服务</span>
+          <span class="tag">💼 商务中心</span>
+        </div>
+        <div class="hotel-details">
+          <span class="detail-item"><strong>📍</strong> 218-224 City Road, Southbank</span>
+          <span class="detail-item"><strong>🚋</strong> 电车 6 分钟至球场</span>
+          <span class="detail-item"><strong>⭐</strong> Trip.com 评分 4.2/5</span>
+        </div>
+        <div class="price-row">
+          <div class="price">
+            <span class="amount">A$150+</span>
+            <span class="period">/ 晚（澳网期间）</span>
+          </div>
+          <a class="book-btn" href="https://www.trip.com/hotels/melbourne-hotel-detail-906200/" target="_blank" rel="noopener">
+            📖 查看详情 →
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="area-divider"></div>
+
+<!-- Area 3: Richmond / East Melbourne -->
+<div class="section-title">
+  <h2>🏡 Richmond &amp; East Melbourne</h2>
+  <p>距 Melbourne Park 1–3 公里 · 步行 / 电车可达</p>
+</div>
+
+<div class="area-card">
+  <div class="area-header">
+    <div class="area-number">区域 03</div>
+    <h3>Richmond / East Melbourne</h3>
+    <p style="color:#888;font-size:0.9rem;margin-top:0.5rem;">
+      墨尔本历史悠久的街区，维多利亚式排屋和绿树成荫的街道是这里的标志。Richmond 拥有墨尔本最好吃的越南粉和意式咖啡馆，而 East Melbourne 则是安静的高端住宅区。两者都紧邻 Melbourne Park，步行穿过公园就能到达球场。
+    </p>
+    <span class="distance">🚶 步行 10–20 分钟 / 🚋 电车 3–8 分钟</span>
+  </div>
+  <div class="hotel-grid">
+
+    <!-- Hotel Chadstone Melbourne MGallery (LUXURY) -->
+    <div class="hotel-card">
+      <div class="hotel-images">
+        <span class="tier-badge tier-luxury">👑 奢华之选</span>
+        
+        
+      </div>
+      <div class="hotel-info">
+        <div class="hotel-name">Hotel Chadstone Melbourne MGallery</div>
+        <div class="hotel-subtitle">雅高集团 · MGallery 系列 · 自带网球场</div>
+        <div class="hotel-desc">
+          Chadstone — 南半球最大的购物中心内隐藏的精品酒店。MGallery 系列以其独特的设计和个性化服务著称。酒店拥有两座专业网球场，往返 Melbourne Park 有免费接驳巴士。白天在 Chadstone 购物，下午打一场热身球，晚上在酒店高级餐厅用餐——这是观赛之旅的终极体验。
+        </div>
+        <div class="amenities">
+          <span class="tag">🎾 专业网球场</span>
+          <span class="tag">🛍️ 直通 Chadstone 购物中心</span>
+          <span class="tag">🏊 室外泳池</span>
+          <span class="tag">💆 水疗中心</span>
+          <span class="tag">🚌 免费接驳巴士</span>
+          <span class="tag">📶 免费 WiFi</span>
+        </div>
+        <div class="hotel-details">
+          <span class="detail-item"><strong>📍</strong> 1341 Dandenong Road, Chadstone</span>
+          <span class="detail-item"><strong>🚌</strong> 接驳巴士 15 分钟至球场</span>
+          <span class="detail-item"><strong>⭐</strong> Trip.com 评分 4.6/5</span>
+        </div>
+        <div class="price-row">
+          <div class="price">
+            <span class="amount">A$380+</span>
+            <span class="period">/ 晚（澳网期间）</span>
+          </div>
+          <a class="book-btn" href="https://www.trip.com/hotels/melbourne-hotel-detail-436519/" target="_blank" rel="noopener">
+            📖 查看详情 →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vibe Hotel Melbourne (MID) -->
+    <div class="hotel-card">
+      <div class="hotel-images">
+        <span class="tier-badge tier-mid">⭐ 舒适之选</span>
+        <img class="img-main" src="https://apimedia.tfehotels.com/media-green/optimized/9f/47/9f47d537-7a2c-4c92-bc7b-ccf68b40cce8/mice_hero-1500w.jpg" alt="Vibe Hotel Melbourne">
+        <img class="img-secondary" src="https://upload.wikimedia.org/wikipedia/commons/3/37/Australian_Open_2015_%2815755233074%29.jpg" alt="Australian Open View">
+      </div>
+      <div class="hotel-info">
+        <div class="hotel-name">Vibe Hotel Melbourne</div>
+        <div class="hotel-subtitle">TFE 酒店集团 · 四星 · 设计风尚</div>
+        <div class="hotel-desc">
+          位于 East Melbourne 边缘的时尚设计酒店，步行 10 分钟即可到达 Melbourne Park。客房以现代澳大利亚风格装潢，配有全落地窗，可欣赏城市天际线。酒店楼下的咖啡馆和酒吧深受本地人欢迎，是赛前赛后放松的理想去处。性价比在澳网期间尤为突出。
+        </div>
+        <div class="amenities">
+          <span class="tag">🏊 屋顶泳池</span>
+          <span class="tag">🏋️ 健身中心</span>
+          <span class="tag">🍽️ 餐厅酒吧</span>
+          <span class="tag">📶 免费 WiFi</span>
+          <span class="tag">🅿️ 停车服务</span>
+        </div>
+        <div class="hotel-details">
+          <span class="detail-item"><strong>📍</strong> 111 Little Lonsdale Street, Melbourne</span>
+          <span class="detail-item"><strong>🚶</strong> 步行 10 分钟至球场</span>
+          <span class="detail-item"><strong>⭐</strong> Trip.com 评分 4.3/5</span>
+        </div>
+        <div class="price-row">
+          <div class="price">
+            <span class="amount">A$220+</span>
+            <span class="period">/ 晚（澳网期间）</span>
+          </div>
+          <a class="book-btn" href="https://www.trip.com/hotels/melbourne-hotel-detail-988459/" target="_blank" rel="noopener">
+            📖 查看详情 →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ibis Melbourne (BUDGET) -->
+    <div class="hotel-card">
+      <div class="hotel-images">
+        <span class="tier-badge tier-budget">💰 性价比之选</span>
+        
+        <img class="img-secondary" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Australian_Open_2015_%2815667868704%29.jpg" alt="Australian Open Tennis Court Action">
+      </div>
+      <div class="hotel-info">
+        <div class="hotel-name">ibis Melbourne</div>
+        <div class="hotel-subtitle">雅高集团 · 三星 · 经济连锁</div>
+        <div class="hotel-desc">
+          位于 Melbourne CBD 与 East Melbourne 交界处的 Ibis 酒店，步行 15 分钟即可抵达 Melbourne Park。以 Ibis 一贯的简洁、干净和高性价比著称。楼下有便利店和咖啡馆，适合预算有限但追求便利位置的球迷。多条电车线路经过门口。
+        </div>
+        <div class="amenities">
+          <span class="tag">🍳 早餐供应</span>
+          <span class="tag">📶 免费 WiFi</span>
+          <span class="tag">💼 商务角</span>
+          <span class="tag">♿ 无障碍设施</span>
+        </div>
+        <div class="hotel-details">
+          <span class="detail-item"><strong>📍</strong> 55 Exhibition Street, Melbourne</span>
+          <span class="detail-item"><strong>🚶</strong> 步行 12 分钟至球场</span>
+          <span class="detail-item"><strong>⭐</strong> Trip.com 评分 4.0/5</span>
+        </div>
+        <div class="price-row">
+          <div class="price">
+            <span class="amount">A$120+</span>
+            <span class="period">/ 晚（澳网期间）</span>
+          </div>
+          <a class="book-btn" href="https://www.trip.com/hotels/melbourne-hotel-detail-1019773/" target="_blank" rel="noopener">
+            📖 查看详情 →
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Note Box -->
+<div class="note-box">
+  <div class="icon">📸</div>
+  <p>
+    所有图片来自 Trip.com 酒店实拍、TennisResortsOnline 球场实拍、<br>
+    酒店官方宣传材料及 Wikimedia Commons 公共图片库。<br>
+    价格为澳网期间预估，实际价格随供需浮动，请以预订时为准。
+  </p>
+</div>
+
+</div>
+
+</body>
+</html>

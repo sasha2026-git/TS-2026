@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>男鞋 · Men's Footwear | 装备 · Tennis Partner</title>
+<meta name="description" content="网球装备 · 男鞋：Men's Footwear">
+<link rel="stylesheet" href="../gear.css">
+<link rel="stylesheet" href="../../fonts.css">
+<link rel="stylesheet" href="../theme.css">
+</head>
+<body>
+  <a class="skip-link i18n" href="#main" data-zh="跳到主要内容" data-en="Skip to content">跳到主要内容</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html" aria-label="Tennis Partner">
+        <img class="brand-mark" src="../../assets/logo-tennis-partner.svg" width="42" height="42" alt="">
+        <span class="brand-type">
+          <span class="brand-name i18n" data-zh="TENNIS PARTNER" data-en="TENNIS PARTNER">TENNIS PARTNER</span>
+          <span class="brand-sub i18n" data-zh="网球搭子" data-en="PLAY TOGETHER">网球搭子</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="主导航">
+        <a href="../../index.html"><span class="i18n" data-zh="首页" data-en="Home">首页</span></a>
+        <a href="../../index.html#matches"><span class="i18n" data-zh="活动报名" data-en="Events">活动报名</span></a>
+        <a href="../../index.html#ai-coach"><span class="i18n" data-zh="AI测评&amp;教练" data-en="AI Coach">AI测评&amp;教练</span></a>
+        <a href="../../index.html#travel"><span class="i18n" data-zh="旅行" data-en="Travel">旅行</span></a>
+        <a href="../index.html" aria-current="page"><span class="i18n" data-zh="装备" data-en="Gear">装备</span></a>
+        <a href="../../index.html#courts"><span class="i18n" data-zh="球场" data-en="Courts">球场</span></a>
+        <a href="../../index.html#story"><span class="i18n" data-zh="关于" data-en="About">关于</span></a>
+        <a href="../../index.html#footer"><span class="i18n" data-zh="联系" data-en="Contact">联系</span></a>
+      </nav>
+
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="语言切换 / Language">
+          <button type="button" class="lang-btn is-active" data-set-lang="zh">中</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button type="button" class="lang-btn" data-set-lang="en">EN</button>
+        </div>
+        <button type="button" class="icon-btn search-btn" aria-label="搜索" data-aria-zh="搜索" data-aria-en="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.3 4.3"/></svg>
+        </button>
+        <button type="button" class="menu-toggle" aria-label="打开菜单" data-aria-zh="打开菜单" data-aria-en="Open menu" aria-controls="main-nav" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+<div class="layout">
+<aside class="rail">
+  <div class="rail-title">分类</div>
+  <nav class="rail-list">
+    <a href="../index.html">全部</a>
+    <a href="../明星系列/index.html">明星系列</a><a href="../男装/index.html">男装</a><a href="../女装/index.html">女装</a><a href="../男鞋/index.html" class="current">男鞋</a><a href="../女鞋/index.html">女鞋</a><a href="../青少年系列/index.html">青少年系列</a><a href="../球拍/index.html">球拍</a><a href="../配饰/index.html">配饰</a><a href="../配件/index.html">配件</a><a href="../网球发球机/index.html">网球发球机</a>
+  </nav>
+  <div class="rail-foot"><a href="../../index.html">← 返回首页</a></div>
+</aside>
+
+  <main id="main" class="main">
+    <div class="masthead">
+      <p class="mast-kicker">Gear / Men's Footwear</p>
+      <h1>男鞋</h1>
+      <p class="mast-dek">网球鞋先看场地，再看脚型：硬地、红土、草地对鞋底花纹和橡胶硬度的要求完全不同，宽楦窄楦选错一双鞋能毁一个赛季。</p>
+    </div>
+    <div class="reads" style="margin-top:40px">
+      <a href="../明星系列/index.html"><span class="rk">Star Series</span><span class="rt">球星同款装备版图</span></a>
+      <a href="../女装/index.html"><span class="rk">Gear / Women</span><span class="rt">女装</span></a>
+      <a href="../index.html"><span class="rk">Gear / All</span><span class="rt">全部装备</span></a>
+    </div>
+  </main>
+</div>
+<footer class="site-footer gear-footer" id="footer">
+  <div class="container">
+    <p>通过联盟链接购买不额外增加费用，还能支持我们继续创作。<a href="/disclosure.html">联盟披露</a></p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const header = document.querySelector('.site-header');
+  const menuButton = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('main-nav');
+  if (!header || !menuButton || !nav) return;
+
+  root.classList.add('js');
+
+  const readLang = () => {
+    try { return localStorage.getItem('tp-lang'); } catch { return null; }
+  };
+  const saveLang = (lang) => {
+    try { localStorage.setItem('tp-lang', lang); } catch { /* file:// privacy modes */ }
+  };
+
+  const applyLang = (lang) => {
+    const next = lang === 'en' ? 'en' : 'zh';
+    root.dataset.lang = next;
+    root.lang = next === 'zh' ? 'zh-CN' : 'en';
+
+    document.querySelectorAll('[data-zh][data-en]').forEach((node) => {
+      const value = node.dataset[next];
+      if (value) node.textContent = value;
+    });
+    document.querySelectorAll('[data-placeholder-zh]').forEach((node) => {
+      node.placeholder = next === 'zh' ? node.dataset.placeholderZh : node.dataset.placeholderEn;
+    });
+    document.querySelectorAll('[data-aria-zh]').forEach((node) => {
+      node.setAttribute('aria-label', next === 'zh' ? node.dataset.ariaZh : node.dataset.ariaEn);
+    });
+    document.querySelectorAll('.lang-btn').forEach((button) => {
+      const active = button.dataset.setLang === next;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    saveLang(next);
+  };
+
+  document.querySelectorAll('.lang-btn').forEach((button) => {
+    button.addEventListener('click', () => applyLang(button.dataset.setLang));
+  });
+  applyLang(readLang() || root.dataset.lang || 'zh');
+
+  const closeMenu = () => {
+    document.body.classList.remove('nav-open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  };
+
+  menuButton.addEventListener('click', () => {
+    const open = document.body.classList.toggle('nav-open');
+    menuButton.setAttribute('aria-expanded', String(open));
+  });
+  nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+  document.addEventListener('click', (event) => {
+    if (document.body.classList.contains('nav-open') && !header.contains(event.target)) closeMenu();
+  });
+
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 18);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
+</body>
+</html>

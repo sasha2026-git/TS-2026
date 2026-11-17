@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>东京网球度假指南 · 品川王子与高轮网球中心</title>
+<meta name="description" content="东京网球假期住宿指南：品川王子酒店群、东京希尔顿屋顶场等10家方案，市中心球场稀缺之城的正确打法。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0d0c;
+    --panel: #161412;
+    --panel-2: #1c1917;
+    --line: rgba(255,255,255,0.08);
+    --text: #ece7e1;
+    --text-dim: rgba(236,231,225,0.72);
+    --text-faint: rgba(236,231,225,0.55);
+    --accent: #e2664d;
+    --accent-soft: rgba(226,102,77,0.14);
+    --serif: 'Noto Serif SC', serif;
+    --sans: 'IBM Plex Sans', 'Noto Sans SC', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* top bar */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem clamp(1.2rem, 4vw, 3rem);
+    background: rgba(14,13,12,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .mark {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.18em;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  .topbar .mark em { color: var(--accent); font-style: normal; }
+  .topbar nav { display: flex; gap: 1.6rem; }
+  .topbar nav a {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em;
+    color: var(--text-faint); text-decoration: none; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  /* hero */
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    min-height: 82vh;
+    overflow: hidden;
+  }
+  .hero-copy {
+    padding: clamp(2.5rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4.5rem);
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .kicker {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem;
+  }
+  .kicker::before { content: ''; width: 2.5rem; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--text-dim);
+    max-width: 34em;
+    margin-bottom: 2.4rem;
+  }
+  .meta-row { display: flex; gap: 2.4rem; flex-wrap: wrap; }
+  .meta-cell { border-left: 1px solid var(--line); padding-left: 1rem; }
+  .meta-cell .num {
+    font-family: var(--mono); font-size: 1.5rem; font-weight: 500; color: var(--accent);
+    line-height: 1.2;
+  }
+  .meta-cell .label {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .hero-media { position: relative; min-height: 320px; }
+  .hero-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.85) brightness(0.8);
+  }
+  .hero-media::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 30%);
+    pointer-events: none;
+  }
+  .hero-media .img-tag {
+    position: absolute; bottom: 1rem; right: 1.2rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55); text-transform: uppercase;
+    background: rgba(0,0,0,0.5); padding: 0.3rem 0.7rem; border: 1px solid var(--line);
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-media { min-height: 260px; }
+    .hero-media::after { background: linear-gradient(0deg, var(--bg) 0%, transparent 40%); }
+    .topbar nav { display: none; }
+  }
+
+  /* sections */
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .chapter { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
+  .chapter-head {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.2rem;
+    align-items: baseline; margin-bottom: 1.8rem;
+    border-top: 1px solid var(--line); padding-top: 1.2rem;
+  }
+  .chapter-index {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.15em;
+  }
+  .chapter-head h2 {
+    font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700;
+    line-height: 1.25;
+  }
+  .chapter-head .sub {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: var(--text-faint); text-transform: uppercase; margin-top: 0.4rem;
+  }
+  .prose { max-width: 44em; font-size: 0.94rem; color: var(--text-dim); }
+  .prose strong { color: var(--text); font-weight: 600; }
+  .prose a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(226,102,77,0.35); }
+  .prose a:hover { border-bottom-color: var(--accent); }
+
+  /* city band */
+  .city-band {
+    margin-top: 2.5rem;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    padding: 8px;
+  }
+  .city-band figure { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+  .city-band img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.75); transition: transform 0.6s ease; }
+  .city-band figure:hover img { transform: scale(1.03); }
+  .city-band figcaption {
+    position: absolute; left: 0.9rem; bottom: 0.8rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.75); text-transform: uppercase;
+  }
+  @media (max-width: 640px) { .city-band { grid-template-columns: 1fr 1fr; } .city-band figure:nth-child(3) { display: none; } }
+
+  /* tier band */
+  .tier-band { margin: 2.6rem 0 0.4rem; padding-top: 1.4rem; }
+  .tier-band:first-of-type { margin-top: 1.4rem; }
+  .tier-k {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .tier-k::before { content: ''; width: 2rem; height: 1px; background: var(--accent); }
+  .tier-band h3 {
+    font-family: var(--serif); font-size: clamp(1.25rem, 2.6vw, 1.7rem); font-weight: 700;
+    line-height: 1.3; margin-top: 0.5rem;
+  }
+  .tier-note { font-size: 0.86rem; color: var(--text-dim); max-width: 42em; margin-top: 0.4rem; }
+
+  /* hotels */
+  .hotels { margin-top: 1rem; display: flex; flex-direction: column; }
+  .hotel {
+    display: grid;
+    grid-template-columns: minmax(220px, 340px) 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .hotel:last-child { border-bottom: 1px solid var(--line); }
+  .hotel-media { position: relative; overflow: hidden; min-height: 240px; }
+  .hotel-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.8); transition: transform 0.6s ease; }
+  .hotel:hover .hotel-media img { transform: scale(1.03); }
+  .tier {
+    position: absolute; top: 0.8rem; left: 0.8rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.3rem 0.65rem; border: 1px solid var(--line);
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+  }
+  .tier.luxury { color: #e9c176; }
+  .tier.mid { color: #9cc3e0; }
+  .tier.classic { color: #cdbfa8; }
+  .hotel-body { padding: clamp(1.2rem, 3vw, 2rem); display: flex; flex-direction: column; }
+  .hotel-idx {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+  .hotel-body h3 {
+    font-family: var(--serif); font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 700;
+    line-height: 1.3;
+  }
+  .hotel-body h3 .en {
+    display: block; font-family: var(--mono); font-weight: 400;
+    font-size: 0.76rem; letter-spacing: 0.1em; color: var(--text-faint); margin-top: 0.3rem;
+  }
+  .hotel-desc { font-size: 0.88rem; color: var(--text-dim); margin: 0.8rem 0 1.1rem; max-width: 38em; }
+
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    margin-bottom: 1rem;
+  }
+  .spec { background: var(--panel); padding: 0.65rem 0.85rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  .spec .k {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .spec .v { font-size: 0.8rem; color: var(--text); line-height: 1.45; }
+  .spec .v.accent-v { color: var(--accent); }
+
+  .hotel-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .fit-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .fit-tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem; border: 1px solid var(--line); color: var(--text-faint);
+  }
+  .fit-tag.hot { color: var(--accent); border-color: rgba(226,102,77,0.35); }
+  .cta {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    padding: 0.55rem 1.2rem; border: 1px solid var(--line);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .cta:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 820px) {
+    .hotel { grid-template-columns: 1fr; }
+    .hotel-media { min-height: 210px; }
+    .spec-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* play */
+  .play-panel {
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: clamp(1.5rem, 3vw, 2.4rem);
+  }
+  .play-list { display: flex; flex-direction: column; margin-top: 0.5rem; }
+  .play-item {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.1rem;
+    padding: 1rem 1rem; border-top: 1px solid var(--line);
+  }
+  .play-item:first-child { border-top: none; }
+  .play-item .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); padding-top: 0.15rem; }
+  .play-item .t { font-weight: 600; font-size: 0.9rem; }
+  .play-item .d { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+  .booking-note {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(226,102,77,0.35);
+    background: var(--accent-soft);
+    padding: 1.1rem 1.4rem;
+    font-size: 0.82rem; color: var(--text-dim);
+    display: flex; gap: 0.9rem; align-items: flex-start;
+  }
+  .booking-note .icon { font-family: var(--mono); color: var(--accent); font-size: 0.76rem; letter-spacing: 0.1em; padding-top: 0.1rem; white-space: nowrap; }
+  .booking-note strong { color: var(--accent); font-weight: 600; }
+
+  /* reads */
+  .reads { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .reads a {
+    background: var(--panel); padding: 1.3rem 1.2rem; text-decoration: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: background 0.2s;
+  }
+  .reads a:hover { background: var(--panel-2); }
+  .reads .rt { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); }
+  .reads .rk { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; }
+  @media (max-width: 640px) { .reads { grid-template-columns: 1fr; } }
+
+  /* footer */
+  footer {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    border-top: 1px solid var(--line);
+    padding: 2.5rem clamp(1.2rem, 4vw, 3rem) 4rem;
+  }
+  .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .foot-inner p { font-size: 0.75rem; color: var(--text-faint); line-height: 1.9; }
+  .foot-inner .sig { font-family: var(--serif); color: var(--text-dim); }
+  .foot-inner .sig em { color: var(--accent); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="mark">TENNIS <em>/</em> VACATION · TOKYO</span>
+  <nav>
+    <a href="#hotels">HOTELS</a>
+    <a href="#play">PLAY</a>
+    <a href="#reads">GUIDES</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>东京<br>网球度假<span class="accent">指南</span></h1>
+    <div class="kicker">Chapitre 01 · 都市网球秩序</div>
+    <p class="lede">寸土寸金的东京，市中心带球场的酒店是稀有物种——但品川王子酒店群凭一己之力撑起了「酒店+网球」的东京方案：高轮网球中心的9片室内场就开在楼群旁边。</p>
+    <div class="meta-row"><div class="meta-cell"><div class="num">10</div><div class="label">精选方案</div></div><div class="meta-cell"><div class="num">09</div><div class="label">高轮室内场片数</div></div><div class="meta-cell"><div class="num">05</div><div class="label">品川站步行分钟</div></div></div>
+  </div>
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80" alt="东京网球场">
+    <span class="img-tag">Takanawa Tennis Center</span>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.02</span>
+      <div>
+        <h2>为什么来东京打网球</h2>
+        <div class="sub">氛围 · 俱乐部文化 · 大赛</div>
+      </div>
+    </div>
+    <p class="prose">东京的网球文化极度「都市化」：全城有成百上千的收费室内网球俱乐部，订场要靠抢、规则一丝不苟。日本培养了锦织圭这样的世界级球员，业余爱好者水平普遍不低。对旅行者来说，东京的优势是<strong>秩序感</strong>——场地准时、灯光明亮、器材专业；劣势是市中心酒店几乎不自带球场，需选对片区。</p>
+    <div class="city-band"><figure><img src="https://images.unsplash.com/photo-1584967918940-a7d51b064268?w=900&q=80" alt="Court · Takanawa" loading="lazy"><figcaption>Court · Takanawa</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80" alt="Racket · Shinjuku" loading="lazy"><figcaption>Racket · Shinjuku</figcaption></figure><figure><figcaption>Tokyo · Shinagawa</figcaption></figure></div>
+  </section>
+
+  <section class="chapter" id="hotels">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.03</span>
+      <div>
+        <h2>东京十家网球酒店</h2>
+        <div class="sub">自带球场 · 合作球场 · 网球主题体验</div>
+      </div>
+    </div>
+
+    <div class="tier-band">
+      <div class="tier-k">PALACE / 奢华之选</div>
+      <h3>顶级奢华 · 屋顶硬地与园林球场</h3>
+      <p class="tier-note">新宿的屋顶硬地场能俯瞰东京，大仓门系的园林庄园把球场藏进历史庭院——东京顶奢的网球面。</p>
+    </div><div class="hotels">
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80" alt="东京希尔顿酒店" loading="lazy">
+          <span class="tier luxury">Palace</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.01 — 屋顶球场</div>
+          <h3>东京希尔顿酒店<span class="en">HILTON TOKYO · NISHI-SHINJUKU</span></h3>
+          <p class="hotel-desc">新宿的传奇屋顶网球场：2片室外硬地场带夜灯，从约¥10,000/小时起（tennislocal 收录）。在摩天楼顶挥拍、俯瞰东京夜景，都市网球的天花板体验。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">新宿区西新宿 · 都厅旁</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">屋顶网球场：2片室外硬地 · 夜灯 · 约¥10,000/小时起（对外预约）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥35,000 – 60,000 日元 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型/体验型 · 新宿屋顶挥拍</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 屋顶2片硬地</span><span class="fit-tag">🌃 新宿夜景</span><span class="fit-tag">💡 夜灯开放</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1584967918940-a7d51b064268?w=900&q=80" alt="东京新大谷饭店 EXECUTIVE HOUSE ZEN" loading="lazy">
+          <span class="tier luxury">Palace</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.02</div>
+          <h3>东京新大谷饭店 EXECUTIVE HOUSE ZEN<span class="en">HOTEL NEW OTANI TOKYO EXECUTIVE HOUSE ZEN</span></h3>
+          <p class="hotel-desc">赤坂的顶级日式酒店，New Otani 品牌旗下物业普遍配有网球场，本馆球场细节待核实。40层高的安静塔楼，皇家庭院环绕，服务是日式顶奢的教科书。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">千代田区纪尾井町 · 赤坂</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">New Otani 品牌球场配套（本馆细节待核实）· 皇家庭园</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥45,000 – 80,000 日元 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型 · 日式顶奢的安静塔楼</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">🌳 皇家庭园</span><span class="fit-tag">emoji🤫 极致安静</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80" alt="东京皇家王子大饭店花园塔" loading="lazy">
+          <span class="tier luxury">Palace</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.03</div>
+          <h3>东京皇家王子大饭店花园塔<span class="en">THE PRINCE PARK TOWER TOKYO · SHIBA PARK</span></h3>
+          <p class="hotel-desc">芝公园旁的王子系旗舰塔楼，东京塔步行圈。王子集团球场配套待核实，但芝公园绿地与增上寺就在楼下，晨跑+打球的城市度假体验一流。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">港区芝公园 · 东京塔步行圈</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">王子集团酒店（球场待核实）· 近芝公园绿地</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥25,000 – 50,000 日元 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型 · 东京塔景观+王子集团服务</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">🗼 东京塔景</span><span class="fit-tag">🌳 芝公园</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          
+          <span class="tier luxury">Palace</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.04</div>
+          <h3>东京椿山庄酒店<span class="en">HOTEL CHINZANSO TOKYO · EDOGAWABASHI</span></h3>
+          <p class="hotel-desc">文京区的庭园传奇酒店，百年日式庭园+全城最好的温泉引水。球场设施待核实，但它的「城市里的自然」气质与网球度假的松弛感高度契合。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">文京区后乐 · 椿山庄庭园</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">庭园酒店康体配套（球场待核实）· 百年庭园+温泉</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥25,000 – 50,000 日元 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型 · 庭园里的隐奢假期</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">🌳 百年庭园</span><span class="fit-tag">♨️ 引泉入室</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article></div>
+    <div class="tier-band">
+      <div class="tier-k">COMFORT / 品质之选</div>
+      <h3>品质之选 · 高轮网球中心共同体</h3>
+      <p class="tier-note">品川站周边的王子系酒店共享一套球场体系，训练效率是全东京最高。</p>
+    </div><div class="hotels">
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=900&q=80" alt="品川王子大饭店（主楼）" loading="lazy">
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.05 — 本篇首推</div>
+          <h3>品川王子大饭店（主楼）<span class="en">SHINAGAWA PRINCE HOTEL · SHINAGAWA</span></h3>
+          <p class="hotel-desc">东京「酒店+网球」的头号答案：酒店楼里有电影院、保龄球馆、水族馆，隔壁就是直营的高轮网球中心（9片室内人工草场）。住客打球有优惠，羽田机场25分钟电车直达。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">港区高轮4-10-30 · JR品川站高轮口步行约2分钟</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">直营高轮网球中心：9片室内场 · 住客约¥1,000优惠 · 散客价约¥7,000-17,000/小时</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥12,000 – 25,000 日元 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">训练型/中转型 · 东京打球住宿唯一解</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 9片室内场</span><span class="fit-tag">✈️ 羽田25分钟</span><span class="fit-tag">🎢 楼内娱乐</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.06</div>
+          <h3>东京新大谷饭店 The Main<span class="en">HOTEL NEW OTANI TOKYO THE MAIN</span></h3>
+          <p class="hotel-desc">Tripadvisor 收录其网球场，赤坂的庭院型本馆。EXECUTIVE HOUSE ZEN 的姊妹楼，价格更亲民，同样坐拥40万㎡庭园。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">千代田区纪尾井町 · 赤坂</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">酒店网球场（Tripadvisor 收录 · 细节待核实）· 40万㎡庭园</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥25,000 – 45,000 日元 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">商务型/度假型 · 庭园里的经典本馆</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场收录</span><span class="fit-tag">🌳 大庭园</span><span class="fit-tag">💼 赤坂商务</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=900&q=80" alt="东京全日空洲际酒店" loading="lazy">
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.07</div>
+          <h3>东京全日空洲际酒店<span class="en">ANA INTERCONTINENTAL TOKYO · AKASAKA</span></h3>
+          <p class="hotel-desc">赤坂的商务洲际旗舰，价格比王子系高一些但位置同样优秀。虽无球场，但到高轮网球中心电车即达，把它当「球场合伙人」酒店用。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">港区赤坂 · 直通地铁</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">无球场 · 电车直达高轮网球中心（约15分钟）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥20,000 – 35,000 日元 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">商务型 · 高轮网球中心的合伙人酒店</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🤝 合作球场方案</span><span class="fit-tag">🚇 赤坂直通</span><span class="fit-tag">💼 商务标杆</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article></div>
+    <div class="tier-band">
+      <div class="tier-k">CLASSIC / 经典之选</div>
+      <h3>经典之选 · 把预算花在球场上的方案</h3>
+      <p class="tier-note">王子系的高层与经济塔楼，房间朴素但球场走两步就到，是球友的理性之选。</p>
+    </div><div class="hotels">
+      <article class="hotel">
+        <div class="hotel-media">
+          
+          <span class="tier classic">Classic</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.08</div>
+          <h3>品川王子大饭店 N 塔<span class="en">SHINAGAWA PRINCE HOTEL N TOWER</span></h3>
+          <p class="hotel-desc">王子系的新塔楼，楼层更新更现代，共享同一套高轮网球中心。想要新一点的房间又不想离开球场群，选它。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">港区高川 · 品川站旁</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">共享高轮网球中心（9片室内场）· 住客优惠</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥15,000 – 30,000 日元 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">商务型 · 新楼品质+同一套球场</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 共享球场群</span><span class="fit-tag">🆕 新楼品质</span><span class="fit-tag">💼 商务友好</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=900&q=80" alt="品川王子大饭店东塔" loading="lazy">
+          <span class="tier classic">Classic</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.09</div>
+          <h3>品川王子大饭店东塔<span class="en">SHINAGAWA PRINCE HOTEL EAST TOWER</span></h3>
+          <p class="hotel-desc">品川王子阵营的经济之选，预算友好，球场就在楼下。把钱花在球场而不是房间，是球友的务实哲学。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">港区高轮 · 品川站旁</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">共享高轮网球中心（9片室内场）· 预算友好</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥8,000 – 15,000 日元 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">预算型 · 把钱花在球场而不是房间</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 共享球场群</span><span class="fit-tag">💸 预算友好</span><span class="fit-tag">📍 站前位置</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=900&q=80" alt="东京新高轮王子大饭店" loading="lazy">
+          <span class="tier classic">Classic</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.10</div>
+          <h3>东京新高轮王子大饭店<span class="en">GRAND PRINCE HOTEL NEW TAKANAWA</span></h3>
+          <p class="hotel-desc">高轮的庭园型大堂楼，日式庭园环绕，与高轮网球中心同一片区。安静、空间大，训练之余散步庭园很治愈。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">港区高轮3-13-1 · 高轮片区</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">共享高轮网球中心（步行数分钟）· 日式庭园</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥15,000 – 28,000 日元 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">训练型/度假型 · 庭园边的安静基地</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场步行达</span><span class="fit-tag">🌳 日式庭园</span><span class="fit-tag">🤫 安静宽敞</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article></div>
+  </section>
+
+  <section class="chapter" id="play">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.04</span>
+      <div>
+        <h2>不住酒店也能挥拍</h2>
+        <div class="sub">公共球场 · 俱乐部日票 · 实用建议</div>
+      </div>
+    </div>
+    <div class="play-panel">
+      <p class="prose" style="max-width:none; padding: 0 1rem;"><strong>不住酒店？</strong>东京公共网球体系很成熟：都立公园球场（如驹泽奥林匹克公园、有明网球的森林公园）可通过东京都体育协会系统预约；商业室内俱乐部（如 TAC 甜心网球俱乐部等）可付日会费使用。<strong>高轮网球中心本身也对外营业</strong>（散客价见上表）。提示：日本订场普遍需提前、部分需会员介绍，语言不通可通过酒店礼宾代订。</p><p style="margin-bottom:1rem;"></p>
+      <div class="play-list"><div class="play-item"><span class="no">01</span><div><div class="t">高轮网球中心（品川）</div><div class="d">9片室内人工草场对外营业，约¥7,000-17,000/小时，品川站高轮口步行5分钟。</div></div></div><div class="play-item"><span class="no">02</span><div><div class="t">都立公园球场</div><div class="d">驹泽奥林匹克公园等，东京都系统在线预约。</div></div></div><div class="play-item"><span class="no">03</span><div><div class="t">商业室内俱乐部（TAC等）</div><div class="d">可付日会费使用，室内场全年无休。</div></div></div></div>
+    </div>
+    <div class="booking-note">
+      <span class="icon">NOTE /</span>
+      <span>各酒店「查看价格 &amp; 预订」按钮为<strong>联盟链接占位</strong>。东京订场文化是「提前+守时」，迟到可能被没收场地费。价格随汇率与季节浮动，仅供参考。</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="reads">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.05</span>
+      <div>
+        <h2>继续你的网球之旅</h2>
+        <div class="sub">Related guides</div>
+      </div>
+    </div>
+    <div class="reads"><a href="usopen-hotel-guide.html"><span class="rk">Guide / US Open</span><span class="rt">美网观赛酒店指南</span></a><a href="australian-open-hotel-guide.html"><span class="rk">Guide / AO</span><span class="rt">澳网观赛酒店指南</span></a><a href="paris-tennis-vacation.html"><span class="rk">Guide / 法网</span><span class="rt">巴黎网球度假指南</span></a></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p>图片为 Unsplash 网球主题占位图 · 非酒店实拍<br>通过联盟链接预订不额外增加费用，还能支持我们继续创作<br>数据整理于 2026.11 · 部分信息待核实，出行前请与酒店确认</p>
+    <p class="sig">愿你的东京假期，<em>室内场与拉面</em>都滚烫 🎾</p>
+  </div>
+
+<div class="affiliate-disclosure" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:2rem;padding-top:1rem;font-size:0.72rem;color:rgba(255,255,255,0.45);line-height:1.9;">
+  <strong style="color:inherit;">利益声明 / Affiliate Disclosure：</strong>本页包含联盟链接（Amazon、Booking.com、Trip.com、Awin 等）。通过这些链接完成预订或购买，我们可能获得佣金——这不影响你支付的价格，也不会影响我们的评测独立性。<a href="/disclosure.html" style="color:inherit;text-decoration:underline;">查看完整联盟披露声明 →</a>
+  <span style="display:block;margin-top:0.3rem;">As an Amazon Associate, we earn from qualifying purchases.</span>
+</div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北京网球度假指南 · 住进带网球场的酒店</title>
+<meta name="description" content="北京网球假期住宿指南：瑞吉、香格里拉网球中心等10家精选酒店，中网之城观赛+训练一站式攻略。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0d0c;
+    --panel: #161412;
+    --panel-2: #1c1917;
+    --line: rgba(255,255,255,0.08);
+    --text: #ece7e1;
+    --text-dim: rgba(236,231,225,0.72);
+    --text-faint: rgba(236,231,225,0.55);
+    --accent: #d96f3f;
+    --accent-soft: rgba(217,111,63,0.14);
+    --serif: 'Noto Serif SC', serif;
+    --sans: 'IBM Plex Sans', 'Noto Sans SC', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* top bar */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem clamp(1.2rem, 4vw, 3rem);
+    background: rgba(14,13,12,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .mark {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.18em;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  .topbar .mark em { color: var(--accent); font-style: normal; }
+  .topbar nav { display: flex; gap: 1.6rem; }
+  .topbar nav a {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em;
+    color: var(--text-faint); text-decoration: none; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  /* hero */
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    min-height: 82vh;
+    overflow: hidden;
+  }
+  .hero-copy {
+    padding: clamp(2.5rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4.5rem);
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .kicker {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem;
+  }
+  .kicker::before { content: ''; width: 2.5rem; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--text-dim);
+    max-width: 34em;
+    margin-bottom: 2.4rem;
+  }
+  .meta-row { display: flex; gap: 2.4rem; flex-wrap: wrap; }
+  .meta-cell { border-left: 1px solid var(--line); padding-left: 1rem; }
+  .meta-cell .num {
+    font-family: var(--mono); font-size: 1.5rem; font-weight: 500; color: var(--accent);
+    line-height: 1.2;
+  }
+  .meta-cell .label {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .hero-media { position: relative; min-height: 320px; }
+  .hero-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.85) brightness(0.8);
+  }
+  .hero-media::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 30%);
+    pointer-events: none;
+  }
+  .hero-media .img-tag {
+    position: absolute; bottom: 1rem; right: 1.2rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55); text-transform: uppercase;
+    background: rgba(0,0,0,0.5); padding: 0.3rem 0.7rem; border: 1px solid var(--line);
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-media { min-height: 260px; }
+    .hero-media::after { background: linear-gradient(0deg, var(--bg) 0%, transparent 40%); }
+    .topbar nav { display: none; }
+  }
+
+  /* sections */
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .chapter { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
+  .chapter-head {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.2rem;
+    align-items: baseline; margin-bottom: 1.8rem;
+    border-top: 1px solid var(--line); padding-top: 1.2rem;
+  }
+  .chapter-index {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.15em;
+  }
+  .chapter-head h2 {
+    font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700;
+    line-height: 1.25;
+  }
+  .chapter-head .sub {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: var(--text-faint); text-transform: uppercase; margin-top: 0.4rem;
+  }
+  .prose { max-width: 44em; font-size: 0.94rem; color: var(--text-dim); }
+  .prose strong { color: var(--text); font-weight: 600; }
+  .prose a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(217,111,63,0.35); }
+  .prose a:hover { border-bottom-color: var(--accent); }
+
+  /* city band */
+  .city-band {
+    margin-top: 2.5rem;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    padding: 8px;
+  }
+  .city-band figure { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+  .city-band img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.75); transition: transform 0.6s ease; }
+  .city-band figure:hover img { transform: scale(1.03); }
+  .city-band figcaption {
+    position: absolute; left: 0.9rem; bottom: 0.8rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.75); text-transform: uppercase;
+  }
+  @media (max-width: 640px) { .city-band { grid-template-columns: 1fr 1fr; } .city-band figure:nth-child(3) { display: none; } }
+
+  /* tier band */
+  .tier-band { margin: 2.6rem 0 0.4rem; padding-top: 1.4rem; }
+  .tier-band:first-of-type { margin-top: 1.4rem; }
+  .tier-k {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .tier-k::before { content: ''; width: 2rem; height: 1px; background: var(--accent); }
+  .tier-band h3 {
+    font-family: var(--serif); font-size: clamp(1.25rem, 2.6vw, 1.7rem); font-weight: 700;
+    line-height: 1.3; margin-top: 0.5rem;
+  }
+  .tier-note { font-size: 0.86rem; color: var(--text-dim); max-width: 42em; margin-top: 0.4rem; }
+
+  /* hotels */
+  .hotels { margin-top: 1rem; display: flex; flex-direction: column; }
+  .hotel {
+    display: grid;
+    grid-template-columns: minmax(220px, 340px) 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .hotel:last-child { border-bottom: 1px solid var(--line); }
+  .hotel-media { position: relative; overflow: hidden; min-height: 240px; }
+  .hotel-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.8); transition: transform 0.6s ease; }
+  .hotel:hover .hotel-media img { transform: scale(1.03); }
+  .tier {
+    position: absolute; top: 0.8rem; left: 0.8rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.3rem 0.65rem; border: 1px solid var(--line);
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+  }
+  .tier.luxury { color: #e9c176; }
+  .tier.mid { color: #9cc3e0; }
+  .tier.classic { color: #cdbfa8; }
+  .hotel-body { padding: clamp(1.2rem, 3vw, 2rem); display: flex; flex-direction: column; }
+  .hotel-idx {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+  .hotel-body h3 {
+    font-family: var(--serif); font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 700;
+    line-height: 1.3;
+  }
+  .hotel-body h3 .en {
+    display: block; font-family: var(--mono); font-weight: 400;
+    font-size: 0.76rem; letter-spacing: 0.1em; color: var(--text-faint); margin-top: 0.3rem;
+  }
+  .hotel-desc { font-size: 0.88rem; color: var(--text-dim); margin: 0.8rem 0 1.1rem; max-width: 38em; }
+
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    margin-bottom: 1rem;
+  }
+  .spec { background: var(--panel); padding: 0.65rem 0.85rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  .spec .k {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .spec .v { font-size: 0.8rem; color: var(--text); line-height: 1.45; }
+  .spec .v.accent-v { color: var(--accent); }
+
+  .hotel-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .fit-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .fit-tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem; border: 1px solid var(--line); color: var(--text-faint);
+  }
+  .fit-tag.hot { color: var(--accent); border-color: rgba(217,111,63,0.35); }
+  .cta {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    padding: 0.55rem 1.2rem; border: 1px solid var(--line);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .cta:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 820px) {
+    .hotel { grid-template-columns: 1fr; }
+    .hotel-media { min-height: 210px; }
+    .spec-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* play */
+  .play-panel {
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: clamp(1.5rem, 3vw, 2.4rem);
+  }
+  .play-list { display: flex; flex-direction: column; margin-top: 0.5rem; }
+  .play-item {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.1rem;
+    padding: 1rem 1rem; border-top: 1px solid var(--line);
+  }
+  .play-item:first-child { border-top: none; }
+  .play-item .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); padding-top: 0.15rem; }
+  .play-item .t { font-weight: 600; font-size: 0.9rem; }
+  .play-item .d { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+  .booking-note {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(217,111,63,0.35);
+    background: var(--accent-soft);
+    padding: 1.1rem 1.4rem;
+    font-size: 0.82rem; color: var(--text-dim);
+    display: flex; gap: 0.9rem; align-items: flex-start;
+  }
+  .booking-note .icon { font-family: var(--mono); color: var(--accent); font-size: 0.76rem; letter-spacing: 0.1em; padding-top: 0.1rem; white-space: nowrap; }
+  .booking-note strong { color: var(--accent); font-weight: 600; }
+
+  /* reads */
+  .reads { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .reads a {
+    background: var(--panel); padding: 1.3rem 1.2rem; text-decoration: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: background 0.2s;
+  }
+  .reads a:hover { background: var(--panel-2); }
+  .reads .rt { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); }
+  .reads .rk { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; }
+  @media (max-width: 640px) { .reads { grid-template-columns: 1fr; } }
+
+  /* footer */
+  footer {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    border-top: 1px solid var(--line);
+    padding: 2.5rem clamp(1.2rem, 4vw, 3rem) 4rem;
+  }
+  .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .foot-inner p { font-size: 0.75rem; color: var(--text-faint); line-height: 1.9; }
+  .foot-inner .sig { font-family: var(--serif); color: var(--text-dim); }
+  .foot-inner .sig em { color: var(--accent); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="mark">TENNIS <em>/</em> VACATION · BEIJING</span>
+  <nav>
+    <a href="#hotels">HOTELS</a>
+    <a href="#play">PLAY</a>
+    <a href="#reads">GUIDES</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>北京<br>网球度假<span class="accent">指南</span></h1>
+    <div class="kicker">Chapitre 01 · 中网之城</div>
+    <p class="lede">上午在国家网球中心的室内场拉上旋，下午逛故宫、喝豆汁。北京网球假期，历史与挥拍两不误——冬天寒冷，室内场才是这座城市的网球正统。</p>
+    <div class="meta-row"><div class="meta-cell"><div class="num">10</div><div class="label">精选酒店</div></div><div class="meta-cell"><div class="num">02</div><div class="label">中网赛期 / 月</div></div><div class="meta-cell"><div class="num">04</div><div class="label">城区覆盖</div></div></div>
+  </div>
+  <div class="hero-media">
+    
+    <span class="img-tag">Diamond Court · Beijing</span>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.02</span>
+      <div>
+        <h2>为什么来北京打网球</h2>
+        <div class="sub">氛围 · 俱乐部文化 · 大赛</div>
+      </div>
+    </div>
+    <p class="prose">北京是中国网球的旗舰店城市：<strong>国家网球中心的钻石球场是中网主场</strong>，每年金秋（9–10月）中国网球公开赛在此上演。由于冬天寒冷，北京的酒店球场以室内场为卖点——香格里拉网球中心、国际俱乐部网球馆都是能常年打球的老牌场馆，俱乐部文化浓厚，球友水平普遍不低。</p>
+    <div class="city-band"><figure><img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=900&q=80" alt="Court · Indoor" loading="lazy"><figcaption>Court · Indoor</figcaption></figure><figure><figcaption>Racket · Match</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=900&q=80" alt="Beijing · CBD" loading="lazy"><figcaption>Beijing · CBD</figcaption></figure></div>
+  </section>
+
+  <section class="chapter" id="hotels">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.03</span>
+      <div>
+        <h2>北京十家网球酒店</h2>
+        <div class="sub">自带球场 · 合作球场 · 网球主题体验</div>
+      </div>
+    </div>
+
+    <div class="tier-band">
+      <div class="tier-k">PALACE / 奢华之选</div>
+      <h3>顶级奢华 · CBD 里打球谈判两不误</h3>
+      <p class="tier-note">瑞吉与国际俱乐部同院的老牌组合，加上国贸商圈的旗舰五星——北京的奢华酒店把「室内场」做成了标配卖点。</p>
+    </div><div class="hotels">
+      <article class="hotel">
+        <div class="hotel-media">
+          
+          <span class="tier luxury">Palace</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.01</div>
+          <h3>北京瑞吉酒店<span class="en">THE ST. REGIS BEIJING · JIANGUOMENWAI</span></h3>
+          <p class="hotel-desc">瑞吉与北京国际俱乐部同处一院，俱乐部网球馆的室内场是城区最老牌的打球地之一。打完球回房间泡个澡，顺便享受瑞吉标志性的管家服务。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">建国门外大街 · 国际俱乐部同院</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">国际俱乐部室内网球场 · 与酒店同院 · 住客可预约（片数待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥2,000 – 4,000 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">商务型 · 打球谈判两不误的老牌奢华</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 室内场</span><span class="fit-tag">🤵 管家服务</span><span class="fit-tag">🏙️ CBD 地段</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=900&q=80" alt="中国大饭店（香格里拉）" loading="lazy">
+          <span class="tier luxury">Palace</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.02</div>
+          <h3>中国大饭店（香格里拉）<span class="en">CHINA WORLD HOTEL BEIJING · GUOMAO</span></h3>
+          <p class="hotel-desc">国贸商圈的旗舰五星，商务客入住率常年极高。聚合站收录其网球场设施，CBD 寸土寸金之地能打球实属难得，具体片数与开放状态预订前请确认。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">建国门外大街1号 · 国贸商圈</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">酒店网球场（聚合站收录 · 片数/开放状态待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥1,600 – 3,000 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">商务型 · 国贸地标级商旅</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">🏢 国贸核心</span><span class="fit-tag">🏊 室内泳池</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          
+          <span class="tier luxury">Palace</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.03</div>
+          <h3>北京嘉里大酒店<span class="en">KERRY HOTEL BEIJING · GUOMAO EAST</span></h3>
+          <p class="hotel-desc">香格里拉集团在光华路的大block旗舰，多家网球酒店指南收录其球场设施。健身房、泳池、球场一应俱全，是国贸东的「运动型」商务酒店。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">光华路1号 · 国贸东侧</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">酒店网球场（多家网球酒店指南收录 · 片数待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥1,500 – 2,800 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">商务型/训练型 · CBD 东的运动据点</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">🏋️ 大型健身房</span><span class="fit-tag">🛗 商住一体</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article></div>
+    <div class="tier-band">
+      <div class="tier-k">COMFORT / 品质之选</div>
+      <h3>品质之选 · 海淀到燕莎的训练基地</h3>
+      <p class="tier-note">香格里拉网球中心的 2 片室内场是海淀球友的老据点，其余几家覆盖燕莎、东直门与北苑，训练商务两相宜。</p>
+    </div><div class="hotels">
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=900&q=80" alt="北京香格里拉饭店" loading="lazy">
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.04 — 海淀网球地标</div>
+          <h3>北京香格里拉饭店<span class="en">SHANGRI-LA BEIJING · HAIDIAN</span></h3>
+          <p class="hotel-desc">海淀区的网球地标——香格里拉网球中心拥有2片室内场，几十年如一日地服务着北京的球友。住在学院区、想认真练球的选这里准没错。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">海淀区紫竹院路29号</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">香格里拉网球中心 · 2片室内场 · 非住客也可付费使用（具体价格待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥900 – 1,800 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型/训练型 · 中关村、五道口周边打球首选</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 2片室内场</span><span class="fit-tag">🎓 海淀学院区</span><span class="fit-tag">💪 练球友好</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=900&q=80" alt="北京凯宾斯基饭店" loading="lazy">
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.05</div>
+          <h3>北京凯宾斯基饭店<span class="en">HOTEL KEMPINSKI BEIJING · LUFTHANSA CENTER</span></h3>
+          <p class="hotel-desc">亮马河畔的德系老牌五星，多家聚合站收录其网球场设施。燕莎商圈便利，酒吧街与使馆区就在步行圈，晚上打完球顺路小酌。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">朝阳区亮马桥路50号 · 燕莎中心</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">酒店网球场（聚合站收录 · 片数/室内外待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥1,200 – 2,500 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">商务型 · 使馆区+亮马河</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">🍺 燕莎酒吧街</span><span class="fit-tag">🇩🇪 德系服务</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80" alt="北京港澳中心瑞士酒店" loading="lazy">
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.06</div>
+          <h3>北京港澳中心瑞士酒店<span class="en">SWISSÔTEL BEIJING · HONG KONG MACAU CENTER</span></h3>
+          <p class="hotel-desc">东四十条地铁上盖的瑞士系老牌，聚合站长期收录其网球设施。位置居中，去工体、三里屯和雍和宫都顺路。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">东四十条立交桥旁 · 地铁2号线</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">酒店网球场（聚合站收录 · 片数/开放状态待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥800 – 1,600 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">商务型 · 城中位置均衡之选</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">🚇 地铁上盖</span><span class="fit-tag">📍 位置居中</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1584967918940-a7d51b064268?w=900&q=80" alt="北京北辰五洲皇冠国际酒店" loading="lazy">
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.07</div>
+          <h3>北京北辰五洲皇冠国际酒店<span class="en">WYNDHAM GRAND BEIJING · BEIYUAN</span></h3>
+          <p class="hotel-desc">北辰集团的老牌场馆型酒店，聚合站收录其网球场设施。离奥林匹克公园不远，去国家网球中心「朝圣」住这里最顺路。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">朝阳区北四环中路8号 · 近奥体</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">酒店网球场（聚合站收录 · 片数待核实）· 近国家网球中心</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥600 – 1,100 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">观赛型/度假型 · 中网观赛大本营</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">🏟️ 近中网球场</span><span class="fit-tag">💸 位置性价比</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article></div>
+    <div class="tier-band">
+      <div class="tier-k">CLASSIC / 经典之选</div>
+      <h3>经典之选 · 观光顺带挥拍</h3>
+      <p class="tier-note">王府井、崇文门的稀缺球场酒店，四星价格带球场，逛吃打球一箭双雕。</p>
+    </div><div class="hotels">
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80" alt="北京新侨诺富特饭店" loading="lazy">
+          <span class="tier classic">Classic</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.08</div>
+          <h3>北京新侨诺富特饭店<span class="en">NOVOTEL BEIJING XINQIAO · CHONGWENMEN</span></h3>
+          <p class="hotel-desc">四星价格、带网球场的稀缺组合。崇文门地铁站直达，去天安门、前门观光极方便，打球观光两不误。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">崇文门地铁站上盖 · 近天安门</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">酒店网球场（片数待核实）· 近天安门广场</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥600 – 1,200 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型 · 观光顺带打球的性价比之选</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 自带球场</span><span class="fit-tag">🚇 地铁上盖</span><span class="fit-tag">💰 高性价比</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          
+          <span class="tier classic">Classic</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.09</div>
+          <h3>北京王府井王朝饭店<span class="en">SUNWORLD DYNASTY HOTEL · WANGFUJING</span></h3>
+          <p class="hotel-desc">老牌涉外酒店，据旅行者分享拥有室外网球场——在王府井繁华商圈里能打球，实属难得。冬季室外场可能停用，预订前请确认。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">王府井金鱼胡同 · 紧邻王府井大街</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">1片室外网球场（Tripadvisor 旅行者信息 · 开放状态待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥700 – 1,400 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型 · 逛街购物顺路挥拍</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 室外场</span><span class="fit-tag">🛍️ 王府井商圈</span><span class="fit-tag">🍜 老北京美食圈</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=900&q=80" alt="北京西郊宾馆" loading="lazy">
+          <span class="tier classic">Classic</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.10</div>
+          <h3>北京西郊宾馆<span class="en">XIJJIAO HOTEL BEIJING · HAIDIAN</span></h3>
+          <p class="hotel-desc">海淀老牌园林式宾馆，带网球场且价格亲民。打完球顺路去颐和园散步、清华园打卡，京西一日游的完美基地。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">海淀区 · 近清华、颐和园</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">酒店网球场（片数待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">¥400 – 800 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型/学术型 · 预算有限的球友</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 自带球场</span><span class="fit-tag">🌳 园林环境</span><span class="fit-tag">💸 预算友好</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article></div>
+  </section>
+
+  <section class="chapter" id="play">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.04</span>
+      <div>
+        <h2>不住酒店也能挥拍</h2>
+        <div class="sub">公共球场 · 俱乐部日票 · 实用建议</div>
+      </div>
+    </div>
+    <div class="play-panel">
+      <p class="prose" style="max-width:none; padding: 0 1rem;"><strong>不住酒店？</strong>北京公共网球资源很丰富：奥林匹克公园内的<strong>国家网球中心</strong>部分场地平时对外开放（可通过中网官方渠道预约，价格待核实）；海淀区各类体育场馆、高校球场对外收费约 ¥60-100/小时（历史数据仅供参考）。冬季首选室内场馆，旺季建议提前1-2天电话预约。</p><p style="margin-bottom:1rem;"></p>
+      <div class="play-list"><div class="play-item"><span class="no">01</span><div><div class="t">国家网球中心（奥林匹克公园）</div><div class="d">部分场地平时对外开放，中网观赛顺路朝圣，需预约（价格待核实）。</div></div></div><div class="play-item"><span class="no">02</span><div><div class="t">香格里拉网球中心（海淀）</div><div class="d">非住客可付费使用，2片室内场，冬季室内打球首选。</div></div></div><div class="play-item"><span class="no">03</span><div><div class="t">高校与区属体育场馆球场</div><div class="d">约 ¥60-100/小时，价格亲民，旺季提前预约。</div></div></div></div>
+    </div>
+    <div class="booking-note">
+      <span class="icon">NOTE /</span>
+      <span>各酒店「查看价格 &amp; 预订」按钮为<strong>联盟链接占位</strong>，接入后可直达 OTA 页面。中网赛期（9–10月）国家网球中心周边酒店紧俏，务必提前预订。价格随淡旺季浮动，仅供参考。</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="reads">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.05</span>
+      <div>
+        <h2>继续你的网球之旅</h2>
+        <div class="sub">Related guides</div>
+      </div>
+    </div>
+    <div class="reads"><a href="australian-open-hotel-guide.html"><span class="rk">Guide / AO</span><span class="rt">澳网观赛酒店指南</span></a><a href="sanya-tennis-hotels-blog.html"><span class="rk">Guide / 国内</span><span class="rt">三亚十大带网球场酒店</span></a><a href="usopen-hotel-guide.html"><span class="rk">Guide / US Open</span><span class="rt">美网观赛酒店指南</span></a></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p>图片为 Unsplash 网球主题占位图 · 非酒店实拍<br>通过联盟链接预订不额外增加费用，还能支持我们继续创作<br>数据整理于 2026.11 · 部分信息待核实，出行前请与酒店确认</p>
+    <p class="sig">愿你在京城的每一次挥拍，<em>都带槐花香</em> 🎾</p>
+  </div>
+
+<div class="affiliate-disclosure" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:2rem;padding-top:1rem;font-size:0.72rem;color:rgba(255,255,255,0.45);line-height:1.9;">
+  <strong style="color:inherit;">利益声明 / Affiliate Disclosure：</strong>本页包含联盟链接（Amazon、Booking.com、Trip.com、Awin 等）。通过这些链接完成预订或购买，我们可能获得佣金——这不影响你支付的价格，也不会影响我们的评测独立性。<a href="/disclosure.html" style="color:inherit;text-decoration:underline;">查看完整联盟披露声明 →</a>
+  <span style="display:block;margin-top:0.3rem;">As an Amazon Associate, we earn from qualifying purchases.</span>
+</div>
+
+</footer>
+
+</body>
+</html>

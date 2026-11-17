@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巴厘岛网球度假指南 · 努沙杜瓦的球场海岛</title>
+<meta name="description" content="巴厘岛网球假期住宿指南：威斯汀、奥贝罗伊等10家自带球场的度假村，度假+训练东南亚性价比之王。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0d0c;
+    --panel: #161412;
+    --panel-2: #1c1917;
+    --line: rgba(255,255,255,0.08);
+    --text: #ece7e1;
+    --text-dim: rgba(236,231,225,0.72);
+    --text-faint: rgba(236,231,225,0.55);
+    --accent: #3d9a6a;
+    --accent-soft: rgba(61,154,106,0.14);
+    --serif: 'Noto Serif SC', serif;
+    --sans: 'IBM Plex Sans', 'Noto Sans SC', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* top bar */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem clamp(1.2rem, 4vw, 3rem);
+    background: rgba(14,13,12,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .mark {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.18em;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  .topbar .mark em { color: var(--accent); font-style: normal; }
+  .topbar nav { display: flex; gap: 1.6rem; }
+  .topbar nav a {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em;
+    color: var(--text-faint); text-decoration: none; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .topbar nav a:hover { color: var(--accent); }
+
+  /* hero */
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    min-height: 82vh;
+    overflow: hidden;
+  }
+  .hero-copy {
+    padding: clamp(2.5rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4.5rem);
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .kicker {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem;
+  }
+  .kicker::before { content: ''; width: 2.5rem; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--text-dim);
+    max-width: 34em;
+    margin-bottom: 2.4rem;
+  }
+  .meta-row { display: flex; gap: 2.4rem; flex-wrap: wrap; }
+  .meta-cell { border-left: 1px solid var(--line); padding-left: 1rem; }
+  .meta-cell .num {
+    font-family: var(--mono); font-size: 1.5rem; font-weight: 500; color: var(--accent);
+    line-height: 1.2;
+  }
+  .meta-cell .label {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .hero-media { position: relative; min-height: 320px; }
+  .hero-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.85) brightness(0.8);
+  }
+  .hero-media::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 30%);
+    pointer-events: none;
+  }
+  .hero-media .img-tag {
+    position: absolute; bottom: 1rem; right: 1.2rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55); text-transform: uppercase;
+    background: rgba(0,0,0,0.5); padding: 0.3rem 0.7rem; border: 1px solid var(--line);
+  }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { border-right: none; border-bottom: 1px solid var(--line); }
+    .hero-media { min-height: 260px; }
+    .hero-media::after { background: linear-gradient(0deg, var(--bg) 0%, transparent 40%); }
+    .topbar nav { display: none; }
+  }
+
+  /* sections */
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.2rem, 4vw, 3rem); }
+  .chapter { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
+  .chapter-head {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.2rem;
+    align-items: baseline; margin-bottom: 1.8rem;
+    border-top: 1px solid var(--line); padding-top: 1.2rem;
+  }
+  .chapter-index {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.15em;
+  }
+  .chapter-head h2 {
+    font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700;
+    line-height: 1.25;
+  }
+  .chapter-head .sub {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: var(--text-faint); text-transform: uppercase; margin-top: 0.4rem;
+  }
+  .prose { max-width: 44em; font-size: 0.94rem; color: var(--text-dim); }
+  .prose strong { color: var(--text); font-weight: 600; }
+  .prose a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(61,154,106,0.35); }
+  .prose a:hover { border-bottom-color: var(--accent); }
+
+  /* city band */
+  .city-band {
+    margin-top: 2.5rem;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    padding: 8px;
+  }
+  .city-band figure { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+  .city-band img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.75); transition: transform 0.6s ease; }
+  .city-band figure:hover img { transform: scale(1.03); }
+  .city-band figcaption {
+    position: absolute; left: 0.9rem; bottom: 0.8rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.75); text-transform: uppercase;
+  }
+  @media (max-width: 640px) { .city-band { grid-template-columns: 1fr 1fr; } .city-band figure:nth-child(3) { display: none; } }
+
+  /* tier band */
+  .tier-band { margin: 2.6rem 0 0.4rem; padding-top: 1.4rem; }
+  .tier-band:first-of-type { margin-top: 1.4rem; }
+  .tier-k {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .tier-k::before { content: ''; width: 2rem; height: 1px; background: var(--accent); }
+  .tier-band h3 {
+    font-family: var(--serif); font-size: clamp(1.25rem, 2.6vw, 1.7rem); font-weight: 700;
+    line-height: 1.3; margin-top: 0.5rem;
+  }
+  .tier-note { font-size: 0.86rem; color: var(--text-dim); max-width: 42em; margin-top: 0.4rem; }
+
+  /* hotels */
+  .hotels { margin-top: 1rem; display: flex; flex-direction: column; }
+  .hotel {
+    display: grid;
+    grid-template-columns: minmax(220px, 340px) 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .hotel:last-child { border-bottom: 1px solid var(--line); }
+  .hotel-media { position: relative; overflow: hidden; min-height: 240px; }
+  .hotel-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.8); transition: transform 0.6s ease; }
+  .hotel:hover .hotel-media img { transform: scale(1.03); }
+  .tier {
+    position: absolute; top: 0.8rem; left: 0.8rem;
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.3rem 0.65rem; border: 1px solid var(--line);
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+  }
+  .tier.luxury { color: #e9c176; }
+  .tier.mid { color: #9cc3e0; }
+  .tier.classic { color: #cdbfa8; }
+  .hotel-body { padding: clamp(1.2rem, 3vw, 2rem); display: flex; flex-direction: column; }
+  .hotel-idx {
+    font-family: var(--mono); font-size: 0.76rem; color: var(--accent); letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+  .hotel-body h3 {
+    font-family: var(--serif); font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 700;
+    line-height: 1.3;
+  }
+  .hotel-body h3 .en {
+    display: block; font-family: var(--mono); font-weight: 400;
+    font-size: 0.76rem; letter-spacing: 0.1em; color: var(--text-faint); margin-top: 0.3rem;
+  }
+  .hotel-desc { font-size: 0.88rem; color: var(--text-dim); margin: 0.8rem 0 1.1rem; max-width: 38em; }
+
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1px; background: var(--line); border: 1px solid var(--line);
+    margin-bottom: 1rem;
+  }
+  .spec { background: var(--panel); padding: 0.65rem 0.85rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  .spec .k {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em;
+    color: var(--text-faint); text-transform: uppercase;
+  }
+  .spec .v { font-size: 0.8rem; color: var(--text); line-height: 1.45; }
+  .spec .v.accent-v { color: var(--accent); }
+
+  .hotel-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .fit-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .fit-tag {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem; border: 1px solid var(--line); color: var(--text-faint);
+  }
+  .fit-tag.hot { color: var(--accent); border-color: rgba(61,154,106,0.35); }
+  .cta {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    padding: 0.55rem 1.2rem; border: 1px solid var(--line);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .cta:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 820px) {
+    .hotel { grid-template-columns: 1fr; }
+    .hotel-media { min-height: 210px; }
+    .spec-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* play */
+  .play-panel {
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: clamp(1.5rem, 3vw, 2.4rem);
+  }
+  .play-list { display: flex; flex-direction: column; margin-top: 0.5rem; }
+  .play-item {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.1rem;
+    padding: 1rem 1rem; border-top: 1px solid var(--line);
+  }
+  .play-item:first-child { border-top: none; }
+  .play-item .no { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); padding-top: 0.15rem; }
+  .play-item .t { font-weight: 600; font-size: 0.9rem; }
+  .play-item .d { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+  .booking-note {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(61,154,106,0.35);
+    background: var(--accent-soft);
+    padding: 1.1rem 1.4rem;
+    font-size: 0.82rem; color: var(--text-dim);
+    display: flex; gap: 0.9rem; align-items: flex-start;
+  }
+  .booking-note .icon { font-family: var(--mono); color: var(--accent); font-size: 0.76rem; letter-spacing: 0.1em; padding-top: 0.1rem; white-space: nowrap; }
+  .booking-note strong { color: var(--accent); font-weight: 600; }
+
+  /* reads */
+  .reads { margin-top: 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .reads a {
+    background: var(--panel); padding: 1.3rem 1.2rem; text-decoration: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: background 0.2s;
+  }
+  .reads a:hover { background: var(--panel-2); }
+  .reads .rt { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); }
+  .reads .rk { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; }
+  @media (max-width: 640px) { .reads { grid-template-columns: 1fr; } }
+
+  /* footer */
+  footer {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    border-top: 1px solid var(--line);
+    padding: 2.5rem clamp(1.2rem, 4vw, 3rem) 4rem;
+  }
+  .foot-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .foot-inner p { font-size: 0.75rem; color: var(--text-faint); line-height: 1.9; }
+  .foot-inner .sig { font-family: var(--serif); color: var(--text-dim); }
+  .foot-inner .sig em { color: var(--accent); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="mark">TENNIS <em>/</em> VACATION · BALI</span>
+  <nav>
+    <a href="#hotels">HOTELS</a>
+    <a href="#play">PLAY</a>
+    <a href="#reads">GUIDES</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>巴厘岛<br>网球度假<span class="accent">指南</span></h1>
+    <div class="kicker">Chapitre 01 · 热带球场海岛</div>
+    <p class="lede">全球「度假+网球」性价比最高的海岛：努沙杜瓦聚集了一大批自带球场的五星度假村，硬件不输职业俱乐部，价格只要欧美的一半。早起7点挥拍、10点前收工，是本地人的正确打法。</p>
+    <div class="meta-row"><div class="meta-cell"><div class="num">10</div><div class="label">精选酒店</div></div><div class="meta-cell"><div class="num">20+</div><div class="label">全岛球场片数</div></div><div class="meta-cell"><div class="num">07</div><div class="label">黄金时段 / 点</div></div></div>
+  </div>
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=900&q=80" alt="巴厘岛网球场">
+    <span class="img-tag">Nusa Dua · Bali</span>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section class="chapter">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.02</span>
+      <div>
+        <h2>为什么来巴厘岛打网球</h2>
+        <div class="sub">氛围 · 俱乐部文化 · 大赛</div>
+      </div>
+    </div>
+    <p class="prose">巴厘岛没有大赛加成，却有<strong>东南亚最成熟的度假网球生态</strong>：酒店的网球中心普遍配备教练、陪打和器材租赁，热带动辄30℃——所以本地打法是「早起7点挥拍、10点前收工」躲开烈日。努沙杜瓦是球场度假村的聚集区，沙白、浪稳、安保好，家庭度假首选。</p>
+    <div class="city-band"><figure><img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80" alt="Court · Nusa Dua" loading="lazy"><figcaption>Court · Nusa Dua</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1584967918940-a7d51b064268?w=900&q=80" alt="Racket · Sunrise" loading="lazy"><figcaption>Racket · Sunrise</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80" alt="Bali · Sawangan" loading="lazy"><figcaption>Bali · Sawangan</figcaption></figure></div>
+  </section>
+
+  <section class="chapter" id="hotels">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.03</span>
+      <div>
+        <h2>巴厘岛十家网球酒店</h2>
+        <div class="sub">自带球场 · 合作球场 · 网球主题体验</div>
+      </div>
+    </div>
+
+    <div class="tier-band">
+      <div class="tier-k">PALACE / 奢华之选</div>
+      <h3>顶级奢华 · 海岸庄园级球场</h3>
+      <p class="tier-note">水明漾的6片球场之王与努沙杜瓦的海岸庄园——巴厘岛顶奢度假村的网球硬件完全超出预期。</p>
+    </div><div class="hotels">
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=900&q=80" alt="奥贝罗伊巴厘岛海滩度假酒店" loading="lazy">
+          <span class="tier luxury">Palace</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.01 — 本篇首推</div>
+          <h3>奥贝罗伊巴厘岛海滩度假酒店<span class="en">THE OBEROI BEACH RESORT BALI · SEMINYAK</span></h3>
+          <p class="hotel-desc">巴厘岛「球场之王」：Oberoi 网球俱乐部拥有6片网球场+2片壁球场，是水明漾最大的网球设施。重度球友的海岛训练基地，服务是印度奢华系的看家本领。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">水明漾 · 海滩区</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">Oberoi网球俱乐部：6片网球场 + 2片壁球场 · 水明漾最大网球设施</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">US$350 – 600 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">赛前训练型/重度球友 · 巴厘岛球场之王</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 6+2球场</span><span class="fit-tag">🏆 球场之王</span><span class="fit-tag">🤵 Oberoi服务</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80" alt="穆利亚度假村（努沙杜瓦）" loading="lazy">
+          <span class="tier luxury">Palace</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.02</div>
+          <h3>穆利亚度假村（努沙杜瓦）<span class="en">THE MULIA RESORT NUSA DUA</span></h3>
+          <p class="hotel-desc">努沙杜瓦海岸尽头的超奢庄园，Tripadvisor 住客好评收录其网球场。套房大得离谱，泳池是泻湖级别，适合「什么都不干但球要打」的假期。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">努沙杜瓦 · 海岸尽头</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">度假村网球场（Tripadvisor 住客好评收录 · 片数待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">US$250 – 500 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型 · 奢华海岸庄园</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">🛁 超大套房</span><span class="fit-tag"> infinity 泻湖泳池</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1584967918940-a7d51b064268?w=900&q=80" alt="巴厘岛威斯汀度假酒店（努沙杜瓦）" loading="lazy">
+          <span class="tier luxury">Palace</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.03</div>
+          <h3>巴厘岛威斯汀度假酒店（努沙杜瓦）<span class="en">THE WESTIN RESORT NUSA DUA</span></h3>
+          <p class="hotel-desc">努沙杜瓦白沙滩正面的五星度假村，2片标准场常年维护良好，住客可预约教练课。5个泳池+7家餐厅，全家度假父母打球、孩子玩水各得其所。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">努沙杜瓦 · 私家海滩</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">2片标准网球场 · 网球酒店指南明确收录</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">US$180 – 350 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型/亲子型 · 大品牌+双球场</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 2片标准场</span><span class="fit-tag">🏊 5个泳池</span><span class="fit-tag">👨‍👩‍👧 亲子友好</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article></div>
+    <div class="tier-band">
+      <div class="tier-k">COMFORT / 品质之选</div>
+      <h3>品质之选 · 大品牌双球场俱乐部</h3>
+      <p class="tier-note">努沙杜瓦 beachfront 的大品牌们把球场、泳池、SPA 打包成标准度假套餐，家庭友好度最高。</p>
+    </div><div class="hotels">
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80" alt="索菲特巴厘努沙杜瓦海滩度假酒店" loading="lazy">
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.04</div>
+          <h3>索菲特巴厘努沙杜瓦海滩度假酒店<span class="en">SOFITEL BALI NUSA DUA BEACH RESORT</span></h3>
+          <p class="hotel-desc">法式海岛度假标杆，官网明确宣传网球场。Tripadvisor 住客实测器材齐备、场地维护好，晚上还有海滩酒吧。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">努沙杜瓦 · 海滩区</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">度假村网球场 · 官网明确宣传 + 住客实测好评（器材齐备）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">US$150 – 280 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型 · 法式风情+海岛节奏</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 官网确认</span><span class="fit-tag">🥐 法式风情</span><span class="fit-tag">🌅 海滩日落</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.05</div>
+          <h3>巴厘岛君悦度假酒店（努沙杜瓦）<span class="en">GRAND HYATT BALI · NUSA DUA</span></h3>
+          <p class="hotel-desc">努沙杜瓦泻湖区的巨无霸，7个潟湖泳池+网球场（Travelmyth 收录）。房型多、餐饮多，家庭团的经典选择。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">努沙杜瓦 · 泻湖区</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">度假村网球场（Travelmyth 收录）· 潟湖式泳池群</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">US$140 – 260 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型/家庭型 · 7个潟湖泳池的巨无霸</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场收录</span><span class="fit-tag">🏊 7个潟湖泳池</span><span class="fit-tag">👨‍👩‍👧 家庭团</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=900&q=80" alt="巴厘岛希尔顿度假酒店" loading="lazy">
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.06 — 室内场基地</div>
+          <h3>巴厘岛希尔顿度假酒店<span class="en">HILTON RESORT BALI · NUSA DUA</span></h3>
+          <p class="hotel-desc">Liga.Tennis 的努沙杜瓦基地就开在希尔顿度假村里：3片室内/遮蔽场，教练课、按小时订场、团课随时可约——外部玩家也能预订，住在隔壁更是近水楼台。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">努沙杜瓦 · Sawangan 海滩旁</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">Liga.Tennis Nusa Dua：3片室内（遮蔽）场 · 对外开放订场+教练课</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">US$150 – 300 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">训练型/度假型 · 遮蔽场不怕下雨</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 3片遮蔽场</span><span class="fit-tag">🏫 Liga.Tennis 基地</span><span class="fit-tag">☔ 不怕下雨</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          
+          <span class="tier mid">Comfort</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.07</div>
+          <h3>努沙杜瓦海滩酒店及水疗中心<span class="en">NUSA DUA BEACH HOTEL & SPA</span></h3>
+          <p class="hotel-desc">努沙杜瓦的开山老牌（1981年开业），官网明确列出网球场开放时间（工作日08:00-20:00）。巴厘风情的庭院式度假村，性价比在 beachfront 里突出。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">努沙杜瓦 · 海滩区</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">酒店网球场 · 官网明确开放（周一至五 08:00–20:00）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">US$100 – 200 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">度假型 · 老牌巴厘风情+明确球场</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 官网确认</span><span class="fit-tag">🌴 1981老牌</span><span class="fit-tag">💰 beachfront 性价比</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article></div>
+    <div class="tier-band">
+      <div class="tier-k">CLASSIC / 经典之选</div>
+      <h3>经典之选 · 高性价比球场房</h3>
+      <p class="tier-note">机场旁与努沙杜瓦外围的这一档，价格亲民球场扎实，是长住训练党的最爱。</p>
+    </div><div class="hotels">
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=900&q=80" alt="帕特拉巴厘度假酒店" loading="lazy">
+          <span class="tier classic">Classic</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.08</div>
+          <h3>帕特拉巴厘度假酒店<span class="en">PATRA BALI RESORT & VILLAS · TUBAN</span></h3>
+          <p class="hotel-desc">机场旁的传奇：Patra 网球俱乐部2片场，早场夜场皆可打。落地就能挥拍，中转红眼航班球友的最优解。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">图班 · 近机场</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v accent-v">Patra网球俱乐部：2片场 · 早场夜场皆可打</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">US$90 – 180 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">中转型/度假型 · 落地即打球的机场旁选择</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 2片场</span><span class="fit-tag">✈️ 机场旁</span><span class="fit-tag">🌅 早场夜场</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          
+          <span class="tier classic">Classic</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.09</div>
+          <h3>阿约达度假酒店<span class="en">THE AYODYA RESORT BALI · NUSA DUA</span></h3>
+          <p class="hotel-desc">努沙杜瓦泻湖边的宫殿风老牌，聚合站收录其网球场。800米白沙滩+泻湖泳池，价格是努沙杜瓦 beachfront 里的洼地。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">努沙杜瓦 · 泻湖沙滩</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">酒店网球场（聚合站收录 · 片数待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">US$80 – 160 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">家庭型 · 宫殿风高性价比</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">🏰 宫殿风</span><span class="fit-tag">💰 洼地价格</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="hotel">
+        <div class="hotel-media">
+          <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=900&q=80" alt="伊纳亚普特里巴厘度假酒店" loading="lazy">
+          <span class="tier classic">Classic</span>
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-idx">NO.10</div>
+          <h3>伊纳亚普特里巴厘度假酒店<span class="en">INAYA PUTRI BALI · NUSA DUA</span></h3>
+          <p class="hotel-desc">努沙杜瓦东段的度假村，聚合站收录其网球场与泳池设施。房型以家庭套房为主，价格厚道。</p>
+          <div class="spec-grid">
+            <div class="spec"><span class="k">Location</span><span class="v">努沙杜瓦 · 东段海滩</span></div>
+            <div class="spec"><span class="k">Tennis</span><span class="v">度假村网球场（聚合站收录 · 片数待核实）</span></div>
+            <div class="spec"><span class="k">Rate</span><span class="v">US$90 – 170 / 晚</span></div>
+            <div class="spec"><span class="k">Fit</span><span class="v">家庭型 · 东段海滩的实惠选择</span></div>
+          </div>
+          <div class="hotel-foot">
+            <div class="fit-tags"><span class="fit-tag hot">🎾 球场待核实</span><span class="fit-tag">👨‍👩‍👧 家庭套房</span><span class="fit-tag">💸 价格厚道</span></div>
+            <a class="cta" href="[YOUR_AFFILIATE_LINK]" target="_blank" rel="sponsored">查看价格 &amp; 预订 →</a>
+          </div>
+        </div>
+      </article></div>
+  </section>
+
+  <section class="chapter" id="play">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.04</span>
+      <div>
+        <h2>不住酒店也能挥拍</h2>
+        <div class="sub">公共球场 · 俱乐部日票 · 实用建议</div>
+      </div>
+    </div>
+    <div class="play-panel">
+      <p class="prose" style="max-width:none; padding: 0 1rem;"><strong>不住酒店？</strong>巴厘岛对外营业的网球俱乐部不少：<strong>Liga.Tennis Nusa Dua</strong>（希尔顿度假村内3片遮蔽场）对外开放订场；水明漾与塞米亚克一带有多家独立网球学院提供按小时订场+教练，约 US$10-25/小时（本地指南收录，具体价格待核实）。建议通过酒店礼宾或 WhatsApp 预约；正午高温务必避开，早晨7-10点是黄金时段。</p><p style="margin-bottom:1rem;"></p>
+      <div class="play-list"><div class="play-item"><span class="no">01</span><div><div class="t">Liga.Tennis Nusa Dua（希尔顿村）</div><div class="d">3片遮蔽场对外开放，教练课/订场/团课随时可约。</div></div></div><div class="play-item"><span class="no">02</span><div><div class="t">水明漾·塞米亚克独立俱乐部</div><div class="d">约 US$10-25/小时，含教练套餐可选。</div></div></div><div class="play-item"><span class="no">03</span><div><div class="t">努沙杜瓦海滩酒店球场</div><div class="d">工作日 08:00–20:00 开放，非住客可询价使用。</div></div></div></div>
+    </div>
+    <div class="booking-note">
+      <span class="icon">NOTE /</span>
+      <span>各酒店「查看价格 &amp; 预订」按钮为<strong>联盟链接占位</strong>。巴厘岛旺季（7-8月、圣诞新年）球场与教练都要提前约。价格随淡旺季浮动，仅供参考。</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="reads">
+    <div class="chapter-head">
+      <span class="chapter-index">CH.05</span>
+      <div>
+        <h2>继续你的网球之旅</h2>
+        <div class="sub">Related guides</div>
+      </div>
+    </div>
+    <div class="reads"><a href="sanya-tennis-hotels-blog.html"><span class="rk">Guide / 国内</span><span class="rt">三亚十大带网球场酒店</span></a><a href="shenzhen-tennis-vacation.html"><span class="rk">Guide / 深圳</span><span class="rt">深圳网球度假指南</span></a><a href="australian-open-hotel-guide.html"><span class="rk">Guide / AO</span><span class="rt">澳网观赛酒店指南</span></a></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p>图片为 Unsplash 网球主题占位图 · 非酒店实拍<br>通过联盟链接预订不额外增加费用，还能支持我们继续创作<br>数据整理于 2026.11 · 部分信息待核实，出行前请与酒店确认</p>
+    <p class="sig">愿你的海岛假期，<em>正手与日落</em>都在线 🎾</p>
+  </div>
+
+<div class="affiliate-disclosure" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:2rem;padding-top:1rem;font-size:0.72rem;color:rgba(255,255,255,0.45);line-height:1.9;">
+  <strong style="color:inherit;">利益声明 / Affiliate Disclosure：</strong>本页包含联盟链接（Amazon、Booking.com、Trip.com、Awin 等）。通过这些链接完成预订或购买，我们可能获得佣金——这不影响你支付的价格，也不会影响我们的评测独立性。<a href="/disclosure.html" style="color:inherit;text-decoration:underline;">查看完整联盟披露声明 →</a>
+  <span style="display:block;margin-top:0.3rem;">As an Amazon Associate, we earn from qualifying purchases.</span>
+</div>
+
+</footer>
+
+</body>
+</html>
